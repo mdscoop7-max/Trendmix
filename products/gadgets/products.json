@@ -1,0 +1,185 @@
+﻿{
+    "category":  "gadgets",
+    "products":  [
+                     {
+                         "name":  "Smart LED Lamp",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Mini Bluetooth Speaker",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Wireless Charging Pad",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Smart Key Finder",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Portable Phone Stand",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "USB Rechargeable Fan",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "LED Desk Light",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Wireless Presenter",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Phone Camera Lens Kit",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Portable Power Bank",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Bluetooth Tracker",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Smart Night Light",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Foldable Phone Holder",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "USB-C Cable Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Mini Projector",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Wireless Keyboard",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Wireless Mouse",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Desktop Phone Dock",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "LED Ambient Light",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Travel Tech Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     }
+                 ]
+}

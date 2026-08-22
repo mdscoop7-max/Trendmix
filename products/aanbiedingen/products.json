@@ -1,0 +1,185 @@
+﻿{
+    "category":  "aanbiedingen",
+    "products":  [
+                     {
+                         "name":  "USB-C Fast Charging Cable",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Wireless Earbuds Case",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "LED Desk Lamp",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Phone Stand",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Cable Organizer Set",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Portable Bluetooth Speaker",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Laptop Stand",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Wireless Charging Pad",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Mini Cleaning Brush",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Travel Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "USB Hub",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Desk Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Smart LED Strip",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Foldable Phone Holder",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Keyboard Cleaning Kit",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Portable Fan",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Screen Cleaning Kit",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Mini Power Bank",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Cable Storage Bag",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Universal Phone Mount",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     }
+                 ]
+}

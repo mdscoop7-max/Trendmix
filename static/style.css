@@ -1,0 +1,363 @@
+@'
+/* =========================================
+   TRENDMIX PRODUCTPAGINA
+========================================= */
+
+.category-page {
+    width: 90%;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.category-header {
+    margin-bottom: 35px;
+}
+
+.category-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #11111c;
+    margin-bottom: 8px;
+}
+
+.category-header p {
+    color: #777777;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.product-card {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   PRODUCT FOTO
+========================================= */
+
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: #f7f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 18px;
+    transition: transform 0.25s ease;
+}
+
+.product-image-container:hover .product-image {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   GEEN FOTO
+========================================= */
+
+.product-placeholder {
+    font-size: 55px;
+    color: #aaaaaa;
+}
+
+
+/* =========================================
+   MARGE BADGE
+========================================= */
+
+.margin-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    background: #5b2cff;
+    color: white;
+
+    padding: 6px 10px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   PRODUCT INFO
+========================================= */
+
+.product-info {
+    padding: 18px;
+}
+
+.product-info h2 {
+    font-size: 17px;
+    line-height: 1.4;
+    color: #11111c;
+    margin-bottom: 12px;
+}
+
+.product-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #11111c;
+    margin-bottom: 16px;
+}
+
+
+/* =========================================
+   PRODUCT BUTTON
+========================================= */
+
+.product-button {
+    width: 100%;
+    height: 44px;
+
+    border: none;
+    border-radius: 22px;
+
+    background: #5b2cff;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.product-button:hover {
+    background: #4720d9;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   FOTO MODAL
+========================================= */
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 30px;
+
+    z-index: 10000;
+}
+
+.image-modal.show {
+    display: flex;
+}
+
+.modal-image {
+    max-width: 90vw;
+    max-height: 80vh;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    background: white;
+
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
+}
+
+.modal-title {
+    margin-top: 15px;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   MODAL SLUITKNOP
+========================================= */
+
+.image-modal-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: #11111c;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10001;
+}
+
+.image-modal-close:hover {
+    background: #5b2cff;
+    color: white;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   TABLET KLEIN
+========================================= */
+
+@media (max-width: 800px) {
+
+    .category-page {
+        width: 94%;
+        padding: 35px 0;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .product-image-container {
+        height: 220px;
+    }
+
+}
+
+
+/* =========================================
+   MOBIEL
+========================================= */
+
+@media (max-width: 550px) {
+
+    .category-page {
+        width: 94%;
+        padding: 25px 0;
+    }
+
+    .category-header h1 {
+        font-size: 28px;
+    }
+
+    .category-header p {
+        font-size: 14px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .product-image-container {
+        height: 260px;
+    }
+
+    .product-info h2 {
+        font-size: 16px;
+    }
+
+    .product-price {
+        font-size: 20px;
+    }
+
+}
+'@ | Add-Content ".\static\style.css" -Encoding UTF8.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #f7f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: transform 0.25s ease;
+}
+
+.product-image-container:hover .product-image {
+    transform: scale(1.03);
+}
+
+@media (max-width: 800px) {
+    .product-image-container {
+        height: 190px;
+    }
+}
+
+@media (max-width: 550px) {
+    .product-image-container {
+        height: 220px;
+    }
+}

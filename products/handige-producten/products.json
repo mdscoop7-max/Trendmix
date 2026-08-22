@@ -1,0 +1,185 @@
+﻿{
+    "category":  "handige-producten",
+    "products":  [
+                     {
+                         "name":  "Portable Mini Vacuum",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Rechargeable Flashlight",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Cable Management Box",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Foldable Storage Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Multi-Purpose Cleaning Brush",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Digital Luggage Scale",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Motion Sensor Light",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Reusable Lint Roller",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Portable Clothes Steamer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Key Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Magnetic Tool Holder",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Compact Sewing Kit",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Travel Bottle Set",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Door Handle Protector",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Furniture Moving Pads",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Universal Travel Adapter",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Mini Measuring Tape",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Cordless Electric Cleaner",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Foldable Storage Bags",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Multi-Purpose Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     }
+                 ]
+}

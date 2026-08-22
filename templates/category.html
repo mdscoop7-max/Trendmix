@@ -1,0 +1,181 @@
+﻿@'
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ category }} | TrendMix</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="category-page">
+
+        <div class="category-header">
+            <h1>{{ category }}</h1>
+            <p>Ontdek onze geselecteerde producten.</p>
+        </div>
+
+        <section class="product-grid">
+
+            {% for product in products %}
+
+            <article class="product-card">
+
+                {% if product.image %}
+
+                <div class="product-image-container"
+                     onclick="openImage('{{ product.image }}', '{{ product.name }}')">
+
+                    <img
+                        src="{{ product.image }}"
+                        alt="{{ product.name }}"
+                        class="product-image"
+                        loading="lazy"
+                    >
+
+                    {% if product.margin %}
+                    <span class="margin-badge">
+                        {{ product.margin }}% marge
+                    </span>
+                    {% endif %}
+
+                </div>
+
+                {% else %}
+
+                <div class="product-image-container no-image">
+
+                    <div class="product-placeholder">
+                        🖥️
+                    </div>
+
+                    {% if product.margin %}
+                    <span class="margin-badge">
+                        {{ product.margin }}% marge
+                    </span>
+                    {% endif %}
+
+                </div>
+
+                {% endif %}
+
+
+                <div class="product-info">
+
+                    <h2>{{ product.name }}</h2>
+
+                    <div class="product-price">
+                        € {{ "%.2f"|format(product.price) }}
+                    </div>
+
+                    <button
+                        class="product-button"
+                        type="button">
+                        Bekijk product
+                    </button>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </section>
+
+    </main>
+
+
+    <!-- FOTO VERGROTEN -->
+
+    <div id="imageModal"
+         class="image-modal"
+         onclick="closeImage()">
+
+        <button
+            class="image-modal-close"
+            type="button"
+            onclick="closeImage(event)">
+            ×
+        </button>
+
+        <img
+            id="modalImage"
+            class="modal-image"
+            src=""
+            alt=""
+        >
+
+        <div
+            id="modalTitle"
+            class="modal-title">
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function openImage(src, alt) {
+
+            if (!src) {
+                return;
+            }
+
+            const modal =
+                document.getElementById("imageModal");
+
+            const modalImage =
+                document.getElementById("modalImage");
+
+            const modalTitle =
+                document.getElementById("modalTitle");
+
+            modalImage.src = src;
+            modalImage.alt = alt;
+
+            modalTitle.textContent = alt;
+
+            modal.classList.add("show");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        function closeImage(event) {
+
+            if (event) {
+                event.stopPropagation();
+            }
+
+            const modal =
+                document.getElementById("imageModal");
+
+            modal.classList.remove("show");
+
+            document.body.style.overflow = "";
+        }
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+                    closeImage();
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+'@ | Set-Content ".\templates\category.html" -Encoding UTF8

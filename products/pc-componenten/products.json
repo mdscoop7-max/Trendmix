@@ -1,0 +1,185 @@
+{
+    "category": "PC Componenten",
+    "products": [
+        {
+            "name": "USB-C 8-in-1 Hub",
+            "price": 39.95,
+            "cost_price": 14.95,
+            "margin": 62.5,
+            "image": "/static/products/pc-componenten/usb-c-hub.jpg",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Laptop Cooling Pad",
+            "price": 34.95,
+            "cost_price": 12.95,
+            "margin": 62.9,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Verstelbare Laptop Stand",
+            "price": 34.95,
+            "cost_price": 11.95,
+            "margin": 65.8,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "USB-C Docking Station",
+            "price": 59.95,
+            "cost_price": 24.95,
+            "margin": 58.4,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "RGB PC Fan 120mm",
+            "price": 29.95,
+            "cost_price": 10.95,
+            "margin": 63.4,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "GPU Support Bracket",
+            "price": 24.95,
+            "cost_price": 7.95,
+            "margin": 68.1,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "M.2 NVMe SSD Heatsink",
+            "price": 19.95,
+            "cost_price": 5.95,
+            "margin": 70.2,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "PC Cable Management Kit",
+            "price": 19.95,
+            "cost_price": 5.95,
+            "margin": 70.2,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "RGB LED PC Strip",
+            "price": 24.95,
+            "cost_price": 8.95,
+            "margin": 64.1,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Monitor Light Bar",
+            "price": 39.95,
+            "cost_price": 15.95,
+            "margin": 60.0,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Gaming Desk Mat",
+            "price": 29.95,
+            "cost_price": 10.95,
+            "margin": 63.4,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Mechanical Keyboard Switch Set",
+            "price": 24.95,
+            "cost_price": 8.95,
+            "margin": 64.1,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Gaming Keycap Set",
+            "price": 29.95,
+            "cost_price": 10.95,
+            "margin": 63.4,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Gaming Headset Stand",
+            "price": 24.95,
+            "cost_price": 8.95,
+            "margin": 64.1,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Gaming Mouse Bungee",
+            "price": 19.95,
+            "cost_price": 6.95,
+            "margin": 65.2,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "PC Cleaning Air Blower",
+            "price": 39.95,
+            "cost_price": 14.95,
+            "margin": 62.5,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "USB-C Multi-Port Adapter",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Laptop Privacy Screen",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "USB Hub 4-Poorts",
+            "price": 24.95,
+            "cost_price": 7.95,
+            "margin": 68.1,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "PC Accessoire Starter Kit",
+            "price": 49.95,
+            "cost_price": 18.95,
+            "margin": 62.1,
+            "image": "",
+            "supplier": "Test Supplier",
+            "orders": 0
+        }
+    ]
+}

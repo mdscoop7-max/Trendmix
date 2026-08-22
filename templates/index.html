@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendMix | Ontdek de beste producten</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f9;
+            color: #171717;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .topbar {
+            background: #111;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .header {
+            background: white;
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .search {
+            flex: 1;
+            position: relative;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 14px 45px 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 15px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 16px;
+            top: 11px;
+            font-size: 21px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 18px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 70px 55px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #111, #444);
+            color: white;
+        }
+
+        .hero h1 {
+            margin: 0 0 18px;
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 22px;
+            border-radius: 10px;
+            background: white;
+            color: #111;
+            font-weight: bold;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 55px auto;
+            padding: 0 25px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 18px;
+            padding: 25px 10px;
+            text-align: center;
+            transition: .2s;
+        }
+
+        .category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 230px;
+            background: #f1f1f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 25px;
+        }
+
+        .placeholder {
+            font-size: 55px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            margin: 0 0 10px;
+            font-size: 17px;
+        }
+
+        .price {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .product-button {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
+            background: #111;
+            color: white;
+            text-align: center;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .benefit {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 35px;
+        }
+
+        footer {
+            margin-top: 70px;
+            background: #111;
+            color: white;
+            padding: 50px 5%;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-grid a {
+            display: block;
+            color: #ccc;
+            margin: 10px 0;
+        }
+
+        .copyright {
+            max-width: 1400px;
+            margin: 35px auto 0;
+            padding-top: 25px;
+            border-top: 1px solid #333;
+            color: #aaa;
+        }
+
+        @media (max-width: 1000px) {
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .actions {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-wrap: wrap;
+                padding: 15px;
+            }
+
+            .search {
+                flex-basis: 100%;
+            }
+
+            .hero {
+                margin: 15px;
+                padding: 40px 25px;
+            }
+
+            .categories,
+            .products,
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <span>🚚 Gratis verzending vanaf €50</span>
+    <span>🛡️ 30 dagen retourgarantie</span>
+    <span>🎧 Klantenservice 7 dagen per week</span>
+    <span>🇳🇱 Nederlands</span>
+</div>
+
+<header class="header">
+
+    <a href="/" class="logo">TrendMix</a>
+
+    <div class="search">
+        <input type="search" placeholder="Zoek naar producten...">
+        <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="actions">
+        <span>👤 Account</span>
+        <span>♡ Verlanglijst</span>
+        <span>🛒 Winkelwagen</span>
+    </div>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+    <h1>Ontdek jouw volgende favoriet.</h1>
+
+    <p>
+        TrendMix verzamelt slimme, handige en populaire
+        producten op één plek.
+    </p>
+
+    <a href="/aanbiedingen" class="hero-button">
+        Bekijk aanbiedingen
+    </a>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>Categorieën</h2>
+    </div>
+
+    <div class="categories">
+
+        <a href="/pc-componenten" class="category">
+            <div class="category-icon">🖥️</div>
+            <strong>PC Componenten</strong>
+        </a>
+
+        <a href="/gadgets" class="category">
+            <div class="category-icon">📱</div>
+            <strong>Gadgets</strong>
+        </a>
+
+        <a href="/cosmetica" class="category">
+            <div class="category-icon">💄</div>
+            <strong>Cosmetica</strong>
+        </a>
+
+        <a href="/keuken" class="category">
+            <div class="category-icon">🍳</div>
+            <strong>Keuken</strong>
+        </a>
+
+        <a href="/handige-producten" class="category">
+            <div class="category-icon">🧰</div>
+            <strong>Handige Producten</strong>
+        </a>
+
+        <a href="/aanbiedingen" class="category">
+            <div class="category-icon">🔥</div>
+            <strong>Aanbiedingen</strong>
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>⭐ Populaire producten</h2>
+    </div>
+
+    <div class="products">
+
+        {% for product in popular_products %}
+
+        <article class="product">
+
+            <div class="product-image">
+
+                {% if product.image %}
+                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                {% else %}
+                    <div class="placeholder">🛍️</div>
+                {% endif %}
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>{{ product.name }}</h3>
+
+                <div class="price">
+                    € {{ "%.2f"|format(product.price) }}
+                </div>
+
+                <a href="#" class="product-button">
+                    Bekijk product
+                </a>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>🔥 Aanbiedingen</h2>
+    </div>
+
+    <div class="products">
+
+        {% for product in offers %}
+
+        <article class="product">
+
+            <div class="product-image">
+
+                {% if product.image %}
+                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                {% else %}
+                    <div class="placeholder">🔥</div>
+                {% endif %}
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>{{ product.name }}</h3>
+
+                <div class="price">
+                    € {{ "%.2f"|format(product.price) }}
+                </div>
+
+                <a href="#" class="product-button">
+                    Bekijk product
+                </a>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>Waarom TrendMix?</h2>
+    </div>
+
+    <div class="benefits">
+
+        <div class="benefit">
+            <div class="benefit-icon">🚚</div>
+            <h3>Snelle verzending</h3>
+            <p>Snelle en betrouwbare levering.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🛡️</div>
+            <h3>30 dagen retour</h3>
+            <p>Shop met vertrouwen.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">⭐</div>
+            <h3>Geselecteerde producten</h3>
+            <p>Handige producten op één plek.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🎧</div>
+            <h3>Klantenservice</h3>
+            <p>We helpen je graag.</p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h2>TrendMix</h2>
+            <p>
+                Slimme, handige en populaire producten
+                voor iedere dag.
+            </p>
+        </div>
+
+        <div>
+            <h3>Categorieën</h3>
+            <a href="/pc-componenten">PC Componenten</a>
+            <a href="/gadgets">Gadgets</a>
+            <a href="/cosmetica">Cosmetica</a>
+            <a href="/keuken">Keuken</a>
+        </div>
+
+        <div>
+            <h3>Meer</h3>
+            <a href="/handige-producten">Handige Producten</a>
+            <a href="/aanbiedingen">Aanbiedingen</a>
+        </div>
+
+        <div>
+            <h3>Service</h3>
+            <a href="#">Contact</a>
+            <a href="#">Retourneren</a>
+            <a href="#">Verzending</a>
+            <a href="#">Privacy</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 TrendMix. Alle rechten voorbehouden.
+    </div>
+
+</footer>
+
+</body>
+</html>

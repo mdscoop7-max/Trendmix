@@ -1,0 +1,185 @@
+﻿{
+    "category":  "keuken",
+    "products":  [
+                     {
+                         "name":  "Electric Milk Frother",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Digital Kitchen Scale",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Silicone Air Fryer Liners",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Vegetable Chopper",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Oil Spray Bottle",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Reusable Food Storage Bags",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Kitchen Drawer Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Automatic Spice Grinder",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Silicone Cooking Utensil Set",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Food Storage Container Set",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Kitchen Sink Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Fruit Cutter",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Garlic Press",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Measuring Spoon Set",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Magnetic Kitchen Timer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Bottle Cleaning Brush Set",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Silicone Baking Mat",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Pan Organizer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Kitchen Towel Holder",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     },
+                     {
+                         "name":  "Compact Food Slicer",
+                         "price":  29.95,
+                         "cost_price":  9.95,
+                         "margin":  66.8,
+                         "image":  "",
+                         "supplier":  "Demo Supplier",
+                         "orders":  0
+                     }
+                 ]
+}
