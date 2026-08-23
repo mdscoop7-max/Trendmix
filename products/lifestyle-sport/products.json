@@ -1,0 +1,95 @@
+{
+"category": "Lifestyle & Sport",
+"products": [
+{
+"name": "Smart Fitness Tracker",
+"price": 39.95,
+"cost_price": 14.95,
+"margin": 62.5,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Resistance Bands Set",
+"price": 24.95,
+"cost_price": 7.95,
+"margin": 68.1,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Adjustable Dumbbell",
+"price": 49.95,
+"cost_price": 19.95,
+"margin": 60.1,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Yoga Mat",
+"price": 29.95,
+"cost_price": 9.95,
+"margin": 66.8,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Sports Water Bottle",
+"price": 24.95,
+"cost_price": 7.95,
+"margin": 68.1,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Running Waist Bag",
+"price": 19.95,
+"cost_price": 5.95,
+"margin": 70.2,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Massage Ball Set",
+"price": 24.95,
+"cost_price": 7.95,
+"margin": 68.1,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Foam Roller",
+"price": 34.95,
+"cost_price": 12.95,
+"margin": 62.9,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Gym Training Gloves",
+"price": 22.95,
+"cost_price": 6.95,
+"margin": 69.7,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+},
+{
+"name": "Portable Bluetooth Speaker",
+"price": 39.95,
+"cost_price": 14.95,
+"margin": 62.5,
+"image": "",
+"supplier": "Demo Supplier",
+"orders": 0
+}
+]
+}

@@ -1,0 +1,185 @@
+{
+    "category": "Smart Home",
+    "products": [
+        {
+            "name": "Smart LED Light Bulb",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "WiFi Smart Plug",
+            "price": 24.95,
+            "cost_price": 7.95,
+            "margin": 68.1,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Motion Sensor",
+            "price": 34.95,
+            "cost_price": 11.95,
+            "margin": 65.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Door Sensor",
+            "price": 24.95,
+            "cost_price": 7.95,
+            "margin": 68.1,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "RGB LED Light Strip",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Night Light",
+            "price": 27.95,
+            "cost_price": 8.95,
+            "margin": 68.0,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Temperature Sensor",
+            "price": 32.95,
+            "cost_price": 10.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Alarm Sensor",
+            "price": 34.95,
+            "cost_price": 11.95,
+            "margin": 65.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Remote Controller",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "WiFi Security Camera",
+            "price": 49.95,
+            "cost_price": 18.95,
+            "margin": 62.1,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Light Switch",
+            "price": 34.95,
+            "cost_price": 11.95,
+            "margin": 65.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Plug with Energy Monitor",
+            "price": 32.95,
+            "cost_price": 10.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Clock",
+            "price": 39.95,
+            "cost_price": 14.95,
+            "margin": 62.5,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Air Quality Monitor",
+            "price": 44.95,
+            "cost_price": 16.95,
+            "margin": 62.3,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Water Leak Sensor",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Doorbell",
+            "price": 59.95,
+            "cost_price": 24.95,
+            "margin": 58.4,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart LED Desk Lamp",
+            "price": 39.95,
+            "cost_price": 14.95,
+            "margin": 62.5,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Power Strip",
+            "price": 44.95,
+            "cost_price": 16.95,
+            "margin": 62.3,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Curtain Controller",
+            "price": 49.95,
+            "cost_price": 18.95,
+            "margin": 62.1,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Smart Home Starter Kit",
+            "price": 79.95,
+            "cost_price": 29.95,
+            "margin": 62.6,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        }
+    ]
+}

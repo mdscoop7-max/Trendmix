@@ -5,10 +5,18 @@ import os
 app = Flask(__name__)
 
 
+# ---------------------------------------------------------
+# Homepage
+# ---------------------------------------------------------
+
 @app.route("/")
 def home():
     return render_template("index.html")
 
+
+# ---------------------------------------------------------
+# Categoriepagina
+# ---------------------------------------------------------
 
 @app.route("/<category>")
 def category_page(category):
@@ -16,9 +24,9 @@ def category_page(category):
     allowed_categories = [
         "pc-componenten",
         "gadgets",
-        "cosmetica",
-        "keuken",
-        "handige-producten",
+        "smart-home",
+        "beauty-care",
+        "lifestyle-sport",
         "aanbiedingen"
     ]
 
@@ -34,16 +42,37 @@ def category_page(category):
     if not os.path.exists(file_path):
         return "Productbestand niet gevonden", 404
 
-    with open(file_path, "r", encoding="utf-8-sig") as file:
-        data = json.load(file)
+    try:
+        with open(file_path, "r", encoding="utf-8-sig") as file:
+            data = json.load(file)
+    except (json.JSONDecodeError, OSError):
+        return "Productbestand kan niet worden gelezen", 500
+
+    products = data.get("products", [])
+
+    # -----------------------------------------------------
+    # Productafbeeldingen voorbereiden
+    # -----------------------------------------------------
+
+    for product in products:
+
+        image = str(product.get("image", "")).strip()
+
+        if image:
+            product["image_url"] = image
+        else:
+            product["image_url"] = ""
 
     return render_template(
         "category.html",
-        category=data["category"],
-        products=data["products"]
+        category=data.get("category", category),
+        products=products
     )
 
 
+# ---------------------------------------------------------
+# Start Flask
+# ---------------------------------------------------------
+
 if __name__ == "__main__":
     app.run(debug=True)
-

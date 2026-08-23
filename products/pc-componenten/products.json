@@ -2,11 +2,12 @@
     "category": "PC Componenten",
     "products": [
         {
+            "image": "/static/products/pc-componenten/usb-c-hub.jpg",
             "name": "USB-C 8-in-1 Hub",
             "price": 39.95,
             "cost_price": 14.95,
             "margin": 62.5,
-            "image": "/static/products/pc-componenten/usb-c-hub.jpg",
+            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },

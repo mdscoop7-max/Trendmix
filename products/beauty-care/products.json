@@ -1,0 +1,95 @@
+{
+    "category": "Beauty & Care",
+    "products": [
+        {
+            "name": "Facial Cleansing Brush",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "LED Beauty Mirror",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Ice Roller",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Facial Massage Roller",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Makeup Organizer",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Makeup Brush Set",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Silicone Face Mask Brush",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Cosmetic Travel Bag",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Hair Styling Brush",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Electric Facial Trimmer",
+            "price": 29.95,
+            "cost_price": 9.95,
+            "margin": 66.8,
+            "image": "",
+            "supplier": "Demo Supplier",
+            "orders": 0
+        }
+    ]
+}
