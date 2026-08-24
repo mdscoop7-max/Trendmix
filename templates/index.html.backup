@@ -346,6 +346,7 @@
 
 </section>
 
+
 <section class="section">
 
     <div class="section-title">
@@ -356,27 +357,27 @@
 
         <a href="/pc-componenten" class="category">
             <div class="category-icon">🖥️</div>
-            <strong>PC-Componenten</strong>
+            <strong>PC Componenten</strong>
         </a>
 
         <a href="/gadgets" class="category">
-            <div class="category-icon">🔌</div>
+            <div class="category-icon">📱</div>
             <strong>Gadgets</strong>
         </a>
 
-        <a href="/smart-home" class="category">
-            <div class="category-icon">🏠</div>
-            <strong>Smart Home</strong>
-        </a>
-
-        <a href="/beauty-care" class="category">
+        <a href="/cosmetica" class="category">
             <div class="category-icon">💄</div>
-            <strong>Beauty &amp; Care</strong>
+            <strong>Cosmetica</strong>
         </a>
 
-        <a href="/lifestyle-sport" class="category">
-            <div class="category-icon">🏃</div>
-            <strong>Lifestyle &amp; Sport</strong>
+        <a href="/keuken" class="category">
+            <div class="category-icon">🍳</div>
+            <strong>Keuken</strong>
+        </a>
+
+        <a href="/handige-producten" class="category">
+            <div class="category-icon">🧰</div>
+            <strong>Handige Producten</strong>
         </a>
 
         <a href="/aanbiedingen" class="category">
@@ -387,6 +388,7 @@
     </div>
 
 </section>
+
 
 <section class="section">
 
@@ -432,6 +434,7 @@
 
 </section>
 
+
 <section class="section">
 
     <div class="section-title">
@@ -476,6 +479,7 @@
 
 </section>
 
+
 <section class="section">
 
     <div class="section-title">
@@ -514,6 +518,7 @@
 
 </main>
 
+
 <footer>
 
     <div class="footer-grid">
@@ -528,18 +533,16 @@
 
         <div>
             <h3>Categorieën</h3>
-            <a href="/pc-componenten">PC-Componenten</a>
+            <a href="/pc-componenten">PC Componenten</a>
             <a href="/gadgets">Gadgets</a>
-            <a href="/smart-home">Smart Home</a>
-            <a href="/beauty-care">Beauty &amp; Care</a>
-            <a href="/lifestyle-sport">Lifestyle &amp; Sport</a>
-            <a href="/aanbiedingen">Aanbiedingen</a>
+            <a href="/cosmetica">Cosmetica</a>
+            <a href="/keuken">Keuken</a>
         </div>
 
         <div>
-        
-            
-            
+            <h3>Meer</h3>
+            <a href="/handige-producten">Handige Producten</a>
+            <a href="/aanbiedingen">Aanbiedingen</a>
         </div>
 
         <div>
