@@ -7,7 +7,6 @@
             "price": 39.95,
             "cost_price": 14.95,
             "margin": 62.5,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -16,7 +15,6 @@
             "price": 34.95,
             "cost_price": 12.95,
             "margin": 62.9,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -25,7 +23,6 @@
             "price": 34.95,
             "cost_price": 11.95,
             "margin": 65.8,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -34,7 +31,6 @@
             "price": 59.95,
             "cost_price": 24.95,
             "margin": 58.4,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -43,7 +39,6 @@
             "price": 29.95,
             "cost_price": 10.95,
             "margin": 63.4,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -52,7 +47,6 @@
             "price": 24.95,
             "cost_price": 7.95,
             "margin": 68.1,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -61,7 +55,6 @@
             "price": 19.95,
             "cost_price": 5.95,
             "margin": 70.2,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -70,7 +63,6 @@
             "price": 19.95,
             "cost_price": 5.95,
             "margin": 70.2,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -79,7 +71,6 @@
             "price": 24.95,
             "cost_price": 8.95,
             "margin": 64.1,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -88,7 +79,6 @@
             "price": 39.95,
             "cost_price": 15.95,
             "margin": 60.0,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -97,7 +87,6 @@
             "price": 29.95,
             "cost_price": 10.95,
             "margin": 63.4,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -106,7 +95,6 @@
             "price": 24.95,
             "cost_price": 8.95,
             "margin": 64.1,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -115,7 +103,6 @@
             "price": 29.95,
             "cost_price": 10.95,
             "margin": 63.4,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -124,7 +111,6 @@
             "price": 24.95,
             "cost_price": 8.95,
             "margin": 64.1,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -133,7 +119,6 @@
             "price": 19.95,
             "cost_price": 6.95,
             "margin": 65.2,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -142,7 +127,6 @@
             "price": 39.95,
             "cost_price": 14.95,
             "margin": 62.5,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -151,7 +135,6 @@
             "price": 29.95,
             "cost_price": 9.95,
             "margin": 66.8,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -160,7 +143,6 @@
             "price": 29.95,
             "cost_price": 9.95,
             "margin": 66.8,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -169,7 +151,6 @@
             "price": 24.95,
             "cost_price": 7.95,
             "margin": 68.1,
-            "image": "",
             "supplier": "Test Supplier",
             "orders": 0
         },
@@ -178,8 +159,167 @@
             "price": 49.95,
             "cost_price": 18.95,
             "margin": 62.1,
-            "image": "",
             "supplier": "Test Supplier",
+            "orders": 0
+        },
+        {
+            "name": "360mm ARGB AIO Water Cooling",
+            "price": 129.95,
+            "cost_price": 79.95,
+            "margin": 38.5,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "240mm ARGB AIO Water Cooling",
+            "price": 89.95,
+            "cost_price": 54.95,
+            "margin": 38.9,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "280mm AIO Water Cooling",
+            "price": 109.95,
+            "cost_price": 66.95,
+            "margin": 39.1,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "High-Performance Air CPU Cooler",
+            "price": 59.95,
+            "cost_price": 34.95,
+            "margin": 41.7,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "1000W 80+ Gold Gaming Power Supply",
+            "price": 149.95,
+            "cost_price": 99.95,
+            "margin": 33.3,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "850W 80+ Gold Gaming Power Supply",
+            "price": 119.95,
+            "cost_price": 79.95,
+            "margin": 33.3,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "750W 80+ Gold Gaming Power Supply",
+            "price": 99.95,
+            "cost_price": 64.95,
+            "margin": 35.0,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Fully Modular Gaming PSU",
+            "price": 109.95,
+            "cost_price": 69.95,
+            "margin": 36.4,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "PCIe 5.0 / ATX 3.1 Gaming PSU",
+            "price": 139.95,
+            "cost_price": 89.95,
+            "margin": 35.7,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "High-Speed DDR5 RGB Gaming RAM",
+            "price": 94.95,
+            "cost_price": 59.95,
+            "margin": 36.9,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "32GB DDR5 Gaming RAM Kit",
+            "price": 79.95,
+            "cost_price": 49.95,
+            "margin": 37.5,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "64GB DDR5 Gaming RAM Kit",
+            "price": 149.95,
+            "cost_price": 94.95,
+            "margin": 36.7,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "1TB NVMe Gen4 Gaming SSD",
+            "price": 69.95,
+            "cost_price": 44.95,
+            "margin": 35.7,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "2TB NVMe Gen4 Gaming SSD",
+            "price": 119.95,
+            "cost_price": 74.95,
+            "margin": 37.5,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "4TB NVMe Gaming SSD",
+            "price": 229.95,
+            "cost_price": 149.95,
+            "margin": 34.8,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "PCIe 4.0 NVMe SSD Heatsink",
+            "price": 24.95,
+            "cost_price": 9.95,
+            "margin": 60.1,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "GPU Vertical Mount Kit",
+            "price": 49.95,
+            "cost_price": 29.95,
+            "margin": 40.0,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "GPU Anti-Sag Support Bracket",
+            "price": 29.95,
+            "cost_price": 11.95,
+            "margin": 60.1,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "ARGB Gaming Case Fans — 3/6 Pack",
+            "price": 49.95,
+            "cost_price": 27.95,
+            "margin": 44.0,
+            "supplier": "Gaming Components Supplier",
+            "orders": 0
+        },
+        {
+            "name": "Premium ARGB Gaming PC Case",
+            "price": 139.95,
+            "cost_price": 89.95,
+            "margin": 35.7,
+            "supplier": "Gaming Components Supplier",
             "orders": 0
         }
     ]
