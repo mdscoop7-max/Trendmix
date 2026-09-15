@@ -1,168 +1,104 @@
-from flask import Flask, render_template, request
 import json
-import os
+from pathlib import Path
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+BASE_DIR = Path(__file__).resolve().parent
+PRODUCTS_DIR = BASE_DIR / "products"
 
-# =========================================================
-# PRODUCTEN
-# =========================================================
-
-products = {
-    "pc-componenten": [],
-    "gadgets": [
-        {"name": "Wireless Earbuds Case", "price": 29.95, "icon": "🎧", "image": ""},
-        {"name": "Portable Bluetooth Speaker", "price": 39.95, "icon": "🔊", "image": ""},
-        {"name": "Mini Power Bank", "price": 29.95, "icon": "🔋", "image": ""},
-        {"name": "Universal Phone Mount", "price": 24.95, "icon": "📱", "image": ""},
-        {"name": "Foldable Phone Holder", "price": 19.95, "icon": "📱", "image": ""},
-        {"name": "USB-C Fast Charging Cable", "price": 14.95, "icon": "🔌", "image": ""},
-        {"name": "Wireless Charging Pad", "price": 29.95, "icon": "⚡", "image": ""},
-        {"name": "Portable Fan", "price": 24.95, "icon": "🌀", "image": ""},
-    ],
-    "smart-home": [
-        {"name": "Smart LED Strip", "price": 29.95, "icon": "💡", "image": ""},
-        {"name": "Smart LED Bulb", "price": 19.95, "icon": "💡", "image": ""},
-        {"name": "Smart Plug", "price": 24.95, "icon": "🔌", "image": ""},
-        {"name": "Motion Sensor", "price": 29.95, "icon": "📡", "image": ""},
-        {"name": "Smart Night Light", "price": 22.95, "icon": "🌙", "image": ""},
-        {"name": "Mini Security Camera", "price": 49.95, "icon": "📷", "image": ""},
-        {"name": "Digital Alarm Clock", "price": 34.95, "icon": "⏰", "image": ""},
-        {"name": "Smart Temperature Sensor", "price": 27.95, "icon": "🌡️", "image": ""},
-    ],
-    "beauty-care": [
-        {"name": "Mini Facial Cleaner", "price": 29.95, "icon": "✨", "image": ""},
-        {"name": "Beauty Mirror", "price": 39.95, "icon": "🪞", "image": ""},
-        {"name": "Makeup Organizer", "price": 24.95, "icon": "💄", "image": ""},
-        {"name": "Face Massage Roller", "price": 19.95, "icon": "✨", "image": ""},
-        {"name": "Travel Beauty Bag", "price": 24.95, "icon": "👜", "image": ""},
-        {"name": "Hair Styling Brush", "price": 34.95, "icon": "💇", "image": ""},
-        {"name": "Cosmetic Storage Box", "price": 29.95, "icon": "💄", "image": ""},
-        {"name": "Makeup Brush Set", "price": 27.95, "icon": "🖌️", "image": ""},
-    ],
-    "lifestyle-sport": [
-        {"name": "Sports Water Bottle", "price": 24.95, "icon": "🥤", "image": ""},
-        {"name": "Fitness Resistance Bands", "price": 29.95, "icon": "🏋️", "image": ""},
-        {"name": "Yoga Mat", "price": 34.95, "icon": "🧘", "image": ""},
-        {"name": "Running Waist Bag", "price": 22.95, "icon": "🏃", "image": ""},
-        {"name": "Fitness Phone Holder", "price": 19.95, "icon": "📱", "image": ""},
-        {"name": "Gym Towel", "price": 14.95, "icon": "🏋️", "image": ""},
-        {"name": "Sports Backpack", "price": 44.95, "icon": "🎒", "image": ""},
-        {"name": "Portable Water Bottle", "price": 21.95, "icon": "🥤", "image": ""},
-    ],
-    "aanbiedingen": [
-        {"name": "USB-C Fast Charging Cable", "price": 29.95, "icon": "🔌", "image": ""},
-        {"name": "Wireless Earbuds Case", "price": 29.95, "icon": "🎧", "image": ""},
-        {"name": "LED Desk Lamp", "price": 29.95, "icon": "💡", "image": ""},
-        {"name": "Phone Stand", "price": 29.95, "icon": "📱", "image": ""},
-        {"name": "Cable Organizer Set", "price": 29.95, "icon": "🔌", "image": ""},
-        {"name": "Portable Bluetooth Speaker", "price": 29.95, "icon": "🔊", "image": ""},
-        {"name": "Laptop Stand", "price": 29.95, "icon": "💻", "image": ""},
-        {"name": "Wireless Charging Pad", "price": 29.95, "icon": "⚡", "image": ""},
-        {"name": "Mini Cleaning Brush", "price": 29.95, "icon": "🧹", "image": ""},
-        {"name": "Travel Organizer", "price": 29.95, "icon": "🧳", "image": ""},
-        {"name": "USB Hub", "price": 29.95, "icon": "🔌", "image": ""},
-        {"name": "Desk Organizer", "price": 29.95, "icon": "🗂️", "image": ""},
-        {"name": "Smart LED Strip", "price": 29.95, "icon": "💡", "image": ""},
-        {"name": "Foldable Phone Holder", "price": 29.95, "icon": "📱", "image": ""},
-        {"name": "Keyboard Cleaning Kit", "price": 29.95, "icon": "⌨️", "image": ""},
-        {"name": "Portable Fan", "price": 29.95, "icon": "🌀", "image": ""},
-        {"name": "Screen Cleaning Kit", "price": 29.95, "icon": "🧽", "image": ""},
-        {"name": "Mini Power Bank", "price": 29.95, "icon": "🔋", "image": ""},
-        {"name": "Cable Storage Bag", "price": 29.95, "icon": "🎒", "image": ""},
-        {"name": "Universal Phone Mount", "price": 29.95, "icon": "📱", "image": ""},
-    ]
-}
-
-# Laad de echte PC-componenten uit de aparte productcatalogus.
-# Dit bestand bevat de oorspronkelijke 20 producten plus de 20 nieuwe producten.
-def load_pc_components():
-    catalog_path = os.path.join(
-        app.root_path,
-        "products",
-        "pc-componenten",
-        "products.json"
-    )
-
-    try:
-        with open(catalog_path, "r", encoding="utf-8-sig") as file:
-            data = json.load(file)
-
-        loaded_products = data.get("products", [])
-
-        # Zorg dat afbeeldingen uit het JSON-bestand correct worden weergegeven.
-        for product in loaded_products:
-            product.setdefault("icon", "🖥️")
-            product.setdefault("image", "")
-
-        return loaded_products
-    except (FileNotFoundError, json.JSONDecodeError, OSError):
-        return []
-
-
-products["pc-componenten"] = load_pc_components()
-
-
-# =========================================================
-# CATEGORIE-INFORMATIE
-# =========================================================
-
-categories = {
+CATEGORIES = {
     "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️"},
     "gadgets": {"name": "Gadgets", "icon": "🔌"},
     "smart-home": {"name": "Smart Home", "icon": "🏠"},
-    "beauty-care": {"name": "Beauty & Care", "icon": "💄"},
-    "lifestyle-sport": {"name": "Lifestyle & Sport", "icon": "🏃"},
-    "aanbiedingen": {"name": "Aanbiedingen", "icon": "🔥"}
+    "beauty-care": {"name": "Beauty & Care", "icon": "✨"},
+    "lifestyle-sport": {"name": "Sport & Lifestyle", "icon": "🏃"},
 }
 
 
-# =========================================================
-# HOME
-# =========================================================
+def clean_products(items):
+    cleaned = []
+    seen = set()
+    for raw in items:
+        name = str(raw.get("name", "")).strip()
+        if not name:
+            continue
+        key = name.casefold()
+        if key in seen:
+            continue
+        seen.add(key)
+        product = dict(raw)
+        product.setdefault("image", "")
+        product.setdefault("icon", "🛍️")
+        product.setdefault("price", 0)
+        cleaned.append(product)
+    return cleaned
+
+
+def load_catalog():
+    catalog = {}
+    for slug in CATEGORIES:
+        path = PRODUCTS_DIR / slug / "products.json"
+        try:
+            data = json.loads(path.read_text(encoding="utf-8-sig"))
+            catalog[slug] = clean_products(data.get("products", []))
+        except (FileNotFoundError, json.JSONDecodeError, OSError):
+            catalog[slug] = []
+    return catalog
+
+
+products = load_catalog()
+
+
+def catalog_items():
+    for slug, items in products.items():
+        for product in items:
+            item = dict(product)
+            item["category_slug"] = slug
+            item["category_name"] = CATEGORIES[slug]["name"]
+            yield item
+
 
 @app.route("/")
 def home():
+    query = request.args.get("q", "").strip()
+    all_items = list(catalog_items())
+    search_results = []
+
+    if query:
+        needle = query.casefold()
+        search_results = [
+            item for item in all_items
+            if needle in item["name"].casefold()
+        ]
+
     popular_products = []
-
-    for category_products in products.values():
-        popular_products.extend(category_products[:2])
-
-    offers = products["aanbiedingen"][:8]
+    for slug in CATEGORIES:
+        popular_products.extend(products[slug][:2])
 
     return render_template(
         "index.html",
+        categories=CATEGORIES,
         popular_products=popular_products,
-        offers=offers
+        search_query=query,
+        search_results=search_results,
     )
 
 
-# =========================================================
-# ALLE CATEGORIEPAGINA'S
-# =========================================================
-
 @app.route("/<category_slug>")
 def category_page(category_slug):
-    if category_slug not in categories:
+    if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
 
-    category = categories[category_slug]
-
+    category = CATEGORIES[category_slug]
     return render_template(
         "category.html",
         category_name=category["name"],
         category_icon=category["icon"],
-        products=products[category_slug]
+        category_slug=category_slug,
+        categories=CATEGORIES,
+        products=products[category_slug],
     )
 
-
-# =========================================================
-# START SERVER
-# =========================================================
 
 if __name__ == "__main__":
-    app.run(
-        host="127.0.0.1",
-        port=5000,
-        debug=True
-    )
+    app.run(host="127.0.0.1", port=5000, debug=True)
