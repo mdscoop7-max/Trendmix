@@ -1,0 +1,28 @@
+/* TrendMix UX polish layer: keeps the core theme intact while adding clearer hierarchy and controls. */
+:focus-visible{outline:3px solid #8068ff;outline-offset:3px}
+button,select,a{touch-action:manipulation}
+.hero-actions .text-link{color:#fff;opacity:.9}
+.hero-actions .text-link:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.category-toolbar{align-items:flex-end}
+.toolbar-right{display:flex;align-items:center;gap:14px;color:#777;font-size:12px;white-space:nowrap}
+.sort-control{display:flex;align-items:center;gap:8px;font-weight:800}
+.sort-control select{border:1px solid #dedfe5;background:#fff;border-radius:10px;padding:9px 11px;color:#202126;font-size:12px;outline:0}
+.sort-control select:focus{border-color:#8068ff;box-shadow:0 0 0 3px rgba(128,104,255,.12)}
+.editorial-panel{margin-top:82px;padding:54px;border-radius:26px;background:#fff;border:1px solid #e5e6ea;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.editorial-panel h2{font-size:42px;line-height:1.02;letter-spacing:-1.8px;margin:15px 0}
+.editorial-panel p{max-width:560px;color:#71747d;line-height:1.8}
+.editorial-steps{display:grid;grid-template-columns:1fr;gap:10px}
+.editorial-steps div{display:grid;grid-template-columns:42px 1fr;column-gap:14px;align-items:center;padding:16px 18px;border:1px solid #e5e6ea;border-radius:15px;background:#fafafa}
+.editorial-steps b{grid-row:span 2;color:#7254ff;font-size:11px}
+.editorial-steps strong{font-size:14px}
+.editorial-steps span{color:#777;font-size:11px;margin-top:2px}
+.price-note{font-size:11px;color:#8a8c94;line-height:1.6;margin:-8px 0 18px;max-width:560px}
+.detail-image img{background:#eef0f3}
+.product-card .product-image{cursor:pointer}
+.product-card h3 a:hover{color:#6748f5}
+.product-card .round-arrow{transition:transform .2s,background .2s}
+.product-card:hover .round-arrow{transform:translateX(2px);background:#6947ff}
+.category-card:focus-visible,.mini-link:focus-visible,.product-card:focus-within{outline:3px solid #8068ff;outline-offset:3px}
+.footer-grid a:focus-visible{outline-color:#8068ff}
+@media(max-width:900px){.editorial-panel{grid-template-columns:1fr;gap:30px}.toolbar-right{width:100%;justify-content:space-between}}
+@media(max-width:760px){.editorial-panel{margin-top:55px;padding:30px 22px;border-radius:22px}.editorial-panel h2{font-size:34px}.category-toolbar .toolbar-right{flex-direction:column;align-items:flex-start;gap:9px}.sort-control{width:100%}.sort-control select{flex:1;width:100%}.price-note{margin-bottom:14px}.toolbar-right{white-space:normal}}
