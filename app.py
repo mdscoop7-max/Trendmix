@@ -6,6 +6,7 @@ from flask import Flask, Response, render_template, request
 app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
+SITE_URL = "https://trendmix-jet.vercel.app"
 
 CATEGORIES = {
     "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️", "eyebrow": "Performance & gaming"},
@@ -73,7 +74,6 @@ def catalog_items():
 
 
 def featured_mix():
-    """Keep the homepage balanced: two products per category instead of PC-only highlights."""
     mixed = []
     for index in range(4):
         for slug in CATEGORIES:
@@ -106,21 +106,9 @@ def home():
     search_results = []
     if query:
         needle = query.casefold()
-        search_results = [
-            item for item in all_items
-            if needle in item["name"].casefold()
-            or needle in item["category_name"].casefold()
-        ]
+        search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold()]
     counts = {slug: len(items) for slug, items in products.items()}
-    return render_template(
-        "index.html",
-        categories=CATEGORIES,
-        featured_products=featured_mix(),
-        search_query=query,
-        search_results=search_results,
-        counts=counts,
-        total_products=len(all_items),
-    )
+    return render_template("index.html", categories=CATEGORIES, featured_products=featured_mix(), search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
 
 
 @app.route("/<category_slug>")
@@ -128,15 +116,7 @@ def category_page(category_slug):
     if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
     category = CATEGORIES[category_slug]
-    return render_template(
-        "category.html",
-        category_name=category["name"],
-        category_icon=category["icon"],
-        category_eyebrow=category["eyebrow"],
-        category_slug=category_slug,
-        categories=CATEGORIES,
-        products=products[category_slug],
-    )
+    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=products[category_slug])
 
 
 @app.route("/product/<category_slug>/<int:product_index>")
@@ -154,15 +134,67 @@ def product_detail(category_slug, product_index):
         related_item["category_name"] = CATEGORIES[category_slug]["name"]
         related_item["index"] = index
         related.append(related_item)
-    return render_template(
-        "product.html",
-        product=product,
-        product_index=product_index,
-        category_slug=category_slug,
-        category_name=CATEGORIES[category_slug]["name"],
-        categories=CATEGORIES,
-        related=related,
-    )
+    return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
+
+
+INFO_PAGES = {
+    "over-trendmix": {
+        "title": "Over TrendMix",
+        "description": "Hoe TrendMix werkt als onafhankelijke productcatalogus.",
+        "content": """
+        <p>TrendMix is een onafhankelijke productcatalogus voor moderne trends in tech, home, beauty en lifestyle. We brengen producten overzichtelijk samen zodat je sneller kunt ontdekken wat interessant is.</p>
+        <h2>Geen gewone webshop</h2>
+        <p>TrendMix is ingericht als discovery- en affiliateplatform. Een aankoop wordt niet bij TrendMix afgerekend: wanneer je op een productdoorgang klikt, kun je worden doorgestuurd naar een externe aanbieder.</p>
+        <h2>Prijzen en beschikbaarheid</h2>
+        <p>Productprijzen, voorraad, levering en voorwaarden kunnen veranderen. Controleer daarom altijd de actuele informatie bij de externe aanbieder voordat je bestelt.</p>
+        """
+    },
+    "affiliate": {
+        "title": "Affiliate & transparantie",
+        "description": "Transparantie over affiliate links en commerciële relaties bij TrendMix.",
+        "content": """
+        <p><strong>TrendMix kan affiliate links gebruiken.</strong> Als je via zo’n link bij een externe aanbieder een aankoop doet, kan TrendMix daarvoor een commissie ontvangen. De commissie verandert jouw prijs niet.</p>
+        <h2>Waarom melden we dit?</h2>
+        <p>We willen duidelijk maken wanneer een productdoorgang commercieel kan zijn. Reclame en commerciële relaties horen herkenbaar en transparant te zijn.</p>
+        <h2>Onze productinformatie</h2>
+        <p>TrendMix gebruikt catalogusinformatie om producten te presenteren. Controleer voor aankoop altijd de actuele prijs, voorraad, specificaties, levering en retourvoorwaarden bij de aanbieder.</p>
+        <h2>Reviews</h2>
+        <p>TrendMix presenteert geen verzonnen reviews of beoordelingen. Wanneer er in de toekomst externe beoordelingen worden getoond, moet duidelijk zijn waar deze vandaan komen.</p>
+        """
+    },
+    "privacy": {
+        "title": "Privacy",
+        "description": "Privacyinformatie voor bezoekers van TrendMix.",
+        "content": """
+        <p>TrendMix is opgezet als een eenvoudige productcatalogus. We vragen op dit moment geen account aan om de catalogus te bekijken.</p>
+        <h2>Taalvoorkeur</h2>
+        <p>De gekozen taal kan lokaal in je browser worden opgeslagen zodat TrendMix je voorkeur bij een volgend bezoek kan onthouden.</p>
+        <h2>Externe aanbieders</h2>
+        <p>Wanneer je TrendMix verlaat via een product- of affiliate link, geldt het privacybeleid van de externe website die je bezoekt. Lees daar de voorwaarden voordat je gegevens achterlaat of een aankoop doet.</p>
+        <h2>Wijzigingen</h2>
+        <p>Deze informatie kan worden aangepast wanneer de functies van TrendMix veranderen.</p>
+        """
+    },
+    "cookies": {
+        "title": "Cookies & voorkeuren",
+        "description": "Informatie over cookies en lokale voorkeuren op TrendMix.",
+        "content": """
+        <p>TrendMix houdt de site bewust eenvoudig. De huidige taalkeuze kan lokaal in je browser worden bewaard. Dit is een lokale voorkeur en geen TrendMix-account.</p>
+        <h2>Externe websites</h2>
+        <p>Externe aanbieders kunnen hun eigen cookies, analytics of advertentietechnieken gebruiken nadat je TrendMix verlaat. Controleer daarvoor het cookie- en privacybeleid van die aanbieder.</p>
+        <h2>Voorkeur wissen</h2>
+        <p>Je kunt lokale sitegegevens in de instellingen van je browser wissen. Daarna wordt de standaardtaal opnieuw gebruikt.</p>
+        """
+    },
+}
+
+
+@app.route("/<info_slug>")
+def info_page(info_slug):
+    page = INFO_PAGES.get(info_slug)
+    if not page:
+        return "Pagina niet gevonden", 404
+    return render_template("info.html", title=page["title"], description=page["description"], content=page["content"], path=f"/{info_slug}", categories=CATEGORIES)
 
 
 @app.route("/robots.txt")
@@ -174,10 +206,11 @@ def robots():
 def sitemap():
     urls = ["/"]
     urls.extend(f"/{slug}" for slug in CATEGORIES)
+    urls.extend(f"/{slug}" for slug in INFO_PAGES)
     for slug, items in products.items():
         urls.extend(f"/product/{slug}/{index}" for index in range(len(items)))
     body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"
-    body += "".join(f"<url><loc>https://trendmix-q6fx.vercel.app{url}</loc></url>" for url in urls)
+    body += "".join(f"<url><loc>{SITE_URL}{url}</loc></url>" for url in urls)
     body += "</urlset>"
     return Response(body, mimetype="application/xml")
 
