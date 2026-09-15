@@ -1,26 +1,15 @@
-﻿from flask import Flask, render_template, request
+from flask import Flask, render_template, request
+import json
+import os
 
 app = Flask(__name__)
-
 
 # =========================================================
 # PRODUCTEN
 # =========================================================
 
 products = {
-
-    "pc-componenten": [
-        {"name": "Gaming Keyboard", "price": 49.95, "icon": "⌨️", "image": ""},
-        {"name": "Gaming Mouse", "price": 29.95, "icon": "🖱️", "image": ""},
-        {"name": "USB-C Hub", "price": 34.95, "icon": "🔌", "image": ""},
-        {"name": "Laptop Stand", "price": 39.95, "icon": "💻", "image": ""},
-        {"name": "RGB Mouse Pad", "price": 24.95, "icon": "🖥️", "image": ""},
-        {"name": "Wireless Keyboard", "price": 44.95, "icon": "⌨️", "image": ""},
-        {"name": "Webcam Full HD", "price": 54.95, "icon": "📷", "image": ""},
-        {"name": "USB Microphone", "price": 59.95, "icon": "🎙️", "image": ""},
-    ],
-
-
+    "pc-componenten": [],
     "gadgets": [
         {"name": "Wireless Earbuds Case", "price": 29.95, "icon": "🎧", "image": ""},
         {"name": "Portable Bluetooth Speaker", "price": 39.95, "icon": "🔊", "image": ""},
@@ -31,8 +20,6 @@ products = {
         {"name": "Wireless Charging Pad", "price": 29.95, "icon": "⚡", "image": ""},
         {"name": "Portable Fan", "price": 24.95, "icon": "🌀", "image": ""},
     ],
-
-
     "smart-home": [
         {"name": "Smart LED Strip", "price": 29.95, "icon": "💡", "image": ""},
         {"name": "Smart LED Bulb", "price": 19.95, "icon": "💡", "image": ""},
@@ -43,8 +30,6 @@ products = {
         {"name": "Digital Alarm Clock", "price": 34.95, "icon": "⏰", "image": ""},
         {"name": "Smart Temperature Sensor", "price": 27.95, "icon": "🌡️", "image": ""},
     ],
-
-
     "beauty-care": [
         {"name": "Mini Facial Cleaner", "price": 29.95, "icon": "✨", "image": ""},
         {"name": "Beauty Mirror", "price": 39.95, "icon": "🪞", "image": ""},
@@ -55,8 +40,6 @@ products = {
         {"name": "Cosmetic Storage Box", "price": 29.95, "icon": "💄", "image": ""},
         {"name": "Makeup Brush Set", "price": 27.95, "icon": "🖌️", "image": ""},
     ],
-
-
     "lifestyle-sport": [
         {"name": "Sports Water Bottle", "price": 24.95, "icon": "🥤", "image": ""},
         {"name": "Fitness Resistance Bands", "price": 29.95, "icon": "🏋️", "image": ""},
@@ -67,8 +50,6 @@ products = {
         {"name": "Sports Backpack", "price": 44.95, "icon": "🎒", "image": ""},
         {"name": "Portable Water Bottle", "price": 21.95, "icon": "🥤", "image": ""},
     ],
-
-
     "aanbiedingen": [
         {"name": "USB-C Fast Charging Cable", "price": 29.95, "icon": "🔌", "image": ""},
         {"name": "Wireless Earbuds Case", "price": 29.95, "icon": "🎧", "image": ""},
@@ -91,8 +72,35 @@ products = {
         {"name": "Cable Storage Bag", "price": 29.95, "icon": "🎒", "image": ""},
         {"name": "Universal Phone Mount", "price": 29.95, "icon": "📱", "image": ""},
     ]
-
 }
+
+# Laad de echte PC-componenten uit de aparte productcatalogus.
+# Dit bestand bevat de oorspronkelijke 20 producten plus de 20 nieuwe producten.
+def load_pc_components():
+    catalog_path = os.path.join(
+        app.root_path,
+        "products",
+        "pc-componenten",
+        "products.json"
+    )
+
+    try:
+        with open(catalog_path, "r", encoding="utf-8-sig") as file:
+            data = json.load(file)
+
+        loaded_products = data.get("products", [])
+
+        # Zorg dat afbeeldingen uit het JSON-bestand correct worden weergegeven.
+        for product in loaded_products:
+            product.setdefault("icon", "🖥️")
+            product.setdefault("image", "")
+
+        return loaded_products
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return []
+
+
+products["pc-componenten"] = load_pc_components()
 
 
 # =========================================================
@@ -100,37 +108,12 @@ products = {
 # =========================================================
 
 categories = {
-
-    "pc-componenten": {
-        "name": "PC-Componenten",
-        "icon": "🖥️"
-    },
-
-    "gadgets": {
-        "name": "Gadgets",
-        "icon": "🔌"
-    },
-
-    "smart-home": {
-        "name": "Smart Home",
-        "icon": "🏠"
-    },
-
-    "beauty-care": {
-        "name": "Beauty & Care",
-        "icon": "💄"
-    },
-
-    "lifestyle-sport": {
-        "name": "Lifestyle & Sport",
-        "icon": "🏃"
-    },
-
-    "aanbiedingen": {
-        "name": "Aanbiedingen",
-        "icon": "🔥"
-    }
-
+    "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️"},
+    "gadgets": {"name": "Gadgets", "icon": "🔌"},
+    "smart-home": {"name": "Smart Home", "icon": "🏠"},
+    "beauty-care": {"name": "Beauty & Care", "icon": "💄"},
+    "lifestyle-sport": {"name": "Lifestyle & Sport", "icon": "🏃"},
+    "aanbiedingen": {"name": "Aanbiedingen", "icon": "🔥"}
 }
 
 
@@ -140,7 +123,6 @@ categories = {
 
 @app.route("/")
 def home():
-
     popular_products = []
 
     for category_products in products.values():
@@ -161,7 +143,6 @@ def home():
 
 @app.route("/<category_slug>")
 def category_page(category_slug):
-
     if category_slug not in categories:
         return "Pagina niet gevonden", 404
 
@@ -169,11 +150,8 @@ def category_page(category_slug):
 
     return render_template(
         "category.html",
-
         category_name=category["name"],
-
         category_icon=category["icon"],
-
         products=products[category_slug]
     )
 
