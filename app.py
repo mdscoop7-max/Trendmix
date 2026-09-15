@@ -205,6 +205,11 @@ def cookies():
     return render_info_page("cookies")
 
 
+@app.route("/faq")
+def faq():
+    return render_template("faq.html", categories=CATEGORIES)
+
+
 @app.route("/robots.txt")
 def robots():
     return Response("User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n", mimetype="text/plain")
@@ -214,6 +219,7 @@ def robots():
 def sitemap():
     urls = ["/"]
     urls.extend(f"/{slug}" for slug in CATEGORIES)
+    urls.extend(["/over-trendmix", "/affiliate", "/privacy", "/cookies", "/faq"])
     urls.extend(f"/info/{slug}" for slug in INFO_PAGES)
     for slug, items in products.items():
         urls.extend(f"/product/{slug}/{index}" for index in range(len(items)))
