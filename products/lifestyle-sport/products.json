@@ -1,95 +1,16 @@
 {
-"category": "Lifestyle & Sport",
-"products": [
-{
-"name": "Smart Fitness Tracker",
-"price": 39.95,
-"cost_price": 14.95,
-"margin": 62.5,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Resistance Bands Set",
-"price": 24.95,
-"cost_price": 7.95,
-"margin": 68.1,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Adjustable Dumbbell",
-"price": 49.95,
-"cost_price": 19.95,
-"margin": 60.1,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Yoga Mat",
-"price": 29.95,
-"cost_price": 9.95,
-"margin": 66.8,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Sports Water Bottle",
-"price": 24.95,
-"cost_price": 7.95,
-"margin": 68.1,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Running Waist Bag",
-"price": 19.95,
-"cost_price": 5.95,
-"margin": 70.2,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Massage Ball Set",
-"price": 24.95,
-"cost_price": 7.95,
-"margin": 68.1,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Foam Roller",
-"price": 34.95,
-"cost_price": 12.95,
-"margin": 62.9,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Gym Training Gloves",
-"price": 22.95,
-"cost_price": 6.95,
-"margin": 69.7,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-},
-{
-"name": "Portable Bluetooth Speaker",
-"price": 39.95,
-"cost_price": 14.95,
-"margin": 62.5,
-"image": "",
-"supplier": "Demo Supplier",
-"orders": 0
-}
-]
+  "category": "Sport & Lifestyle",
+  "source": "Sell The Trend public 2026 trend research",
+  "products": [
+    {"name":"Resistance Band Set","price":29.95,"cost_price":9.95,"margin":66.8,"image":"https://images.unsplash.com/photo-1598971639058-999e6d1f5d58?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Portable Blender","price":39.95,"cost_price":16.95,"margin":57.6,"image":"https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Compression Leggings","price":34.95,"cost_price":12.95,"margin":63.0,"image":"https://images.unsplash.com/photo-1506629905607-d9b1a8c2d8a1?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Smart Fitness Tracker","price":49.95,"cost_price":22.95,"margin":54.1,"image":"https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Yoga & Fitness Mat","price":34.95,"cost_price":12.95,"margin":63.0,"image":"https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Sports Water Bottle","price":24.95,"cost_price":7.95,"margin":68.1,"image":"https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Foam Roller","price":34.95,"cost_price":12.95,"margin":63.0,"image":"https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Massage Ball Set","price":24.95,"cost_price":7.95,"margin":68.1,"image":"https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Running Waist Bag","price":22.95,"cost_price":6.95,"margin":69.7,"image":"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Portable Neck Fan","price":29.95,"cost_price":12.95,"margin":56.8,"image":"https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80","orders":0}
+  ]
 }
