@@ -1,16 +1,26 @@
 {
   "category": "Beauty & Care",
-  "source": "Sell The Trend public 2026 trend research",
+  "source": "Sell The Trend public trend research + curated catalog",
   "products": [
-    {"name":"GlowSwipe Serum Balm Stick","price":29.95,"cost_price":10.95,"margin":63.4,"image":"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"LumiBlend Eye Concealer","price":24.95,"cost_price":8.95,"margin":64.1,"image":"https://images.unsplash.com/photo-1631730486572-226d1d0b7f0a?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"CleanWave Electric Body Brush","price":39.95,"cost_price":15.95,"margin":60.0,"image":"https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"EyeZen Heated Eye Massager","price":59.95,"cost_price":28.95,"margin":51.7,"image":"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"LED Beauty Mirror","price":49.95,"cost_price":21.95,"margin":56.0,"image":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"GlowSwipe Serum Balm Stick","price":24.95,"cost_price":9.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"LumiBlend Eye Concealer","price":29.95,"cost_price":10.95,"margin":63.4,"image":"https://images.unsplash.com/photo-1631730486572-226d1d0b7f0a?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"CleanWave Electric Body Brush","price":44.95,"cost_price":18.95,"margin":57.8,"image":"https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"EyeZen Heated Eye Massager","price":59.95,"cost_price":27.95,"margin":53.4,"image":"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"LED Beauty Mirror","price":69.95,"cost_price":29.95,"margin":57.2,"image":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80","orders":0},
     {"name":"Facial Cleansing Brush","price":34.95,"cost_price":12.95,"margin":62.9,"image":"https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80","orders":0},
     {"name":"Heatless Hair Styling Set","price":27.95,"cost_price":9.95,"margin":64.4,"image":"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Makeup Brush Set","price":24.95,"cost_price":7.95,"margin":68.1,"image":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80&sat=-15","orders":0},
+    {"name":"Makeup Brush Set","price":29.95,"cost_price":8.95,"margin":70.1,"image":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80&sat=-15","orders":0},
     {"name":"Ice Facial Roller","price":22.95,"cost_price":6.95,"margin":69.7,"image":"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Cosmetic Travel Organizer","price":29.95,"cost_price":10.95,"margin":63.4,"image":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80","orders":0}
+    {"name":"Cosmetic Travel Organizer","price":39.95,"cost_price":15.95,"margin":60.0,"image":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Ultrasonic Skin Scrubber","price":49.95,"cost_price":22.95,"margin":54.1,"image":"https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Portable Makeup Light","price":29.95,"cost_price":10.95,"margin":63.4,"image":"https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Scalp Massager Brush","price":14.95,"cost_price":4.95,"margin":66.9,"image":"https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Hair Styling Heatless Curlers","price":24.95,"cost_price":7.95,"margin":68.1,"image":"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80&sat=10","orders":0},
+    {"name":"Silicone Face Mask Bowl","price":12.95,"cost_price":3.95,"margin":69.5,"image":"https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Mini Facial Steamer","price":39.95,"cost_price":16.95,"margin":57.6,"image":"https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Beauty Cooling Wand","price":34.95,"cost_price":13.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80","orders":0},
+    {"name":"Makeup Storage Organizer","price":44.95,"cost_price":17.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80&sat=15","orders":0},
+    {"name":"Reusable Eye Mask Set","price":19.95,"cost_price":6.95,"margin":65.2,"image":"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80&sat=-20","orders":0},
+    {"name":"Travel Perfume Atomizer","price":16.95,"cost_price":5.95,"margin":64.9,"image":"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80","orders":0}
   ]
 }
