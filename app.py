@@ -87,61 +87,38 @@ def home():
     query = request.args.get("q", "").strip()
     all_items = list(catalog_items())
     search_results = []
-
     if query:
         needle = query.casefold()
-        search_results = [
-            item for item in all_items
-            if needle in item["name"].casefold()
-            or needle in item["category_name"].casefold()
-        ]
-
+        search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold()]
     featured_products = all_items[:10]
     counts = {slug: len(items) for slug, items in products.items()}
-
-    return render_template(
-        "index.html",
-        categories=CATEGORIES,
-        featured_products=featured_products,
-        search_query=query,
-        search_results=search_results,
-        counts=counts,
-        total_products=len(all_items),
-    )
+    return render_template("index.html", categories=CATEGORIES, featured_products=featured_products, search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
 
 
 @app.route("/<category_slug>")
 def category_page(category_slug):
     if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
-
     category = CATEGORIES[category_slug]
-    return render_template(
-        "category.html",
-        category_name=category["name"],
-        category_icon=category["icon"],
-        category_eyebrow=category["eyebrow"],
-        category_slug=category_slug,
-        categories=CATEGORIES,
-        products=products[category_slug],
-    )
+    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=products[category_slug])
 
 
 @app.route("/product/<category_slug>/<int:product_index>")
 def product_detail(category_slug, product_index):
     if category_slug not in products or product_index < 0 or product_index >= len(products[category_slug]):
         return "Product niet gevonden", 404
-    product = products[category_slug][product_index]
-    related = products[category_slug][:6]
-    return render_template(
-        "product.html",
-        product=product,
-        product_index=product_index,
-        category_slug=category_slug,
-        category_name=CATEGORIES[category_slug]["name"],
-        categories=CATEGORIES,
-        related=related,
-    )
+    product = dict(products[category_slug][product_index])
+    product["category_slug"] = category_slug
+    product["category_name"] = CATEGORIES[category_slug]["name"]
+    product["index"] = product_index
+    related = []
+    for index, item in enumerate(products[category_slug][:6]):
+        related_item = dict(item)
+        related_item["category_slug"] = category_slug
+        related_item["category_name"] = CATEGORIES[category_slug]["name"]
+        related_item["index"] = index
+        related.append(related_item)
+    return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
 
 
 if __name__ == "__main__":
