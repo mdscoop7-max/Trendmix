@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 from flask import Flask, render_template, request
 
@@ -7,11 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
 
 CATEGORIES = {
-    "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️"},
-    "gadgets": {"name": "Gadgets", "icon": "🔌"},
-    "smart-home": {"name": "Smart Home", "icon": "🏠"},
-    "beauty-care": {"name": "Beauty & Care", "icon": "✨"},
-    "lifestyle-sport": {"name": "Sport & Lifestyle", "icon": "🏃"},
+    "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️", "eyebrow": "Performance & gaming"},
+    "gadgets": {"name": "Gadgets", "icon": "⚡", "eyebrow": "Slimme tech voor elke dag"},
+    "smart-home": {"name": "Smart Home", "icon": "🏠", "eyebrow": "Comfort & connected living"},
+    "beauty-care": {"name": "Beauty & Care", "icon": "✨", "eyebrow": "Self-care & beauty"},
+    "lifestyle-sport": {"name": "Sport & Lifestyle", "icon": "🏃", "eyebrow": "Move, recover & live"},
 }
 
 
@@ -30,17 +31,29 @@ def clean_products(items):
         product.setdefault("image", "")
         product.setdefault("icon", "🛍️")
         product.setdefault("price", 0)
+        product.setdefault("cost_price", 0)
+        product.setdefault("margin", 0)
+        product.setdefault("orders", 0)
         cleaned.append(product)
     return cleaned
 
 
 def load_catalog():
     catalog = {}
+    global_seen = set()
     for slug in CATEGORIES:
         path = PRODUCTS_DIR / slug / "products.json"
         try:
             data = json.loads(path.read_text(encoding="utf-8-sig"))
-            catalog[slug] = clean_products(data.get("products", []))
+            items = clean_products(data.get("products", []))
+            unique_items = []
+            for item in items:
+                key = item["name"].casefold()
+                if key in global_seen:
+                    continue
+                global_seen.add(key)
+                unique_items.append(item)
+            catalog[slug] = unique_items
         except (FileNotFoundError, json.JSONDecodeError, OSError):
             catalog[slug] = []
     return catalog
@@ -51,11 +64,22 @@ products = load_catalog()
 
 def catalog_items():
     for slug, items in products.items():
-        for product in items:
+        for index, product in enumerate(items):
             item = dict(product)
             item["category_slug"] = slug
             item["category_name"] = CATEGORIES[slug]["name"]
+            item["index"] = index
             yield item
+
+
+def slugify(value):
+    value = re.sub(r"[^a-zA-Z0-9\s-]", "", value).strip().lower()
+    return re.sub(r"[-\s]+", "-", value)
+
+
+@app.context_processor
+def inject_helpers():
+    return {"slugify": slugify}
 
 
 @app.route("/")
@@ -69,18 +93,20 @@ def home():
         search_results = [
             item for item in all_items
             if needle in item["name"].casefold()
+            or needle in item["category_name"].casefold()
         ]
 
-    popular_products = []
-    for slug in CATEGORIES:
-        popular_products.extend(products[slug][:2])
+    featured_products = all_items[:10]
+    counts = {slug: len(items) for slug, items in products.items()}
 
     return render_template(
         "index.html",
         categories=CATEGORIES,
-        popular_products=popular_products,
+        featured_products=featured_products,
         search_query=query,
         search_results=search_results,
+        counts=counts,
+        total_products=len(all_items),
     )
 
 
@@ -94,9 +120,27 @@ def category_page(category_slug):
         "category.html",
         category_name=category["name"],
         category_icon=category["icon"],
+        category_eyebrow=category["eyebrow"],
         category_slug=category_slug,
         categories=CATEGORIES,
         products=products[category_slug],
+    )
+
+
+@app.route("/product/<category_slug>/<int:product_index>")
+def product_detail(category_slug, product_index):
+    if category_slug not in products or product_index < 0 or product_index >= len(products[category_slug]):
+        return "Product niet gevonden", 404
+    product = products[category_slug][product_index]
+    related = products[category_slug][:6]
+    return render_template(
+        "product.html",
+        product=product,
+        product_index=product_index,
+        category_slug=category_slug,
+        category_name=CATEGORIES[category_slug]["name"],
+        categories=CATEGORIES,
+        related=related,
     )
 
 
