@@ -111,32 +111,6 @@ def home():
     return render_template("index.html", categories=CATEGORIES, featured_products=featured_mix(), search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
 
 
-@app.route("/<category_slug>")
-def category_page(category_slug):
-    if category_slug not in CATEGORIES:
-        return "Pagina niet gevonden", 404
-    category = CATEGORIES[category_slug]
-    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=products[category_slug])
-
-
-@app.route("/product/<category_slug>/<int:product_index>")
-def product_detail(category_slug, product_index):
-    if category_slug not in products or product_index < 0 or product_index >= len(products[category_slug]):
-        return "Product niet gevonden", 404
-    product = dict(products[category_slug][product_index])
-    product["category_slug"] = category_slug
-    product["category_name"] = CATEGORIES[category_slug]["name"]
-    product["index"] = product_index
-    related = []
-    for index, item in enumerate(products[category_slug][:6]):
-        related_item = dict(item)
-        related_item["category_slug"] = category_slug
-        related_item["category_name"] = CATEGORIES[category_slug]["name"]
-        related_item["index"] = index
-        related.append(related_item)
-    return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
-
-
 INFO_PAGES = {
     "over-trendmix": {"title": "Over TrendMix", "description": "Hoe TrendMix werkt als onafhankelijke productcatalogus.", "content": """
         <p>TrendMix is een onafhankelijke productcatalogus voor moderne trends in tech, home, beauty en lifestyle. We brengen producten overzichtelijk samen zodat je sneller kunt ontdekken wat interessant is.</p>
@@ -173,12 +147,62 @@ INFO_PAGES = {
 }
 
 
-@app.route("/info/<info_slug>")
-def info_page(info_slug):
+def render_info_page(info_slug):
     page = INFO_PAGES.get(info_slug)
     if not page:
         return "Pagina niet gevonden", 404
     return render_template("info.html", title=page["title"], description=page["description"], content=page["content"], path=f"/info/{info_slug}", categories=CATEGORIES)
+
+
+@app.route("/<category_slug>")
+def category_page(category_slug):
+    if category_slug not in CATEGORIES:
+        return "Pagina niet gevonden", 404
+    category = CATEGORIES[category_slug]
+    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=products[category_slug])
+
+
+@app.route("/product/<category_slug>/<int:product_index>")
+def product_detail(category_slug, product_index):
+    if category_slug not in products or product_index < 0 or product_index >= len(products[category_slug]):
+        return "Product niet gevonden", 404
+    product = dict(products[category_slug][product_index])
+    product["category_slug"] = category_slug
+    product["category_name"] = CATEGORIES[category_slug]["name"]
+    product["index"] = product_index
+    related = []
+    for index, item in enumerate(products[category_slug][:6]):
+        related_item = dict(item)
+        related_item["category_slug"] = category_slug
+        related_item["category_name"] = CATEGORIES[category_slug]["name"]
+        related_item["index"] = index
+        related.append(related_item)
+    return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
+
+
+@app.route("/info/<info_slug>")
+def info_page(info_slug):
+    return render_info_page(info_slug)
+
+
+@app.route("/over-trendmix")
+def over_trendmix():
+    return render_info_page("over-trendmix")
+
+
+@app.route("/affiliate")
+def affiliate():
+    return render_info_page("affiliate")
+
+
+@app.route("/privacy")
+def privacy():
+    return render_info_page("privacy")
+
+
+@app.route("/cookies")
+def cookies():
+    return render_info_page("cookies")
 
 
 @app.route("/robots.txt")
