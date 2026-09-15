@@ -1,3 +1,5 @@
+@import url('/static/quiet-luxury.css');
+
 /* TrendMix UX polish layer: keeps the core theme intact while adding clearer hierarchy and controls. */
 :focus-visible{outline:3px solid #8068ff;outline-offset:3px}
 button,select,a{touch-action:manipulation}
