@@ -1,7 +1,7 @@
 import json
 import re
 from pathlib import Path
-from flask import Flask, render_template, request
+from flask import Flask, Response, render_template, request
 
 app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
@@ -72,6 +72,23 @@ def catalog_items():
             yield item
 
 
+def featured_mix():
+    """Keep the homepage balanced: two products per category instead of PC-only highlights."""
+    mixed = []
+    for index in range(4):
+        for slug in CATEGORIES:
+            items = products.get(slug, [])
+            if index < len(items):
+                item = dict(items[index])
+                item["category_slug"] = slug
+                item["category_name"] = CATEGORIES[slug]["name"]
+                item["index"] = index
+                mixed.append(item)
+            if len(mixed) >= 10:
+                return mixed
+    return mixed
+
+
 def slugify(value):
     value = re.sub(r"[^a-zA-Z0-9\s-]", "", value).strip().lower()
     return re.sub(r"[-\s]+", "-", value)
@@ -89,10 +106,21 @@ def home():
     search_results = []
     if query:
         needle = query.casefold()
-        search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold()]
-    featured_products = all_items[:10]
+        search_results = [
+            item for item in all_items
+            if needle in item["name"].casefold()
+            or needle in item["category_name"].casefold()
+        ]
     counts = {slug: len(items) for slug, items in products.items()}
-    return render_template("index.html", categories=CATEGORIES, featured_products=featured_products, search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
+    return render_template(
+        "index.html",
+        categories=CATEGORIES,
+        featured_products=featured_mix(),
+        search_query=query,
+        search_results=search_results,
+        counts=counts,
+        total_products=len(all_items),
+    )
 
 
 @app.route("/<category_slug>")
@@ -100,7 +128,15 @@ def category_page(category_slug):
     if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
     category = CATEGORIES[category_slug]
-    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=products[category_slug])
+    return render_template(
+        "category.html",
+        category_name=category["name"],
+        category_icon=category["icon"],
+        category_eyebrow=category["eyebrow"],
+        category_slug=category_slug,
+        categories=CATEGORIES,
+        products=products[category_slug],
+    )
 
 
 @app.route("/product/<category_slug>/<int:product_index>")
@@ -118,7 +154,32 @@ def product_detail(category_slug, product_index):
         related_item["category_name"] = CATEGORIES[category_slug]["name"]
         related_item["index"] = index
         related.append(related_item)
-    return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
+    return render_template(
+        "product.html",
+        product=product,
+        product_index=product_index,
+        category_slug=category_slug,
+        category_name=CATEGORIES[category_slug]["name"],
+        categories=CATEGORIES,
+        related=related,
+    )
+
+
+@app.route("/robots.txt")
+def robots():
+    return Response("User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n", mimetype="text/plain")
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    urls = ["/"]
+    urls.extend(f"/{slug}" for slug in CATEGORIES)
+    for slug, items in products.items():
+        urls.extend(f"/product/{slug}/{index}" for index in range(len(items)))
+    body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"
+    body += "".join(f"<url><loc>https://trendmix-q6fx.vercel.app{url}</loc></url>" for url in urls)
+    body += "</urlset>"
+    return Response(body, mimetype="application/xml")
 
 
 if __name__ == "__main__":
