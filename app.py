@@ -8,8 +8,8 @@ app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
 
-# Deployment-safe configuration: keep the current Vercel URL as a fallback until
-# the Moroccan .ma domain is registered. Set SITE_URL in Vercel when the domain is live.
+# Deployment-safe configuration. Keep the current Vercel URL as fallback until the
+# Moroccan .ma domain is registered, then set SITE_URL in Vercel.
 SITE_URL = os.getenv("SITE_URL", "https://trendmix-jet.vercel.app").rstrip("/")
 SITE_COUNTRY = os.getenv("SITE_COUNTRY", "MA")
 SITE_OWNER_LABEL = os.getenv("SITE_OWNER_LABEL", "TrendMix · Marokko")
@@ -41,7 +41,7 @@ def clean_products(items):
         product.setdefault("cost_price", 0)
         product.setdefault("margin", 0)
         product.setdefault("orders", 0)
-        # Affiliate-ready fields stay empty until a network/merchant is selected.
+        # These stay empty until the final affiliate network/merchant is selected.
         product.setdefault("merchant", "")
         product.setdefault("affiliate_network", "")
         product.setdefault("affiliate_url", "")
@@ -112,12 +112,7 @@ def slugify(value):
 
 @app.context_processor
 def inject_helpers():
-    return {
-        "slugify": slugify,
-        "site_url": SITE_URL,
-        "site_country": SITE_COUNTRY,
-        "site_owner_label": SITE_OWNER_LABEL,
-    }
+    return {"slugify": slugify, "site_url": SITE_URL, "site_country": SITE_COUNTRY, "site_owner_label": SITE_OWNER_LABEL}
 
 
 @app.route("/")
@@ -181,7 +176,12 @@ def render_info_page(info_slug):
     page = INFO_PAGES.get(info_slug)
     if not page:
         return "Pagina niet gevonden", 404
-    return render_template("info.html", title=page["title"], description=page["description"], content=page["content"], path=f"/info/{info_slug}", categories=CATEGORIES)
+    return render_template("info.html", title=page["title"], description=page["description"], content=page["content"], path=f"/{info_slug}", categories=CATEGORIES)
+
+
+@app.route("/faq")
+def faq():
+    return render_template("faq.html", categories=CATEGORIES)
 
 
 @app.route("/<category_slug>")
