@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from pathlib import Path
 from flask import Flask, Response, render_template, request
@@ -6,7 +7,12 @@ from flask import Flask, Response, render_template, request
 app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
-SITE_URL = "https://trendmix-jet.vercel.app"
+
+# Deployment-safe configuration: keep the current Vercel URL as a fallback until
+# the Moroccan .ma domain is registered. Set SITE_URL in Vercel when the domain is live.
+SITE_URL = os.getenv("SITE_URL", "https://trendmix-jet.vercel.app").rstrip("/")
+SITE_COUNTRY = os.getenv("SITE_COUNTRY", "MA")
+SITE_OWNER_LABEL = os.getenv("SITE_OWNER_LABEL", "TrendMix · Marokko")
 
 CATEGORIES = {
     "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️", "eyebrow": "Performance & gaming"},
@@ -35,6 +41,12 @@ def clean_products(items):
         product.setdefault("cost_price", 0)
         product.setdefault("margin", 0)
         product.setdefault("orders", 0)
+        # Affiliate-ready fields stay empty until a network/merchant is selected.
+        product.setdefault("merchant", "")
+        product.setdefault("affiliate_network", "")
+        product.setdefault("affiliate_url", "")
+        product.setdefault("commission_rate", "")
+        product.setdefault("delivery_countries", [])
         cleaned.append(product)
     return cleaned
 
@@ -100,7 +112,12 @@ def slugify(value):
 
 @app.context_processor
 def inject_helpers():
-    return {"slugify": slugify}
+    return {
+        "slugify": slugify,
+        "site_url": SITE_URL,
+        "site_country": SITE_COUNTRY,
+        "site_owner_label": SITE_OWNER_LABEL,
+    }
 
 
 @app.route("/")
@@ -120,11 +137,14 @@ INFO_PAGES = {
         <p>TrendMix is een onafhankelijke productcatalogus voor moderne trends in tech, home, beauty en lifestyle. We brengen producten overzichtelijk samen zodat je sneller kunt ontdekken wat interessant is.</p>
         <h2>Geen gewone webshop</h2>
         <p>TrendMix is ingericht als discovery- en affiliateplatform. Een aankoop wordt niet bij TrendMix afgerekend: wanneer je op een productdoorgang klikt, kun je worden doorgestuurd naar een externe aanbieder.</p>
+        <h2>Vanuit Marokko geëxploiteerd</h2>
+        <p>TrendMix wordt voor de eigenaar/exploitant vanuit Marokko beheerd. De website kan producten en aanbieders in andere landen tonen. Het land van de exploitant staat los van het land waarin een externe aanbieder levert.</p>
         <h2>Prijzen en beschikbaarheid</h2>
         <p>Productprijzen, voorraad, levering en voorwaarden kunnen veranderen. Controleer daarom altijd de actuele informatie bij de externe aanbieder voordat je bestelt.</p>
         """},
     "affiliate": {"title": "Affiliate & transparantie", "description": "Transparantie over affiliate links en commerciële relaties bij TrendMix.", "content": """
-        <p><strong>TrendMix kan affiliate links gebruiken.</strong> Als je via zo’n link bij een externe aanbieder een aankoop doet, kan TrendMix daarvoor een commissie ontvangen. De commissie verandert jouw prijs niet.</p>
+        <p><strong>TrendMix kan affiliate links gebruiken.</strong> Op dit moment is de affiliate-infrastructuur nog niet aan een definitief netwerk gekoppeld. Zodra een netwerk en merchants zijn gekozen, kunnen productlinks via tracking worden doorgestuurd.</p>
+        <p>Als je via een affiliate link bij een externe aanbieder een aankoop doet, kan TrendMix daarvoor een commissie ontvangen. De commissie verandert jouw prijs niet.</p>
         <h2>Waarom melden we dit?</h2>
         <p>We willen duidelijk maken wanneer een productdoorgang commercieel kan zijn. Reclame en commerciële relaties horen herkenbaar en transparant te zijn.</p>
         <h2>Onze productinformatie</h2>
@@ -134,10 +154,14 @@ INFO_PAGES = {
         """},
     "privacy": {"title": "Privacy", "description": "Privacyinformatie voor bezoekers van TrendMix.", "content": """
         <p>TrendMix is opgezet als een eenvoudige productcatalogus. We vragen op dit moment geen account aan om de catalogus te bekijken.</p>
+        <h2>Verantwoordelijke en exploitatie</h2>
+        <p>TrendMix wordt vanuit Marokko geëxploiteerd. Zodra de definitieve domein- en bedrijfsgegevens zijn vastgelegd, worden de juridische contactgegevens hier aangevuld.</p>
         <h2>Taalvoorkeur</h2>
         <p>De gekozen taal kan lokaal in je browser worden opgeslagen zodat TrendMix je voorkeur bij een volgend bezoek kan onthouden.</p>
         <h2>Externe aanbieders</h2>
         <p>Wanneer je TrendMix verlaat via een product- of affiliate link, geldt het privacybeleid van de externe website die je bezoekt. Lees daar de voorwaarden voordat je gegevens achterlaat of een aankoop doet.</p>
+        <h2>Persoonsgegevens</h2>
+        <p>De Marokkaanse privacywetgeving, waaronder wet 09-08, is relevant voor persoonsgegevens die door de exploitant worden verwerkt. Deze pagina wordt aangevuld zodra de definitieve formulieren, analytics en eventuele affiliate tracking zijn geconfigureerd.</p>
         <h2>Wijzigingen</h2>
         <p>Deze informatie kan worden aangepast wanneer de functies van TrendMix veranderen.</p>
         """},
@@ -145,6 +169,8 @@ INFO_PAGES = {
         <p>TrendMix houdt de site bewust eenvoudig. De huidige taalkeuze kan lokaal in je browser worden bewaard. Dit is een lokale voorkeur en geen TrendMix-account.</p>
         <h2>Externe websites</h2>
         <p>Externe aanbieders kunnen hun eigen cookies, analytics of advertentietechnieken gebruiken nadat je TrendMix verlaat. Controleer daarvoor het cookie- en privacybeleid van die aanbieder.</p>
+        <h2>Affiliate tracking</h2>
+        <p>Er is nog geen definitief affiliate netwerk gekoppeld. Wanneer affiliate tracking wordt geactiveerd, wordt deze pagina bijgewerkt met de relevante informatie en keuzes.</p>
         <h2>Voorkeur wissen</h2>
         <p>Je kunt lokale sitegegevens in de instellingen van je browser wissen. Daarna wordt de standaardtaal opnieuw gebruikt.</p>
         """},
