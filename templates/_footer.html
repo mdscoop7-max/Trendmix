@@ -1,19 +1,19 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="active"><span>⌂</span>Home</a>
-  <a href="/#collecties"><span>▦</span>Categorieën</a>
-  <a href="/#featured"><span>✦</span>Highlights</a>
-  <a href="/faq"><span>◉</span>Info</a>
+  <a href="/" class="active"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
+  <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
+  <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
+  <a href="/faq"><span>◉</span><span data-i18n="footerFaq">Info</span></a>
 </nav>
 <footer class="site-footer">
   <div class="shell footer-grid">
     <div class="footer-brand">
       <a class="brand footer-logo" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a>
       <p data-i18n="footerText">Een onafhankelijke productcatalogus voor moderne trends, tech, home, beauty en lifestyle.</p>
-      <div class="footer-badges"><span>✓ Mobile first</span><span>✓ 5 talen</span><span>✓ 5 collecties</span></div>
+      <div class="footer-badges"><span data-i18n="footerBadgeMobile">✓ Mobile first</span><span data-i18n="footerBadgeLanguages">✓ 6 talen</span><span data-i18n="footerBadgeCollections">✓ 5 collecties</span></div>
     </div>
     <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
-    <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq">Veelgestelde vragen</a></div>
-    <div><h3 data-i18n="footerInfo">Informatie</h3><a href="/over-trendmix">Over TrendMix</a><a href="/affiliate">Affiliate & transparantie</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies & voorkeuren</a><a href="/faq">FAQ</a></div>
+    <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq" data-i18n="footerFaqLink">Veelgestelde vragen</a></div>
+    <div><h3 data-i18n="footerInfo">Informatie</h3><a href="/over-trendmix" data-i18n="footerAbout">Over TrendMix</a><a href="/affiliate" data-i18n="footerAffiliate">Affiliate & transparantie</a><a href="/privacy" data-i18n="footerPrivacy">Privacy</a><a href="/cookies" data-i18n="footerCookies">Cookies & voorkeuren</a><a href="/faq" data-i18n="footerFaqLinkShort">FAQ</a></div>
   </div>
-  <div class="shell footer-bottom"><span>© 2026 TrendMix</span><span>Modern · overzichtelijk · transparant · toegankelijk</span></div>
+  <div class="shell footer-bottom"><span>© 2026 TrendMix</span><span data-i18n="footerBottom">Modern · overzichtelijk · transparant · toegankelijk</span></div>
 </footer>
