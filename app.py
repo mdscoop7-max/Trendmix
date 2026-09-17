@@ -41,7 +41,6 @@ def clean_products(items):
         product.setdefault("cost_price", 0)
         product.setdefault("margin", 0)
         product.setdefault("orders", 0)
-        # These stay empty until the final affiliate network/merchant is selected.
         product.setdefault("merchant", "")
         product.setdefault("affiliate_network", "")
         product.setdefault("affiliate_url", "")
@@ -184,8 +183,15 @@ def faq():
     return render_template("faq.html", categories=CATEGORIES)
 
 
+# Keep reserved information paths from being swallowed by the generic category route.
+# Flask stops at the first matching rule, so the dynamic /<category_slug> route must
+# explicitly hand these paths back to their real handlers.
 @app.route("/<category_slug>")
 def category_page(category_slug):
+    if category_slug == "faq":
+        return faq()
+    if category_slug in INFO_PAGES:
+        return render_info_page(category_slug)
     if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
     category = CATEGORIES[category_slug]
