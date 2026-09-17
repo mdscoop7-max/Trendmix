@@ -89,6 +89,10 @@ def featured_mix():
     return mixed
 
 
+def category_images():
+    return {slug: (items[0].get("image", "") if items else "") for slug, items in products.items()}
+
+
 def slugify(value):
     value = re.sub(r"[^a-zA-Z0-9\s-]", "", value).strip().lower()
     return re.sub(r"[-\s]+", "-", value)
@@ -108,7 +112,7 @@ def home():
         needle = query.casefold()
         search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold()]
     counts = {slug: len(items) for slug, items in products.items()}
-    return render_template("index.html", categories=CATEGORIES, featured_products=featured_mix(), search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
+    return render_template("index.html", categories=CATEGORIES, featured_products=featured_mix(), category_images=category_images(), search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
 
 
 INFO_PAGES = {
@@ -180,11 +184,6 @@ def product_detail(category_slug, product_index):
     return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
 
 
-@app.route("/info/<info_slug>")
-def info_page(info_slug):
-    return render_info_page(info_slug)
-
-
 @app.route("/over-trendmix")
 def over_trendmix():
     return render_info_page("over-trendmix")
@@ -205,29 +204,18 @@ def cookies():
     return render_info_page("cookies")
 
 
-@app.route("/faq")
-def faq():
-    return render_template("faq.html", categories=CATEGORIES)
-
-
 @app.route("/robots.txt")
 def robots():
-    return Response("User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n", mimetype="text/plain")
+    return Response(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", mimetype="text/plain")
 
 
 @app.route("/sitemap.xml")
 def sitemap():
-    urls = ["/"]
-    urls.extend(f"/{slug}" for slug in CATEGORIES)
-    urls.extend(["/over-trendmix", "/affiliate", "/privacy", "/cookies", "/faq"])
-    urls.extend(f"/info/{slug}" for slug in INFO_PAGES)
-    for slug, items in products.items():
-        urls.extend(f"/product/{slug}/{index}" for index in range(len(items)))
-    body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"
-    body += "".join(f"<url><loc>{SITE_URL}{url}</loc></url>" for url in urls)
-    body += "</urlset>"
-    return Response(body, mimetype="application/xml")
+    urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/{slug}" for slug in CATEGORIES] + [f"{SITE_URL}/{path}" for path in INFO_PAGES]
+    urls.append(f"{SITE_URL}/faq")
+    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{url}</loc></url>" for url in urls) + "</urlset>"
+    return Response(xml, mimetype="application/xml")
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(debug=True)
