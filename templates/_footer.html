@@ -1,19 +1,24 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="active"><span>⌂</span>Home</a>
-  <a href="/#collecties"><span>▦</span>Categorieën</a>
-  <a href="/#featured"><span>✦</span>Highlights</a>
-  <a href="/faq"><span>◉</span>Info</a>
+  <a href="/" class="active"><span>⌂</span><span data-footer-key="footerHome">Home</span></a>
+  <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
+  <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
+  <a href="/faq"><span>◉</span><span data-i18n="footerInfo">Info</span></a>
 </nav>
 <footer class="site-footer">
   <div class="shell footer-grid">
     <div class="footer-brand">
       <a class="brand footer-logo" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a>
       <p data-i18n="footerText">Een onafhankelijke productcatalogus voor moderne trends, tech, home, beauty en lifestyle.</p>
-      <div class="footer-badges"><span>✓ Mobile first</span><span>✓ 5 talen</span><span>✓ 5 collecties</span></div>
+      <div class="footer-badges"><span>✓ <span data-footer-key="mobile">Mobiel eerst</span></span><span>✓ <span data-footer-key="langs">6 talen</span></span><span>✓ <span data-footer-key="collections">5 collecties</span></span></div>
+      <p class="footer-location" data-footer-key="location">Geëxploiteerd vanuit Marokko · affiliate netwerk volgt later</p>
     </div>
-    <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
-    <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq">Veelgestelde vragen</a></div>
-    <div><h3 data-i18n="footerInfo">Informatie</h3><a href="/over-trendmix">Over TrendMix</a><a href="/affiliate">Affiliate & transparantie</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies & voorkeuren</a><a href="/faq">FAQ</a></div>
+    <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}" data-category-name="{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
+    <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq" data-footer-key="faq">Veelgestelde vragen</a></div>
+    <div><h3 data-i18n="footerInfo">Informatie</h3><a href="/over-trendmix" data-footer-key="about">Over TrendMix</a><a href="/affiliate" data-footer-key="affiliate">Affiliate & transparantie</a><a href="/privacy" data-footer-key="privacy">Privacy</a><a href="/cookies" data-footer-key="cookies">Cookies & voorkeuren</a><a href="/faq" data-footer-key="faq">FAQ</a></div>
   </div>
-  <div class="shell footer-bottom"><span>© 2026 TrendMix</span><span>Modern · overzichtelijk · transparant · toegankelijk</span></div>
+  <div class="shell footer-bottom"><span>© 2026 TrendMix · MA</span><span data-footer-key="bottom">Modern · overzichtelijk · transparant · toegankelijk</span></div>
 </footer>
+<link rel="stylesheet" href="{{ url_for('static', filename='release-polish.css') }}">
+<script defer src="{{ url_for('static', filename='site-i18n.js') }}"></script>
+<script defer src="{{ url_for('static', filename='release-ui-i18n.js') }}"></script>
+<script defer src="{{ url_for('static', filename='language-reload.js') }}"></script>
