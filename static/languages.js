@@ -13,3 +13,30 @@ const sharedTranslations={
  es:{curatedPick:'SELECCIÓN',resultsFor:'resultados para',footerFaq:'Info',footerFaqLink:'Preguntas frecuentes',footerFaqLinkShort:'FAQ',footerAbout:'Sobre TrendMix',footerAffiliate:'Afiliación y transparencia',footerPrivacy:'Privacidad',footerCookies:'Cookies y preferencias',footerBadgeMobile:'✓ Mobile first',footerBadgeLanguages:'✓ 6 idiomas',footerBadgeCollections:'✓ 5 colecciones',footerBottom:'Moderno · claro · transparente · accesible'}
 };
 Object.keys(sharedTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...sharedTranslations[lang]};});
+
+/* Category cards were server-rendered in Dutch and therefore stayed unchanged.
+   Translate their names and eyebrow text whenever the language changes. */
+const categoryTranslations={
+ nl:{'pc-componenten':['PC-Componenten','Performance & gaming'],gadgets:['Gadgets','Slimme tech voor elke dag'],'smart-home':['Smart Home','Comfort & connected living'],'beauty-care':['Beauty & Care','Self-care & beauty'],'lifestyle-sport':['Sport & Lifestyle','Move, recover & live']},
+ en:{'pc-componenten':['PC Components','Performance & gaming'],gadgets:['Gadgets','Smart tech for every day'],'smart-home':['Smart Home','Comfort & connected living'],'beauty-care':['Beauty & Care','Self-care & beauty'],'lifestyle-sport':['Sport & Lifestyle','Move, recover & live']},
+ fr:{'pc-componenten':['Composants PC','Performance & gaming'],gadgets:['Gadgets','Technologie intelligente au quotidien'],'smart-home':['Maison connectée','Confort & vie connectée'],'beauty-care':['Beauté & soins','Soin de soi & beauté'],'lifestyle-sport':['Sport & lifestyle','Bouger, récupérer & vivre']},
+ de:{'pc-componenten':['PC-Komponenten','Leistung & Gaming'],gadgets:['Gadgets','Smarte Technik für jeden Tag'],'smart-home':['Smart Home','Komfort & vernetztes Leben'],'beauty-care':['Beauty & Pflege','Self-Care & Beauty'],'lifestyle-sport':['Sport & Lifestyle','Bewegen, erholen & leben']},
+ it:{'pc-componenten':['Componenti PC','Prestazioni & gaming'],gadgets:['Gadget','Tecnologia smart per ogni giorno'],'smart-home':['Casa intelligente','Comfort & vita connessa'],'beauty-care':['Beauty & cura','Self-care & bellezza'],'lifestyle-sport':['Sport & lifestyle','Muoversi, recuperare & vivere']},
+ es:{'pc-componenten':['Componentes PC','Rendimiento y gaming'],gadgets:['Gadgets','Tecnología inteligente para cada día'],'smart-home':['Smart Home','Confort y vida conectada'],'beauty-care:['Belleza y cuidado','Cuidado personal y belleza'],'lifestyle-sport':['Deporte y lifestyle','Muévete, recupérate y vive']}
+};
+
+const originalApplyLanguage=applyLanguage;
+applyLanguage=function(lang){
+  originalApplyLanguage(lang);
+  const cats=categoryTranslations[lang]||categoryTranslations.nl;
+  Object.keys(cats).forEach(slug=>{
+    const [name,eyebrow]=cats[slug];
+    document.querySelectorAll('.nav-link[href="/'+slug+'"] span:last-child').forEach(el=>el.textContent=name);
+    document.querySelectorAll('.category-card[href="/'+slug+'"] h3').forEach(el=>el.textContent=name);
+    document.querySelectorAll('.category-card[href="/'+slug+'"] .category-content > div:last-child > span').forEach(el=>el.textContent=eyebrow);
+    document.querySelectorAll('.hero-card small').forEach(el=>{
+      const href=el.closest('.hero-card')?.querySelector('img') ? null : null;
+      if(Object.values(cats).some(v=>v[0]===el.textContent)) el.textContent=name;
+    });
+  });
+};
