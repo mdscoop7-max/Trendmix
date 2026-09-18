@@ -197,20 +197,22 @@
       "price": 79.95,
       "cost_price": 0,
       "margin": 0,
-      "image": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80",
+      "image": "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Memory/vengeance-rgb-ddr5-config/black/2up/Vengeance-RGB-DDR5-2UP-BLACK_01.webp",
       "orders": 0,
       "description": "32GB DDR5-geheugen voor moderne desktops. Controleer snelheid, capaciteit en moederbordcompatibiliteit.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "USB-C Multi-Port Hub",
       "price": 49.95,
       "cost_price": 0,
       "margin": 0,
-      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
+      "image": "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg",
       "orders": 0,
       "description": "Compacte USB-C hub voor extra USB-poorten, HDMI en randapparatuur. Controleer de exacte poortconfiguratie.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "Wi-Fi 6 PCIe Adapter",
