@@ -27,12 +27,8 @@
 }
 .language-picker select option{background:#111520;color:#f3f5f9}
 @media(max-width:760px){
-  .language-picker{top:10px;right:10px;padding:6px 8px;border-radius:13px}
-  .language-picker select{min-width:132px;font-size:12px}
-}
-@media(max-width:760px){
+  .language-picker{top:10px;right:9px;padding:5px 7px;border-radius:13px}
   .language-picker > span{display:none}
-  .language-picker{right:9px;padding:5px 7px}
   .language-picker select{min-width:94px;font-size:11px}
 }
 @media(max-width:470px){
