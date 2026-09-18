@@ -1,5 +1,5 @@
 /* TrendMix language control: stays visible while scrolling */
-.language-picker{
+.language-picker{top:50%;transform:translateY(-50%);
   position:fixed;
   top:12px;
   right:24px;
@@ -27,11 +27,13 @@
 }
 .language-picker select option{background:#111520;color:#f3f5f9}
 @media(max-width:760px){
-  .language-picker{top:10px;right:9px;padding:5px 7px;border-radius:13px}
+  .language-picker{top:50%;right:9px;transform:translateY(-50%);padding:5px 7px;border-radius:13px}
   .language-picker > span{display:none}
   .language-picker select{min-width:94px;font-size:11px}
 }
 @media(max-width:470px){
-  .language-picker{top:8px;right:8px}
+  .language-picker{top:50%;right:8px;transform:translateY(-50%)}
   .language-picker select{min-width:90px;font-size:10px}
 }
+
+@media(max-width:760px){.footer-contact{display:none}.mobile-app-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.mobile-app-nav a:nth-child(4){border-right:1px solid rgba(255,255,255,.08)}.mobile-app-nav a:nth-child(5){color:#ff8b8b}.cart-contact-link{margin:0 auto 55px;text-align:center}.cart-contact-link .btn{width:100%}}
