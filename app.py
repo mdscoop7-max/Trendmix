@@ -155,7 +155,7 @@ def render_info_page(info_slug):
     page = INFO_PAGES.get(info_slug)
     if not page:
         return "Pagina niet gevonden", 404
-    return render_template("info.html", title=page["title"], description=page["description"], content=page["content"], path=f"/info/{info_slug}", categories=CATEGORIES)
+    return render_template("info.html", title=page["title"], description=page["description"], content=page["content"], path=f"/{info_slug}", categories=CATEGORIES)
 
 
 @app.route("/<category_slug>")
