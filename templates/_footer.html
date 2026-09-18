@@ -12,13 +12,13 @@
       <div class="footer-badges"><span>✓ Mobile first</span><span>✓ 6 talen</span><span>✓ 5 collecties</span></div>
     </div>
     <div class="footer-contact">
-      <h3>Contact</h3>
-      <p>Heb je een vraag of feedback? Stuur ons een bericht.</p>
+      <h3 data-i18n="footerContactTitle">Contact</h3>
+      <p data-i18n="footerContactText">Heb je een vraag of feedback? Stuur ons een bericht.</p>
       <form class="contact-form" action="/contact" method="post">
-        <label><span>Naam</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span>E-mail</span><input type="email" name="email" autocomplete="email" required></label>
-        <label><span>Bericht</span><textarea name="message" rows="4" required></textarea></label>
-        <button type="submit">Verstuur bericht →</button>
+        <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" required></label>
+        <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" required></label>
+        <label><span data-i18n="contactMessage">Bericht</span><textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" data-i18n="contactSubmit">Verstuur bericht →</button>
       </form>
     </div>
     <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
