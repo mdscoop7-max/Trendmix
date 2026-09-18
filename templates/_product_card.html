@@ -8,7 +8,7 @@
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       <strong>€ {{ "%.2f"|format(product.price) }}</strong>
-      <button type="button" class="round-arrow" aria-label="Toevoegen aan winkelwagen" data-add-product='{"id":"{{ product.category_slug }}-{{ product.index }}","name":"{{ product.name|e }}","price":{{ product.price|default(0) }},"image":"{{ product.image|default("")|e }}"}'>+</button>
+      <button type="button" class="round-arrow" aria-label="Toevoegen aan winkelwagen" data-go-cart="1" data-add-product='{"id":"{{ product.category_slug }}-{{ product.index }}","name":"{{ product.name|e }}","price":{{ product.price|default(0) }},"image":"{{ product.image|default("")|e }}"}'>+</button>
     </div>
   </div>
 </article>
