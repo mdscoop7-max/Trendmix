@@ -1,0 +1,23 @@
+{
+  "integration": "sell_the_trend",
+  "status": "platform_connection_required",
+  "store_platform": null,
+  "customer_checkout": "TrendMix",
+  "affiliate_redirects": false,
+  "order_flow": [
+    "customer_orders_on_trendmix",
+    "payment_is_captured_by_store_platform",
+    "order_is_created_in_store_platform",
+    "sell_the_trend_receives_the_store_order",
+    "supplier_fulfills_and_returns_tracking"
+  ],
+  "supported_store_platforms": [
+    "woocommerce",
+    "shopify"
+  ],
+  "notes": [
+    "Sell The Trend currently documents direct integrations with ecommerce platforms rather than a public direct API for a custom Flask store.",
+    "Do not add affiliate URLs or external checkout links.",
+    "Connect TrendMix to WooCommerce or Shopify before enabling live payment and automated fulfillment."
+  ]
+}
