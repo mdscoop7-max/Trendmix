@@ -9,7 +9,17 @@
     <div class="footer-brand">
       <a class="brand footer-logo" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a>
       <p data-i18n="footerText">Een onafhankelijke productcatalogus voor moderne trends, tech, home, beauty en lifestyle.</p>
-      <div class="footer-badges"><span data-i18n="footerBadgeMobile">✓ Mobile first</span><span data-i18n="footerBadgeLanguages">✓ 6 talen</span><span data-i18n="footerBadgeCollections">✓ 5 collecties</span></div>
+      <div class="footer-badges"><span>✓ Mobile first</span><span>✓ 6 talen</span><span>✓ 5 collecties</span></div>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p>Heb je een vraag of feedback? Stuur ons een bericht.</p>
+      <form class="contact-form" action="/contact" method="post">
+        <label><span>Naam</span><input type="text" name="name" autocomplete="name" required></label>
+        <label><span>E-mail</span><input type="email" name="email" autocomplete="email" required></label>
+        <label><span>Bericht</span><textarea name="message" rows="4" required></textarea></label>
+        <button type="submit">Verstuur bericht →</button>
+      </form>
     </div>
     <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
     <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq" data-i18n="footerFaqLink">Veelgestelde vragen</a></div>
