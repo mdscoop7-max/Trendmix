@@ -4,6 +4,16 @@ translations.de={
 };
 
 /* Contact form translations */
+const sortTranslations={
+ nl:{sortRecommended:'Aanbevolen',sortLow:'Prijs laag → hoog',sortHigh:'Prijs hoog → laag',sortName:'Naam A → Z'},
+ en:{sortRecommended:'Recommended',sortLow:'Price low → high',sortHigh:'Price high → low',sortName:'Name A → Z'},
+ fr:{sortRecommended:'Recommandé',sortLow:'Prix croissant',sortHigh:'Prix décroissant',sortName:'Nom A → Z'},
+ de:{sortRecommended:'Empfohlen',sortLow:'Preis aufsteigend',sortHigh:'Preis absteigend',sortName:'Name A → Z'},
+ it:{sortRecommended:'Consigliato',sortLow:'Prezzo crescente',sortHigh:'Prezzo decrescente',sortName:'Nome A → Z'},
+ es:{sortRecommended:'Recomendado',sortLow:'Precio menor → mayor',sortHigh:'Precio mayor → menor',sortName:'Nombre A → Z'}
+};
+Object.keys(sortTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...sortTranslations[lang]};});
+
 const contactTranslations={
  nl:{footerContactTitle:'Contact',footerContactText:'Heb je een vraag of feedback? Stuur ons een bericht.',contactName:'Naam',contactEmail:'E-mail',contactMessage:'Bericht',contactSubmit:'Verstuur bericht →'},
  en:{footerContactTitle:'Contact',footerContactText:'Have a question or feedback? Send us a message.',contactName:'Name',contactEmail:'Email',contactMessage:'Message',contactSubmit:'Send message →'},
@@ -40,6 +50,15 @@ const originalApplyLanguage=applyLanguage;
 applyLanguage=function(lang){
   originalApplyLanguage(lang);
   const cats=categoryTranslations[lang]||categoryTranslations.nl;
+  document.querySelectorAll('[data-category-name]').forEach(el=>{
+    const slug=el.dataset.categoryName;
+    if(cats[slug]) el.textContent=cats[slug][0];
+  });
+  document.querySelectorAll('[data-category-eyebrow]').forEach(el=>{
+    const slug=el.dataset.categoryEyebrow;
+    if(cats[slug]) el.textContent=cats[slug][1];
+  });
+
   Object.keys(cats).forEach(slug=>{
     const [name,eyebrow]=cats[slug];
     document.querySelectorAll('.nav-link[href="/'+slug+'"] span:last-child').forEach(el=>el.textContent=name);
