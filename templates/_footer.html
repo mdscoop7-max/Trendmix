@@ -2,6 +2,7 @@
   <a href="/" class="active"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
   <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
   <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
+  <a href="/winkelwagen"><span>🛒</span><span>Winkelwagen</span></a>
   <a href="/faq"><span>◉</span><span data-i18n="footerFaq">Info</span></a>
 </nav>
 <footer class="site-footer">
@@ -14,12 +15,7 @@
     <div class="footer-contact" id="contact">
       <h3 data-i18n="footerContactTitle">Contact</h3>
       <p data-i18n="footerContactText">Heb je een vraag of feedback? Stuur ons een bericht.</p>
-      <form class="contact-form" action="/contact" method="post">
-        <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" required></label>
-        <label><span data-i18n="contactMessage">Bericht</span><textarea name="message" rows="4" required></textarea></label>
-        <button type="submit" data-i18n="contactSubmit">Verstuur bericht →</button>
-      </form>
+      <button type="button" class="btn btn-dark" data-contact-open>✉ Contactformulier openen</button>
     </div>
     <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
     <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq" data-i18n="footerFaqLink">Veelgestelde vragen</a></div>
