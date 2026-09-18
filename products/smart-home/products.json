@@ -47,8 +47,9 @@
       "price": 29.95,
       "cost_price": 11.95,
       "margin": 60.1,
-      "image": "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80&sat=-15",
-      "orders": 0
+      "image": "https://www.cpourtoi.net/cdn/shop/files/Tapo-T100-Detecteur-de-Mouvement-Intelligent-Detection-Portee-Allumage-Automatique-Compatible-Alexa-et-Google-Home-TAPO-175743998.jpg?v=1767897147&width=1946",
+      "orders": 0,
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "Smart Doorbell",
