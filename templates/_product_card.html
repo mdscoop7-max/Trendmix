@@ -1,11 +1,19 @@
 <article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
   <a class="product-image" href="/product/{{ product.category_slug }}/{{ product.index }}" aria-label="{{ product.name }}">
-    {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async">{% else %}<span class="image-fallback">{{ product.icon|default('🛍️') }}</span>{% endif %}
-    <span class="product-badge" data-i18n="curatedBadge">TrendMix selectie</span>
+    {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async">{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
+    <span class="product-badge" data-i18n="curatedBadge">{% if product.type == 'affiliate' %}Affiliate aanbod{% else %}TrendMix selectie{% endif %}</span>
   </a>
   <div class="product-body">
     <span class="product-category" data-category-name="{{ product.category_slug }}">{{ product.category_name }}</span>
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
-    <div class="product-bottom"><strong>€ {{ "%.2f"|format(product.price) }}</strong><a href="/product/{{ product.category_slug }}/{{ product.index }}" class="round-arrow" aria-label="Bekijk product" data-i18n="viewProduct">→</a></div>
+    <div class="product-bottom">
+      {% if product.type == 'affiliate' %}
+        <strong>Affiliate</strong>
+        <a href="/product/{{ product.category_slug }}/{{ product.index }}" class="round-arrow" aria-label="Bekijk aanbod">→</a>
+      {% else %}
+        <strong>€ {{ "%.2f"|format(product.price) }}</strong>
+        <a href="/product/{{ product.category_slug }}/{{ product.index }}" class="round-arrow" aria-label="Bekijk product" data-i18n="viewProduct">→</a>
+      {% endif %}
+    </div>
   </div>
 </article>
