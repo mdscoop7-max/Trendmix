@@ -1,6 +1,6 @@
 {
   "category": "Beauty & Care",
-  "source": "Sell The Trend public trend research + curated catalog",
+  "source": "Curated TrendMix catalog for dropshipping",
   "products": [
     {
       "name": "GlowSwipe Serum Balm Stick",
@@ -161,40 +161,6 @@
       "margin": 64.9,
       "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80",
       "orders": 0
-    },
-    {
-      "name": "iGenics / Clear Vision Breakthrough",
-      "type": "affiliate",
-      "price": 0,
-      "cost_price": 0,
-      "margin": 0,
-      "commission": "65%",
-      "aov": "$137.12",
-      "affiliate_id": "Scoopmd",
-      "affiliate_link": "https://clearvisionbreakthrough.com/tsl.php#aff=Scoopmd",
-      "description": "Vision-wellness supplement promoted through Digistore24. Product claims on the sales page are not presented as medical facts.",
-      "image": "https://clearvisionbreakthrough.com/new-images/bottle1-tsl.png?v=44",
-      "orders": 0,
-      "affiliate_price": "$59 per fles",
-      "affiliate_price_note": "$39 per fles bij het 6-fles pakket; $49 per fles bij het 3-fles pakket. Prijzen op de aanbiederspagina kunnen wijzigen.",
-      "price_currency": "USD"
-    },
-    {
-      "name": "Advanced Amino Formula",
-      "type": "affiliate",
-      "price": 0,
-      "cost_price": 0,
-      "margin": 0,
-      "commission": "60%",
-      "aov": "$142.03",
-      "affiliate_id": "Scoopmd",
-      "affiliate_link": "https://www.advancedbionutritionals.com/DS24/Advanced-Amino/Muscle-Mass-Loss/HD.htm#aff=Scoopmd",
-      "description": "Amino-acid wellness supplement promoted through Digistore24. Product claims on the sales page are not presented as medical facts.",
-      "image": "https://assets.advancedbionutritionals.com/Images/Landing-Pages-2020/Advanced-Amino-2023/High-Design/1bottle.jpg",
-      "orders": 0,
-      "affiliate_price": "$39.95 per fles",
-      "affiliate_price_note": "$35.95 per fles bij 3 flessen en $33.25 per fles bij 6 flessen. Prijzen op de aanbiederspagina kunnen wijzigen.",
-      "price_currency": "USD"
     }
   ]
 }
