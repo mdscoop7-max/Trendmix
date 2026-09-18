@@ -1,7 +1,7 @@
 import json
 import re
 from pathlib import Path
-from flask import Flask, Response, render_template, request
+from flask import Flask, Response, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
@@ -183,6 +183,21 @@ def product_detail(category_slug, product_index):
         related.append(related_item)
     return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
 
+
+@app.route("/faq")
+def faq():
+    return render_template("faq.html", categories=CATEGORIES)
+
+@app.route("/contact", methods=["POST"])
+def contact():
+    name = request.form.get("name", "").strip()
+    email = request.form.get("email", "").strip()
+    message = request.form.get("message", "").strip()
+    if not name or not email or not message:
+        return redirect(url_for("home") + "#contact")
+    # The footer form is ready for a mail provider/webhook. We intentionally do not
+    # pretend to deliver mail until a destination service is configured.
+    return redirect(url_for("home") + "?contact=received#contact")
 
 @app.route("/over-trendmix")
 def over_trendmix():
