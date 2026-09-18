@@ -223,3 +223,6 @@ applyLanguage=function(lang){
     const meta=document.querySelector('[data-meta-description]');if(meta)meta.setAttribute('content',ui.faqLead);
   }
 };
+
+const contactStatusTranslations={nl:{contactSent:'✓ Je bericht is verzonden. Bedankt voor je bericht!',contactError:'Je bericht kon niet worden verzonden. Controleer later opnieuw of neem rechtstreeks contact met ons op.'},en:{contactSent:'✓ Your message was sent. Thank you!',contactError:'Your message could not be sent. Please try again later or contact us directly.'},fr:{contactSent:'✓ Votre message a été envoyé. Merci !',contactError:'Votre message n’a pas pu être envoyé. Réessayez plus tard ou contactez-nous directement.'},de:{contactSent:'✓ Deine Nachricht wurde gesendet. Vielen Dank!',contactError:'Deine Nachricht konnte nicht gesendet werden. Versuche es später erneut oder kontaktiere uns direkt.'},it:{contactSent:'✓ Il tuo messaggio è stato inviato. Grazie!',contactError:'Il messaggio non può essere inviato. Riprova più tardi o contattaci direttamente.'},es:{contactSent:'✓ Tu mensaje se ha enviado. ¡Gracias!',contactError:'No se ha podido enviar tu mensaje. Inténtalo más tarde o contáctanos directamente.'}};
+Object.keys(contactStatusTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...contactStatusTranslations[lang]};});
