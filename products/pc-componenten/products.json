@@ -1,26 +1,246 @@
 {
   "category": "PC Componenten",
-  "source": "TrendMix curated gaming PC collection",
+  "source": "TrendMix curated EU dropshipping shortlist; supplier and wholesale price verification pending",
   "products": [
-    {"name":"360mm ARGB AIO Water Cooling","price":129.95,"cost_price":79.95,"margin":38.5,"image":"https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"240mm ARGB AIO Water Cooling","price":89.95,"cost_price":54.95,"margin":38.9,"image":"https://images.unsplash.com/photo-1587202372634-32705e3bf4c7?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"280mm AIO Water Cooling","price":109.95,"cost_price":66.95,"margin":39.1,"image":"https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"High-Performance Air CPU Cooler","price":59.95,"cost_price":34.95,"margin":41.7,"image":"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"1000W 80+ Gold Gaming Power Supply","price":149.95,"cost_price":99.95,"margin":33.3,"image":"https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"850W 80+ Gold Gaming Power Supply","price":119.95,"cost_price":79.95,"margin":33.3,"image":"https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"750W 80+ Gold Gaming Power Supply","price":99.95,"cost_price":64.95,"margin":35.0,"image":"https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"Fully Modular Gaming PSU","price":109.95,"cost_price":69.95,"margin":36.4,"image":"https://images.unsplash.com/photo-1587202372583-49330a15584d?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"PCIe 5.0 / ATX 3.1 Gaming PSU","price":139.95,"cost_price":89.95,"margin":35.7,"image":"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"High-Speed DDR5 RGB Gaming RAM","price":94.95,"cost_price":59.95,"margin":36.9,"image":"https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"32GB DDR5 Gaming RAM Kit","price":79.95,"cost_price":49.95,"margin":37.5,"image":"https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80&sat=-10","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"64GB DDR5 Gaming RAM Kit","price":149.95,"cost_price":94.95,"margin":36.7,"image":"https://images.unsplash.com/photo-1592664474505-51c549ad15c5?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"1TB NVMe Gen4 Gaming SSD","price":69.95,"cost_price":44.95,"margin":35.7,"image":"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&sat=10","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"2TB NVMe Gen4 Gaming SSD","price":119.95,"cost_price":74.95,"margin":37.5,"image":"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&con=15","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"4TB NVMe Gaming SSD","price":229.95,"cost_price":149.95,"margin":34.8,"image":"https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80&sat=15","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"PCIe 4.0 NVMe SSD Heatsink","price":24.95,"cost_price":9.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"GPU Vertical Mount Kit","price":49.95,"cost_price":29.95,"margin":40.0,"image":"https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80&sat=20","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"GPU Anti-Sag Support Bracket","price":29.95,"cost_price":11.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1587202372162-4d9a7f5f2c65?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"ARGB Gaming Case Fans — 3/6 Pack","price":49.95,"cost_price":27.95,"margin":44.0,"image":"https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0},
-    {"name":"Premium ARGB Gaming PC Case","price":139.95,"cost_price":89.95,"margin":35.7,"image":"https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=900&q=80","supplier":"Gaming Components Supplier","orders":0}
+    {
+      "name": "360mm ARGB AIO Water Cooling",
+      "price": 129.95,
+      "cost_price": 79.95,
+      "margin": 38.5,
+      "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "240mm ARGB AIO Water Cooling",
+      "price": 89.95,
+      "cost_price": 54.95,
+      "margin": 38.9,
+      "image": "https://images.unsplash.com/photo-1587202372634-32705e3bf4c7?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "280mm AIO Water Cooling",
+      "price": 109.95,
+      "cost_price": 66.95,
+      "margin": 39.1,
+      "image": "https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "High-Performance Air CPU Cooler",
+      "price": 59.95,
+      "cost_price": 34.95,
+      "margin": 41.7,
+      "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "1000W 80+ Gold Gaming Power Supply",
+      "price": 149.95,
+      "cost_price": 99.95,
+      "margin": 33.3,
+      "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "850W 80+ Gold Gaming Power Supply",
+      "price": 119.95,
+      "cost_price": 79.95,
+      "margin": 33.3,
+      "image": "https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "750W 80+ Gold Gaming Power Supply",
+      "price": 99.95,
+      "cost_price": 64.95,
+      "margin": 35,
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "Fully Modular Gaming PSU",
+      "price": 109.95,
+      "cost_price": 69.95,
+      "margin": 36.4,
+      "image": "https://images.unsplash.com/photo-1587202372583-49330a15584d?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "PCIe 5.0 / ATX 3.1 Gaming PSU",
+      "price": 139.95,
+      "cost_price": 89.95,
+      "margin": 35.7,
+      "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "High-Speed DDR5 RGB Gaming RAM",
+      "price": 94.95,
+      "cost_price": 59.95,
+      "margin": 36.9,
+      "image": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "32GB DDR5 Gaming RAM Kit",
+      "price": 79.95,
+      "cost_price": 49.95,
+      "margin": 37.5,
+      "image": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80&sat=-10",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "64GB DDR5 Gaming RAM Kit",
+      "price": 149.95,
+      "cost_price": 94.95,
+      "margin": 36.7,
+      "image": "https://images.unsplash.com/photo-1592664474505-51c549ad15c5?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "1TB NVMe Gen4 Gaming SSD",
+      "price": 69.95,
+      "cost_price": 44.95,
+      "margin": 35.7,
+      "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&sat=10",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "2TB NVMe Gen4 Gaming SSD",
+      "price": 119.95,
+      "cost_price": 74.95,
+      "margin": 37.5,
+      "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&con=15",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "4TB NVMe Gaming SSD",
+      "price": 229.95,
+      "cost_price": 149.95,
+      "margin": 34.8,
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80&sat=15",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "PCIe 4.0 NVMe SSD Heatsink",
+      "price": 24.95,
+      "cost_price": 9.95,
+      "margin": 60.1,
+      "image": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "GPU Vertical Mount Kit",
+      "price": 49.95,
+      "cost_price": 29.95,
+      "margin": 40,
+      "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80&sat=20",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "GPU Anti-Sag Support Bracket",
+      "price": 29.95,
+      "cost_price": 11.95,
+      "margin": 60.1,
+      "image": "https://images.unsplash.com/photo-1587202372162-4d9a7f5f2c65?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "ARGB Gaming Case Fans — 3/6 Pack",
+      "price": 49.95,
+      "cost_price": 27.95,
+      "margin": 44,
+      "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "Premium ARGB Gaming PC Case",
+      "price": 139.95,
+      "cost_price": 89.95,
+      "margin": 35.7,
+      "image": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=900&q=80",
+      "supplier": "Gaming Components Supplier",
+      "orders": 0
+    },
+    {
+      "name": "1TB NVMe SSD",
+      "price": 69.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Snelle NVMe-opslag voor desktops en laptops met M.2-slot. Controleer interface en formaat voor aankoop.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "32GB DDR5 RAM Kit",
+      "price": 79.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "32GB DDR5-geheugen voor moderne desktops. Controleer snelheid, capaciteit en moederbordcompatibiliteit.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "USB-C Multi-Port Hub",
+      "price": 49.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Compacte USB-C hub voor extra USB-poorten, HDMI en randapparatuur. Controleer de exacte poortconfiguratie.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Wi-Fi 6 PCIe Adapter",
+      "price": 39.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "PCIe-adapter voor desktop-pc's die Wi-Fi 6 en draadloze netwerkconnectiviteit ondersteunt.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Laptop Stand",
+      "price": 39.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Verstelbare laptopstandaard voor een comfortabelere bureau-opstelling en betere schermhoogte.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "ARGB Case Fan 3-Pack",
+      "price": 34.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Set van drie 120mm RGB-casefans voor luchtstroom en een nette gaming-pc uitstraling.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    }
   ]
 }
