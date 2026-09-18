@@ -173,8 +173,11 @@
       "affiliate_id": "Scoopmd",
       "affiliate_link": "https://clearvisionbreakthrough.com/tsl.php#aff=Scoopmd",
       "description": "Vision-wellness supplement promoted through Digistore24. Product claims on the sales page are not presented as medical facts.",
-      "image": "",
-      "orders": 0
+      "image": "https://clearvisionbreakthrough.com/new-images/bottle1-tsl.png?v=44",
+      "orders": 0,
+      "affiliate_price": "$59 per fles",
+      "affiliate_price_note": "$39 per fles bij het 6-fles pakket; $49 per fles bij het 3-fles pakket. Prijzen op de aanbiederspagina kunnen wijzigen.",
+      "price_currency": "USD"
     },
     {
       "name": "Advanced Amino Formula",
@@ -187,8 +190,11 @@
       "affiliate_id": "Scoopmd",
       "affiliate_link": "https://www.advancedbionutritionals.com/DS24/Advanced-Amino/Muscle-Mass-Loss/HD.htm#aff=Scoopmd",
       "description": "Amino-acid wellness supplement promoted through Digistore24. Product claims on the sales page are not presented as medical facts.",
-      "image": "",
-      "orders": 0
+      "image": "https://assets.advancedbionutritionals.com/Images/Landing-Pages-2020/Advanced-Amino-2023/High-Design/1bottle.jpg",
+      "orders": 0,
+      "affiliate_price": "$39.95 per fles",
+      "affiliate_price_note": "$35.95 per fles bij 3 flessen en $33.25 per fles bij 6 flessen. Prijzen op de aanbiederspagina kunnen wijzigen.",
+      "price_currency": "USD"
     }
   ]
 }
