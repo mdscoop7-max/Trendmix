@@ -4,7 +4,7 @@
     <span class="product-badge" data-i18n="curatedBadge">TrendMix selectie</span>
   </a>
   <div class="product-body">
-    <span class="product-category">{{ product.category_name }}</span>
+    <span class="product-category" data-category-name="{{ product.category_slug }}">{{ product.category_name }}</span>
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom"><strong>€ {{ "%.2f"|format(product.price) }}</strong><a href="/product/{{ product.category_slug }}/{{ product.index }}" class="round-arrow" aria-label="Bekijk product" data-i18n="viewProduct">→</a></div>
   </div>
