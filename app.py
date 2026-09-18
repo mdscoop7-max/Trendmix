@@ -1,7 +1,6 @@
 import json
 import re
 import os
-import json as _json
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -217,7 +216,7 @@ def contact():
         "subject": f"TrendMix contactformulier: {name}",
         "text": f"Naam: {name}\\nE-mail: {email}\\n\\nBericht:\\n{message}",
     }
-    data = _json.dumps(payload).encode("utf-8")
+    data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         "https://api.resend.com/emails",
         data=data,
