@@ -1,5 +1,9 @@
 import json
 import re
+import os
+import json as _json
+import urllib.request
+import urllib.error
 from pathlib import Path
 from flask import Flask, Response, render_template, request, redirect, url_for
 
@@ -193,12 +197,44 @@ def contact():
     name = request.form.get("name", "").strip()
     email = request.form.get("email", "").strip()
     message = request.form.get("message", "").strip()
-    if not name or not email or not message:
-        return redirect(url_for("home") + "#contact")
-    # Test destination: mdscoop020@gmail.com
-    # Configure SMTP/API credentials in the deployment environment before enabling
-    # actual delivery; never store passwords or API keys in GitHub.
-    return redirect(url_for("home") + "?contact=received#contact")
+
+    if not name or not email or not message or len(name) > 120 or len(email) > 254 or len(message) > 5000:
+        return redirect(url_for("home") + "?contact=error#contact")
+
+    if not re.fullmatch(r"[^@\\s]+@[^@\\s]+\\.[^@\\s]+", email):
+        return redirect(url_for("home") + "?contact=error#contact")
+
+    api_key = os.getenv("RESEND_API_KEY")
+    from_email = os.getenv("CONTACT_FROM_EMAIL")
+    if not api_key or not from_email:
+        app.logger.error("Contact mail is not configured: RESEND_API_KEY and CONTACT_FROM_EMAIL are required.")
+        return redirect(url_for("home") + "?contact=error#contact")
+
+    payload = {
+        "from": from_email,
+        "to": ["mdscoop020@gmail.com"],
+        "reply_to": email,
+        "subject": f"TrendMix contactformulier: {name}",
+        "text": f"Naam: {name}\\nE-mail: {email}\\n\\nBericht:\\n{message}",
+    }
+    data = _json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=data,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            if 200 <= response.status < 300:
+                return redirect(url_for("home") + "?contact=sent#contact")
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
+        app.logger.error("Contact mail failed: %s", exc)
+
+    return redirect(url_for("home") + "?contact=error#contact")
 
 @app.route("/over-trendmix")
 def over_trendmix():
