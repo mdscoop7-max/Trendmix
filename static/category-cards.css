@@ -1,19 +1,30 @@
-/* Photo-led collection cards inspired by the new mobile reference. */
-.category-card{position:relative;overflow:hidden;padding:0;min-height:180px;background:#111520;border:1px solid #272e3e;color:#fff;isolation:isolate}
+/* TrendMix collection cards: compact photo-led layout. */
+.category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;width:100%;min-width:0}
+.category-card{position:relative;overflow:hidden;padding:0!important;min-width:0;min-height:155px!important;background:#111520;border:1px solid #272e3e;color:#fff;border-radius:18px;isolation:isolate;display:flex;flex-direction:column;justify-content:stretch}
 .category-media{position:absolute;inset:0;z-index:-2;background:#171c28}
 .category-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-.category-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,8,13,.06) 10%,rgba(6,8,13,.2) 38%,rgba(6,8,13,.9) 100%)}
-.category-content{position:relative;z-index:1;min-height:180px;padding:15px;display:flex;flex-direction:column;justify-content:space-between}
+.category-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,8,13,.04) 8%,rgba(6,8,13,.18) 34%,rgba(6,8,13,.92) 100%)}
+.category-content{position:relative;z-index:1;min-height:155px!important;height:100%;padding:12px!important;display:flex;flex-direction:column;justify-content:space-between}
 .category-card:hover .category-media img{transform:scale(1.04)}
-.category-icon{width:42px;height:42px;border-radius:14px;background:rgba(25,30,44,.88);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);display:grid;place-items:center;font-size:23px}
+.category-icon{width:38px;height:38px;border-radius:12px;background:rgba(25,30,44,.9);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);display:grid;place-items:center;font-size:20px}
 .category-card span{color:#d2d6df;text-shadow:0 1px 8px rgba(0,0,0,.55)}
-.category-card h3{color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.65)}
-.category-card small{color:#d4d8e2;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.category-card h3{color:#fff;font-size:16px;line-height:1.15;margin:3px 0 7px;text-shadow:0 2px 10px rgba(0,0,0,.65)}
+.category-card small{color:#d4d8e2;text-shadow:0 1px 8px rgba(0,0,0,.6);font-size:10px}
 .category-card small b{color:#b47cff}
+@media(max-width:1100px) and (min-width:761px){.category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.category-card,.category-content{min-height:150px!important}}
 @media(max-width:760px){
-  .category-card{min-height:150px}
-  .category-content{min-height:150px;padding:15px}
-  .category-icon{width:42px;height:42px}
-  .category-card h3{font-size:14px;margin:3px 0 8px}
-  .category-card span{margin-top:10px}
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .category-card,.category-content{min-height:148px!important}
+  .category-content{padding:11px!important}
+  .category-icon{width:38px;height:38px}
+  .category-card h3{font-size:14px;margin:2px 0 6px}
+  .category-card span{margin-top:7px;font-size:9px}
+  .category-card small{font-size:9px}
+}
+@media(max-width:470px){
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .category-card,.category-content{min-height:142px!important}
+  .category-content{padding:10px!important}
+  .category-icon{width:36px;height:36px;font-size:19px}
+  .category-card h3{font-size:13px}
 }
