@@ -188,6 +188,10 @@ def product_detail(category_slug, product_index):
     return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
 
 
+@app.route("/winkelwagen")
+def winkelwagen():
+    return render_template("cart.html", categories=CATEGORIES)
+
 @app.route("/faq")
 def faq():
     return render_template("faq.html", categories=CATEGORIES)
