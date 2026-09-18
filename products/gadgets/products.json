@@ -1,26 +1,226 @@
 {
   "category": "Gadgets",
-  "source": "Sell The Trend public trend research + curated catalog",
+  "source": "TrendMix curated EU dropshipping shortlist; supplier and wholesale price verification pending",
   "products": [
-    {"name":"PrivSnap Magnetic Phone Case","price":34.95,"cost_price":14.95,"margin":57.2,"image":"https://images.unsplash.com/photo-1601593346740-925612772716?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"PhotoTag Smart Tracker Keychain","price":29.95,"cost_price":12.95,"margin":56.8,"image":"https://images.unsplash.com/photo-1557180295-76eee20ae8aa?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"TalkPlay Video Walkie Set","price":59.95,"cost_price":29.95,"margin":50.0,"image":"https://images.unsplash.com/photo-1586182987320-4f17e9c3e1d0?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"VisionX Smart Camera Glasses","price":89.95,"cost_price":54.95,"margin":38.9,"image":"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Wireless Charging Station","price":39.95,"cost_price":17.95,"margin":55.0,"image":"https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Portable Bluetooth Speaker","price":44.95,"cost_price":21.95,"margin":51.2,"image":"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Magnetic Power Bank","price":49.95,"cost_price":24.95,"margin":50.0,"image":"https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Portable Neck Fan","price":29.95,"cost_price":12.95,"margin":56.8,"image":"https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Smart Phone Stand","price":24.95,"cost_price":8.95,"margin":64.1,"image":"https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"USB-C Multi-Port Hub","price":39.95,"cost_price":16.95,"margin":57.6,"image":"https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"DriveSync 10” Wireless CarPlay","price":119.95,"cost_price":67.95,"margin":43.4,"image":"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Mini Pocket Thermal Printer","price":49.95,"cost_price":23.95,"margin":52.0,"image":"https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"3-in-1 Charging Cable","price":19.95,"cost_price":6.95,"margin":65.2,"image":"https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Bluetooth Item Finder","price":24.95,"cost_price":9.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Foldable Laptop Stand","price":39.95,"cost_price":16.95,"margin":57.6,"image":"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"LED Desk Light Bar","price":34.95,"cost_price":13.95,"margin":60.1,"image":"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Wireless Lavalier Microphone","price":59.95,"cost_price":28.95,"margin":51.7,"image":"https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Smart LED Strip Kit","price":29.95,"cost_price":10.95,"margin":63.4,"image":"https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Compact Travel Power Adapter","price":44.95,"cost_price":19.95,"margin":55.6,"image":"https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80","orders":0},
-    {"name":"Digital Luggage Scale","price":24.95,"cost_price":8.95,"margin":64.1,"image":"https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=80","orders":0}
+    {
+      "name": "PrivSnap Magnetic Phone Case",
+      "price": 34.95,
+      "cost_price": 14.95,
+      "margin": 57.2,
+      "image": "https://images.unsplash.com/photo-1601593346740-925612772716?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "PhotoTag Smart Tracker Keychain",
+      "price": 29.95,
+      "cost_price": 12.95,
+      "margin": 56.8,
+      "image": "https://images.unsplash.com/photo-1557180295-76eee20ae8aa?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "TalkPlay Video Walkie Set",
+      "price": 59.95,
+      "cost_price": 29.95,
+      "margin": 50,
+      "image": "https://images.unsplash.com/photo-1586182987320-4f17e9c3e1d0?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "VisionX Smart Camera Glasses",
+      "price": 89.95,
+      "cost_price": 54.95,
+      "margin": 38.9,
+      "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Wireless Charging Station",
+      "price": 39.95,
+      "cost_price": 17.95,
+      "margin": 55,
+      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Portable Bluetooth Speaker",
+      "price": 44.95,
+      "cost_price": 21.95,
+      "margin": 51.2,
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Magnetic Power Bank",
+      "price": 49.95,
+      "cost_price": 24.95,
+      "margin": 50,
+      "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Portable Neck Fan",
+      "price": 29.95,
+      "cost_price": 12.95,
+      "margin": 56.8,
+      "image": "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Smart Phone Stand",
+      "price": 24.95,
+      "cost_price": 8.95,
+      "margin": 64.1,
+      "image": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "USB-C Multi-Port Hub",
+      "price": 39.95,
+      "cost_price": 16.95,
+      "margin": 57.6,
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "DriveSync 10” Wireless CarPlay",
+      "price": 119.95,
+      "cost_price": 67.95,
+      "margin": 43.4,
+      "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Mini Pocket Thermal Printer",
+      "price": 49.95,
+      "cost_price": 23.95,
+      "margin": 52,
+      "image": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "3-in-1 Charging Cable",
+      "price": 19.95,
+      "cost_price": 6.95,
+      "margin": 65.2,
+      "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Bluetooth Item Finder",
+      "price": 24.95,
+      "cost_price": 9.95,
+      "margin": 60.1,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Foldable Laptop Stand",
+      "price": 39.95,
+      "cost_price": 16.95,
+      "margin": 57.6,
+      "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "LED Desk Light Bar",
+      "price": 34.95,
+      "cost_price": 13.95,
+      "margin": 60.1,
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Wireless Lavalier Microphone",
+      "price": 59.95,
+      "cost_price": 28.95,
+      "margin": 51.7,
+      "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Smart LED Strip Kit",
+      "price": 29.95,
+      "cost_price": 10.95,
+      "margin": 63.4,
+      "image": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Compact Travel Power Adapter",
+      "price": 44.95,
+      "cost_price": 19.95,
+      "margin": 55.6,
+      "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "Digital Luggage Scale",
+      "price": 24.95,
+      "cost_price": 8.95,
+      "margin": 64.1,
+      "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=80",
+      "orders": 0
+    },
+    {
+      "name": "65W USB-C GaN Charger",
+      "price": 39.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Compacte GaN-lader met USB-C Power Delivery voor telefoon, tablet en compatibele laptops.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "100W USB-C GaN Charger",
+      "price": 59.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Krachtige USB-C GaN-lader voor meerdere apparaten, met ondersteuning afhankelijk van het aangesloten apparaat.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "3-in-1 Wireless Charging Station",
+      "price": 49.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Opgeruimd laadstation voor compatibele smartphone-, smartwatch- en earbuds-apparaten.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "USB-C 100W Cable",
+      "price": 19.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "USB-C naar USB-C kabel voor opladen en gegevensoverdracht; controleer de exacte data- en laadstandaard.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Bluetooth Speaker",
+      "price": 49.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Draagbare Bluetooth-speaker voor muziek thuis, onderweg of op kantoor.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Wireless Earbuds",
+      "price": 49.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Draadloze earbuds voor dagelijks gebruik. Specificaties zoals ANC, batterijduur en codec worden per leverancier gecontroleerd.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    }
   ]
 }
