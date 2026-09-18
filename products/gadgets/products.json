@@ -79,8 +79,9 @@
       "price": 39.95,
       "cost_price": 16.95,
       "margin": 57.6,
-      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "image": "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg",
+      "orders": 0,
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "DriveSync 10” Wireless CarPlay",
@@ -177,10 +178,11 @@
       "price": 59.95,
       "cost_price": 0,
       "margin": 0,
-      "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
+      "image": "https://images-cdn.ubuy.co.in/66820e3b7a06b1359418a409-tecknet-100w-usb-c-charger-gan-wall.jpg",
       "orders": 0,
       "description": "Krachtige USB-C GaN-lader voor meerdere apparaten, met ondersteuning afhankelijk van het aangesloten apparaat.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "3-in-1 Wireless Charging Station",
@@ -197,10 +199,11 @@
       "price": 19.95,
       "cost_price": 0,
       "margin": 0,
-      "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80",
+      "image": "https://m.media-amazon.com/images/I/71V7EfyLmQL._SL1500_.jpg",
       "orders": 0,
       "description": "USB-C naar USB-C kabel voor opladen en gegevensoverdracht; controleer de exacte data- en laadstandaard.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "Bluetooth Speaker",
@@ -217,10 +220,11 @@
       "price": 49.95,
       "cost_price": 0,
       "margin": 0,
-      "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80",
+      "image": "https://www.seemehere.com/upload/files/products/q18-d5/Q18-D5_14.jpg",
       "orders": 0,
       "description": "Draadloze earbuds voor dagelijks gebruik. Specificaties zoals ANC, batterijduur en codec worden per leverancier gecontroleerd.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     }
   ]
 }
