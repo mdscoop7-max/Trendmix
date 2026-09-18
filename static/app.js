@@ -39,3 +39,47 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   document.querySelectorAll('[data-sort-products]').forEach(sort=>sort.addEventListener('change',e=>sortProducts(e.target.value)));
 });
+
+
+function trendmixCart(){
+  try { return JSON.parse(localStorage.getItem('trendmix-cart') || '[]'); } catch(e){ return []; }
+}
+function updateCartBadge(){
+  const count=trendmixCart().reduce((sum,item)=>sum+Number(item.qty||1),0);
+  document.querySelectorAll('[data-cart-count]').forEach(el=>el.textContent=count);
+}
+function addToCart(product){
+  const cart=trendmixCart();
+  const found=cart.find(item=>item.id===product.id);
+  if(found){found.qty=(found.qty||1)+1;}else{cart.push({...product,qty:1});}
+  localStorage.setItem('trendmix-cart',JSON.stringify(cart));
+  updateCartBadge();
+  const button=document.querySelector('[data-add-to-cart]');
+  if(button){const old=button.textContent;button.textContent='✓ Toegevoegd';setTimeout(()=>button.textContent=old,1200);}
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  updateCartBadge();
+  document.querySelectorAll('[data-add-product]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      addToCart(JSON.parse(button.dataset.addProduct));
+    });
+  });
+  document.querySelectorAll('[data-contact-open]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const modal=document.getElementById('contactModal');
+      if(modal){modal.hidden=false;document.body.classList.add('modal-open');modal.querySelector('input,textarea')?.focus();}
+    });
+  });
+  document.querySelectorAll('[data-contact-close]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const modal=document.getElementById('contactModal');
+      if(modal){modal.hidden=true;document.body.classList.remove('modal-open');}
+    });
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      const modal=document.getElementById('contactModal');
+      if(modal&&!modal.hidden){modal.hidden=true;document.body.classList.remove('modal-open');}
+    }
+  });
+});
