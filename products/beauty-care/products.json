@@ -47,8 +47,9 @@
       "price": 34.95,
       "cost_price": 12.95,
       "margin": 62.9,
-      "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "image": "https://m.media-amazon.com/images/I/61X7wEZVPRL._SL1430_.jpg",
+      "orders": 0,
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     },
     {
       "name": "Heatless Hair Styling Set",
@@ -197,10 +198,11 @@
       "price": 24.95,
       "cost_price": 0,
       "margin": 0,
-      "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80",
+      "image": "https://m.media-amazon.com/images/I/81mNloP4u-L._AC_SL1500_.jpg",
       "orders": 0,
       "description": "Heatless styling-set voor krullen zonder directe hitte op het haar.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
     }
   ]
 }
