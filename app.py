@@ -126,7 +126,7 @@ INFO_PAGES = {
         <h2>Levering en voorraad</h2>
         <p>Beschikbaarheid, levertijd, prijs en voorraad worden per product gekoppeld aan de leverancier. Deze informatie kan wijzigen en wordt daarom waar mogelijk actueel gehouden.</p>
         """},
-    "affiliate": {"title": "Bestellen & fulfilment", "description": "Informatie over bestellen en dropshipping bij TrendMix.", "content": """
+    "bestellen": {"title": "Bestellen & fulfilment", "description": "Informatie over bestellen, betalen, levering en dropshipping bij TrendMix.", "content": """
         <p>TrendMix gebruikt dropshipping voor producten die door een aangesloten leverancier rechtstreeks naar de klant worden verzonden.</p>
         <h2>Geen affiliate-doorsturing</h2>
         <p>TrendMix is niet ingericht als affiliatewinkel. Productaankopen worden niet via affiliate links naar een partnerwebsite doorgestuurd.</p>
@@ -247,7 +247,7 @@ def over_trendmix():
 
 @app.route("/bestellen")
 def bestellen():
-    return render_info_page("affiliate")
+    return render_info_page("bestellen")
 
 
 @app.route("/privacy")
