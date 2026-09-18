@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#101114">
   <title>{{ title }} | TrendMix</title>
-  <meta name="description" content="{{ description }}">
+  <meta name="description" content="{{ description }}" data-meta-description>
   <link rel="canonical" href="https://trendmix-jet.vercel.app{{ path }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}">
-  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script><script defer src="{{ url_for('static', filename='languages.js') }}"></script>
 </head>
 <body>
 <label class="language-picker"><span>🌐</span><select id="languageSelect" aria-label="Taal"><option value="nl">🇳🇱 Nederlands</option><option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="es">🇪🇸 Español</option></select></label>
-<header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><a class="header-cta" href="/#collecties">Ontdek</a></div></header>
+<header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><a class="header-cta" href="/#collecties" data-i18n="discover">Ontdek</a></div></header>
 <main class="shell info-page">
-  <a class="back-link" href="/">← Terug naar TrendMix</a>
+  <a class="back-link" href="/" data-i18n="backToTrendmix">← Terug naar TrendMix</a>
   <article class="info-card">
     <span class="eyebrow dark">TrendMix</span>
-    <h1>{{ title }}</h1>
-    {{ content|safe }}
+    <h1 data-info-title="{{ info_slug }}">{{ title }}</h1>
+    <div data-info-content="{{ info_slug }}"></div>
   </article>
 </main>
 {% include '_footer.html' %}
