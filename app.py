@@ -119,39 +119,40 @@ def home():
 
 
 INFO_PAGES = {
-    "over-trendmix": {"title": "Over TrendMix", "description": "Hoe TrendMix werkt als onafhankelijke productcatalogus.", "content": """
-        <p>TrendMix is een onafhankelijke productcatalogus voor moderne trends in tech, home, beauty en lifestyle. We brengen producten overzichtelijk samen zodat je sneller kunt ontdekken wat interessant is.</p>
-        <h2>Geen gewone webshop</h2>
-        <p>TrendMix is ingericht als discovery- en affiliateplatform. Een aankoop wordt niet bij TrendMix afgerekend: wanneer je op een productdoorgang klikt, kun je worden doorgestuurd naar een externe aanbieder.</p>
-        <h2>Prijzen en beschikbaarheid</h2>
-        <p>Productprijzen, voorraad, levering en voorwaarden kunnen veranderen. Controleer daarom altijd de actuele informatie bij de externe aanbieder voordat je bestelt.</p>
+    "over-trendmix": {"title": "Over TrendMix", "description": "Hoe TrendMix werkt als dropshipping-webshop.", "content": """
+        <p>TrendMix is een traditionele dropshipping-webshop voor moderne producten in tech, home, beauty en lifestyle.</p>
+        <h2>Hoe bestellen werkt</h2>
+        <p>Je bestelt rechtstreeks via TrendMix. Na een bestelling wordt de order doorgegeven aan de aangesloten dropshipping-leverancier voor verwerking en verzending naar het afleveradres.</p>
+        <h2>Levering en voorraad</h2>
+        <p>Beschikbaarheid, levertijd, prijs en voorraad worden per product gekoppeld aan de leverancier. Deze informatie kan wijzigen en wordt daarom waar mogelijk actueel gehouden.</p>
         """},
-    "affiliate": {"title": "Affiliate & transparantie", "description": "Transparantie over affiliate links en commerciële relaties bij TrendMix.", "content": """
-        <p><strong>TrendMix kan affiliate links gebruiken.</strong> Als je via zo’n link bij een externe aanbieder een aankoop doet, kan TrendMix daarvoor een commissie ontvangen. De commissie verandert jouw prijs niet.</p>
-        <h2>Waarom melden we dit?</h2>
-        <p>We willen duidelijk maken wanneer een productdoorgang commercieel kan zijn. Reclame en commerciële relaties horen herkenbaar en transparant te zijn.</p>
-        <h2>Onze productinformatie</h2>
-        <p>TrendMix gebruikt catalogusinformatie om producten te presenteren. Controleer voor aankoop altijd de actuele prijs, voorraad, specificaties, levering en retourvoorwaarden bij de aanbieder.</p>
-        <h2>Reviews</h2>
-        <p>TrendMix presenteert geen verzonnen reviews of beoordelingen. Wanneer er in de toekomst externe beoordelingen worden getoond, moet duidelijk zijn waar deze vandaan komen.</p>
+    "affiliate": {"title": "Bestellen & fulfilment", "description": "Informatie over bestellen en dropshipping bij TrendMix.", "content": """
+        <p>TrendMix gebruikt dropshipping voor producten die door een aangesloten leverancier rechtstreeks naar de klant worden verzonden.</p>
+        <h2>Geen affiliate-doorsturing</h2>
+        <p>TrendMix is niet ingericht als affiliatewinkel. Productaankopen worden niet via affiliate links naar een partnerwebsite doorgestuurd.</p>
+        <h2>Orderverwerking</h2>
+        <p>De webshop is voorbereid op geautomatiseerde orderverwerking. De daadwerkelijke automatische doorgifte naar een leverancier vereist een actieve koppeling met de gekozen leverancier/API.</p>
+        <h2>Productinformatie</h2>
+        <p>Controleer voor aankoop altijd de actuele prijs, voorraad, specificaties, levering en retourvoorwaarden.</p>
         """},
     "privacy": {"title": "Privacy", "description": "Privacyinformatie voor bezoekers van TrendMix.", "content": """
-        <p>TrendMix is opgezet als een eenvoudige productcatalogus. We vragen op dit moment geen account aan om de catalogus te bekijken.</p>
+        <p>TrendMix is een dropshipping-webshop. Voor het verwerken van bestellingen kunnen bestel- en aflevergegevens nodig zijn. Deze gegevens worden gebruikt voor orderverwerking, levering, klantenservice en wettelijke verplichtingen.</p>
         <h2>Taalvoorkeur</h2>
         <p>De gekozen taal kan lokaal in je browser worden opgeslagen zodat TrendMix je voorkeur bij een volgend bezoek kan onthouden.</p>
-        <h2>Externe aanbieders</h2>
-        <p>Wanneer je TrendMix verlaat via een product- of affiliate link, geldt het privacybeleid van de externe website die je bezoekt. Lees daar de voorwaarden voordat je gegevens achterlaat of een aankoop doet.</p>
+        <h2>Externe leveranciers</h2>
+        <p>Voor fulfilment kan TrendMix klant- en aflevergegevens delen met de leverancier die de bestelling verzendt, voor zover dat nodig is om de bestelling uit te voeren.</p>
         <h2>Wijzigingen</h2>
         <p>Deze informatie kan worden aangepast wanneer de functies van TrendMix veranderen.</p>
         """},
     "cookies": {"title": "Cookies & voorkeuren", "description": "Informatie over cookies en lokale voorkeuren op TrendMix.", "content": """
         <p>TrendMix houdt de site bewust eenvoudig. De huidige taalkeuze kan lokaal in je browser worden bewaard. Dit is een lokale voorkeur en geen TrendMix-account.</p>
-        <h2>Externe websites</h2>
-        <p>Externe aanbieders kunnen hun eigen cookies, analytics of advertentietechnieken gebruiken nadat je TrendMix verlaat. Controleer daarvoor het cookie- en privacybeleid van die aanbieder.</p>
+        <h2>Externe leveranciers</h2>
+        <p>Leveranciers kunnen hun eigen systemen gebruiken voor orderverwerking nadat een bestelling is geplaatst. Controleer de toepasselijke privacy- en cookievoorwaarden.</p>
         <h2>Voorkeur wissen</h2>
-        <p>Je kunt lokale sitegegevens in de instellingen van je browser wissen. Daarna wordt de standaardtaal opnieuw gebruikt.</p>
+        <p>Je kunt lokale sitegegevens in de instellingen van je browser wissen.</p>
         """},
 }
+
 
 
 def render_info_page(info_slug):
@@ -240,8 +241,8 @@ def over_trendmix():
     return render_info_page("over-trendmix")
 
 
-@app.route("/affiliate")
-def affiliate():
+@app.route("/bestellen")
+def bestellen():
     return render_info_page("affiliate")
 
 
