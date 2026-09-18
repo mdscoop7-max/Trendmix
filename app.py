@@ -195,8 +195,9 @@ def contact():
     message = request.form.get("message", "").strip()
     if not name or not email or not message:
         return redirect(url_for("home") + "#contact")
-    # The footer form is ready for a mail provider/webhook. We intentionally do not
-    # pretend to deliver mail until a destination service is configured.
+    # Test destination: mdscoop020@gmail.com
+    # Configure SMTP/API credentials in the deployment environment before enabling
+    # actual delivery; never store passwords or API keys in GitHub.
     return redirect(url_for("home") + "?contact=received#contact")
 
 @app.route("/over-trendmix")
