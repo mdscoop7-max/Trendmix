@@ -8,7 +8,7 @@
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       {% if product.type == 'affiliate' %}
-        <strong>Affiliate</strong>
+        <strong>{{ product.affiliate_price|default('Affiliate') }}</strong>
         <a href="/product/{{ product.category_slug }}/{{ product.index }}" class="round-arrow" aria-label="Bekijk aanbod">→</a>
       {% else %}
         <strong>€ {{ "%.2f"|format(product.price) }}</strong>
