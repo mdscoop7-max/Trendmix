@@ -30,3 +30,5 @@
 @media(min-width:761px){
   .footer-contact{grid-column:span 1}
 }
+
+.contact-success{margin-top:18px;padding:12px 16px;border:1px solid #2d8a5a;background:#163524;color:#9ff0be;border-radius:10px;font-size:13px;font-weight:800;text-align:center}
