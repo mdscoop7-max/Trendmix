@@ -1,6 +1,6 @@
 {
   "category": "Beauty & Care",
-  "source": "Curated TrendMix catalog for dropshipping",
+  "source": "TrendMix curated EU dropshipping shortlist; supplier and wholesale price verification pending",
   "products": [
     {
       "name": "GlowSwipe Serum Balm Stick",
@@ -161,6 +161,46 @@
       "margin": 64.9,
       "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80",
       "orders": 0
+    },
+    {
+      "name": "Facial Ice Roller",
+      "price": 22.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Herbruikbare verkoelende gezichtroller voor een verfrissend onderdeel van je verzorgingsroutine.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Gua Sha Facial Tool",
+      "price": 19.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Glad gezichtsmassage-accessoire voor gebruik in een dagelijkse beauty-routine.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Makeup Organizer",
+      "price": 39.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Praktische organizer om make-up en beautyaccessoires overzichtelijk te bewaren.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+    },
+    {
+      "name": "Heatless Curling Set",
+      "price": 24.95,
+      "cost_price": 0,
+      "margin": 0,
+      "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80",
+      "orders": 0,
+      "description": "Heatless styling-set voor krullen zonder directe hitte op het haar.",
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
     }
   ]
 }
