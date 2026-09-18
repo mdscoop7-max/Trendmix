@@ -3,35 +3,24 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#101114">
   <title>Veelgestelde vragen | TrendMix</title>
-  <meta name="description" content="Veelgestelde vragen over TrendMix, producten, affiliate links, prijzen, bestellingen en privacy.">
+  <meta name="description" content="Veelgestelde vragen over TrendMix, producten, affiliate links, prijzen, bestellingen en privacy." data-meta-description>
   <link rel="canonical" href="https://trendmix-jet.vercel.app/faq">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}">
-  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script><script defer src="{{ url_for('static', filename='languages.js') }}"></script>
 </head>
 <body>
 <label class="language-picker"><span>🌐</span><select id="languageSelect" aria-label="Taal"><option value="nl">🇳🇱 Nederlands</option><option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="es">🇪🇸 Español</option></select></label>
-<header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><a class="header-cta" href="/#collecties">Ontdek</a></div></header>
+<header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><a class="header-cta" href="/#collecties" data-i18n="discover">Ontdek</a></div></header>
 <main class="shell info-page">
-  <a class="back-link" href="/">← Terug naar TrendMix</a>
+  <a class="back-link" href="/" data-i18n="backToTrendmix">← Terug naar TrendMix</a>
   <article class="info-card faq-card">
     <span class="eyebrow dark">TrendMix</span>
-    <h1>Veelgestelde vragen</h1>
-    <p class="info-lead">Hier vind je praktische informatie over TrendMix, productlinks, prijzen en het aankoopproces.</p>
+    <h1 data-i18n="faqTitle">Veelgestelde vragen</h1>
+    <p class="info-lead" data-i18n="faqLead">Hier vind je praktische informatie over TrendMix, productlinks, prijzen en het aankoopproces.</p>
     <div class="faq-list">
-      <details open><summary>Wat is TrendMix?</summary><p>TrendMix is een onafhankelijke productcatalogus waarmee je producten uit verschillende collecties kunt ontdekken. TrendMix verkoopt de producten zelf niet.</p></details>
-      <details><summary>Kan ik een product rechtstreeks bij TrendMix bestellen?</summary><p>Nee. Wanneer je een product bekijkt, kun je worden doorgestuurd naar een externe aanbieder. Daar vindt de daadwerkelijke aankoop en betaling plaats.</p></details>
-      <details><summary>Waarom kan de prijs bij de aanbieder anders zijn?</summary><p>Prijzen, aanbiedingen, voorraad en voorwaarden kunnen veranderen. Controleer daarom altijd de actuele informatie bij de externe aanbieder voordat je bestelt.</p></details>
-      <details><summary>Gebruikt TrendMix affiliate links?</summary><p>Ja, sommige productlinks kunnen affiliate links zijn. Als je via zo'n link een aankoop doet, kan TrendMix een commissie ontvangen. Dit kost jou niets extra.</p></details>
-      <details><summary>Heeft een affiliatecommissie invloed op de productinformatie?</summary><p>TrendMix presenteert producten als catalogusinformatie. We gebruiken geen verzonnen reviews, beoordelingen of claims om een product aantrekkelijker te maken.</p></details>
-      <details><summary>Zijn de reviews op TrendMix echt?</summary><p>TrendMix publiceert geen gefingeerde reviews. Als er in de toekomst externe beoordelingen worden getoond, wordt duidelijk aangegeven waar deze vandaan komen.</p></details>
-      <details><summary>Wie is verantwoordelijk voor mijn bestelling?</summary><p>De externe aanbieder waarbij je de bestelling plaatst. Voor betaling, levering, garantie, retouren en klantenservice gelden de voorwaarden van die aanbieder.</p></details>
-      <details><summary>Kan ik een bestelling via TrendMix retourneren?</summary><p>TrendMix verwerkt zelf geen bestellingen. Voor retourneren, annuleren of vragen over een bestelling neem je contact op met de externe aanbieder waar je hebt besteld.</p></details>
-      <details><summary>Gebruikt TrendMix cookies?</summary><p>TrendMix houdt het gebruik van cookies bewust beperkt. Een lokale taalvoorkeur kan bijvoorbeeld in je browser worden opgeslagen. Externe websites kunnen hun eigen cookies gebruiken nadat je TrendMix verlaat.</p></details>
-      <details><summary>Welke gegevens verzamelt TrendMix?</summary><p>De catalogus kan zonder account worden bekeken. Voor meer informatie over gegevens en lokale voorkeuren kun je onze privacy- en cookiepagina's bekijken.</p></details>
-      <details><summary>Waarom staat een product niet meer online?</summary><p>Producten kunnen veranderen, verdwijnen, uitverkocht raken of niet langer relevant zijn. Daarom kan het aanbod van TrendMix regelmatig worden aangepast.</p></details>
-      <details><summary>Hoe kan ik een fout in productinformatie melden?</summary><p>Gebruik de contactmogelijkheid die op TrendMix beschikbaar is. We kunnen de betreffende productinformatie vervolgens controleren en waar nodig aanpassen.</p></details>
+      {% for i in range(12) %}<details{% if i == 0 %} open{% endif %} data-faq-item="{{ i }}"><summary></summary><p></p></details>{% endfor %}
     </div>
-    <div class="faq-links"><a href="/info/affiliate">Affiliate & transparantie →</a><a href="/info/privacy">Privacy →</a><a href="/info/cookies">Cookies & voorkeuren →</a></div>
+    <div class="faq-links"><a href="/affiliate" data-i18n="footerAffiliate">Affiliate & transparantie →</a><a href="/privacy" data-i18n="footerPrivacy">Privacy →</a><a href="/cookies" data-i18n="footerCookies">Cookies & voorkeuren →</a></div>
   </article>
 </main>
 {% include '_footer.html' %}
