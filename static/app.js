@@ -59,14 +59,6 @@ function addToCart(product){
 }
 document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
-  document.querySelectorAll('[data-go-cart]').forEach(card=>{
-    card.addEventListener('click',event=>{
-      event.preventDefault();
-      event.stopPropagation();
-      addToCart(JSON.parse(card.dataset.addProduct));
-      window.location.href='/winkelwagen';
-    });
-  });
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
     button.addEventListener('click',()=>{
       const modal=document.getElementById('contactModal');
