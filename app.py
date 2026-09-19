@@ -267,8 +267,10 @@ def robots():
 
 @app.route("/sitemap.xml")
 def sitemap():
-    urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/{slug}" for slug in CATEGORIES] + [f"{SITE_URL}/{path}" for path in INFO_PAGES]
-    urls.append(f"{SITE_URL}/faq")
+    urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/{slug}" for slug in CATEGORIES] + [f"{SITE_URL}/{path}" for path in INFO_PAGES] + [f"{SITE_URL}/faq"]
+    for slug, items in products.items():
+        for index, _product in enumerate(items):
+            urls.append(f"{SITE_URL}/product/{slug}/{index}")
     xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{url}</loc></url>" for url in urls) + "</urlset>"
     return Response(xml, mimetype="application/xml")
 
