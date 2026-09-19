@@ -8,7 +8,13 @@
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       <strong>€ {{ "%.2f"|format(product.price) }}</strong>
-      
+      <button type="button" class="card-add" data-add-product
+        data-product-id="{{ product.category_slug }}-{{ product.index }}"
+        data-product-name="{{ product.name|e }}"
+        data-product-price="{{ product.price|default(0) }}"
+        data-product-image="{{ product.image|default('')|e }}"
+        onclick="return window.trendmixAddProduct(this)"
+        aria-label="Toevoegen aan winkelwagen">＋</button>
     </div>
   </div>
 </article>
