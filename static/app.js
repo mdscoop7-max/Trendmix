@@ -59,9 +59,15 @@ function addToCart(product){
 }
 document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
-  document.querySelectorAll('[data-add-product]').forEach(button=>{
-    button.addEventListener('click',()=>{
-      addToCart(JSON.parse(button.dataset.addProduct));
+  document.querySelectorAll('[data-go-cart]').forEach(card=>{
+    card.addEventListener('click',event=>{
+      if(event.target.closest('[data-cart-button]')){
+        event.preventDefault();
+      } else if(event.target.closest('a')){
+        event.preventDefault();
+      }
+      addToCart(JSON.parse(card.dataset.addProduct));
+      window.location.href='/winkelwagen';
     });
   });
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
