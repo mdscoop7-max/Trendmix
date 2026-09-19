@@ -1,4 +1,4 @@
-<article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
+<article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}" data-cart-button="1">
   <a class="product-image" href="/product/{{ product.category_slug }}/{{ product.index }}" aria-label="{{ product.name }}">
     {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async">{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
     <span class="product-badge" data-i18n="curatedBadge">TrendMix selectie</span>
