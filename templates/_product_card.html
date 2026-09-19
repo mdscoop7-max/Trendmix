@@ -13,7 +13,7 @@
         data-product-name="{{ product.name|e }}"
         data-product-price="{{ product.price|default(0) }}"
         data-product-image="{{ product.image|default('')|e }}"
-        aria-label="Toevoegen aan winkelwagen">＋</button>
+        aria-label="Toevoegen aan winkelwagen" data-cart-redirect="/winkelwagen">＋</button>
     </div>
   </div>
 </article>
