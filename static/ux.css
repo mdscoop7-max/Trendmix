@@ -227,3 +227,24 @@ button,select,a{touch-action:manipulation}
 .checkout-item{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid #2b3242;color:#e9ecf2}
 .checkout-item strong{color:#fff}
 .checkout-back{width:100%;margin-top:10px}
+
+/* Final cart row layout: product info left, all quantity/remove controls on one row. */
+.cart-row{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:14px!important;row-gap:10px!important}
+.cart-row .cart-info{min-width:0!important;grid-column:2!important;grid-row:1!important}
+.cart-row .cart-info strong{display:block}
+.cart-row .cart-actions{grid-column:2!important;grid-row:2!important;display:flex!important;align-items:center!important;gap:9px!important;margin:0!important}
+.cart-row .cart-actions form{margin:0!important;padding:0!important;display:flex!important}
+.cart-row .cart-actions button{width:38px!important;height:38px!important;display:grid!important;place-items:center!important;border-radius:10px!important;font-size:20px!important}
+.cart-row .cart-actions b{width:34px!important;height:38px!important;display:grid!important;place-items:center!important;font-size:15px!important;color:#fff!important}
+.cart-row .cart-actions form:last-child{margin-left:auto!important}
+@media(max-width:760px){
+  .cart-row{grid-template-columns:64px minmax(0,1fr)!important;column-gap:12px!important}
+  .cart-row .cart-actions{gap:7px!important}
+  .cart-row .cart-actions button{width:38px!important;height:38px!important}
+  .cart-row .cart-actions b{width:34px!important}
+}
+.reviews-section{padding:50px 0 10px}
+.reviews-empty{margin-top:18px;padding:28px;border:1px solid #272e3e;border-radius:20px;background:#111520;text-align:center;color:#aeb6c6}
+.reviews-empty span{display:block;font-size:30px;color:#ffc857;margin-bottom:8px}
+.reviews-empty h3{margin:0;color:#fff;font-size:18px}
+@media(max-width:760px){.reviews-section{padding-top:38px}.reviews-empty{padding:24px 18px}}
