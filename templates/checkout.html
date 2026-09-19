@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Afrekenen | TrendMix</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260919-8') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}">
+</head>
+<body>
+<main class="shell cart-page">
+  <a class="back-link" href="/winkelwagen">← Terug naar winkelwagen</a>
+  <section class="cart-panel checkout-page">
+    <span class="eyebrow dark">TrendMix</span>
+    <h1>Afrekenen</h1>
+    <p class="checkout-intro">Je bestelling is klaar. De betaal- en leverancierkoppeling moet nog worden aangesloten voordat een echte betaling kan worden verwerkt.</p>
+    <div class="checkout-summary">
+      {% for item in cart %}
+      <div class="checkout-item">
+        <span>{{ item.name }} × {{ item.qty }}</span>
+        <strong>€ {{ "%.2f"|format(item.price * item.qty) }}</strong>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="cart-total"><strong>Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div>
+    <a class="btn btn-outline checkout-back" href="/winkelwagen">Winkelwagen aanpassen</a>
+  </section>
+</main>
+</body>
+</html>
