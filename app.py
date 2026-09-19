@@ -318,7 +318,7 @@ def contact():
     if not name or not email or not message or len(name) > 120 or len(email) > 254 or len(message) > 5000:
         return redirect(url_for("home") + "?contact=error#contact")
 
-    if not re.fullmatch(r"[^@\\s]+@[^@\\s]+\\.[^@\\s]+", email):
+    if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
         return redirect(url_for("home") + "?contact=error#contact")
 
     api_key = os.getenv("RESEND_API_KEY")
