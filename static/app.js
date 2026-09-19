@@ -61,11 +61,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
   document.querySelectorAll('[data-go-cart]').forEach(card=>{
     card.addEventListener('click',event=>{
-      if(event.target.closest('[data-cart-button]')){
-        event.preventDefault();
-      } else if(event.target.closest('a')){
-        event.preventDefault();
-      }
+      event.preventDefault();
+      event.stopPropagation();
       addToCart(JSON.parse(card.dataset.addProduct));
       window.location.href='/winkelwagen';
     });
