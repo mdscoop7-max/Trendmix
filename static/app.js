@@ -72,3 +72,35 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 });
 
+
+
+/* Contact form test flow: submit in-place and show localized status. */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.contact-form-modal').forEach(form=>{
+    if(form.dataset.contactBound==='1') return;
+    form.dataset.contactBound='1';
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const status=form.querySelector('.contact-form-status');
+      const lang=document.documentElement.lang||'nl';
+      const t=translations[lang]||translations.nl;
+      const submit=form.querySelector('button[type="submit"]');
+      if(status){status.hidden=true;status.className='contact-form-status';}
+      if(!form.reportValidity()) return;
+      if(submit){submit.disabled=true;submit.dataset.originalText=submit.innerHTML;submit.textContent='…';}
+      try{
+        const url=new URL(form.action,window.location.origin);
+        url.searchParams.set('ajax','1');
+        const response=await fetch(url.toString(),{method:'POST',body:new FormData(form),headers:{'X-Requested-With':'XMLHttpRequest','Accept':'application/json'}});
+        const data=await response.json();
+        if(!response.ok||!data.ok) throw new Error('contact_failed');
+        if(status){status.textContent=t.contactSent||'✓ Je bericht is verzonden.';status.classList.add('success');status.hidden=false;}
+        form.reset();
+      }catch(error){
+        if(status){status.textContent=t.contactError||'Je bericht kon niet worden verzonden.';status.classList.add('error');status.hidden=false;}
+      }finally{
+        if(submit){submit.disabled=false;submit.innerHTML=submit.dataset.originalText||'Verstuur bericht →';}
+      }
+    });
+  });
+});
