@@ -57,6 +57,27 @@ function addToCart(product){
   const button=document.querySelector('[data-add-to-cart]');
   if(button){const old=button.textContent;button.textContent='✓ Toegevoegd';setTimeout(()=>button.textContent=old,1200);}
 }
+function trendmixAddProduct(button){
+  const product={
+    id:button.dataset.productId || '',
+    name:button.dataset.productName || '',
+    price:Number(button.dataset.productPrice || 0),
+    image:button.dataset.productImage || ''
+  };
+  if(!product.id || !product.name)return false;
+  addToCart(product);
+  button.disabled=true;
+  const old=button.textContent;
+  button.textContent='✓ Toegevoegd';
+  setTimeout(()=>{button.disabled=false;button.textContent=old;},1000);
+  return false;
+}
+document.addEventListener('click',e=>{
+  const button=e.target.closest('[data-add-product]');
+  if(!button)return;
+  e.preventDefault();
+  trendmixAddProduct(button);
+});
 document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
