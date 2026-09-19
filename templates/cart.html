@@ -10,13 +10,13 @@
 {% for item in cart %}
 <div class="cart-row">
 {% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}">{% else %}<div class="cart-thumb">🛍️</div>{% endif %}
-<div><strong>{{ item.name }}</strong><span>€ {{ "%.2f"|format(item.price) }} per stuk</span>
-<div class="cart-qty">
+<div class="cart-info"><strong>{{ item.name }}</strong><span>€ {{ "%.2f"|format(item.price) }} <span data-i18n="perPiece">per stuk</span></span></div>
+<div class="cart-actions">
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="-1"><button type="submit" aria-label="Aantal verminderen">−</button></form>
 <b>{{ item.qty }}</b>
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="1"><button type="submit" aria-label="Aantal verhogen">+</button></form>
-</div></div>
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="remove"><input type="hidden" name="product_id" value="{{ item.id }}"><button type="submit" aria-label="Product verwijderen">×</button></form>
+</div>
 </div>
 {% endfor %}
 </div>
