@@ -4,7 +4,7 @@ import os
 import urllib.request
 import urllib.error
 from pathlib import Path
-from flask import Flask, Response, render_template, request, redirect, url_for, session, session
+from flask import Flask, Response, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
@@ -108,6 +108,13 @@ def cart_items():
 
 def cart_count():
     return sum(max(1, int(item.get("qty", 1))) for item in cart_items())
+
+
+def cart_total():
+    return sum(
+        float(item.get("price", 0) or 0) * max(1, int(item.get("qty", 1)))
+        for item in cart_items()
+    )
 
 
 def find_product(product_id):
@@ -267,12 +274,36 @@ def winkelwagen():
         session.modified = True
         return redirect(url_for("winkelwagen"))
 
+    total = sum(
+        float(item.get("price", 0) or 0) * max(1, int(item.get("qty", 1)))
+        for item in cart
+    )
     return render_template(
         "cart.html",
         categories=CATEGORIES,
         cart=cart,
         cart_count=cart_count(),
+        cart_total=total,
     )
+
+
+@app.route("/afrekenen")
+def afrekenen():
+    cart = [dict(item) for item in cart_items()]
+    if not cart:
+        return redirect(url_for("winkelwagen"))
+    total = sum(
+        float(item.get("price", 0) or 0) * max(1, int(item.get("qty", 1)))
+        for item in cart
+    )
+    return render_template(
+        "checkout.html",
+        categories=CATEGORIES,
+        cart=cart,
+        cart_count=cart_count(),
+        cart_total=total,
+    )
+
 
 @app.route("/faq")
 def faq():
