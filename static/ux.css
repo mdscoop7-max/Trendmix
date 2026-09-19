@@ -209,3 +209,15 @@ button,select,a{touch-action:manipulation}
 .product-card[data-cart-control="dynamic"] .product-body{position:relative;z-index:2}
 .product-card[data-cart-control="dynamic"] .card-add{position:relative;z-index:20;pointer-events:auto!important;touch-action:manipulation;-webkit-user-select:none;user-select:none}
 .product-card[data-cart-control="dynamic"] .product-image{position:relative;z-index:1}
+
+/* Final cart layout: quantity controls stay on one horizontal line. */
+.cart-row .cart-qty{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;margin-top:10px!important}
+.cart-row .cart-qty form{display:block!important;margin:0!important;padding:0!important}
+.cart-row .cart-qty b{display:grid!important;place-items:center!important;min-width:34px!important;height:34px!important;font-size:14px!important;color:#fff!important}
+.checkout-button{width:100%;min-height:50px;margin-top:18px;background:#8d61ff!important;color:#fff!important;border-color:#8d61ff!important}
+.checkout-button:hover{background:#a477ff!important;border-color:#a477ff!important}
+@media(max-width:760px){
+  .cart-row .cart-qty{gap:9px!important}
+  .cart-row .cart-qty button{width:38px!important;height:38px!important}
+  .cart-row .cart-qty b{min-width:38px!important;height:38px!important;font-size:15px!important}
+}
