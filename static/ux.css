@@ -177,3 +177,9 @@ button,select,a{touch-action:manipulation}
 @media(min-width:761px){.product-grid .product-image{height:128px}.product-grid .product-image img{padding:10px}}
 @media(max-width:760px){.product-grid .product-image{height:132px}.product-grid .product-image img{padding:8px}}
 @media(max-width:470px){.product-grid .product-image{height:120px}.product-grid .product-image img{padding:6px}}
+
+/* Final compact product card imagery */
+.product-grid .product-image{height:118px!important;}
+.product-grid .product-image img{width:82%!important;height:82%!important;object-fit:contain!important;padding:6px!important;}
+@media(max-width:760px){.product-grid .product-image{height:112px!important}.product-grid .product-image img{width:80%!important;height:80%!important}}
+@media(max-width:470px){.product-grid .product-image{height:104px!important}}
