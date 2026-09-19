@@ -61,8 +61,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
   document.querySelectorAll('[data-add-product]').forEach(button=>{
     button.addEventListener('click',()=>{
-      try { addToCart(JSON.parse(button.dataset.addProduct)); }
-      catch(e) { console.error('Product kon niet aan winkelwagen worden toegevoegd.',e); }
+      const product={
+        id:button.dataset.productId || '',
+        name:button.dataset.productName || '',
+        price:Number(button.dataset.productPrice || 0),
+        image:button.dataset.productImage || ''
+      };
+      if(product.id && product.name){ addToCart(product); }
     });
   });
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
