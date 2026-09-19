@@ -69,6 +69,16 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     });
   });
+  document.querySelectorAll('[data-add-product]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      try {
+        const product=JSON.parse(button.dataset.addProduct);
+        addToCart(product);
+      } catch(e) {
+        console.error('Product kon niet aan winkelwagen worden toegevoegd.',e);
+      }
+    });
+  });
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
     button.addEventListener('click',()=>{
       const modal=document.getElementById('contactModal');
