@@ -1,4 +1,4 @@
-<article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
+<article class="product-card" data-cart-control="dynamic" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
   <a class="product-image" href="/product/{{ product.category_slug }}/{{ product.index }}" aria-label="{{ product.name }}">
     {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async">{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
     <span class="product-badge" data-i18n="curatedBadge">TrendMix selectie</span>
@@ -13,7 +13,6 @@
         data-product-name="{{ product.name|e }}"
         data-product-price="{{ product.price|default(0) }}"
         data-product-image="{{ product.image|default('')|e }}"
-        onclick="return window.trendmixAddProduct(this)"
         aria-label="Toevoegen aan winkelwagen">＋</button>
     </div>
   </div>
