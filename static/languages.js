@@ -230,3 +230,30 @@ Object.keys(contactStatusTranslations).forEach(lang=>{translations[lang]={...(tr
 translations.de=Object.assign(translations.de,{
   cartTitle:'Dein Warenkorb',continueShopping:'← Weiter einkaufen',perPiece:'pro Stück',decrease:'Menge verringern',increase:'Menge erhöhen',remove:'Produkt entfernen',clearCart:'Warenkorb leeren',total:'Gesamt',checkout:'Zur Kasse →',checkoutTitle:'Kasse',checkoutIntro:'Deine Bestellung ist bereit. Zahlungs- und Lieferantenanbindung müssen noch eingerichtet werden, bevor eine echte Zahlung verarbeitet werden kann.',backToCart:'Warenkorb anpassen',reviewsTitle:'Bewertungen',reviewsText:'Echte Kundenbewertungen werden hier angezeigt, sobald Bewertungen verfügbar sind.',reviewsEmpty:'Noch keine Bewertungen verfügbar.',footerContactTitle:'Kontakt',footerContactText:'Hast du eine Frage oder Feedback? Sende uns eine Nachricht.',openContact:'✉ Kontaktformular öffnen',contactTitle:'Kontakt',contactText:'Hast du eine Frage? Sende uns direkt eine Nachricht.',name:'Name',email:'E-Mail',message:'Nachricht',sendMessage:'Nachricht senden →',footerReviews:'Bewertungen',contactSent:'✓ Deine Nachricht wurde gesendet. Vielen Dank!',contactError:'Deine Nachricht konnte nicht gesendet werden. Bitte prüfe deine Angaben und versuche es erneut.'
 });
+
+
+/* Robust language selector binding and temporary review demo translations. */
+const demoReviewTranslations={
+  nl:{reviewsTitle:'Reviews',reviewsText:'Dit zijn tijdelijke demo-reviews voor het testen van de reviewweergave.',reviewsDemoNote:'⚠ TEST / DEMO — deze reviews zijn verzonnen en zijn geen echte klantreviews.',review1Text:'“De producten zijn overzichtelijk gepresenteerd en ik kon snel vinden wat ik zocht.”',review1Name:'Lisa · DEMO',review2Text:'“Handige categorieën en op mobiel werkt de catalogus prettig om te testen.”',review2Name:'Mark · DEMO',review3Text:'“De productkaarten zijn duidelijk en de zoekfunctie maakt ontdekken makkelijk.”',review3Name:'Sophie · DEMO'},
+  en:{reviewsTitle:'Reviews',reviewsText:'These are temporary demo reviews for testing the review display.',reviewsDemoNote:'⚠ TEST / DEMO — these reviews are fictional and are not real customer reviews.',review1Text:'“The products are clearly presented and I quickly found what I was looking for.”',review1Name:'Lisa · DEMO',review2Text:'“Useful categories, and the catalog is pleasant to test on mobile.”',review2Name:'Mark · DEMO',review3Text:'“The product cards are clear and the search makes discovery easy.”',review3Name:'Sophie · DEMO'},
+  fr:{reviewsTitle:'Avis',reviewsText:'Ce sont des avis de démonstration temporaires pour tester l’affichage.',reviewsDemoNote:'⚠ TEST / DEMO — ces avis sont fictifs et ne sont pas de vrais avis clients.',review1Text:'“Les produits sont bien présentés et j’ai rapidement trouvé ce que je cherchais.”',review1Name:'Lisa · DEMO',review2Text:'“Les catégories sont pratiques et le catalogue est agréable à tester sur mobile.”',review2Name:'Mark · DEMO',review3Text:'“Les fiches produits sont claires et la recherche facilite la découverte.”',review3Name:'Sophie · DEMO'},
+  de:{reviewsTitle:'Bewertungen',reviewsText:'Dies sind vorübergehende Demo-Bewertungen zum Testen der Darstellung.',reviewsDemoNote:'⚠ TEST / DEMO — diese Bewertungen sind erfunden und keine echten Kundenbewertungen.',review1Text:'“Die Produkte sind übersichtlich dargestellt und ich habe schnell gefunden, was ich gesucht habe.”',review1Name:'Lisa · DEMO',review2Text:'“Praktische Kategorien und angenehm auf dem Handy zu testen.”',review2Name:'Mark · DEMO',review3Text:'“Die Produktkarten sind klar und die Suche macht das Entdecken einfach.”',review3Name:'Sophie · DEMO'},
+  it:{reviewsTitle:'Recensioni',reviewsText:'Queste sono recensioni demo temporanee per testare la visualizzazione.',reviewsDemoNote:'⚠ TEST / DEMO — queste recensioni sono inventate e non sono recensioni reali.',review1Text:'“I prodotti sono presentati in modo chiaro e ho trovato subito quello che cercavo.”',review1Name:'Lisa · DEMO',review2Text:'“Categorie utili e catalogo piacevole da testare su mobile.”',review2Name:'Mark · DEMO',review3Text:'“Le schede prodotto sono chiare e la ricerca rende facile scoprire nuovi articoli.”',review3Name:'Sophie · DEMO'},
+  es:{reviewsTitle:'Reseñas',reviewsText:'Estas son reseñas demo temporales para probar la presentación.',reviewsDemoNote:'⚠ TEST / DEMO — estas reseñas son inventadas y no son reseñas reales de clientes.',review1Text:'“Los productos están bien presentados y encontré rápidamente lo que buscaba.”',review1Name:'Lisa · DEMO',review2Text:'“Categorías útiles y un catálogo agradable para probar en móvil.”',review2Name:'Mark · DEMO',review3Text:'“Las tarjetas de producto son claras y la búsqueda facilita descubrir productos.”',review3Name:'Sophie · DEMO'}
+};
+Object.keys(demoReviewTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...demoReviewTranslations[lang]};});
+
+function bindTrendMixLanguageSelects(){
+  document.querySelectorAll('#languageSelect,.language-picker select').forEach(select=>{
+    if(select.dataset.trendmixBound==='1') return;
+    select.dataset.trendmixBound='1';
+    select.addEventListener('change',()=>applyLanguage(select.value));
+  });
+  const current=localStorage.getItem('trendmix-language');
+  if(current && translations[current]) applyLanguage(current);
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',bindTrendMixLanguageSelects,{once:true});
+}else{
+  bindTrendMixLanguageSelects();
+}
