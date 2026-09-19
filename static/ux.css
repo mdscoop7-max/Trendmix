@@ -202,3 +202,10 @@ button,select,a{touch-action:manipulation}
 .cart-qty b{min-width:20px;text-align:center;font-size:12px}
 .cart-thumb{width:64px;height:64px;border-radius:12px;background:#1a1f2b;display:grid;place-items:center;font-size:24px}
 @media(max-width:760px){.card-add{width:36px;height:36px;flex-basis:36px}.cart-qty button{width:34px;height:34px}.cart-clear{width:100%}}
+
+
+/* Cart diagnostic hardening: prevent mobile overlays from swallowing taps. */
+.product-card[data-cart-control="dynamic"]{position:relative}
+.product-card[data-cart-control="dynamic"] .product-body{position:relative;z-index:2}
+.product-card[data-cart-control="dynamic"] .card-add{position:relative;z-index:20;pointer-events:auto!important;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.product-card[data-cart-control="dynamic"] .product-image{position:relative;z-index:1}
