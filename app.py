@@ -167,7 +167,14 @@ def category_page(category_slug):
     if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
     category = CATEGORIES[category_slug]
-    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=products[category_slug])
+    category_products = []
+    for index, item in enumerate(products[category_slug]):
+        category_item = dict(item)
+        category_item["category_slug"] = category_slug
+        category_item["category_name"] = category["name"]
+        category_item["index"] = index
+        category_products.append(category_item)
+    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=category_products)
 
 
 @app.route("/product/<category_slug>/<int:product_index>")
