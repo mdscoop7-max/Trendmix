@@ -8,12 +8,12 @@
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       <strong>€ {{ "%.2f"|format(product.price) }}</strong>
-      <button type="button" class="card-add" data-add-product
+      <form class="card-cart-form" action="/winkelwagen" method="get"><input type="hidden" name="add_id" value="{{ product.category_slug }}-{{ product.index }}"><input type="hidden" name="add_name" value="{{ product.name|e }}"><input type="hidden" name="add_price" value="{{ product.price|default(0) }}"><input type="hidden" name="add_image" value="{{ product.image|default('')|e }}"><button type="submit" class="card-add" data-add-product
         data-product-id="{{ product.category_slug }}-{{ product.index }}"
         data-product-name="{{ product.name|e }}"
         data-product-price="{{ product.price|default(0) }}"
         data-product-image="{{ product.image|default('')|e }}"
-        aria-label="Toevoegen aan winkelwagen" data-cart-redirect="/winkelwagen">＋</button>
+        aria-label="Toevoegen aan winkelwagen">＋</button></form>
     </div>
   </div>
 </article>
