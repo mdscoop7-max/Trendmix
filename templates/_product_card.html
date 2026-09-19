@@ -1,4 +1,4 @@
-<article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
+<article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}" data-go-cart="1" data-add-product='{"id":"{{ product.category_slug }}-{{ product.index }}","name":"{{ product.name|e }}","price":{{ product.price|default(0) }},"image":"{{ product.image|default("")|e }}"}'>
   <a class="product-image" href="/product/{{ product.category_slug }}/{{ product.index }}" aria-label="{{ product.name }}">
     {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async">{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
     <span class="product-badge" data-i18n="curatedBadge">TrendMix selectie</span>
@@ -8,7 +8,7 @@
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       <strong>€ {{ "%.2f"|format(product.price) }}</strong>
-      <button type="button" class="round-arrow" aria-label="Toevoegen aan winkelwagen" data-go-cart="1" data-add-product='{"id":"{{ product.category_slug }}-{{ product.index }}","name":"{{ product.name|e }}","price":{{ product.price|default(0) }},"image":"{{ product.image|default("")|e }}"}'>+</button>
+      <button type="button" class="round-arrow" aria-label="Toevoegen aan winkelwagen">+</button>
     </div>
   </div>
 </article>
