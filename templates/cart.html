@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Winkelwagen | TrendMix</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260919-7') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><script defer src="{{ url_for('static', filename='app.js?v=20260919-14') }}"></script></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Winkelwagen | TrendMix</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260919-7') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><script defer src="{{ url_for('static', filename='app.js?v=20260919-15') }}"></script><script defer src="{{ url_for('static', filename='languages.js') }}"></script></head>
 <body>
 <label class="language-picker"><span>🌐</span><select id="languageSelect" aria-label="Taal"><option value="nl">🇳🇱 Nederlands</option><option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="es">🇪🇸 Español</option></select></label>
 <header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><button class="header-contact" type="button" data-contact-open>✉ Contact</button><a class="cart-link" href="/winkelwagen" aria-label="Winkelwagen">🛒 <span data-cart-count>{{ cart_count }}</span></a><a class="header-cta" href="/#collecties">Ontdek</a></div></header>
-<main class="shell cart-page"><a class="back-link" href="/">← Verder winkelen</a><section class="cart-panel"><span class="eyebrow dark">TrendMix</span><h1>Je winkelwagen</h1>
+<main class="shell cart-page"><a class="back-link" href="/" data-i18n="continueShopping">← Verder winkelen</a><section class="cart-panel"><span class="eyebrow dark">TrendMix</span><h1 data-i18n="cartTitle">Je winkelwagen</h1>
 {% if cart %}
 <div id="cartItems">
 {% for item in cart %}
@@ -20,12 +20,12 @@
 </div>
 {% endfor %}
 </div>
-<form action="/winkelwagen" method="post"><input type="hidden" name="action" value="clear"><button type="submit" class="btn btn-outline cart-clear">Winkelwagen leegmaken</button></form>
+<form action="/winkelwagen" method="post"><input type="hidden" name="action" value="clear"><button type="submit" class="btn btn-outline cart-clear" data-i18n="clearCart">Winkelwagen leegmaken</button></form>
 {% else %}
 <div class="empty-state"><h3>Je winkelwagen is leeg</h3><p>Voeg producten toe vanuit een collectie.</p></div>
 {% endif %}
-<div class="cart-total"><strong>Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div>
-<a class="btn btn-dark checkout-button" href="/afrekenen">Afrekenen →</a>
+<div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div>
+<a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Afrekenen →</a>
 </section></main>
 {% include '_footer.html' %}
 </body></html>
