@@ -24,7 +24,7 @@
 {% else %}
 <div class="empty-state"><h3>Je winkelwagen is leeg</h3><p>Voeg producten toe vanuit een collectie.</p></div>
 {% endif %}
-<div class="cart-total"><strong>Totaal</strong><strong>€ {{ "%.2f"|format(cart|sum(attribute='price')) }}</strong></div>
+<div class="cart-total"><strong>Totaal</strong><strong>€ {{ "%.2f"|format(cart|map(attribute='price')|map('float')|sum) }}</strong></div>
 <p class="price-note">Afrekenen wordt geactiveerd zodra de betaal- en leverancierkoppeling is aangesloten.</p>
 </section></main>
 {% include '_footer.html' %}
