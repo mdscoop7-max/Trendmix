@@ -42,46 +42,70 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 function trendmixCart(){
-  try { return JSON.parse(localStorage.getItem('trendmix-cart') || '[]'); } catch(e){ return []; }
+  try{
+    const raw=localStorage.getItem('trendmix-cart')||'[]';
+    const parsed=JSON.parse(raw);
+    return Array.isArray(parsed)?parsed:[];
+  }catch(e){return [];}
+}
+function saveTrendmixCart(cart){
+  try{localStorage.setItem('trendmix-cart',JSON.stringify(cart));return true;}catch(e){return false;}
 }
 function updateCartBadge(){
   const count=trendmixCart().reduce((sum,item)=>sum+Number(item.qty||1),0);
   document.querySelectorAll('[data-cart-count]').forEach(el=>el.textContent=count);
 }
+function trendmixProductFromButton(button){
+  return {
+    id:button.dataset.productId||'',
+    name:button.dataset.productName||'',
+    price:Number(button.dataset.productPrice||0),
+    image:button.dataset.productImage||''
+  };
+}
 function addToCart(product){
+  if(!product||!product.id||!product.name)return false;
   const cart=trendmixCart();
   const found=cart.find(item=>item.id===product.id);
-  if(found){found.qty=(found.qty||1)+1;}else{cart.push({...product,qty:1});}
-  try{localStorage.setItem('trendmix-cart',JSON.stringify(cart));}catch(e){return false;}
+  if(found){found.qty=Number(found.qty||1)+1;}else{cart.push({...product,qty:1});}
+  if(!saveTrendmixCart(cart))return false;
   updateCartBadge();
-  const button=document.querySelector('[data-add-to-cart]');
-  if(button){const old=button.textContent;button.textContent='✓ Toegevoegd';setTimeout(()=>button.textContent=old,1200);}
   return true;
 }
 window.trendmixAddProduct=function(button){
-  const product={
-    id:button.dataset.productId || '',
-    name:button.dataset.productName || '',
-    price:Number(button.dataset.productPrice || 0),
-    image:button.dataset.productImage || ''
-  };
-  if(!product.id || !product.name)return false;
+  const product=trendmixProductFromButton(button);
+  const old=button.textContent;
   if(!addToCart(product)){
-    button.textContent='Probeer opnieuw';
+    button.textContent='!';
+    setTimeout(()=>button.textContent=old,1000);
     return false;
   }
   button.disabled=true;
-  const old=button.textContent;
-  button.textContent='✓ Toegevoegd';
-  setTimeout(()=>{button.disabled=false;button.textContent=old;},1000);
+  button.textContent='✓';
+  setTimeout(()=>{button.disabled=false;button.textContent=old;},900);
   return false;
 };
-document.addEventListener('click',e=>{
-  const button=e.target.closest('[data-add-product]');
-  if(!button)return;
-  e.preventDefault();
-  trendmixAddProduct(button);
-});
+window.trendmixCartRemove=function(index){
+  const cart=trendmixCart();
+  cart.splice(Number(index),1);
+  saveTrendmixCart(cart);
+  updateCartBadge();
+  window.trendmixRenderCart?.();
+};
+window.trendmixCartChange=function(index,delta){
+  const cart=trendmixCart();
+  const item=cart[Number(index)];
+  if(!item)return;
+  item.qty=Math.max(1,Number(item.qty||1)+Number(delta||0));
+  saveTrendmixCart(cart);
+  updateCartBadge();
+  window.trendmixRenderCart?.();
+};
+window.trendmixCartClear=function(){
+  saveTrendmixCart([]);
+  updateCartBadge();
+  window.trendmixRenderCart?.();
+};
 document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
