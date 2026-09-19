@@ -6,6 +6,16 @@ const translations={
  es:{topline:'Nueva colección · 5 categorías · lista para móvil',discover:'Descubrir',search:'Buscar en TrendMix...',heroEyebrow:'TrendMix · descubrimiento de productos',heroTitle:'Descubre mejor.<br><em>Elige más fácil.</em>',heroText:'Desde componentes PC y gadgets hasta smart home, belleza y deporte. Cinco colecciones claras y fáciles de comparar.',viewCollections:'Ver colecciones →',viewFeatured:'Ver destacados',categories:'categorías',products:'productos',languages:'idiomas',collections:'colecciones',access:'acceso',searchEyebrow:'Buscar',searchTitle:'Resultados',noResults:'Sin resultados',noResultsText:'Prueba otro término.',collectionsEyebrow:'Compra mejor',collectionsTitle:'Elige tu colección',collectionsText:'Cinco colecciones claras y fáciles de explorar.',featuredEyebrow:'Selección',featuredTitle:'Una buena elección de cada colección',allCollections:'Todas las colecciones →',methodEyebrow:'Nuestro enfoque',methodTitle:'No un catálogo infinito.<br>Una selección clara.',methodText:'TrendMix es deliberadamente más sencillo que los grandes marketplaces: menos categorías y una orientación más rápida.',step1Title:'Seleccionar',step1Text:'Relevancia y encaje.',step2Title:'Presentar',step2Text:'Buenas imágenes e información breve.',step3Title:'Descubrir',step3Text:'Del producto a la colección rápidamente.',valueTitle:'Menos buscar.<br>Más descubrir.',valueText:'Un catálogo moderno sin reseñas falsas, promesas exageradas ni pantallas innecesarias.',value1:'Categorías claras',value2:'Buenas imágenes',value3:'Diseño móvil',value4:'Sin duplicados',footerText:'Un catálogo independiente para tendencias, tecnología, hogar, belleza y lifestyle.',footerCollections:'Colecciones',footerExplore:'Descubrir',footerCategories:'Categorías',footerHighlights:'Destacados',footerHome:'Inicio',footerInfo:'TrendMix',footerNote:'Catálogo independiente.<br>Sin reseñas inventadas.',footerBottom:'Moderno · claro · accesible',categoryIntro:'Una selección de productos presentada de forma clara en escritorio y móvil.',allProducts:'Todos los productos',uniqueItems:'artículos únicos',sortBy:'Ordenar',moreToDiscover:'Más por descubrir.',moreText:'Elige otra colección y explora el catálogo.',curatedBadge:'Selección TrendMix',viewProduct:'→',backToCollection:'← Volver a la colección',backToCollectionBtn:'Ver colección →',otherCategory:'Otra categoría',priceNote:'Precio indicativo · comprueba el precio y la disponibilidad actuales con el proveedor.',productDescription:'Un producto seleccionado por TrendMix. Explora la colección para descubrir alternativas y comparar artículos.',point1:'Selección clara',point2:'Buenas imágenes',point3:'Adaptado al móvil',relatedTitle:'Más de esta colección'}
 };
 
+
+const sharedTranslations={
+  nl:{cartTitle:'Je winkelwagen',continueShopping:'← Verder winkelen',perPiece:'per stuk',decrease:'Aantal verminderen',increase:'Aantal verhogen',remove:'Product verwijderen',clearCart:'Winkelwagen leegmaken',total:'Totaal',checkout:'Afrekenen →',checkoutTitle:'Afrekenen',checkoutIntro:'Je bestelling is klaar. De betaal- en leverancierkoppeling moet nog worden aangesloten voordat een echte betaling kan worden verwerkt.',backToCart:'Winkelwagen aanpassen',reviewsTitle:'Reviews',reviewsText:'Echte klantreviews worden hier toegevoegd zodra er reviews beschikbaar zijn.',reviewsEmpty:'Nog geen reviews beschikbaar.',footerContactTitle:'Contact',footerContactText:'Heb je een vraag of feedback? Stuur ons een bericht.',openContact:'✉ Contactformulier openen',contactTitle:'Contact',contactText:'Heb je een vraag? Stuur ons direct een bericht.',name:'Naam',email:'E-mail',message:'Bericht',sendMessage:'Verstuur bericht →',footerReviews:'Reviews',contactSent:'✓ Je bericht is verzonden. Bedankt voor je bericht!',contactError:'Je bericht kon niet worden verzonden. Controleer je gegevens en probeer het later opnieuw.'},
+  en:{cartTitle:'Your cart',continueShopping:'← Continue shopping',perPiece:'per item',decrease:'Decrease quantity',increase:'Increase quantity',remove:'Remove product',clearCart:'Clear cart',total:'Total',checkout:'Checkout →',checkoutTitle:'Checkout',checkoutIntro:'Your order is ready. Payment and supplier integration still need to be connected before a real payment can be processed.',backToCart:'Adjust cart',reviewsTitle:'Reviews',reviewsText:'Real customer reviews will appear here once reviews are available.',reviewsEmpty:'No reviews available yet.',footerContactTitle:'Contact',footerContactText:'Have a question or feedback? Send us a message.',openContact:'✉ Open contact form',contactTitle:'Contact',contactText:'Have a question? Send us a message.',name:'Name',email:'Email',message:'Message',sendMessage:'Send message →',footerReviews:'Reviews',contactSent:'✓ Your message has been sent. Thank you!',contactError:'Your message could not be sent. Please check your details and try again.'},
+  fr:{cartTitle:'Votre panier',continueShopping:'← Continuer vos achats',perPiece:'par article',decrease:'Diminuer la quantité',increase:'Augmenter la quantité',remove:'Supprimer le produit',clearCart:'Vider le panier',total:'Total',checkout:'Passer à la caisse →',checkoutTitle:'Paiement',checkoutIntro:'Votre commande est prête. Le paiement et la connexion au fournisseur doivent encore être configurés avant tout paiement réel.',backToCart:'Modifier le panier',reviewsTitle:'Avis',reviewsText:'Les vrais avis clients seront affichés ici lorsqu’ils seront disponibles.',reviewsEmpty:'Aucun avis disponible pour le moment.',footerContactTitle:'Contact',footerContactText:'Une question ou un commentaire ? Envoyez-nous un message.',openContact:'✉ Ouvrir le formulaire',contactTitle:'Contact',contactText:'Une question ? Envoyez-nous un message.',name:'Nom',email:'E-mail',message:'Message',sendMessage:'Envoyer le message →',footerReviews:'Avis',contactSent:'✓ Votre message a été envoyé. Merci !',contactError:'Votre message n’a pas pu être envoyé. Vérifiez vos informations et réessayez.'},
+  it:{cartTitle:'Il tuo carrello',continueShopping:'← Continua gli acquisti',perPiece:'per pezzo',decrease:'Diminuisci quantità',increase:'Aumenta quantità',remove:'Rimuovi prodotto',clearCart:'Svuota carrello',total:'Totale',checkout:'Vai al pagamento →',checkoutTitle:'Pagamento',checkoutIntro:'Il tuo ordine è pronto. Il pagamento e il collegamento al fornitore devono ancora essere configurati prima di un pagamento reale.',backToCart:'Modifica carrello',reviewsTitle:'Recensioni',reviewsText:'Le recensioni reali dei clienti saranno mostrate qui quando saranno disponibili.',reviewsEmpty:'Nessuna recensione disponibile.',footerContactTitle:'Contatti',footerContactText:'Hai una domanda o un feedback? Inviaci un messaggio.',openContact:'✉ Apri il modulo di contatto',contactTitle:'Contatti',contactText:'Hai una domanda? Inviaci un messaggio.',name:'Nome',email:'E-mail',message:'Messaggio',sendMessage:'Invia messaggio →',footerReviews:'Recensioni',contactSent:'✓ Il tuo messaggio è stato inviato. Grazie!',contactError:'Non è stato possibile inviare il messaggio. Controlla i dati e riprova.'},
+  es:{cartTitle:'Tu carrito',continueShopping:'← Seguir comprando',perPiece:'por unidad',decrease:'Reducir cantidad',increase:'Aumentar cantidad',remove:'Eliminar producto',clearCart:'Vaciar carrito',total:'Total',checkout:'Finalizar compra →',checkoutTitle:'Finalizar compra',checkoutIntro:'Tu pedido está listo. El pago y la conexión con el proveedor aún deben configurarse antes de procesar un pago real.',backToCart:'Modificar carrito',reviewsTitle:'Reseñas',reviewsText:'Las reseñas reales de clientes aparecerán aquí cuando estén disponibles.',reviewsEmpty:'Aún no hay reseñas disponibles.',footerContactTitle:'Contacto',footerContactText:'¿Tienes una pregunta o comentario? Envíanos un mensaje.',openContact:'✉ Abrir formulario de contacto',contactTitle:'Contacto',contactText:'¿Tienes una pregunta? Envíanos un mensaje.',name:'Nombre',email:'Correo electrónico',message:'Mensaje',sendMessage:'Enviar mensaje →',footerReviews:'Reseñas',contactSent:'✓ Tu mensaje se ha enviado. ¡Gracias!',contactError:'No se pudo enviar el mensaje. Comprueba tus datos e inténtalo de nuevo.'}
+};
+Object.keys(sharedTranslations).forEach(lang=>Object.assign(translations[lang],sharedTranslations[lang]));
+
 function applyLanguage(lang){
   const t=translations[lang]||translations.nl;
   document.documentElement.lang=lang;
@@ -42,7 +52,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-  updateCartBadge();
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
     button.addEventListener('click',()=>{
       const modal=document.getElementById('contactModal');
@@ -63,42 +72,3 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 });
 
-
-/* Cart control: one dynamic handler for every product, touch and keyboard safe. */
-(function(){
-  const cartControlState={version:'20260919-cart-control-1',lastAction:null};
-  window.trendmixCartControl=cartControlState;
-  window.trendmixCartSelfTest=function(){
-    const buttons=[...document.querySelectorAll('[data-add-product]')];
-    const ids=buttons.map(b=>b.dataset.productId||'');
-    const uniqueIds=new Set(ids.filter(Boolean));
-    let storage='ok';
-    try{const probe='__trendmix_probe__';localStorage.setItem(probe,'1');localStorage.removeItem(probe);}
-    catch(e){storage='session-fallback';}
-    const result={
-      productButtons:buttons.length,
-      dynamicIds:ids.filter(Boolean).length===buttons.length,
-      uniqueIds:uniqueIds.size===ids.filter(Boolean).length,
-      storage,
-      handler:typeof window.trendmixAddProduct==='function',
-      touchTarget:buttons.every(b=>getComputedStyle(b).pointerEvents!=='none')
-    };
-    result.ok=result.productButtons===0 || (result.dynamicIds&&result.uniqueIds&&result.handler&&result.touchTarget);
-    window.trendmixCartControl.lastTest=result;
-    document.documentElement.dataset.cartControl=result.ok?'ok':'check';
-    return result;
-  };
-  document.addEventListener('click',function(e){
-    const button=e.target.closest?.('[data-add-product]');
-    if(!button)return;
-    if(button.dataset.cartClickLock==='1'){e.preventDefault();return;}
-    button.dataset.cartClickLock='1';
-    setTimeout(()=>{delete button.dataset.cartClickLock;},500);
-    e.preventDefault();
-    e.stopPropagation();
-    window.trendmixAddProduct(button);
-  },true);
-  document.addEventListener('DOMContentLoaded',()=>{
-    setTimeout(()=>window.trendmixCartSelfTest(),0);
-  });
-})();
