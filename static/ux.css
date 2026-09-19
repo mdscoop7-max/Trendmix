@@ -221,3 +221,9 @@ button,select,a{touch-action:manipulation}
   .cart-row .cart-qty button{width:38px!important;height:38px!important}
   .cart-row .cart-qty b{min-width:38px!important;height:38px!important;font-size:15px!important}
 }
+
+.checkout-intro{color:#aeb6c6;max-width:680px;line-height:1.7}
+.checkout-summary{display:grid;gap:0;margin-top:24px;border-top:1px solid #2b3242}
+.checkout-item{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid #2b3242;color:#e9ecf2}
+.checkout-item strong{color:#fff}
+.checkout-back{width:100%;margin-top:10px}
