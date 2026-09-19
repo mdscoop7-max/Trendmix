@@ -1,4 +1,4 @@
-<article class="product-card" data-cart-control="dynamic" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
+<article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
   <a class="product-image" href="/product/{{ product.category_slug }}/{{ product.index }}" aria-label="{{ product.name }}">
     {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async">{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
     <span class="product-badge" data-i18n="curatedBadge">TrendMix selectie</span>
@@ -8,12 +8,11 @@
     <h3><a href="/product/{{ product.category_slug }}/{{ product.index }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       <strong>€ {{ "%.2f"|format(product.price) }}</strong>
-      <form class="card-cart-form" action="/winkelwagen" method="get"><input type="hidden" name="add_id" value="{{ product.category_slug }}-{{ product.index }}"><input type="hidden" name="add_name" value="{{ product.name|e }}"><input type="hidden" name="add_price" value="{{ product.price|default(0) }}"><input type="hidden" name="add_image" value="{{ product.image|default('')|e }}"><button type="submit" class="card-add" data-add-product
-        data-product-id="{{ product.category_slug }}-{{ product.index }}"
-        data-product-name="{{ product.name|e }}"
-        data-product-price="{{ product.price|default(0) }}"
-        data-product-image="{{ product.image|default('')|e }}"
-        aria-label="Toevoegen aan winkelwagen">＋</button></form>
+      <form class="card-cart-form" action="/winkelwagen" method="post">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="product_id" value="{{ product.category_slug }}-{{ product.index }}">
+        <button type="submit" class="card-add" aria-label="Toevoegen aan winkelwagen">＋</button>
+      </form>
     </div>
   </div>
 </article>
