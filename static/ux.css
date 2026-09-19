@@ -62,3 +62,32 @@ button,select,a{touch-action:manipulation}
   .info-card{background:#111520;border-color:#272e3e;color:#f5f7fb}.info-card p,.info-card li{color:#aeb6c6}.info-card strong{color:#fff}.info-card a{color:#b98cff}
   .site-footer{background:#080a10;border-top:1px solid #1d2230}.footer-grid h3{color:#fff}.footer-grid p,.footer-grid a{color:#9ea6b7}.footer-grid a:hover{color:#c59aff}.footer-bottom{color:#7f899c;border-top-color:#1d2230}
 }
+
+
+/* TrendMix mobile fixes: header/cart/language/contact */
+@media(max-width:760px){
+  /* Keep the cart only in the bottom app navigation on mobile. */
+  .site-header .header-main > .cart-link{display:none!important;}
+
+  /* Keep the language selector at the top instead of vertically centered. */
+  .language-picker{top:10px!important;right:10px!important;transform:none!important;z-index:1200;}
+
+  /* Make the contact modal fields clearly visible and touch friendly. */
+  .contact-modal{position:fixed;inset:0;z-index:2000;}
+  .contact-modal[hidden]{display:none!important;}
+  .contact-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.68);}
+  .contact-dialog{position:relative;z-index:1;width:min(92vw,520px);max-height:88vh;overflow:auto;margin:6vh auto 0;padding:24px 20px;border:1px solid #30384b;border-radius:22px;background:#111520;color:#f5f7fb;box-shadow:0 24px 70px rgba(0,0,0,.55);}
+  .contact-dialog h2{margin:8px 0 6px;font-size:30px;color:#fff;}
+  .contact-dialog p{margin:0 0 18px;color:#aeb6c6;}
+  .contact-close{position:absolute;top:10px;right:12px;width:38px;height:38px;border:1px solid #30384b;border-radius:12px;background:#1b2130;color:#fff;font-size:24px;line-height:1;cursor:pointer;}
+  .contact-form{display:grid;gap:14px;}
+  .contact-form label{display:grid;gap:7px;color:#eef1f6;font-size:12px;font-weight:800;}
+  .contact-form input,.contact-form textarea{width:100%;box-sizing:border-box;border:1px solid #343c50;border-radius:13px;background:#0b0e16;color:#fff;padding:12px 13px;outline:0;}
+  .contact-form input{min-height:46px;}
+  .contact-form textarea{min-height:150px;resize:vertical;}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:#8d61ff;box-shadow:0 0 0 3px rgba(141,97,255,.16);}
+  .contact-form .btn{width:100%;min-height:48px;}
+}
+@media(max-width:470px){
+  .contact-dialog{width:calc(100vw - 24px);margin:4vh auto 0;padding:22px 16px;}
+}
