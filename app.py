@@ -321,11 +321,17 @@ def contact():
     if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
         return redirect(url_for("home") + "?contact=error#contact")
 
+    is_ajax = request.args.get("ajax") == "1" or request.headers.get("X-Requested-With") == "XMLHttpRequest"
     api_key = os.getenv("RESEND_API_KEY")
     from_email = os.getenv("CONTACT_FROM_EMAIL")
+
+    # Testvriendelijk: zonder mailconfiguratie accepteren we het formulier alsnog.
+    # Zo kan de volledige gebruikersflow op Vercel worden getest zonder dat e-mail al is gekoppeld.
     if not api_key or not from_email:
-        app.logger.error("Contact mail is not configured: RESEND_API_KEY and CONTACT_FROM_EMAIL are required.")
-        return redirect(url_for("home") + "?contact=error#contact")
+        app.logger.info("Contact test submission received from %s <%s>: %s", name, email, message)
+        if is_ajax:
+            return Response(json.dumps({"ok": True, "test_mode": True}), mimetype="application/json")
+        return redirect(url_for("home") + "?contact=sent#contact")
 
     payload = {
         "from": from_email,
@@ -347,10 +353,14 @@ def contact():
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
             if 200 <= response.status < 300:
+                if is_ajax:
+                    return Response(json.dumps({"ok": True}), mimetype="application/json")
                 return redirect(url_for("home") + "?contact=sent#contact")
     except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
         app.logger.error("Contact mail failed: %s", exc)
 
+    if is_ajax:
+        return Response(json.dumps({"ok": False}), status=502, mimetype="application/json")
     return redirect(url_for("home") + "?contact=error#contact")
 
 @app.route("/over-trendmix")
