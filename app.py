@@ -4,9 +4,10 @@ import os
 import urllib.request
 import urllib.error
 from pathlib import Path
-from flask import Flask, Response, render_template, request, redirect, url_for
+from flask import Flask, Response, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
 SITE_URL = "https://trendmix-jet.vercel.app"
@@ -101,9 +102,35 @@ def slugify(value):
     return re.sub(r"[-\s]+", "-", value)
 
 
+def cart_items():
+    return session.get("trendmix_cart", [])
+
+
+def cart_count():
+    return sum(max(1, int(item.get("qty", 1))) for item in cart_items())
+
+
+def find_product(product_id):
+    try:
+        category_slug, raw_index = product_id.rsplit("-", 1)
+        index = int(raw_index)
+    except (ValueError, TypeError):
+        return None
+    if category_slug not in products or index < 0 or index >= len(products[category_slug]):
+        return None
+    product = dict(products[category_slug][index])
+    product["id"] = product_id
+    product["category_slug"] = category_slug
+    product["category_name"] = CATEGORIES[category_slug]["name"]
+    product["index"] = index
+    return product
+
+
 @app.context_processor
 def inject_helpers():
-    return {"slugify": slugify}
+    return {"slugify": slugify, "cart_count": cart_count()}
+
+
 
 
 @app.route("/")
@@ -195,9 +222,57 @@ def product_detail(category_slug, product_index):
     return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
 
 
-@app.route("/winkelwagen")
+@app.route("/winkelwagen", methods=["GET", "POST"])
 def winkelwagen():
-    return render_template("cart.html", categories=CATEGORIES)
+    cart = [dict(item) for item in cart_items()]
+
+    if request.method == "POST":
+        action = request.form.get("action", "").strip()
+
+        if action == "add":
+            product = find_product(request.form.get("product_id", "").strip())
+            if product:
+                found = next((item for item in cart if item["id"] == product["id"]), None)
+                if found:
+                    found["qty"] = max(1, int(found.get("qty", 1))) + 1
+                else:
+                    cart.append({
+                        "id": product["id"],
+                        "name": product["name"],
+                        "price": float(product.get("price", 0) or 0),
+                        "image": product.get("image", ""),
+                        "category_name": product["category_name"],
+                        "qty": 1,
+                    })
+
+        elif action == "change":
+            product_id = request.form.get("product_id", "").strip()
+            try:
+                delta = int(request.form.get("delta", "0"))
+            except ValueError:
+                delta = 0
+            for item in cart:
+                if item.get("id") == product_id:
+                    item["qty"] = max(1, int(item.get("qty", 1)) + delta)
+                    break
+
+        elif action == "remove":
+            product_id = request.form.get("product_id", "").strip()
+            cart = [item for item in cart if item.get("id") != product_id]
+
+        elif action == "clear":
+            cart = []
+
+        session["trendmix_cart"] = cart
+        session.modified = True
+        return redirect(url_for("winkelwagen"))
+
+    return render_template(
+        "cart.html",
+        categories=CATEGORIES,
+        cart=cart,
+        cart_count=cart_count(),
+    )
 
 @app.route("/faq")
 def faq():
