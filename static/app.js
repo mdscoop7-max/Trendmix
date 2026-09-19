@@ -59,17 +59,6 @@ function addToCart(product){
 }
 document.addEventListener('DOMContentLoaded',()=>{
   updateCartBadge();
-  document.querySelectorAll('[data-add-product]').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const product={
-        id:button.dataset.productId || '',
-        name:button.dataset.productName || '',
-        price:Number(button.dataset.productPrice || 0),
-        image:button.dataset.productImage || ''
-      };
-      if(product.id && product.name){ addToCart(product); }
-    });
-  });
   document.querySelectorAll('[data-contact-open]').forEach(button=>{
     button.addEventListener('click',()=>{
       const modal=document.getElementById('contactModal');
