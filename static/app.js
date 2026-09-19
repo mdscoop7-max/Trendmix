@@ -93,6 +93,7 @@ window.trendmixAddProduct=function(button){
   button.disabled=true;
   button.textContent='✓';
   setTimeout(()=>{button.disabled=false;button.textContent=old;},900);
+  if(button.dataset.cartRedirect){setTimeout(()=>{window.location.href=button.dataset.cartRedirect;},250);}
   return false;
 };
 window.trendmixCartRemove=function(index){
