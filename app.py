@@ -8,7 +8,6 @@ from flask import Flask, Response, render_template, request, redirect, url_for, 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
 SITE_URL = "https://trendmix-jet.vercel.app"
