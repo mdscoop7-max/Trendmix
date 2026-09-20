@@ -9,13 +9,13 @@
   <div class="shell footer-grid">
     <div class="footer-brand">
       <a class="brand footer-logo" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a>
-      <p data-i18n="footerText">Een moderne dropshipping-webshop voor tech, home, beauty en lifestyle.</p>
-      <div class="footer-badges"><span>✓ 6 talen</span><span>✓ 5 collecties</span></div>
+      <p data-i18n="footerText">Een moderne webshop voor tech, home, beauty en lifestyle.</p>
+      
     </div>
     <div class="footer-contact" id="contact">
       <h3 data-i18n="footerContactTitle">Contact</h3>
       <p data-i18n="footerContactText">Heb je een vraag of feedback? Stuur ons een bericht.</p>
-      <button type="button" class="btn btn-dark" data-contact-open data-i18n="openContact">✉ Contactformulier openen</button>
+      <button type="button" class="btn btn-dark" data-contact-open data-i18n="openContact">✉ Contact</button>
     </div>
     <div><h3 data-i18n="footerCollections">Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
     <div><h3 data-i18n="footerExplore">Ontdek</h3><a href="/" data-i18n="footerHome">Home</a><a href="/#collecties" data-i18n="footerCategories">Categorieën</a><a href="/#featured" data-i18n="footerHighlights">Highlights</a><a href="/faq" data-i18n="footerFaqLink">Veelgestelde vragen</a></div>
@@ -24,10 +24,10 @@
   <div class="shell footer-bottom"><span>© 2026 TrendMix</span><span data-i18n="footerBottom">Modern · overzichtelijk · transparant · toegankelijk</span></div>
 </footer><div class="contact-modal" id="contactModal" hidden><div class="contact-backdrop" data-contact-close></div><section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle"><button type="button" class="contact-close" data-contact-close aria-label="Sluiten">×</button><span class="eyebrow dark">TrendMix</span><h2 id="contactTitle" data-i18n="contactTitle">Contact</h2><p data-i18n="contactText">Heb je een vraag? Stuur ons direct een bericht.</p><form class="contact-form contact-form-modal" action="/contact" method="post" novalidate>
   <div class="contact-form-row">
-    <label><span data-i18n="name">Naam</span><input type="text" name="name" autocomplete="name" placeholder="Je naam" required></label>
-    <label><span data-i18n="email">E-mail</span><input type="email" name="email" autocomplete="email" placeholder="jouw@email.nl" required></label>
+    <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" placeholder="Je naam" required></label>
+    <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" placeholder="jouw@email.nl" required></label>
   </div>
-  <label><span data-i18n="message">Bericht</span><textarea name="message" rows="6" placeholder="Waar kunnen we je mee helpen?" required></textarea></label>
-  <button type="submit" class="btn btn-dark" data-i18n="sendMessage">Verstuur bericht →</button>
+  <label><span data-i18n="contactMessage">Bericht</span><textarea name="message" rows="6" placeholder="Waar kunnen we je mee helpen?" required></textarea></label>
+  <button type="submit" class="btn btn-dark" data-i18n="contactSubmit">Verstuur bericht →</button>
   <div class="contact-form-status" hidden role="status" aria-live="polite"></div>
 </form></section></div>
