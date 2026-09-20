@@ -2,7 +2,7 @@
 <html lang="nl">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Winkelwagen | TrendMix</title><link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml"><link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260920-3') }}"><script defer src="{{ url_for('static', filename='app.js') }}"></script></head>
 <body>
-<header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><button class="header-contact" type="button" data-contact-open>✉ Contact</button><a class="cart-link" href="/winkelwagen" aria-label="Winkelwagen">🛒 <span data-cart-count>{{ cart_count }}</span></a><a class="header-cta" href="/#collecties">Ontdek</a></div></header>
+{% include "_header.html" %}
 <main class="shell cart-page"><a class="back-link" href="/" data-i18n="continueShopping">← Verder winkelen</a><section class="cart-panel"><span class="eyebrow dark">TrendMix</span><h1 data-i18n="cartTitle">Je winkelwagen</h1>
 {% if cart %}
 <div id="cartItems">
