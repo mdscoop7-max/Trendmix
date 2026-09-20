@@ -1,7 +1,161 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#101114"><title>{{ product.name }} | TrendMix</title><meta name="description" content="{{ product.name }} binnen {{ category_name }} bij TrendMix. Ontdek het product en vergelijk met de rest van de collectie."><meta property="og:title" content="{{ product.name }} | TrendMix"><meta property="og:description" content="Ontdek {{ product.name }} binnen {{ category_name }}."><meta property="og:type" content="product"><meta name="robots" content="index,follow"><meta name="keywords" content="{{ product.name }}, {{ category_name }}, TrendMix, online kopen"><link rel="canonical" href="https://trendmix.onrender.com/product/{{ category_slug }}/{{ product_index }}"><link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml"><link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260920-1') }}"><script defer src="{{ url_for('static', filename='app.js') }}"></script>{% if product.image %}<meta property="og:image" content="{{ product.image }}">{% endif %}<script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"Product","name":product.name,"category":category_name,"image":([product.image] if product.image else []),"offers":{"@type":"Offer","price":"%.2f"|format(product.price),"priceCurrency":"EUR","availability":"https://schema.org/InStock"}}|tojson }}</script></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b10">
+  <title>{{ product.seo_title }}</title>
+  <meta name="description" content="{{ product.seo_description }}">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="{{ product.product_url }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='ux.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+  {% if product.images %}
+  <meta property="og:image" content="{{ product.images[0] }}">
+  {% endif %}
+  <meta property="og:title" content="{{ product.seo_title }}">
+  <meta property="og:description" content="{{ product.seo_description }}">
+  <meta property="og:type" content="product">
+  <script type="application/ld+json">
+  {{ {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":product.name,
+    "description":product.description,
+    "category":category_name,
+    "image":product.images,
+    "sku":product.id,
+    "brand":({"@type":"Brand","name":product.brand} if product.brand else none),
+    "offers":{
+      "@type":"Offer",
+      "url":product.product_url,
+      "price":"%.2f"|format(product.price),
+      "priceCurrency":"EUR",
+      "availability":"https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else "https://schema.org/PreOrder"
+    }
+  }|tojson }}
+  </script>
+</head>
 <body>
 {% include "_header.html" %}
-<main class="shell product-detail"><a class="back-link" href="/{{ category_slug }}" data-i18n="backToCollection">← Terug naar collectie</a><section class="detail-layout"><div class="detail-image">{% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="eager">{% else %}<span>🛍️</span>{% endif %}</div><div class="detail-copy"><span class="eyebrow dark" data-category-name="{{ category_slug }}">{{ category_name }}</span><h1>{{ product.name }}</h1><p class="detail-price">€ {{ "%.2f"|format(product.price) }}</p><p class="price-note" data-i18n="priceNote">Actuele webshopprijs · voorraad en levertijd worden per leverancier gecontroleerd.</p>{% if product.description %}<p class="detail-description">{{ product.description }}</p>{% else %}<p class="detail-description" data-i18n="productDescription">Een geselecteerd TrendMix-product binnen deze collectie. Gebruik de collectie om alternatieven te bekijken en producten naast elkaar te ontdekken.</p>{% endif %}<div class="detail-actions"><form action="/winkelwagen" method="post"><input type="hidden" name="action" value="add"><input type="hidden" name="product_id" value="{{ category_slug }}-{{ product_index }}"><button type="submit" class="btn btn-dark">In winkelwagen →</button></form><a class="btn btn-outline" href="/#collecties" data-i18n="otherCategory">Andere categorie</a></div></div><div class="detail-points"><span>✓ <span data-i18n="point1">Duidelijke selectie</span></span><span>✓ <span data-i18n="point2">Sterke productbeelden</span></span><span>✓ <span data-i18n="point3">Mobiel vriendelijk</span></span></div></div></section><section class="content-section related-section"><div class="section-head"><div><span class="eyebrow dark" data-category-name="{{ category_slug }}">{{ category_name }}</span><h2 data-i18n="relatedTitle">Meer uit deze collectie</h2></div><a class="text-link" href="/{{ category_slug }}" data-i18n="allProducts">Alles bekijken →</a></div><div class="product-grid">{% for product in related %}{% include '_product_card.html' %}{% endfor %}</div></section></main>
-{% include '_footer.html' %}</body></html>
+
+<main class="shell product-detail tm-product-page">
+  <nav class="breadcrumb" aria-label="Broodkruimel">
+    <a href="/">Home</a><span aria-hidden="true">/</span>
+    <a href="/{{ category_slug }}">{{ category_name }}</a><span aria-hidden="true">/</span>
+    <span>{{ product.subcategory }}</span>
+  </nav>
+
+  <section class="detail-layout">
+    <div class="detail-gallery">
+      <div class="detail-image">
+        {% if product.images %}
+          <img src="{{ product.images[0] }}" alt="{{ product.name }}" loading="eager" decoding="async">
+        {% else %}
+          <span class="image-fallback">Geen afbeelding beschikbaar</span>
+        {% endif %}
+      </div>
+      {% if product.images|length > 1 %}
+      <div class="detail-thumbnails" aria-label="Productafbeeldingen">
+        {% for image in product.images %}
+          <button type="button" aria-label="Afbeelding {{ loop.index }}">
+            <img src="{{ image }}" alt="" loading="lazy" decoding="async">
+          </button>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="detail-copy">
+      <div class="product-meta-line">
+        <span class="eyebrow dark">{{ product.subcategory }}</span>
+        {% if product.brand %}<span class="product-brand">{{ product.brand }}</span>{% endif %}
+      </div>
+      <h1>{{ product.name }}</h1>
+
+      <div class="detail-price-row">
+        <strong class="detail-price">€ {{ "%.2f"|format(product.price)|replace(".", ",") }}</strong>
+        {% if product.old_price %}
+          <span class="old-price">€ {{ "%.2f"|format(product.old_price)|replace(".", ",") }}</span>
+        {% endif %}
+        {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
+      </div>
+
+      <p class="detail-description">{{ product.short_description }}</p>
+
+      <div class="product-availability">
+        <strong>
+          {% if product.stock_status == "in_stock" %}Op voorraad
+          {% elif product.stock_status == "out_of_stock" %}Niet op voorraad
+          {% else %}Voorraad controleren{% endif %}
+        </strong>
+        <span>Levertijd: {{ product.delivery_time }}</span>
+      </div>
+
+      {% if product.usps %}
+      <ul class="product-usps">
+        {% for usp in product.usps %}<li>✓ {{ usp }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+
+      <div class="detail-actions">
+        <form action="/winkelwagen" method="post">
+          <input type="hidden" name="action" value="add">
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <button type="submit" class="btn btn-dark">In winkelwagen</button>
+        </form>
+        <a class="btn btn-outline" href="/{{ category_slug }}">Verder winkelen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-information content-section">
+    <div class="content-panel">
+      <span class="eyebrow dark">Productinformatie</span>
+      <h2>Beschrijving</h2>
+      <p>{{ product.description }}</p>
+    </div>
+
+    {% if product.specifications %}
+    <div class="content-panel">
+      <span class="eyebrow dark">Specificaties</span>
+      <h2>Technische gegevens</h2>
+      <dl class="spec-list">
+        {% for key, value in product.specifications.items() %}
+        <div><dt>{{ key }}</dt><dd>{{ value }}</dd></div>
+        {% endfor %}
+      </dl>
+    </div>
+    {% endif %}
+  </section>
+
+  {% if product.faq %}
+  <section class="content-section">
+    <div class="section-head"><div><span class="eyebrow dark">Veelgestelde vragen</span><h2>Over dit product</h2></div></div>
+    <div class="faq-list">
+      {% for item in product.faq %}
+      <details><summary>{{ item.question }}</summary><p>{{ item.answer }}</p></details>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if related %}
+  <section class="content-section related-section">
+    <div class="section-head">
+      <div><span class="eyebrow dark">{{ product.subcategory }}</span><h2>Gerelateerde producten</h2></div>
+      <a class="text-link" href="/{{ category_slug }}">Alles bekijken →</a>
+    </div>
+    <div class="product-grid">
+      {% for product in related %}{% include "_product_card.html" %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</main>
+
+{% include "_footer.html" %}
+</body>
+</html>
