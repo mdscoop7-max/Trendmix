@@ -70,11 +70,7 @@ products = load_catalog()
 def catalog_items():
     for slug, items in products.items():
         for index, product in enumerate(items):
-            item = dict(product)
-            item["category_slug"] = slug
-            item["category_name"] = CATEGORIES[slug]["name"]
-            item["index"] = index
-            yield item
+            yield enrich_product(product, slug, index)
 
 
 def featured_mix():
@@ -83,11 +79,7 @@ def featured_mix():
         for slug in CATEGORIES:
             items = products.get(slug, [])
             if index < len(items):
-                item = dict(items[index])
-                item["category_slug"] = slug
-                item["category_name"] = CATEGORIES[slug]["name"]
-                item["index"] = index
-                mixed.append(item)
+                mixed.append(enrich_product(items[index], slug, index))
             if len(mixed) >= 10:
                 return mixed
     return mixed
@@ -98,8 +90,47 @@ def category_images():
 
 
 def slugify(value):
-    value = re.sub(r"[^a-zA-Z0-9\s-]", "", value).strip().lower()
+    value = str(value or "").lower()
+    value = value.replace("+", " plus ").replace("&", " en ")
+    value = re.sub(r"[^a-z0-9\s-]", "", value).strip()
     return re.sub(r"[-\s]+", "-", value)
+
+
+def product_url(product):
+    return url_for(
+        "product_detail",
+        category_slug=product["category_slug"],
+        subcategory_slug=product.get("subcategory_slug") or slugify(product.get("subcategory") or product["category_slug"]),
+        product_slug=product["slug"],
+    )
+
+
+def enrich_product(product, category_slug, index):
+    item = dict(product)
+    item["category_slug"] = category_slug
+    item["category_name"] = CATEGORIES[category_slug]["name"]
+    item["index"] = index
+    item.setdefault("id", f"tm-{category_slug}-{slugify(item.get('name'))}-{index}")
+    item.setdefault("slug", slugify(item.get("name")) or f"product-{index + 1}")
+    item.setdefault("subcategory", CATEGORIES[category_slug]["name"])
+    item.setdefault("subcategory_slug", slugify(item["subcategory"]))
+    item.setdefault("brand", None)
+    item.setdefault("old_price", None)
+    item.setdefault("badge", None)
+    item.setdefault("stock_status", "unknown")
+    item.setdefault("stock_quantity", None)
+    item.setdefault("delivery_time", "Nog te bevestigen")
+    item.setdefault("images", [item["image"]] if item.get("image") else [])
+    item.setdefault("short_description", item.get("description") or f"{item['name']} binnen {item['category_name']}.")
+    item.setdefault("description", item.get("short_description") or f"{item['name']} is onderdeel van de TrendMix-collectie.")
+    item.setdefault("specifications", {})
+    item.setdefault("usps", [])
+    item.setdefault("seo_title", f"{item['name']} | TrendMix")
+    item.setdefault("seo_description", f"{item['name']} binnen {item['category_name']}. Bekijk prijs, productinformatie en alternatieven bij TrendMix.")
+    item.setdefault("faq", [])
+    item.setdefault("related_product_ids", [])
+    item["product_url"] = product_url(item)
+    return item
 
 
 def cart_items():
@@ -118,19 +149,19 @@ def cart_total():
 
 
 def find_product(product_id):
-    try:
-        category_slug, raw_index = product_id.rsplit("-", 1)
-        index = int(raw_index)
-    except (ValueError, TypeError):
-        return None
-    if category_slug not in products or index < 0 or index >= len(products[category_slug]):
-        return None
-    product = dict(products[category_slug][index])
-    product["id"] = product_id
-    product["category_slug"] = category_slug
-    product["category_name"] = CATEGORIES[category_slug]["name"]
-    product["index"] = index
-    return product
+    product_id = str(product_id or "").strip()
+    for category_slug, items in products.items():
+        for index, raw in enumerate(items):
+            item = enrich_product(raw, category_slug, index)
+            if item["id"] == product_id:
+                return item
+    match = re.fullmatch(r"([a-z0-9-]+)-(\d+)", product_id)
+    if match and match.group(1) in products:
+        index = int(match.group(2))
+        items = products[match.group(1)]
+        if 0 <= index < len(items):
+            return enrich_product(items[index], match.group(1), index)
+    return None
 
 
 @app.context_processor
@@ -201,32 +232,72 @@ def category_page(category_slug):
     if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
     category = CATEGORIES[category_slug]
-    category_products = []
-    for index, item in enumerate(products[category_slug]):
-        category_item = dict(item)
-        category_item["category_slug"] = category_slug
-        category_item["category_name"] = category["name"]
-        category_item["index"] = index
-        category_products.append(category_item)
-    return render_template("category.html", category_name=category["name"], category_icon=category["icon"], category_eyebrow=category["eyebrow"], category_slug=category_slug, categories=CATEGORIES, products=category_products)
+    category_products = [
+        enrich_product(item, category_slug, index)
+        for index, item in enumerate(products[category_slug])
+    ]
+    subcategories = {}
+    for item in category_products:
+        subcategories.setdefault(item["subcategory_slug"], {
+            "name": item["subcategory"],
+            "slug": item["subcategory_slug"],
+            "count": 0,
+        })
+        subcategories[item["subcategory_slug"]]["count"] += 1
+    return render_template(
+        "category.html",
+        category_name=category["name"],
+        category_icon=category["icon"],
+        category_eyebrow=category["eyebrow"],
+        category_slug=category_slug,
+        categories=CATEGORIES,
+        products=category_products,
+        subcategories=list(subcategories.values()),
+    )
 
 
 @app.route("/product/<category_slug>/<int:product_index>")
-def product_detail(category_slug, product_index):
+def legacy_product_detail(category_slug, product_index):
     if category_slug not in products or product_index < 0 or product_index >= len(products[category_slug]):
         return "Product niet gevonden", 404
-    product = dict(products[category_slug][product_index])
-    product["category_slug"] = category_slug
-    product["category_name"] = CATEGORIES[category_slug]["name"]
-    product["index"] = product_index
+    product = enrich_product(products[category_slug][product_index], category_slug, product_index)
+    return redirect(product["product_url"], code=301)
+
+
+@app.route("/<category_slug>/<subcategory_slug>/<product_slug>")
+def product_detail(category_slug, subcategory_slug, product_slug):
+    if category_slug not in products:
+        return "Product niet gevonden", 404
+    match = None
+    for index, raw in enumerate(products[category_slug]):
+        item = enrich_product(raw, category_slug, index)
+        if item["slug"] == product_slug and item["subcategory_slug"] == subcategory_slug:
+            match = item
+            break
+    if not match:
+        for index, raw in enumerate(products[category_slug]):
+            item = enrich_product(raw, category_slug, index)
+            if item["slug"] == product_slug:
+                return redirect(item["product_url"], code=301)
+        return "Product niet gevonden", 404
     related = []
-    for index, item in enumerate(products[category_slug][:6]):
-        related_item = dict(item)
-        related_item["category_slug"] = category_slug
-        related_item["category_name"] = CATEGORIES[category_slug]["name"]
-        related_item["index"] = index
-        related.append(related_item)
-    return render_template("product.html", product=product, product_index=product_index, category_slug=category_slug, category_name=CATEGORIES[category_slug]["name"], categories=CATEGORIES, related=related)
+    for index, raw in enumerate(products[category_slug]):
+        item = enrich_product(raw, category_slug, index)
+        if item["id"] != match["id"] and (
+            item["subcategory_slug"] == match["subcategory_slug"] or not related
+        ):
+            related.append(item)
+        if len(related) >= 6:
+            break
+    return render_template(
+        "product.html",
+        product=match,
+        product_index=match["index"],
+        category_slug=category_slug,
+        category_name=CATEGORIES[category_slug]["name"],
+        categories=CATEGORIES,
+        related=related,
+    )
 
 
 @app.route("/winkelwagen", methods=["GET", "POST"])
@@ -309,7 +380,11 @@ def afrekenen():
 def faq():
     return render_template("faq.html", categories=CATEGORIES)
 
-@app.route("/contact", methods=["GET"])\ndef contact_page():\n    return render_template("contact.html", categories=CATEGORIES, search_query="")\n\n@app.route("/contact", methods=["POST"])
+@app.route("/contact", methods=["GET"])
+def contact_page():
+    return render_template("contact.html", categories=CATEGORIES, search_query="")
+
+@app.route("/contact", methods=["POST"])
 def contact():
     name = request.form.get("name", "").strip()
     email = request.form.get("email", "").strip()
@@ -392,8 +467,8 @@ def robots():
 def sitemap():
     urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/{slug}" for slug in CATEGORIES] + [f"{SITE_URL}/{path}" for path in INFO_PAGES] + [f"{SITE_URL}/faq"]
     for slug, items in products.items():
-        for index, _product in enumerate(items):
-            urls.append(f"{SITE_URL}/product/{slug}/{index}")
+        for index, raw in enumerate(items):
+            urls.append(f"{SITE_URL}{enrich_product(raw, slug, index)['product_url']}")
     xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{url}</loc></url>" for url in urls) + "</urlset>"
     return Response(xml, mimetype="application/xml")
 
