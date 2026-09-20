@@ -13,3 +13,50 @@
 /* Compact product cards: reduce scrolling and keep the whole product visible. */
 @media(max-width:760px){.product-image{height:125px}.product-image img{padding:8px}}
 @media(max-width:470px){.product-image{height:112px}.product-image img{padding:6px}}
+
+
+/* TrendMix basislayout v1 — donker gamingthema */
+body{background:var(--tm-bg);color:var(--tm-text);font-family:var(--tm-font-body)}
+.site-header{background:rgba(7,11,16,.94);border-bottom:1px solid var(--tm-line);backdrop-filter:blur(18px)}
+.header-main{min-height:78px}
+.tm-brand{width:150px;height:38px}
+.tm-brand img{width:150px;height:38px;object-fit:contain}
+.search-bar{background:var(--tm-surface-2);border-color:var(--tm-line);border-radius:var(--tm-radius-sm)}
+.search-bar:focus-within{background:var(--tm-surface-2);border-color:var(--tm-accent);box-shadow:0 0 0 3px var(--tm-accent-soft)}
+.search-bar input{color:var(--tm-text)}
+.search-bar button{background:var(--tm-accent);color:#041017}
+.tm-search-icon,.search-bar button svg,.cart-link svg,.tm-usp-bar svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}
+.tm-search-icon{margin-left:10px;color:var(--tm-muted)}
+.header-contact,.cart-link{border:1px solid var(--tm-line)!important;background:var(--tm-surface-2)!important;color:var(--tm-text)!important}
+.header-contact:hover,.cart-link:hover{border-color:var(--tm-accent)!important;color:var(--tm-accent)!important;background:var(--tm-accent-soft)!important}
+.cart-link{display:inline-flex;align-items:center;gap:8px}
+.cart-link span{background:var(--tm-accent)!important;color:#041017!important}
+.main-nav{border-top:1px solid var(--tm-line);background:var(--tm-bg)}
+.nav-inner{justify-content:flex-start;gap:4px}
+.nav-link{color:var(--tm-muted);border-radius:var(--tm-radius-sm)}
+.nav-link:hover,.nav-link.active{background:var(--tm-accent-soft);color:var(--tm-accent)}
+.nav-primary{font-weight:900;color:var(--tm-text)}
+.tm-usp-bar{background:#0a1118;border-bottom:1px solid var(--tm-line);color:var(--tm-muted);font-size:11px}
+.tm-usp-inner{min-height:36px;display:flex;align-items:center;justify-content:center;gap:28px}
+.tm-usp-inner span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.tm-usp-inner svg{color:var(--tm-accent)}
+.hero{background:radial-gradient(circle at 80% 20%,rgba(33,212,253,.18),transparent 30%),linear-gradient(125deg,#060a0f,#101a24 55%,#071017);border:1px solid var(--tm-line);box-shadow:var(--tm-shadow)}
+.hero h1 em{color:var(--tm-accent)}
+.eyebrow:before{background:var(--tm-accent)}
+.btn-dark{background:var(--tm-accent);color:#041017}
+.btn-dark:hover{background:var(--tm-accent-strong)}
+.text-link,.category-card small b,.product-card h3 a:hover{color:var(--tm-accent)}
+.category-card,.product-card,.info-card{background:var(--tm-card);border-color:var(--tm-line);color:var(--tm-text)}
+.category-card:hover,.product-card:hover{border-color:rgba(33,212,253,.55);box-shadow:0 20px 45px rgba(0,0,0,.3)}
+.product-image{background:#0a1118}
+.product-category,.category-card span,.section-head p{color:var(--tm-muted)}
+.site-footer{background:#05080c;border-top:1px solid var(--tm-line)}
+.footer-logo{width:145px;height:34px}.footer-logo img{width:145px;height:34px;object-fit:contain}
+.footer-grid a{color:var(--tm-muted)}.footer-grid a:hover{color:var(--tm-accent)}
+.footer-grid h3{color:var(--tm-text)}
+.footer-bottom{border-top:1px solid var(--tm-line)}
+@media(max-width:760px){
+  .tm-usp-inner{justify-content:flex-start;overflow:auto;padding-block:8px;gap:18px}
+  .tm-usp-inner span{font-size:10px}
+  .tm-brand,.tm-brand img{width:125px}
+}
