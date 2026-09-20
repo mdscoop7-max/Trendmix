@@ -188,3 +188,12 @@ function updateShellLanguage(lang){
 }
 const _applyShellLanguage=applyLanguage;
 applyLanguage=function(lang){_applyShellLanguage(lang);updateShellLanguage(lang);};
+
+
+/* Ecommerce wording overrides for all supported languages. */
+Object.assign(translations.nl,{footerText:'PC- en gaminghardware, gadgets en geselecteerde producten.',footerBottom:'Modern · professioneel · toegankelijk'});
+Object.assign(translations.en,{footerText:'PC and gaming hardware, gadgets and selected products.',footerBottom:'Modern · professional · accessible'});
+Object.assign(translations.fr,{footerText:'Matériel PC et gaming, gadgets et produits sélectionnés.',footerBottom:'Moderne · professionnel · accessible'});
+Object.assign(translations.it,{footerText:'Hardware PC e gaming, gadget e prodotti selezionati.',footerBottom:'Moderno · professionale · accessibile'});
+Object.assign(translations.es,{footerText:'Hardware para PC y gaming, gadgets y productos seleccionados.',footerBottom:'Moderno · profesional · accesible'});
+Object.assign(translations.de,{footerText:'PC- und Gaming-Hardware, Gadgets und ausgewählte Produkte.',footerBottom:'Modern · professionell · zugänglich'});
