@@ -249,7 +249,8 @@ function bindTrendMixLanguageSelects(){
     select.dataset.trendmixBound='1';
     select.addEventListener('change',()=>applyLanguage(select.value));
   });
-  const current=localStorage.getItem('trendmix-language');
+  const current=localStorage.getItem('trendmix-language')||detectTrendMixLanguage();
+  document.querySelectorAll('#languageSelect,.language-picker select').forEach(select=>{select.value=current;});
   if(current && translations[current]) applyLanguage(current);
 }
 if(document.readyState==='loading'){
