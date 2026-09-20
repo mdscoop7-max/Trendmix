@@ -134,3 +134,28 @@ document.addEventListener('error',(event)=>{
   fallback.setAttribute('aria-label','Afbeelding niet beschikbaar');
   img.replaceWith(fallback);
 },true);
+
+
+/* Product gallery + mobile sticky add-to-cart */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.detail-thumbnails button').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const image=button.querySelector('img');
+      const main=document.querySelector('.detail-image img');
+      if(image&&main){
+        main.src=image.src;
+        document.querySelectorAll('.detail-thumbnails button').forEach(b=>b.classList.remove('active'));
+        button.classList.add('active');
+      }
+    });
+  });
+  document.querySelectorAll('.detail-image img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      const overlay=document.createElement('div');
+      overlay.className='tm-image-zoom';
+      overlay.innerHTML='<button type="button" aria-label="Afbeelding sluiten">×</button><img src="'+img.src+'" alt="'+(img.alt||'')+'">';
+      overlay.addEventListener('click',e=>{if(e.target===overlay||e.target.tagName==='BUTTON')overlay.remove()});
+      document.body.appendChild(overlay);
+    });
+  });
+});
