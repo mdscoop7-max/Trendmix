@@ -210,3 +210,29 @@ Object.assign(translations.en,{curatedPick:'FEATURED',resultsFor:'results for',c
 Object.assign(translations.fr,{curatedPick:'À LA UNE',resultsFor:'résultats pour',contactName:'Nom',contactEmail:'E-mail',contactMessage:'Message',contactSubmit:'Envoyer le message →',contactNamePlaceholder:'Votre nom',contactEmailPlaceholder:'votre@email.com',contactMessagePlaceholder:'Comment pouvons-nous vous aider ?'});
 Object.assign(translations.it,{curatedPick:'IN EVIDENZA',resultsFor:'risultati per',contactName:'Nome',contactEmail:'E-mail',contactMessage:'Messaggio',contactSubmit:'Invia messaggio →',contactNamePlaceholder:'Il tuo nome',contactEmailPlaceholder:'tua@email.com',contactMessagePlaceholder:'Come possiamo aiutarti?'});
 Object.assign(translations.es,{curatedPick:'DESTACADO',resultsFor:'resultados para',contactName:'Nombre',contactEmail:'Correo electrónico',contactMessage:'Mensaje',contactSubmit:'Enviar mensaje →',contactNamePlaceholder:'Tu nombre',contactEmailPlaceholder:'tu@email.com',contactMessagePlaceholder:'¿Cómo podemos ayudarte?'});
+
+/* TrendMix language self-check: catches selector/translation regressions in the browser console. */
+function trendMixLanguageSelfTest(){
+  const select=document.getElementById('trendmixLanguage')||document.getElementById('languageSelect');
+  const languages=Object.keys(translations);
+  const missing=languages.filter(lang=>!translations[lang]||!translations[lang].heroTitle);
+  const result={selectFound:!!select,languages,missing,active:document.documentElement.lang||'nl'};
+  console.table(result);
+  if(!select) console.error('TrendMix language control: dropdown not found');
+  if(missing.length) console.error('TrendMix language control: missing translations',missing);
+  return result;
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  trendMixLanguageSelfTest();
+  const select=document.getElementById('trendmixLanguage')||document.getElementById('languageSelect');
+  if(select){
+    select.addEventListener('change',()=>{
+      const lang=select.value;
+      if(translations[lang]){
+        applyLanguage(lang);
+        select.value=lang;
+      }
+    });
+  }
+});
