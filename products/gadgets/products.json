@@ -8,7 +8,28 @@
       "cost_price": 14.95,
       "margin": 57.2,
       "image": "https://images.unsplash.com/photo-1601593346740-925612772716?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-privsnap-magnetic-phone-case-2a8808fd",
+      "slug": "privsnap-magnetic-phone-case",
+      "brand": null,
+      "subcategory": "smartphone-accessoires",
+      "subcategory_slug": "smartphone-accessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1601593346740-925612772716?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "PrivSnap Magnetic Phone Case voor dagelijks gebruik binnen Gadgets.",
+      "description": "PrivSnap Magnetic Phone Case is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "PrivSnap Magnetic Phone Case | TrendMix",
+      "seo_description": "PrivSnap Magnetic Phone Case binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "PhotoTag Smart Tracker Keychain",
@@ -16,7 +37,28 @@
       "cost_price": 12.95,
       "margin": 56.8,
       "image": "https://images.unsplash.com/photo-1557180295-76eee20ae8aa?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-phototag-smart-tracker-keychain-00a3bf8e",
+      "slug": "phototag-smart-tracker-keychain",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1557180295-76eee20ae8aa?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "PhotoTag Smart Tracker Keychain voor dagelijks gebruik binnen Gadgets.",
+      "description": "PhotoTag Smart Tracker Keychain is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "PhotoTag Smart Tracker Keychain | TrendMix",
+      "seo_description": "PhotoTag Smart Tracker Keychain binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "TalkPlay Video Walkie Set",
@@ -24,7 +66,28 @@
       "cost_price": 29.95,
       "margin": 50,
       "image": "https://images.unsplash.com/photo-1586182987320-4f17e9c3e1d0?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-talkplay-video-walkie-set-7ea298aa",
+      "slug": "talkplay-video-walkie-set",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1586182987320-4f17e9c3e1d0?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "TalkPlay Video Walkie Set voor dagelijks gebruik binnen Gadgets.",
+      "description": "TalkPlay Video Walkie Set is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "TalkPlay Video Walkie Set | TrendMix",
+      "seo_description": "TalkPlay Video Walkie Set binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "VisionX Smart Camera Glasses",
@@ -32,7 +95,28 @@
       "cost_price": 54.95,
       "margin": 38.9,
       "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-visionx-smart-camera-glasses-621d4e3f",
+      "slug": "visionx-smart-camera-glasses",
+      "brand": null,
+      "subcategory": "beeld & camera",
+      "subcategory_slug": "beeld-en-camera",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "VisionX Smart Camera Glasses voor dagelijks gebruik binnen Gadgets.",
+      "description": "VisionX Smart Camera Glasses is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "VisionX Smart Camera Glasses | TrendMix",
+      "seo_description": "VisionX Smart Camera Glasses binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Wireless Charging Station",
@@ -40,7 +124,28 @@
       "cost_price": 17.95,
       "margin": 55,
       "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-wireless-charging-station-702444b1",
+      "slug": "wireless-charging-station",
+      "brand": null,
+      "subcategory": "opladen & kabels",
+      "subcategory_slug": "opladen-en-kabels",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Wireless Charging Station voor dagelijks gebruik binnen Gadgets.",
+      "description": "Wireless Charging Station is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Wireless Charging Station | TrendMix",
+      "seo_description": "Wireless Charging Station binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Portable Bluetooth Speaker",
@@ -48,7 +153,28 @@
       "cost_price": 21.95,
       "margin": 51.2,
       "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-portable-bluetooth-speaker-653ced5d",
+      "slug": "portable-bluetooth-speaker",
+      "brand": null,
+      "subcategory": "audio",
+      "subcategory_slug": "audio",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Portable Bluetooth Speaker voor dagelijks gebruik binnen Gadgets.",
+      "description": "Portable Bluetooth Speaker is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Portable Bluetooth Speaker | TrendMix",
+      "seo_description": "Portable Bluetooth Speaker binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Magnetic Power Bank",
@@ -56,7 +182,28 @@
       "cost_price": 24.95,
       "margin": 50,
       "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-magnetic-power-bank-c4954c3f",
+      "slug": "magnetic-power-bank",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Magnetic Power Bank voor dagelijks gebruik binnen Gadgets.",
+      "description": "Magnetic Power Bank is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Magnetic Power Bank | TrendMix",
+      "seo_description": "Magnetic Power Bank binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Portable Neck Fan",
@@ -64,7 +211,28 @@
       "cost_price": 12.95,
       "margin": 56.8,
       "image": "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-portable-neck-fan-5ecf6ff4",
+      "slug": "portable-neck-fan",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Portable Neck Fan voor dagelijks gebruik binnen Gadgets.",
+      "description": "Portable Neck Fan is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Portable Neck Fan | TrendMix",
+      "seo_description": "Portable Neck Fan binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Smart Phone Stand",
@@ -72,7 +240,28 @@
       "cost_price": 8.95,
       "margin": 64.1,
       "image": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-smart-phone-stand-aa1bb457",
+      "slug": "smart-phone-stand",
+      "brand": null,
+      "subcategory": "smartphone-accessoires",
+      "subcategory_slug": "smartphone-accessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Smart Phone Stand voor dagelijks gebruik binnen Gadgets.",
+      "description": "Smart Phone Stand is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Smart Phone Stand | TrendMix",
+      "seo_description": "Smart Phone Stand binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "USB-C Multi-Port Hub",
@@ -81,7 +270,28 @@
       "margin": 57.6,
       "image": "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg",
       "orders": 0,
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
+      "id": "tm-gadgets-usb-c-multi-port-hub-c935f2f3",
+      "slug": "usb-c-multi-port-hub",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg"
+      ],
+      "short_description": "USB-C Multi-Port Hub voor dagelijks gebruik binnen Gadgets.",
+      "description": "USB-C Multi-Port Hub is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "USB-C Multi-Port Hub | TrendMix",
+      "seo_description": "USB-C Multi-Port Hub binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "DriveSync 10” Wireless CarPlay",
@@ -89,7 +299,28 @@
       "cost_price": 67.95,
       "margin": 43.4,
       "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-drivesync-10-wireless-carplay-9fcaae50",
+      "slug": "drivesync-10-wireless-carplay",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "DriveSync 10” Wireless CarPlay voor dagelijks gebruik binnen Gadgets.",
+      "description": "DriveSync 10” Wireless CarPlay is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "DriveSync 10” Wireless CarPlay | TrendMix",
+      "seo_description": "DriveSync 10” Wireless CarPlay binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Mini Pocket Thermal Printer",
@@ -97,7 +328,28 @@
       "cost_price": 23.95,
       "margin": 52,
       "image": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-mini-pocket-thermal-printer-99d28f68",
+      "slug": "mini-pocket-thermal-printer",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Mini Pocket Thermal Printer voor dagelijks gebruik binnen Gadgets.",
+      "description": "Mini Pocket Thermal Printer is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Mini Pocket Thermal Printer | TrendMix",
+      "seo_description": "Mini Pocket Thermal Printer binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "3-in-1 Charging Cable",
@@ -105,7 +357,28 @@
       "cost_price": 6.95,
       "margin": 65.2,
       "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-3-in-1-charging-cable-f044341e",
+      "slug": "3-in-1-charging-cable",
+      "brand": null,
+      "subcategory": "opladen & kabels",
+      "subcategory_slug": "opladen-en-kabels",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "3-in-1 Charging Cable voor dagelijks gebruik binnen Gadgets.",
+      "description": "3-in-1 Charging Cable is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "3-in-1 Charging Cable | TrendMix",
+      "seo_description": "3-in-1 Charging Cable binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Bluetooth Item Finder",
@@ -113,7 +386,28 @@
       "cost_price": 9.95,
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-bluetooth-item-finder-323a4a73",
+      "slug": "bluetooth-item-finder",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Bluetooth Item Finder voor dagelijks gebruik binnen Gadgets.",
+      "description": "Bluetooth Item Finder is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Bluetooth Item Finder | TrendMix",
+      "seo_description": "Bluetooth Item Finder binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Foldable Laptop Stand",
@@ -121,7 +415,28 @@
       "cost_price": 16.95,
       "margin": 57.6,
       "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-foldable-laptop-stand-577035f8",
+      "slug": "foldable-laptop-stand",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Foldable Laptop Stand voor dagelijks gebruik binnen Gadgets.",
+      "description": "Foldable Laptop Stand is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Foldable Laptop Stand | TrendMix",
+      "seo_description": "Foldable Laptop Stand binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "LED Desk Light Bar",
@@ -129,7 +444,28 @@
       "cost_price": 13.95,
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-led-desk-light-bar-2c3ff051",
+      "slug": "led-desk-light-bar",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "LED Desk Light Bar voor dagelijks gebruik binnen Gadgets.",
+      "description": "LED Desk Light Bar is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "LED Desk Light Bar | TrendMix",
+      "seo_description": "LED Desk Light Bar binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Wireless Lavalier Microphone",
@@ -137,7 +473,28 @@
       "cost_price": 28.95,
       "margin": 51.7,
       "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-wireless-lavalier-microphone-a6a2a8c7",
+      "slug": "wireless-lavalier-microphone",
+      "brand": null,
+      "subcategory": "smartphone-accessoires",
+      "subcategory_slug": "smartphone-accessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Wireless Lavalier Microphone voor dagelijks gebruik binnen Gadgets.",
+      "description": "Wireless Lavalier Microphone is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Wireless Lavalier Microphone | TrendMix",
+      "seo_description": "Wireless Lavalier Microphone binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Smart LED Strip Kit",
@@ -145,7 +502,28 @@
       "cost_price": 10.95,
       "margin": 63.4,
       "image": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-smart-led-strip-kit-6130118c",
+      "slug": "smart-led-strip-kit",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Smart LED Strip Kit voor dagelijks gebruik binnen Gadgets.",
+      "description": "Smart LED Strip Kit is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Smart LED Strip Kit | TrendMix",
+      "seo_description": "Smart LED Strip Kit binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Compact Travel Power Adapter",
@@ -153,7 +531,28 @@
       "cost_price": 19.95,
       "margin": 55.6,
       "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-compact-travel-power-adapter-2dc1c64c",
+      "slug": "compact-travel-power-adapter",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Compact Travel Power Adapter voor dagelijks gebruik binnen Gadgets.",
+      "description": "Compact Travel Power Adapter is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Compact Travel Power Adapter | TrendMix",
+      "seo_description": "Compact Travel Power Adapter binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Digital Luggage Scale",
@@ -161,7 +560,28 @@
       "cost_price": 8.95,
       "margin": 64.1,
       "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-gadgets-digital-luggage-scale-231c59fa",
+      "slug": "digital-luggage-scale",
+      "brand": null,
+      "subcategory": "gadgets",
+      "subcategory_slug": "gadgets",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Digital Luggage Scale voor dagelijks gebruik binnen Gadgets.",
+      "description": "Digital Luggage Scale is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Digital Luggage Scale | TrendMix",
+      "seo_description": "Digital Luggage Scale binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "65W USB-C GaN Charger",
@@ -171,7 +591,27 @@
       "image": "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "description": "Compacte GaN-lader met USB-C Power Delivery voor telefoon, tablet en compatibele laptops.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "id": "tm-gadgets-65w-usb-c-gan-charger-de5212a4",
+      "slug": "65w-usb-c-gan-charger",
+      "brand": null,
+      "subcategory": "opladen & kabels",
+      "subcategory_slug": "opladen-en-kabels",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1609592424840-3c4e7b3f6e5a?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Compacte GaN-lader met USB-C Power Delivery voor telefoon, tablet en compatibele laptops.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "65W USB-C GaN Charger | TrendMix",
+      "seo_description": "65W USB-C GaN Charger binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "100W USB-C GaN Charger",
@@ -182,7 +622,27 @@
       "orders": 0,
       "description": "Krachtige USB-C GaN-lader voor meerdere apparaten, met ondersteuning afhankelijk van het aangesloten apparaat.",
       "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
+      "id": "tm-gadgets-100w-usb-c-gan-charger-82e7e2b1",
+      "slug": "100w-usb-c-gan-charger",
+      "brand": null,
+      "subcategory": "opladen & kabels",
+      "subcategory_slug": "opladen-en-kabels",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images-cdn.ubuy.co.in/66820e3b7a06b1359418a409-tecknet-100w-usb-c-charger-gan-wall.jpg"
+      ],
+      "short_description": "Krachtige USB-C GaN-lader voor meerdere apparaten, met ondersteuning afhankelijk van het aangesloten apparaat.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "100W USB-C GaN Charger | TrendMix",
+      "seo_description": "100W USB-C GaN Charger binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "3-in-1 Wireless Charging Station",
@@ -192,7 +652,27 @@
       "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "description": "Opgeruimd laadstation voor compatibele smartphone-, smartwatch- en earbuds-apparaten.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "id": "tm-gadgets-3-in-1-wireless-charging-station-59e6d66c",
+      "slug": "3-in-1-wireless-charging-station",
+      "brand": null,
+      "subcategory": "opladen & kabels",
+      "subcategory_slug": "opladen-en-kabels",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Opgeruimd laadstation voor compatibele smartphone-, smartwatch- en earbuds-apparaten.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "3-in-1 Wireless Charging Station | TrendMix",
+      "seo_description": "3-in-1 Wireless Charging Station binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "USB-C 100W Cable",
@@ -203,7 +683,27 @@
       "orders": 0,
       "description": "USB-C naar USB-C kabel voor opladen en gegevensoverdracht; controleer de exacte data- en laadstandaard.",
       "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
+      "id": "tm-gadgets-usb-c-100w-cable-9e00c66c",
+      "slug": "usb-c-100w-cable",
+      "brand": null,
+      "subcategory": "opladen & kabels",
+      "subcategory_slug": "opladen-en-kabels",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://m.media-amazon.com/images/I/71V7EfyLmQL._SL1500_.jpg"
+      ],
+      "short_description": "USB-C naar USB-C kabel voor opladen en gegevensoverdracht; controleer de exacte data- en laadstandaard.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "USB-C 100W Cable | TrendMix",
+      "seo_description": "USB-C 100W Cable binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Bluetooth Speaker",
@@ -213,7 +713,27 @@
       "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "description": "Draagbare Bluetooth-speaker voor muziek thuis, onderweg of op kantoor.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "id": "tm-gadgets-bluetooth-speaker-508fede5",
+      "slug": "bluetooth-speaker",
+      "brand": null,
+      "subcategory": "audio",
+      "subcategory_slug": "audio",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Draagbare Bluetooth-speaker voor muziek thuis, onderweg of op kantoor.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Bluetooth Speaker | TrendMix",
+      "seo_description": "Bluetooth Speaker binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Wireless Earbuds",
@@ -224,7 +744,27 @@
       "orders": 0,
       "description": "Draadloze earbuds voor dagelijks gebruik. Specificaties zoals ANC, batterijduur en codec worden per leverancier gecontroleerd.",
       "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
+      "id": "tm-gadgets-wireless-earbuds-b4517f47",
+      "slug": "wireless-earbuds",
+      "brand": null,
+      "subcategory": "audio",
+      "subcategory_slug": "audio",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://www.seemehere.com/upload/files/products/q18-d5/Q18-D5_14.jpg"
+      ],
+      "short_description": "Draadloze earbuds voor dagelijks gebruik. Specificaties zoals ANC, batterijduur en codec worden per leverancier gecontroleerd.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Wireless Earbuds | TrendMix",
+      "seo_description": "Wireless Earbuds binnen Gadgets. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     }
   ]
 }
