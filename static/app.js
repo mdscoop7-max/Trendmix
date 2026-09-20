@@ -114,3 +114,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 });
+
+/* Product image resilience: replace broken remote images with a clean visual fallback. */
+document.addEventListener('error',(event)=>{
+  const img=event.target;
+  if(!img || img.tagName!=='IMG' || !img.closest('.product-image')) return;
+  if(img.dataset.fallbackApplied==='1') return;
+  img.dataset.fallbackApplied='1';
+  const fallback=document.createElement('span');
+  fallback.className='image-fallback image-fallback-error';
+  fallback.textContent=img.dataset.fallbackIcon||'✨';
+  fallback.setAttribute('aria-label','Afbeelding niet beschikbaar');
+  img.replaceWith(fallback);
+},true);
