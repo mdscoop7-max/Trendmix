@@ -153,35 +153,35 @@ def home():
 
 
 INFO_PAGES = {
-    "over-trendmix": {"title": "Over TrendMix", "description": "Hoe TrendMix werkt als dropshipping-webshop.", "content": """
-        <p>TrendMix is een traditionele dropshipping-webshop voor moderne producten in tech, home, beauty en lifestyle.</p>
-        <h2>Hoe bestellen werkt</h2>
-        <p>Je bestelt rechtstreeks via TrendMix. Na een bestelling wordt de order doorgegeven aan de aangesloten dropshipping-leverancier voor verwerking en verzending naar het afleveradres.</p>
-        <h2>Levering en voorraad</h2>
-        <p>Beschikbaarheid, levertijd, prijs en voorraad worden per product gekoppeld aan de leverancier. Deze informatie kan wijzigen en wordt daarom waar mogelijk actueel gehouden.</p>
+    "over-trendmix": {"title": "Over TrendMix", "description": "Informatie over TrendMix als webshop.", "content": """
+        <p>TrendMix is een moderne webshop voor geselecteerde producten in tech, home, beauty en lifestyle. Je kunt producten bekijken, aan je winkelwagen toevoegen en rechtstreeks via TrendMix bestellen.</p>
+        <h2>Onze webshop</h2>
+        <p>TrendMix toont productinformatie, prijzen en beschikbaarheid zodat je eenvoudig kunt kiezen en bestellen.</p>
+        <h2>Klantenservice</h2>
+        <p>Heb je een vraag over een product of bestelling? Gebruik het contactformulier in de footer.</p>
         """},
-    "bestellen": {"title": "Bestellen & fulfilment", "description": "Informatie over bestellen, betalen, levering en dropshipping bij TrendMix.", "content": """
-        <p>TrendMix gebruikt dropshipping voor producten die door een aangesloten leverancier rechtstreeks naar de klant worden verzonden.</p>
-        <h2>Geen affiliate-doorsturing</h2>
-        <p>TrendMix is niet ingericht als affiliatewinkel. Productaankopen worden niet via affiliate links naar een partnerwebsite doorgestuurd.</p>
-        <h2>Orderverwerking</h2>
-        <p>De webshop is voorbereid op geautomatiseerde orderverwerking. De daadwerkelijke automatische doorgifte naar een leverancier vereist een actieve koppeling met de gekozen leverancier/API.</p>
-        <h2>Productinformatie</h2>
-        <p>Controleer voor aankoop altijd de actuele prijs, voorraad, specificaties, levering en retourvoorwaarden.</p>
+    "bestellen": {"title": "Bestellen & levering", "description": "Informatie over bestellen, betalen, levering en retouren bij TrendMix.", "content": """
+        <p>Je bestelt rechtstreeks via TrendMix. Voeg een product toe aan je winkelwagen en volg de stappen tijdens het afrekenen.</p>
+        <h2>Betaling</h2>
+        <p>De beschikbare betaalmethode wordt tijdens het afrekenen getoond. Controleer je bestelling voordat je de betaling bevestigt.</p>
+        <h2>Levering</h2>
+        <p>Na betaling wordt je bestelling verwerkt en verzonden naar het opgegeven afleveradres. De actuele levertijd wordt bij het product of tijdens het afrekenen vermeld.</p>
+        <h2>Retouren</h2>
+        <p>Voor retouren gelden de retourvoorwaarden van TrendMix. Neem bij vragen contact op met onze klantenservice.</p>
         """},
-    "privacy": {"title": "Privacy", "description": "Privacyinformatie voor bezoekers van TrendMix.", "content": """
-        <p>TrendMix is een dropshipping-webshop. Voor het verwerken van bestellingen kunnen bestel- en aflevergegevens nodig zijn. Deze gegevens worden gebruikt voor orderverwerking, levering, klantenservice en wettelijke verplichtingen.</p>
+    "privacy": {"title": "Privacy", "description": "Privacyinformatie voor klanten en bezoekers van TrendMix.", "content": """
+        <p>TrendMix verwerkt gegevens die nodig zijn om bestellingen uit te voeren, betalingen te verwerken, producten te leveren en klantenservice te bieden.</p>
         <h2>Taalvoorkeur</h2>
         <p>De gekozen taal kan lokaal in je browser worden opgeslagen zodat TrendMix je voorkeur bij een volgend bezoek kan onthouden.</p>
-        <h2>Externe leveranciers</h2>
-        <p>Voor fulfilment kan TrendMix klant- en aflevergegevens delen met de leverancier die de bestelling verzendt, voor zover dat nodig is om de bestelling uit te voeren.</p>
+        <h2>Externe diensten</h2>
+        <p>Voor betaling, verzending en technische dienstverlening kunnen externe dienstverleners worden gebruikt.</p>
         <h2>Wijzigingen</h2>
         <p>Deze informatie kan worden aangepast wanneer de functies van TrendMix veranderen.</p>
         """},
-    "cookies": {"title": "Cookies & voorkeuren", "description": "Informatie over cookies en lokale voorkeuren op TrendMix.", "content": """
-        <p>TrendMix houdt de site bewust eenvoudig. De huidige taalkeuze kan lokaal in je browser worden bewaard. Dit is een lokale voorkeur en geen TrendMix-account.</p>
-        <h2>Externe leveranciers</h2>
-        <p>Leveranciers kunnen hun eigen systemen gebruiken voor orderverwerking nadat een bestelling is geplaatst. Controleer de toepasselijke privacy- en cookievoorwaarden.</p>
+    "cookies": {"title": "Cookies & voorkeuren", "description": "Informatie over cookies en voorkeuren bij TrendMix.", "content": """
+        <p>TrendMix gebruikt lokale opslag voor instellingen zoals je taalvoorkeur. Dit helpt de webshop je voorkeur te onthouden.</p>
+        <h2>Functionele opslag</h2>
+        <p>Winkelwagengegevens en taalvoorkeuren kunnen lokaal in je browser worden bewaard om de webshop goed te laten werken.</p>
         <h2>Voorkeur wissen</h2>
         <p>Je kunt lokale sitegegevens in de instellingen van je browser wissen.</p>
         """},
