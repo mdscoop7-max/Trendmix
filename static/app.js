@@ -32,6 +32,10 @@ function applyLanguage(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(t[key]!==undefined)el.innerHTML=t[key]});
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const key=el.dataset.i18nPlaceholder;if(t[key]!==undefined)el.placeholder=t[key]});
   localStorage.setItem('trendmix-language',lang);
+  document.querySelectorAll('[data-language]').forEach(button=>{
+    button.classList.toggle('active',button.dataset.language===lang);
+    button.setAttribute('aria-pressed',String(button.dataset.language===lang));
+  });
 }
 
 function sortProducts(value){
@@ -51,6 +55,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   const select=document.getElementById('languageSelect');
   const saved=localStorage.getItem('trendmix-language')||detectTrendMixLanguage();
   if(select){select.value=saved;select.addEventListener('change',e=>applyLanguage(e.target.value));}
+  document.querySelectorAll('[data-language]').forEach(button=>{
+    button.addEventListener('click',()=>applyLanguage(button.dataset.language));
+  });
   applyLanguage(saved);
 
   const toggle=document.querySelector('[data-menu-toggle]');
