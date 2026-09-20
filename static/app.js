@@ -16,6 +16,16 @@ const sharedTranslations={
 };
 Object.keys(sharedTranslations).forEach(lang=>Object.assign(translations[lang],sharedTranslations[lang]));
 
+function detectTrendMixLanguage(){
+  const supported=Object.keys(translations);
+  const candidates=[...(navigator.languages||[]),navigator.language||'nl'];
+  for(const raw of candidates){
+    const base=String(raw).toLowerCase().split('-')[0];
+    if(supported.includes(base)) return base;
+  }
+  return 'nl';
+}
+
 function applyLanguage(lang){
   const t=translations[lang]||translations.nl;
   document.documentElement.lang=lang;
@@ -39,7 +49,7 @@ function sortProducts(value){
 
 document.addEventListener('DOMContentLoaded',()=>{
   const select=document.getElementById('languageSelect');
-  const saved=localStorage.getItem('trendmix-language')||'nl';
+  const saved=localStorage.getItem('trendmix-language')||detectTrendMixLanguage();
   if(select){select.value=saved;select.addEventListener('change',e=>applyLanguage(e.target.value));}
   applyLanguage(saved);
 
