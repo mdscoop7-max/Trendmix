@@ -24,10 +24,10 @@
   <div class="shell footer-bottom"><span>© 2026 TrendMix</span><span data-i18n="footerBottom">Modern · overzichtelijk · transparant · toegankelijk</span></div>
 </footer><div class="contact-modal" id="contactModal" hidden><div class="contact-backdrop" data-contact-close></div><section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle"><button type="button" class="contact-close" data-contact-close aria-label="Sluiten">×</button><span class="eyebrow dark">TrendMix</span><h2 id="contactTitle" data-i18n="contactTitle">Contact</h2><p data-i18n="contactText">Heb je een vraag? Stuur ons direct een bericht.</p><form class="contact-form contact-form-modal" action="/contact" method="post" novalidate>
   <div class="contact-form-row">
-    <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" placeholder="Je naam" required></label>
-    <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" placeholder="jouw@email.nl" required></label>
+    <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" placeholder="Je naam" data-i18n-placeholder="contactNamePlaceholder" required></label>
+    <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" placeholder="jouw@email.nl" data-i18n-placeholder="contactEmailPlaceholder" required></label>
   </div>
-  <label><span data-i18n="contactMessage">Bericht</span><textarea name="message" rows="6" placeholder="Waar kunnen we je mee helpen?" required></textarea></label>
+  <label><span data-i18n="contactMessage">Bericht</span><textarea name="message" rows="6" placeholder="Waar kunnen we je mee helpen?" data-i18n-placeholder="contactMessagePlaceholder" required></textarea></label>
   <button type="submit" class="btn btn-dark" data-i18n="contactSubmit">Verstuur bericht →</button>
   <div class="contact-form-status" hidden role="status" aria-live="polite"></div>
 </form></section></div>
