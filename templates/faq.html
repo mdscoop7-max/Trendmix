@@ -9,7 +9,7 @@
   <script defer src="{{ url_for('static', filename='app.js') }}"></script>
 </head>
 <body>
-<header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><button class="header-contact" type="button" data-contact-open>✉ Contact</button><a class="cart-link" href="/winkelwagen" aria-label="Winkelwagen">🛒 <span data-cart-count>0</span></a><a class="header-cta" href="/#collecties" data-i18n="discover">Ontdek</a></div></header>
+{% include "_header.html" %}
 <main class="shell info-page">
   <a class="back-link" href="/" data-i18n="backToTrendmix">← Terug naar TrendMix</a>
   <article class="info-card faq-card">
