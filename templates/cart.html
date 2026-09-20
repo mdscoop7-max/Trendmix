@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Winkelwagen | TrendMix</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260919-7') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><script defer src="{{ url_for('static', filename='app.js?v=20260919-16') }}"></script><script defer src="{{ url_for('static', filename='languages.js?v=20260919-16') }}"></script></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Winkelwagen | TrendMix</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260920-2') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><script defer src="{{ url_for('static', filename='app.js?v=20260920-1') }}"></script><script defer src="{{ url_for('static', filename='languages.js?v=20260920-1') }}"></script></head>
 <body>
 <label class="language-picker"><span>🌐</span><select id="languageSelect" aria-label="Taal"><option value="nl">🇳🇱 Nederlands</option><option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="es">🇪🇸 Español</option></select></label>
 <header class="site-header"><div class="shell header-main"><a class="brand" href="/" aria-label="TrendMix home"><span>Trend</span><b>Mix</b></a><button class="header-contact" type="button" data-contact-open>✉ Contact</button><a class="cart-link" href="/winkelwagen" aria-label="Winkelwagen">🛒 <span data-cart-count>{{ cart_count }}</span></a><a class="header-cta" href="/#collecties">Ontdek</a></div></header>
@@ -10,7 +10,7 @@
 {% for item in cart %}
 <div class="cart-row">
 {% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}">{% else %}<div class="cart-thumb">🛍️</div>{% endif %}
-<div class="cart-info"><strong>{{ item.name }}</strong><span>€ {{ "%.2f"|format(item.price) }} <span data-i18n="perPiece">per stuk</span></span></div>
+<div class="cart-info"><strong>{{ item.name }}</strong><span>€ {{ "%.2f"|format(item.price) }} <span data-i18n="perPiece">per stuk</span></span><strong class="cart-item-subtotal"><span data-i18n="subtotal">Subtotaal</span> · € {{ "%.2f"|format(item.price * item.qty) }}</strong></div>
 <div class="cart-actions">
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="-1"><button type="submit" aria-label="Aantal verminderen">−</button></form>
 <b>{{ item.qty }}</b>
@@ -25,7 +25,7 @@
 <div class="empty-state"><h3>Je winkelwagen is leeg</h3><p>Voeg producten toe vanuit een collectie.</p></div>
 {% endif %}
 <div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div>
-<a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Afrekenen →</a>
+{% if cart %}<a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Afrekenen →</a>{% endif %}
 </section></main>
 {% include '_footer.html' %}
 </body></html>
