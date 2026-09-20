@@ -8,7 +8,28 @@
       "cost_price": 9.95,
       "margin": 66.8,
       "image": "https://images.unsplash.com/photo-1598971639058-999e6d1f5d58?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-resistance-band-set-e967546b",
+      "slug": "resistance-band-set",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1598971639058-999e6d1f5d58?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Resistance Band Set voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Resistance Band Set is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Resistance Band Set | TrendMix",
+      "seo_description": "Resistance Band Set binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Portable Blender",
@@ -16,7 +37,28 @@
       "cost_price": 20.95,
       "margin": 58.1,
       "image": "https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-portable-blender-1b8ac501",
+      "slug": "portable-blender",
+      "brand": null,
+      "subcategory": "hydratatie",
+      "subcategory_slug": "hydratatie",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Portable Blender voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Portable Blender is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Portable Blender | TrendMix",
+      "seo_description": "Portable Blender binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Compression Leggings",
@@ -24,7 +66,28 @@
       "cost_price": 14.95,
       "margin": 62.6,
       "image": "https://images.unsplash.com/photo-1506629905607-d9b1a8c2d8a1?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-compression-leggings-c3c06eed",
+      "slug": "compression-leggings",
+      "brand": null,
+      "subcategory": "sportaccessoires",
+      "subcategory_slug": "sportaccessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1506629905607-d9b1a8c2d8a1?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Compression Leggings voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Compression Leggings is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Compression Leggings | TrendMix",
+      "seo_description": "Compression Leggings binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Smart Fitness Tracker",
@@ -32,7 +95,28 @@
       "cost_price": 29.95,
       "margin": 57.2,
       "image": "https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-smart-fitness-tracker-66c69583",
+      "slug": "smart-fitness-tracker",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Smart Fitness Tracker voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Smart Fitness Tracker is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Smart Fitness Tracker | TrendMix",
+      "seo_description": "Smart Fitness Tracker binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Yoga & Fitness Mat",
@@ -40,7 +124,28 @@
       "cost_price": 12.95,
       "margin": 63,
       "image": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-yoga-en-fitness-mat-603d3829",
+      "slug": "yoga-en-fitness-mat",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Yoga & Fitness Mat voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Yoga & Fitness Mat is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Yoga & Fitness Mat | TrendMix",
+      "seo_description": "Yoga & Fitness Mat binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Sports Water Bottle",
@@ -48,7 +153,28 @@
       "cost_price": 7.95,
       "margin": 68.1,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-sports-water-bottle-1fc20910",
+      "slug": "sports-water-bottle",
+      "brand": null,
+      "subcategory": "hydratatie",
+      "subcategory_slug": "hydratatie",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Sports Water Bottle voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Sports Water Bottle is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Sports Water Bottle | TrendMix",
+      "seo_description": "Sports Water Bottle binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Foam Roller",
@@ -56,7 +182,28 @@
       "cost_price": 12.95,
       "margin": 63,
       "image": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-foam-roller-226cb7ee",
+      "slug": "foam-roller",
+      "brand": null,
+      "subcategory": "herstel",
+      "subcategory_slug": "herstel",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Foam Roller voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Foam Roller is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Foam Roller | TrendMix",
+      "seo_description": "Foam Roller binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Massage Ball Set",
@@ -64,7 +211,28 @@
       "cost_price": 7.95,
       "margin": 68.1,
       "image": "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-massage-ball-set-b5474a58",
+      "slug": "massage-ball-set",
+      "brand": null,
+      "subcategory": "herstel",
+      "subcategory_slug": "herstel",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Massage Ball Set voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Massage Ball Set is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Massage Ball Set | TrendMix",
+      "seo_description": "Massage Ball Set binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Running Waist Bag",
@@ -72,7 +240,28 @@
       "cost_price": 6.95,
       "margin": 69.7,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-running-waist-bag-8ee2657a",
+      "slug": "running-waist-bag",
+      "brand": null,
+      "subcategory": "hardlopen & outdoor",
+      "subcategory_slug": "hardlopen-en-outdoor",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Running Waist Bag voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Running Waist Bag is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Running Waist Bag | TrendMix",
+      "seo_description": "Running Waist Bag binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Hands-Free Cooling Neck Fan",
@@ -80,7 +269,28 @@
       "cost_price": 12.95,
       "margin": 56.8,
       "image": "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-hands-free-cooling-neck-fan-532ee992",
+      "slug": "hands-free-cooling-neck-fan",
+      "brand": null,
+      "subcategory": "sportaccessoires",
+      "subcategory_slug": "sportaccessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Hands-Free Cooling Neck Fan voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Hands-Free Cooling Neck Fan is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Hands-Free Cooling Neck Fan | TrendMix",
+      "seo_description": "Hands-Free Cooling Neck Fan binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Adjustable Push-Up Board",
@@ -88,7 +298,28 @@
       "cost_price": 13.95,
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-adjustable-push-up-board-befd9fe5",
+      "slug": "adjustable-push-up-board",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Adjustable Push-Up Board voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Adjustable Push-Up Board is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Adjustable Push-Up Board | TrendMix",
+      "seo_description": "Adjustable Push-Up Board binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Speed Jump Rope",
@@ -96,7 +327,28 @@
       "cost_price": 5.95,
       "margin": 70.2,
       "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-speed-jump-rope-2fc33416",
+      "slug": "speed-jump-rope",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Speed Jump Rope voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Speed Jump Rope is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Speed Jump Rope | TrendMix",
+      "seo_description": "Speed Jump Rope binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Workout Gloves",
@@ -104,7 +356,28 @@
       "cost_price": 8.95,
       "margin": 64.1,
       "image": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-workout-gloves-e16eebad",
+      "slug": "workout-gloves",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Workout Gloves voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Workout Gloves is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Workout Gloves | TrendMix",
+      "seo_description": "Workout Gloves binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Running Phone Armband",
@@ -112,7 +385,28 @@
       "cost_price": 5.95,
       "margin": 68.6,
       "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-running-phone-armband-5fe8e39f",
+      "slug": "running-phone-armband",
+      "brand": null,
+      "subcategory": "hardlopen & outdoor",
+      "subcategory_slug": "hardlopen-en-outdoor",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Running Phone Armband voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Running Phone Armband is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Running Phone Armband | TrendMix",
+      "seo_description": "Running Phone Armband binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Mini Massage Gun",
@@ -120,7 +414,28 @@
       "cost_price": 27.95,
       "margin": 53.4,
       "image": "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-mini-massage-gun-77aa5b80",
+      "slug": "mini-massage-gun",
+      "brand": null,
+      "subcategory": "herstel",
+      "subcategory_slug": "herstel",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Mini Massage Gun voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Mini Massage Gun is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Mini Massage Gun | TrendMix",
+      "seo_description": "Mini Massage Gun binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Balance Board",
@@ -128,7 +443,28 @@
       "cost_price": 21.95,
       "margin": 56,
       "image": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80&sat=-10",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-balance-board-963761cb",
+      "slug": "balance-board",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80&sat=-10"
+      ],
+      "short_description": "Balance Board voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Balance Board is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Balance Board | TrendMix",
+      "seo_description": "Balance Board binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Gym Towel Set",
@@ -136,7 +472,28 @@
       "cost_price": 6.95,
       "margin": 65.2,
       "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80&sat=-20",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-gym-towel-set-e68496ee",
+      "slug": "gym-towel-set",
+      "brand": null,
+      "subcategory": "sportaccessoires",
+      "subcategory_slug": "sportaccessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80&sat=-20"
+      ],
+      "short_description": "Gym Towel Set voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Gym Towel Set is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Gym Towel Set | TrendMix",
+      "seo_description": "Gym Towel Set binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Hydration Backpack",
@@ -144,7 +501,28 @@
       "cost_price": 18.95,
       "margin": 57.8,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80&sat=10",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-hydration-backpack-be74ccfb",
+      "slug": "hydration-backpack",
+      "brand": null,
+      "subcategory": "hydratatie",
+      "subcategory_slug": "hydratatie",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80&sat=10"
+      ],
+      "short_description": "Hydration Backpack voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Hydration Backpack is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Hydration Backpack | TrendMix",
+      "seo_description": "Hydration Backpack binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Cycling Sunglasses",
@@ -152,7 +530,28 @@
       "cost_price": 13.95,
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80&sat=10",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-cycling-sunglasses-662a2b19",
+      "slug": "cycling-sunglasses",
+      "brand": null,
+      "subcategory": "hardlopen & outdoor",
+      "subcategory_slug": "hardlopen-en-outdoor",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80&sat=10"
+      ],
+      "short_description": "Cycling Sunglasses voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Cycling Sunglasses is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Cycling Sunglasses | TrendMix",
+      "seo_description": "Cycling Sunglasses binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Recovery Stretch Strap",
@@ -160,7 +559,28 @@
       "cost_price": 6.95,
       "margin": 68.3,
       "image": "https://images.unsplash.com/photo-1598971639058-999e6d1f5d58?auto=format&fit=crop&w=900&q=80&sat=10",
-      "orders": 0
+      "orders": 0,
+      "id": "tm-lifestyle-sport-recovery-stretch-strap-7719bcbd",
+      "slug": "recovery-stretch-strap",
+      "brand": null,
+      "subcategory": "herstel",
+      "subcategory_slug": "herstel",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1598971639058-999e6d1f5d58?auto=format&fit=crop&w=900&q=80&sat=10"
+      ],
+      "short_description": "Recovery Stretch Strap voor dagelijks gebruik binnen Sport & Lifestyle.",
+      "description": "Recovery Stretch Strap is onderdeel van de TrendMix-collectie binnen Sport & Lifestyle. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Recovery Stretch Strap | TrendMix",
+      "seo_description": "Recovery Stretch Strap binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Yoga Mat",
@@ -170,7 +590,27 @@
       "image": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "description": "Fitness- en yogamat voor oefeningen thuis, in de studio of onderweg.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "id": "tm-lifestyle-sport-yoga-mat-b509c0d7",
+      "slug": "yoga-mat",
+      "brand": null,
+      "subcategory": "training",
+      "subcategory_slug": "training",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Fitness- en yogamat voor oefeningen thuis, in de studio of onderweg.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Yoga Mat | TrendMix",
+      "seo_description": "Yoga Mat binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Running Belt",
@@ -181,7 +621,27 @@
       "orders": 0,
       "description": "Compacte hardloopband voor telefoon, sleutels en kleine persoonlijke spullen.",
       "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch."
+      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
+      "id": "tm-lifestyle-sport-running-belt-eda7ed62",
+      "slug": "running-belt",
+      "brand": null,
+      "subcategory": "hardlopen & outdoor",
+      "subcategory_slug": "hardlopen-en-outdoor",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://www.sportbr.com.br/cdn/shop/files/018cc1358b413bedde7c1dab838fff03_1024x1024.jpg?v=1755699794"
+      ],
+      "short_description": "Compacte hardloopband voor telefoon, sleutels en kleine persoonlijke spullen.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Running Belt | TrendMix",
+      "seo_description": "Running Belt binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     },
     {
       "name": "Travel Organizer Set",
@@ -191,7 +651,27 @@
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "description": "Set organizers voor kleding, accessoires en bagage tijdens reizen.",
-      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee."
+      "source_note": "TrendMix shortlist — leverancier, actuele voorraad en inkoopprijs nog te verifiëren in Syncee.",
+      "id": "tm-lifestyle-sport-travel-organizer-set-992f8458",
+      "slug": "travel-organizer-set",
+      "brand": null,
+      "subcategory": "sportaccessoires",
+      "subcategory_slug": "sportaccessoires",
+      "old_price": null,
+      "badge": null,
+      "stock_status": "unknown",
+      "stock_quantity": null,
+      "delivery_time": "Nog te bevestigen",
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
+      ],
+      "short_description": "Set organizers voor kleding, accessoires en bagage tijdens reizen.",
+      "specifications": {},
+      "usps": [],
+      "seo_title": "Travel Organizer Set | TrendMix",
+      "seo_description": "Travel Organizer Set binnen Sport & Lifestyle. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "faq": [],
+      "related_product_ids": []
     }
   ]
 }
