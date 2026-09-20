@@ -64,10 +64,10 @@ body{background:var(--tm-bg);color:var(--tm-text);font-family:var(--tm-font-body
 
 /* TrendMix v2: language bar, professional footer and product UX */
 .tm-usp-inner{position:relative}
-.tm-language-bar{display:flex;align-items:center;gap:5px;margin-left:auto;order:2}
-.tm-language-bar>span{opacity:.75;font-size:13px;margin-right:3px}
-.tm-language-bar button{min-width:34px;height:28px;padding:0 8px;border:1px solid var(--tm-line,#23303b);border-radius:8px;background:rgba(255,255,255,.03);color:#9aa7b4;font-size:11px;font-weight:800;cursor:pointer}
-.tm-language-bar button:hover,.tm-language-bar button.active{color:#fff;border-color:#21d4fd;background:rgba(33,212,253,.12)}
+.tm-language-bar{display:flex;align-items:center;gap:7px;margin-left:auto;order:2}
+.tm-language-bar label{opacity:.8;font-size:13px;line-height:1}
+.tm-language-bar select{height:30px;min-width:118px;padding:0 28px 0 9px;border:1px solid var(--tm-line,#23303b);border-radius:8px;background:#0d131a;color:#f4f7fa;font-size:11px;font-weight:800;cursor:pointer;outline:none}
+.tm-language-bar select:focus{border-color:#21d4fd;box-shadow:0 0 0 3px rgba(33,212,253,.12)}
 .tm-footer{margin-top:80px;border-top:1px solid #23303b;background:#080d13}
 .tm-footer .footer-top{display:grid;grid-template-columns:1.7fr repeat(3,1fr);gap:42px;padding:56px 0 44px}
 .tm-footer .footer-brand p{max-width:330px;color:#9aa7b4;line-height:1.7}
