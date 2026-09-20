@@ -256,6 +256,34 @@ def category_page(category_slug):
     )
 
 
+@app.route("/<category_slug>/<subcategory_slug>/")
+def subcategory_page(category_slug, subcategory_slug):
+    if category_slug not in products:
+        return "Pagina niet gevonden", 404
+    matching = []
+    subcategory_name = None
+    for index, raw in enumerate(products[category_slug]):
+        item = enrich_product(raw, category_slug, index)
+        if item["subcategory_slug"] == subcategory_slug:
+            matching.append(item)
+            subcategory_name = item["subcategory"]
+    if not matching:
+        return "Pagina niet gevonden", 404
+    category = CATEGORIES[category_slug]
+    return render_template(
+        "category.html",
+        category_name=category["name"],
+        category_icon=category["icon"],
+        category_eyebrow=category["eyebrow"],
+        category_slug=category_slug,
+        categories=CATEGORIES,
+        products=matching,
+        subcategories=[],
+        subcategory_slug=subcategory_slug,
+        subcategory_name=subcategory_name,
+    )
+
+
 @app.route("/product/<category_slug>/<int:product_index>")
 def legacy_product_detail(category_slug, product_index):
     if category_slug not in products or product_index < 0 or product_index >= len(products[category_slug]):
