@@ -383,3 +383,30 @@ button,select,a{touch-action:manipulation}
   .site-footer{padding-bottom:126px!important}
   .footer-bottom{padding-bottom:18px!important}
 }
+
+/* Final cart mobile alignment + spacing pass. */
+.cart-row{position:relative!important}
+.cart-row .cart-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;min-height:38px!important}
+.cart-row .cart-actions form{display:flex!important;align-items:center!important;margin:0!important;padding:0!important}
+.cart-row .cart-actions button{width:38px!important;height:38px!important;min-width:38px!important;border:0!important}
+.cart-row .cart-actions b{display:grid!important;place-items:center!important;width:34px!important;min-width:34px!important;height:38px!important;margin:0!important}
+.cart-row .cart-actions form:last-child{margin-left:8px!important}
+.cart-clear{display:block!important;width:100%!important;margin:30px 0 32px!important;min-height:44px!important}
+.cart-total{margin-top:0!important}
+@media(max-width:700px){
+  .cart-row{grid-template-columns:58px minmax(0,1fr)!important;column-gap:10px!important;row-gap:7px!important;align-items:start!important}
+  .cart-row .cart-info{grid-column:2!important;grid-row:1!important}
+  .cart-row .cart-actions{grid-column:2!important;grid-row:2!important;justify-content:flex-start!important;margin:0!important;padding-top:1px!important}
+  .cart-row .cart-actions button{width:40px!important;height:40px!important;min-width:40px!important}
+  .cart-row .cart-actions b{width:34px!important;min-width:34px!important;height:40px!important}
+  .cart-clear{margin:34px 0 38px!important}
+  .cart-panel{padding-bottom:34px!important;margin-bottom:120px!important}
+  body{padding-bottom:140px!important}
+  .site-footer{padding-bottom:150px!important}
+}
+@media(max-width:470px){
+  .cart-row .cart-actions{gap:7px!important}
+  .cart-row .cart-actions form:last-child{margin-left:6px!important}
+  .cart-clear{margin:32px 0 36px!important}
+  .cart-panel{margin-bottom:128px!important}
+}
