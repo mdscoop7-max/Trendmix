@@ -311,3 +311,7 @@ const commerceTranslations={
  es:{perPiece:'por unidad',subtotal:'Subtotal',decrease:'Reducir cantidad',increase:'Aumentar cantidad',remove:'Eliminar producto',clearCart:'Vaciar carrito',total:'Total',checkout:'Ir al pago →',cartTitle:'Tu carrito',continueShopping:'← Seguir comprando',checkoutTitle:'Pago',checkoutIntro:'Tu pedido está listo. El pago y la conexión con el proveedor deben activarse antes de poder procesar un pago real.',adjustCart:'Modificar carrito'}
 };
 Object.keys(commerceTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...commerceTranslations[lang]};});
+
+/* Final ecommerce footer labels. */
+const ecommerceFooterTranslations={nl:{footerOrdering:'Bestellen & levering',footerText:'Een moderne webshop voor tech, home, beauty en lifestyle.'},en:{footerOrdering:'Ordering & delivery',footerText:'A modern online shop for tech, home, beauty and lifestyle.'},fr:{footerOrdering:'Commande & livraison',footerText:'Une boutique en ligne moderne pour la tech, la maison, la beauté et le lifestyle.'},de:{footerOrdering:'Bestellen & Lieferung',footerText:'Ein moderner Onlineshop für Technik, Home, Beauty und Lifestyle.'},it:{footerOrdering:'Ordini e consegna',footerText:'Un negozio online moderno per tecnologia, casa, beauty e lifestyle.'},es:{footerOrdering:'Pedidos y entrega',footerText:'Una tienda online moderna de tecnología, hogar, belleza y lifestyle.'}};
+Object.keys(ecommerceFooterTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...ecommerceFooterTranslations[lang]};});
