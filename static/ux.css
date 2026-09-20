@@ -107,7 +107,7 @@ button,select,a{touch-action:manipulation}
   border-color:#8d61ff!important;
   transform:translateY(-1px);
 }
-.header-contact{color:#c59aff!important}
+.header-contact{color:var(--ql-olive-dark)!important;background:transparent!important;border-color:var(--ql-olive)!important}.header-contact:hover{background:rgba(126,141,88,.08)!important;color:var(--ql-olive-dark)!important}
 .cart-link span{background:#8d61ff!important;color:#fff!important}
 .contact-form-modal,.contact-form-modal label,
 .contact-form-modal input,.contact-form-modal textarea{position:relative;z-index:2;pointer-events:auto}
@@ -149,21 +149,21 @@ button,select,a{touch-action:manipulation}
 /* Product detail: compact visuals and easy actions. */
 .product-detail{padding-top:18px}
 .detail-layout{align-items:center}
-.detail-image{height:390px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.detail-image img{width:100%;height:100%;object-fit:contain;padding:24px}
+.detail-image{height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.detail-image img{width:100%;height:100%;object-fit:contain;padding:8px}
 .detail-actions{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap}
 .detail-actions .btn{min-height:48px}
 .detail-actions .btn-dark{min-width:210px}
 .back-link{display:block;width:max-content;margin:8px auto 18px;text-align:center}
 .product-detail .related-section{padding-top:34px}
 @media(min-width:761px){
-  .product-grid .product-image{height:150px}
+  .product-grid .product-image{height:230px}
   .detail-image{height:340px}
 }
 @media(max-width:760px){
-  .product-grid .product-image{height:135px}
-  .detail-image{height:235px}
-  .detail-image img{padding:14px}
+  .product-grid .product-image{height:190px}
+  .detail-image{height:300px}
+  .detail-image img{padding:8px}
   .detail-copy{padding:18px 10px 20px}
   .detail-copy h1{font-size:31px}
   .detail-price{font-size:24px}
