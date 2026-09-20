@@ -290,3 +290,16 @@ button,select,a{touch-action:manipulation}
   .cart-row>div:nth-child(2){padding:4px 0!important}
   .checkout-button{min-height:56px!important}
 }
+
+/* Cart action row: keep minus, quantity, plus and remove aligned. */
+.cart-info{min-width:0!important;padding:4px 0!important}
+.cart-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:7px!important}
+.cart-actions form{margin:0!important;padding:0!important}
+.cart-actions button{display:grid!important;place-items:center!important;width:36px!important;height:36px!important}
+.cart-actions b{display:grid!important;place-items:center!important;min-width:28px!important;height:36px!important;color:#fff!important}
+.cart-actions form:last-child{margin-left:5px!important}
+@media(max-width:700px){
+  .cart-row{grid-template-columns:58px minmax(0,1fr)!important;align-items:start!important}
+  .cart-actions{grid-column:2;justify-content:flex-start!important;margin-top:-2px!important}
+  .cart-row>form{grid-column:2}
+}
