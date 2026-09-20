@@ -1,0 +1,31 @@
+<div class="tm-usp-bar" role="note" aria-label="Belangrijkste voordelen">
+  <div class="shell tm-usp-inner">
+    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7zM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg> Snelle levering</span>
+    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3zM9 12l2 2 4-5"/></svg> Veilig betalen</span>
+    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg> 14 dagen retour</span>
+    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M17 7c-1-2-3-3-5-3-3 0-5 2-5 4 0 6 10 3 10 8 0 2-2 4-5 4-2 0-4-1-5-3"/></svg> Duidelijke prijzen</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="shell header-main">
+    <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" data-menu-toggle><span aria-hidden="true">☰</span></button>
+    <a class="brand tm-brand" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
+    <form class="search-bar" action="/" method="get" role="search">
+      <svg class="tm-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+      <input type="search" name="q" value="{{ search_query|default('') }}" placeholder="Zoek naar producten, merken of specificaties" aria-label="Zoek producten">
+      <button type="submit" aria-label="Zoeken"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
+    </form>
+    <a class="header-contact" href="/contact" aria-label="Contact opnemen">Contact</a>
+    <a class="cart-link" href="/winkelwagen" aria-label="Winkelwagen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 12h11l2-8H6M9 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg><span data-cart-count>0</span></a>
+  </div>
+  <nav class="main-nav" data-mobile-nav aria-label="Hoofdnavigatie">
+    <div class="shell nav-inner">
+      <a href="/pc-componenten" class="nav-link nav-primary">PC-Componenten</a>
+      <a href="/gadgets" class="nav-link nav-primary">Gadgets</a>
+      <a href="/smart-home" class="nav-link">Smart Home</a>
+      <a href="/beauty-care" class="nav-link">Beauty & Care</a>
+      <a href="/lifestyle-sport" class="nav-link">Sport & Lifestyle</a>
+      <a href="/#collecties" class="nav-link nav-more">Meer categorieën</a>
+    </div>
+  </nav>
+</header>
