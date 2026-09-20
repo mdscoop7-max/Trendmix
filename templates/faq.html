@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#101114">
   <title>Veelgestelde vragen | TrendMix</title>
-  <meta name="description" content="Veelgestelde vragen over TrendMix, producten, affiliate links, prijzen, bestellingen en privacy." data-meta-description>
+  <meta name="description" content="Veelgestelde vragen over bestellen, betalen, levering, retouren en klantenservice bij TrendMix." data-meta-description>
   <link rel="canonical" href="https://trendmix-jet.vercel.app/faq">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}">
   <script defer src="{{ url_for('static', filename='app.js?v=20260919-16') }}"></script><script defer src="{{ url_for('static', filename='languages.js?v=20260919-16') }}"></script>
@@ -18,9 +18,9 @@
     <h1 data-i18n="faqTitle">Veelgestelde vragen</h1>
     <p class="info-lead" data-i18n="faqLead">Hier vind je praktische informatie over TrendMix, productlinks, prijzen en het aankoopproces.</p>
     <div class="faq-list">
-      {% for i in range(12) %}<details{% if i == 0 %} open{% endif %} data-faq-item="{{ i }}"><summary></summary><p></p></details>{% endfor %}
+      {% for i in range(8) %}<details{% if i == 0 %} open{% endif %} data-faq-item="{{ i }}"><summary></summary><p></p></details>{% endfor %}
     </div>
-    <div class="faq-links"><a href="/affiliate" data-i18n="footerAffiliate">Affiliate & transparantie →</a><a href="/privacy" data-i18n="footerPrivacy">Privacy →</a><a href="/cookies" data-i18n="footerCookies">Cookies & voorkeuren →</a></div>
+    <div class="faq-links"><a href="/privacy" data-i18n="footerPrivacy">Privacy →</a><a href="/cookies" data-i18n="footerCookies">Cookies & voorkeuren →</a></div>
   </article>
 </main>
 {% include '_footer.html' %}
