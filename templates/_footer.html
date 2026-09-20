@@ -1,24 +1,27 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
-  <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
-  <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
-  <a href="/winkelwagen" class="{% if request.path == '/winkelwagen' or request.path == '/afrekenen' %}active{% endif %}"><span>🛒</span><span>Winkelwagen</span></a>
-  <a href="/faq"><span>◉</span><span data-i18n="footerFaq">Info</span></a>
+  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span>Home</span></a>
+  <a href="/#collecties"><span>▦</span><span>Categorieën</span></a>
+  <a href="/#featured"><span>✦</span><span>Highlights</span></a>
+  <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span>Winkelwagen</span></a>
+  <a href="/faq"><span>?</span><span>FAQ</span></a>
 </nav>
-<footer class="site-footer">
-  <div class="shell footer-grid">
-    <div class="footer-brand">
-      <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
-      <p>PC- en gaminghardware, gadgets en geselecteerde producten.</p>
-      
+<footer class="site-footer tm-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
+        <p data-i18n="footerText">PC- en gaminghardware, gadgets en geselecteerde producten.</p>
+        <a class="footer-cta" href="/contact">Neem contact op <span>→</span></a>
+      </div>
+      <div class="footer-column"><h3>Shop</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
+      <div class="footer-column"><h3>Service</h3><a href="/faq">Veelgestelde vragen</a><a href="/bestellen">Bestellen & levering</a><a href="/contact">Contact</a><a href="/winkelwagen">Winkelwagen</a></div>
+      <div class="footer-column"><h3>TrendMix</h3><a href="/over-trendmix">Over TrendMix</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></div>
     </div>
-    <div class="footer-contact" id="contact"><h3>Contact</h3><p>Vragen over een product of bestelling? Neem contact met ons op.</p><a class="btn btn-dark" href="/contact">Contact</a></div>
-    <div><h3>Collecties</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
-    <div><h3>Ontdek</h3><a href="/">Home</a><a href="/pc-componenten">PC-Componenten</a><a href="/gadgets">Gadgets</a><a href="/faq">Veelgestelde vragen</a></div>
-    <div><h3>Informatie</h3><a href="/over-trendmix">Over TrendMix</a><a href="/bestellen">Bestellen & levering</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies & voorkeuren</a><a href="/contact">Contact</a></div>
+    <div class="footer-trust"><span>✓ Veilig bestellen</span><span>✓ Duidelijke prijzen</span><span>✓ 14 dagen retour</span><span>✓ Nederlandse webshop</span></div>
+    <div class="footer-bottom"><span>© 2026 TrendMix</span><span>[KVK] · [BTW] · [ADRES]</span><span>[E-MAIL] · [TELEFOON]</span></div>
   </div>
-  <div class="shell footer-bottom"><div>© 2026 TrendMix · [KVK] · [BTW]</div><div>[ADRES] · [E-MAIL] · [TELEFOON]</div></div>
-</footer><div class="contact-modal" id="contactModal" hidden><div class="contact-backdrop" data-contact-close></div><section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle"><button type="button" class="contact-close" data-contact-close aria-label="Sluiten">×</button><span class="eyebrow dark">TrendMix</span><h2 id="contactTitle" data-i18n="contactTitle">Contact</h2><p data-i18n="contactText">Heb je een vraag? Stuur ons direct een bericht.</p><form class="contact-form contact-form-modal" action="/contact" method="post" novalidate>
+</footer>
+<div class="contact-modal" id="contactModal" hidden><div class="contact-backdrop" data-contact-close></div><section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle"><button type="button" class="contact-close" data-contact-close aria-label="Sluiten">×</button><span class="eyebrow dark">TrendMix</span><h2 id="contactTitle" data-i18n="contactTitle">Contact</h2><p data-i18n="contactText">Heb je een vraag? Stuur ons direct een bericht.</p><form class="contact-form contact-form-modal" action="/contact" method="post" novalidate>
   <div class="contact-form-row">
     <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" placeholder="Je naam" data-i18n-placeholder="contactNamePlaceholder" required></label>
     <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" placeholder="jouw@email.nl" data-i18n-placeholder="contactEmailPlaceholder" required></label>
