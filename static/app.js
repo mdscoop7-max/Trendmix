@@ -159,3 +159,32 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 });
+
+
+const navLabels={
+ nl:{navPc:'PC-Componenten',navGadgets:'Gadgets',navSmart:'Smart Home',navBeauty:'Beauty & Care',navSport:'Sport & Lifestyle',navMore:'Meer categorieën',contact:'Contact',cart:'Winkelwagen',shop:'Shop',service:'Service',faq:'Veelgestelde vragen',delivery:'Bestellen & levering',about:'Over TrendMix',privacy:'Privacy',cookies:'Cookies'},
+ en:{navPc:'PC Components',navGadgets:'Gadgets',navSmart:'Smart Home',navBeauty:'Beauty & Care',navSport:'Sport & Lifestyle',navMore:'More categories',contact:'Contact',cart:'Cart',shop:'Shop',service:'Service',faq:'FAQ',delivery:'Orders & delivery',about:'About TrendMix',privacy:'Privacy',cookies:'Cookies'},
+ fr:{navPc:'Composants PC',navGadgets:'Gadgets',navSmart:'Maison connectée',navBeauty:'Beauté & soins',navSport:'Sport & lifestyle',navMore:'Plus de catégories',contact:'Contact',cart:'Panier',shop:'Boutique',service:'Service',faq:'Questions fréquentes',delivery:'Commandes & livraison',about:'À propos de TrendMix',privacy:'Confidentialité',cookies:'Cookies'},
+ it:{navPc:'Componenti PC',navGadgets:'Gadget',navSmart:'Casa intelligente',navBeauty:'Beauty & cura',navSport:'Sport & lifestyle',navMore:'Altre categorie',contact:'Contatti',cart:'Carrello',shop:'Shop',service:'Servizio',faq:'FAQ',delivery:'Ordini e consegna',about:'Chi è TrendMix',privacy:'Privacy',cookies:'Cookie'},
+ es:{navPc:'Componentes PC',navGadgets:'Gadgets',navSmart:'Smart Home',navBeauty:'Belleza y cuidado',navSport:'Deporte y lifestyle',navMore:'Más categorías',contact:'Contacto',cart:'Carrito',shop:'Tienda',service:'Servicio',faq:'Preguntas frecuentes',delivery:'Pedidos y entrega',about:'Sobre TrendMix',privacy:'Privacidad',cookies:'Cookies'},
+ de:{navPc:'PC-Komponenten',navGadgets:'Gadgets',navSmart:'Smart Home',navBeauty:'Beauty & Pflege',navSport:'Sport & Lifestyle',navMore:'Weitere Kategorien',contact:'Kontakt',cart:'Warenkorb',shop:'Shop',service:'Service',faq:'FAQ',delivery:'Bestellung & Lieferung',about:'Über TrendMix',privacy:'Datenschutz',cookies:'Cookies'}
+};
+function updateShellLanguage(lang){
+  const t=navLabels[lang]||navLabels.nl;
+  const set=(selector,text)=>document.querySelectorAll(selector).forEach(el=>el.textContent=text);
+  set('.nav-link[href="/pc-componenten"]',t.navPc); set('.nav-link[href="/gadgets"]',t.navGadgets);
+  set('.nav-link[href="/smart-home"]',t.navSmart); set('.nav-link[href="/beauty-care"]',t.navBeauty);
+  set('.nav-link[href="/lifestyle-sport"]',t.navSport); set('.nav-more',t.navMore);
+  set('.header-contact',t.contact); set('.cart-link span:last-child',t.cart);
+  document.querySelectorAll('.tm-footer .footer-column').forEach((col,i)=>{
+    const title=col.querySelector('h3'); if(!title)return;
+    title.textContent=[t.shop,t.service,'TrendMix'][i]||title.textContent;
+  });
+  set('.tm-footer .footer-column a[href="/faq"]',t.faq);
+  set('.tm-footer .footer-column a[href="/bestellen"]',t.delivery);
+  set('.tm-footer .footer-column a[href="/over-trendmix"]',t.about);
+  set('.tm-footer .footer-column a[href="/privacy"]',t.privacy);
+  set('.tm-footer .footer-column a[href="/cookies"]',t.cookies);
+}
+const _applyShellLanguage=applyLanguage;
+applyLanguage=function(lang){_applyShellLanguage(lang);updateShellLanguage(lang);};
