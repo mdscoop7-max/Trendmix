@@ -11,10 +11,10 @@
       <div class="footer-brand">
         <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
         <p data-i18n="footerText">PC- en gaminghardware, gadgets en geselecteerde producten.</p>
-        <a class="footer-cta" href="/contact">Neem contact op <span>→</span></a>
+        
       </div>
       <div class="footer-column"><h3>Shop</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
-      <div class="footer-column"><h3>Service</h3><a href="/faq">Veelgestelde vragen</a><a href="/bestellen">Bestellen & levering</a><a href="/contact">Contact</a><a href="/winkelwagen">Winkelwagen</a></div>
+      <div class="footer-column"><h3>Service</h3><a href="/faq">Veelgestelde vragen</a><a href="/bestellen">Bestellen & levering</a><a href="/winkelwagen">Winkelwagen</a></div>
       <div class="footer-column"><h3>TrendMix</h3><a href="/over-trendmix">Over TrendMix</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></div>
     </div>
     <div class="footer-trust"><span>✓ Veilig bestellen</span><span>✓ Duidelijke prijzen</span><span>✓ 14 dagen retour</span><span>✓ Nederlandse webshop</span></div>
