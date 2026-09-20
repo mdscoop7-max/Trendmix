@@ -410,3 +410,41 @@ button,select,a{touch-action:manipulation}
   .cart-clear{margin:32px 0 36px!important}
   .cart-panel{margin-bottom:128px!important}
 }
+
+
+/* Final ecommerce polish */
+.footer-contact .btn-dark{
+  background:#fff!important;
+  color:#c59aff!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  box-shadow:none!important;
+}
+.footer-contact .btn-dark:hover{
+  background:#f7f4ff!important;
+  color:#8068ff!important;
+}
+.contact-form-modal input,
+.contact-form-modal textarea{
+  color:#17181d!important;
+  background:#fff!important;
+  -webkit-text-fill-color:#17181d!important;
+  caret-color:#17181d!important;
+  border-color:#dfe1e6!important;
+}
+.contact-form-modal textarea{
+  min-height:170px!important;
+  line-height:1.55!important;
+  resize:vertical!important;
+}
+.contact-form-modal input::placeholder,
+.contact-form-modal textarea::placeholder{
+  color:#777b84!important;
+  opacity:1!important;
+  -webkit-text-fill-color:#777b84!important;
+}
+.contact-form-modal input:focus,
+.contact-form-modal textarea:focus{
+  background:#fff!important;
+  color:#17181d!important;
+  border-color:#8d61ff!important;
+}
