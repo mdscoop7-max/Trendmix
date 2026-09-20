@@ -18,7 +18,14 @@
     <h1 data-i18n="faqTitle">Veelgestelde vragen</h1>
     <p class="info-lead" data-i18n="faqLead">Hier vind je praktische informatie over TrendMix, productlinks, prijzen en het aankoopproces.</p>
     <div class="faq-list">
-      {% for i in range(8) %}<details{% if i == 0 %} open{% endif %} data-faq-item="{{ i }}"><summary></summary><p></p></details>{% endfor %}
+      <details open data-faq-item="0"><summary>Wat is TrendMix?</summary><p>TrendMix is een webshop waar je geselecteerde producten rechtstreeks kunt bekijken en bestellen.</p></details>
+      <details data-faq-item="1"><summary>Hoe plaats ik een bestelling?</summary><p>Voeg een product toe aan je winkelwagen, controleer je bestelling en ga verder naar afrekenen.</p></details>
+      <details data-faq-item="2"><summary>Hoe werkt de betaling?</summary><p>De betaling wordt tijdens het afrekenen verwerkt via de betaalmethode die op dat moment in TrendMix beschikbaar is.</p></details>
+      <details data-faq-item="3"><summary>Hoe werkt de levering?</summary><p>Na betaling wordt je bestelling verwerkt en verzonden naar het door jou opgegeven afleveradres. De actuele levertijd staat bij het product of tijdens het afrekenen.</p></details>
+      <details data-faq-item="4"><summary>Kan ik mijn bestelling retourneren?</summary><p>Ja. Voor retouren gelden de retourvoorwaarden van TrendMix. Neem bij een retour- of bestelvraag contact op via het contactformulier.</p></details>
+      <details data-faq-item="5"><summary>Wat als mijn bestelling beschadigd of verkeerd geleverd is?</summary><p>Neem zo snel mogelijk contact op met TrendMix en vermeld je bestelgegevens en wat er mis is.</p></details>
+      <details data-faq-item="6"><summary>Waarom kan prijs of voorraad veranderen?</summary><p>Voorraad, prijzen en levertijden kunnen wijzigen. De informatie die tijdens het afrekenen wordt getoond is leidend.</p></details>
+      <details data-faq-item="7"><summary>Hoe kan ik contact opnemen?</summary><p>Gebruik het contactformulier in de footer. Je bericht wordt naar de klantenservice doorgestuurd.</p></details>
     </div>
     <div class="faq-links"><a href="/privacy" data-i18n="footerPrivacy">Privacy →</a><a href="/cookies" data-i18n="footerCookies">Cookies & voorkeuren →</a></div>
   </article>
