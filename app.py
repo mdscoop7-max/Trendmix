@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
-SITE_URL = "https://trendmix-jet.vercel.app"
+SITE_URL = "https://trendmix.onrender.com"
 
 CATEGORIES = {
     "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️", "eyebrow": "Performance & gaming"},
@@ -193,7 +193,7 @@ def render_info_page(info_slug):
     page = INFO_PAGES.get(info_slug)
     if not page:
         return "Pagina niet gevonden", 404
-    return render_template("info.html", title=page["title"], description=page["description"], info_slug=info_slug, path=f"/{info_slug}", categories=CATEGORIES)
+    return render_template("info.html", title=page["title"], description=page["description"], info_slug=info_slug, path=f"/{info_slug}", content=page["content"], categories=CATEGORIES)
 
 
 @app.route("/<category_slug>")
