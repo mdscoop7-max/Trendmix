@@ -309,7 +309,7 @@ def afrekenen():
 def faq():
     return render_template("faq.html", categories=CATEGORIES)
 
-@app.route("/contact", methods=["GET", "POST"])\ndef contact_page_or_submit():\n    if request.method == "GET":\n        return render_template("contact.html", categories=CATEGORIES, search_query="")\n@app.route("/contact", methods=["POST"])
+@app.route("/contact", methods=["GET"])\ndef contact_page():\n    return render_template("contact.html", categories=CATEGORIES, search_query="")\n\n@app.route("/contact", methods=["POST"])
 def contact():
     name = request.form.get("name", "").strip()
     email = request.form.get("email", "").strip()
