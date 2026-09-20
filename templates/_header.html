@@ -12,7 +12,7 @@
     <a class="brand tm-brand" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
     <form class="search-bar" action="/" method="get" role="search">
       <svg class="tm-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
-      <input type="search" name="q" value="{{ search_query|default('') }}" placeholder="Zoek naar producten, merken of specificaties" aria-label="Zoek producten">
+      <input type="search" name="q" value="{{ search_query|default('') }}" placeholder="Zoek naar producten, merken of specificaties" data-i18n-placeholder="searchProducts" aria-label="Zoek producten">
       <button type="submit" aria-label="Zoeken"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button>
     </form>
     <a class="header-contact" href="/contact" aria-label="Contact opnemen">Contact</a>
