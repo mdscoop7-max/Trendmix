@@ -16,7 +16,7 @@
   <article class="info-card">
     <span class="eyebrow dark">TrendMix</span>
     <h1 data-info-title="{{ info_slug }}">{{ title }}</h1>
-    <div data-info-content="{{ info_slug }}"></div>
+    <div data-info-content="{{ info_slug }}">{{ content|safe }}</div>
   </article>
 </main>
 {% include '_footer.html' %}
