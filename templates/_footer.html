@@ -1,8 +1,8 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="active"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
+  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
   <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
   <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
-  <a href="/winkelwagen"><span>🛒</span><span>Winkelwagen</span></a>
+  <a href="/winkelwagen" class="{% if request.path == '/winkelwagen' or request.path == '/afrekenen' %}active{% endif %}"><span>🛒</span><span>Winkelwagen</span></a>
   <a href="/faq"><span>◉</span><span data-i18n="footerFaq">Info</span></a>
 </nav>
 <footer class="site-footer">
