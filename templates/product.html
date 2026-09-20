@@ -88,7 +88,7 @@
       <p class="detail-description">{{ product.short_description }}</p>
 
       <div class="product-availability">
-        <strong>
+        <strong class="{% if product.stock_status == 'in_stock' %}stock-good{% elif product.stock_status == 'out_of_stock' %}stock-bad{% else %}stock-unknown{% endif %}">
           {% if product.stock_status == "in_stock" %}Op voorraad
           {% elif product.stock_status == "out_of_stock" %}Niet op voorraad
           {% else %}Voorraad controleren{% endif %}
@@ -143,6 +143,14 @@
     </div>
   </section>
   {% endif %}
+
+  <div class="mobile-sticky-cart">
+    <form action="/winkelwagen" method="post">
+      <input type="hidden" name="action" value="add">
+      <input type="hidden" name="product_id" value="{{ product.id }}">
+      <button type="submit">In winkelwagen · € {{ "%.2f"|format(product.price)|replace(".", ",") }}</button>
+    </form>
+  </div>
 
   {% if related %}
   <section class="content-section related-section">
