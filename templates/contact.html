@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Contact | TrendMix</title>
+  <meta name="description" content="Neem contact op met TrendMix over een product, bestelling of andere vraag.">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+{% include "_header.html" %}
+<main class="shell info-page">
+  <a class="back-link" href="/">← Terug naar TrendMix</a>
+  <article class="info-card">
+    <span class="eyebrow">KLANTENSERVICE</span>
+    <h1>Contact</h1>
+    <p class="info-lead">Heb je een vraag over een product, bestelling of levering? Vul het formulier in. We gebruiken je gegevens alleen om je vraag te beantwoorden.</p>
+    <form class="contact-form contact-form-modal" action="/contact" method="post">
+      <div class="contact-form-row">
+        <label>Naam<input type="text" name="name" autocomplete="name" required></label>
+        <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+      </div>
+      <label>Bericht<textarea name="message" rows="8" required></textarea></label>
+      <button type="submit" class="btn btn-dark">Verstuur bericht</button>
+    </form>
+  </article>
+</main>
+{% include "_footer.html" %}
+</body>
+</html>
