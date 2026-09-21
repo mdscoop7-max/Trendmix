@@ -327,3 +327,12 @@ const finalEcommerceUiTranslations={
  es:{openContact:'✉ Contacto',contactName:'Nombre',contactEmail:'Correo electrónico',contactMessage:'Mensaje',contactNamePlaceholder:'Tu nombre',contactEmailPlaceholder:'tu@ejemplo.es',contactMessagePlaceholder:'¿Cómo podemos ayudarte?',contactSubmit:'Enviar mensaje →',footerText:'Una tienda online moderna de tecnología, hogar, belleza y lifestyle.',footerBottom:'Moderno · claro · profesional',footerAbout:'Sobre TrendMix',footerOrdering:'Pedidos y entrega',footerPrivacy:'Privacidad',footerCookies:'Cookies y preferencias',footerFaqLink:'Preguntas frecuentes',footerInfo:'Información'}
 };
 Object.keys(finalEcommerceUiTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...finalEcommerceUiTranslations[lang]};});
+
+
+/* Final category-page wording translations. */
+Object.assign(translations.nl,{shopBySubcategory:'Shop per subcategorie'});
+Object.assign(translations.en,{shopBySubcategory:'Shop by subcategory'});
+Object.assign(translations.fr,{shopBySubcategory:'Acheter par sous-catégorie'});
+Object.assign(translations.de,{shopBySubcategory:'Nach Unterkategorie shoppen'});
+Object.assign(translations.it,{shopBySubcategory:'Acquista per sottocategoria'});
+Object.assign(translations.es,{shopBySubcategory:'Comprar por subcategoría'});
