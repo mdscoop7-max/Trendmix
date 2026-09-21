@@ -164,6 +164,58 @@ def find_product(product_id):
     return None
 
 
+# WooCommerce is optional during development. Keep secrets in Vercel environment variables.
+def woo_configured():
+    return bool(os.getenv("WOOCOMMERCE_URL") and os.getenv("WOOCOMMERCE_CONSUMER_KEY") and os.getenv("WOOCOMMERCE_CONSUMER_SECRET"))
+
+
+def woo_request(method, path, payload=None):
+    base = os.getenv("WOOCOMMERCE_URL", "").rstrip("/")
+    key = os.getenv("WOOCOMMERCE_CONSUMER_KEY", "")
+    secret = os.getenv("WOOCOMMERCE_CONSUMER_SECRET", "")
+    if not base or not key or not secret:
+        return None
+    url = f"{base}/wp-json/wc/v3/{path.lstrip('/')}"
+    body = None
+    headers = {"Accept": "application/json"}
+    if payload is not None:
+        body = json.dumps(payload).encode("utf-8")
+        headers["Content-Type"] = "application/json"
+    request_obj = urllib.request.Request(url, data=body, headers=headers, method=method.upper())
+    import base64
+    token = base64.b64encode(f"{key}:{secret}".encode("utf-8")).decode("ascii")
+    request_obj.add_header("Authorization", f"Basic {token}")
+    try:
+        with urllib.request.urlopen(request_obj, timeout=12) as response:
+            raw = response.read().decode("utf-8")
+            return json.loads(raw) if raw else {}
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError) as exc:
+        app.logger.error("WooCommerce API request failed: %s", exc)
+        return None
+
+
+def create_woo_order(cart, customer):
+    line_items = []
+    for item in cart:
+        product = find_product(item.get("id"))
+        woo_id = (product or {}).get("woocommerce_product_id")
+        if not woo_id:
+            return None, "Producten zijn nog niet aan WooCommerce gekoppeld."
+        line_items.append({"product_id": int(woo_id), "quantity": max(1, int(item.get("qty", 1)))})
+    payload = {
+        "payment_method": "",
+        "payment_method_title": "Nog te betalen",
+        "set_paid": False,
+        "billing": customer,
+        "shipping": customer,
+        "line_items": line_items,
+    }
+    result = woo_request("POST", "orders", payload)
+    if not result or not result.get("id"):
+        return None, "De WooCommerce-bestelling kon niet worden aangemaakt."
+    return result, None
+
+
 @app.context_processor
 def inject_helpers():
     return {"slugify": slugify, "cart_count": cart_count()}
