@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Afrekenen | TrendMix</title>
-
-<script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script>
-  <script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script>
-<link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml"><link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260919-8') }}"><script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script></head>
+<link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml"><link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260921-1') }}">
+<script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script><script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script></head>
 <body>
-<main class="shell cart-page"><a class="back-link" href="/winkelwagen" data-i18n="continueShopping">← Terug naar winkelwagen</a><section class="cart-panel checkout-page"><span class="eyebrow dark">TrendMix</span><h1 data-i18n="checkoutTitle">Afrekenen</h1><p class="checkout-intro" data-i18n="checkoutIntro">Je bestelling is klaar. De betaal- en leverancierkoppeling moet nog worden aangesloten voordat een echte betaling kan worden verwerkt.</p><div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>€ {{ "%.2f"|format(item.price * item.qty) }}</strong></div>{% endfor %}</div><div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div><a class="btn btn-outline checkout-back" href="/winkelwagen" data-i18n="backToCart" data-i18n="adjustCart">Winkelwagen aanpassen</a></section></main></body></html>
+<main class="shell cart-page">
+<a class="back-link" href="/winkelwagen">← Terug naar winkelwagen</a>
+<section class="cart-panel checkout-page">
+<span class="eyebrow dark">TrendMix</span><h1>Afrekenen</h1>
+{% if order %}<div class="empty-state"><h3>Bestelling aangemaakt</h3><p>WooCommerce order #{{ order.id }} is aangemaakt.</p></div>
+{% else %}
+<p class="checkout-intro">{% if test_mode %}Testmodus: WooCommerce is nog niet gekoppeld. Je gegevens worden niet naar een webshop gestuurd.{% else %}Vul je gegevens in om je bestelling te plaatsen.{% endif %}</p>
+{% if error %}<p role="alert">{{ error }}</p>{% endif %}
+<div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>€ {{ "%.2f"|format(item.price * item.qty) }}</strong></div>{% endfor %}</div>
+<div class="cart-total"><strong>Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div>
+<form method="post" class="checkout-form">
+<label>Voornaam *<input name="first_name" required></label>
+<label>Achternaam *<input name="last_name" required></label>
+<label>E-mail *<input type="email" name="email" required></label>
+<label>Adres *<input name="address_1" required></label>
+<label>Postcode *<input name="postcode" required></label>
+<label>Woonplaats *<input name="city" required></label>
+<button type="submit" class="btn btn-dark">Bestelling plaatsen →</button>
+</form>
+{% endif %}
+<a class="btn btn-outline checkout-back" href="/winkelwagen">Winkelwagen aanpassen</a>
+</section></main></body></html>
