@@ -8,12 +8,12 @@
 <section class="category-hero shell"><div class="category-copy"><span class="eyebrow" data-category-eyebrow="{{ category_slug }}">{{ category_eyebrow }}</span><h1>{{ category_icon }} <span data-category-name="{{ category_slug }}">{{ category_name }}</span>{% if subcategory_name is defined %} <span>· {{ subcategory_name }}</span>{% endif %}</h1><p data-i18n="categoryIntro">Een scherpe selectie producten, rustig gepresenteerd en eenvoudig te bekijken op desktop en mobiel.</p><div class="hero-stats"><div><strong>{{ products|length }}</strong><span data-i18n="products">producten</span></div><div><strong>5</strong><span data-i18n="collections">collecties</span></div></div></div><div class="category-visual">{% if products and products[0].image %}<img src="{{ products[0].image }}" alt="{{ products[0].name }}" loading="eager">{% endif %}<span>{% if subcategory_name is defined %}{{ subcategory_name }}{% else %}{{ category_name }}{% endif %}</span></div></section>
 {% if subcategories %}<section class="shell content-section category-subcategories">
   <div class="section-head">
-    <div><span class="eyebrow dark">Categorieën</span><h2>Shop per subcategorie</h2></div>
+    <div><span class="eyebrow dark" data-i18n="categories">Categorieën</span><h2 data-i18n="shopBySubcategory">Shop per subcategorie</h2></div>
   </div>
   <div class="category-links">
     {% for subcategory in subcategories %}
       <a class="mini-link" href="/{{ category_slug }}/{{ subcategory.slug }}/">
-        <span>{{ subcategory.name }}</span><small>{{ subcategory.count }} producten</small><b>→</b>
+        <span>{{ subcategory.name }}</span><small>{{ subcategory.count }} <span data-i18n="products">producten</span></small><b>→</b>
       </a>
     {% endfor %}
   </div>
