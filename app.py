@@ -438,22 +438,37 @@ def winkelwagen():
     )
 
 
-@app.route("/afrekenen")
+@app.route("/afrekenen", methods=["GET", "POST"])
 def afrekenen():
     cart = [dict(item) for item in cart_items()]
     if not cart:
         return redirect(url_for("winkelwagen"))
-    total = sum(
-        float(item.get("price", 0) or 0) * max(1, int(item.get("qty", 1)))
-        for item in cart
-    )
-    return render_template(
-        "checkout.html",
-        categories=CATEGORIES,
-        cart=cart,
-        cart_count=cart_count(),
-        cart_total=total,
-    )
+    total = sum(float(item.get("price", 0) or 0) * max(1, int(item.get("qty", 1))) for item in cart)
+    order = None
+    error = None
+    if request.method == "POST":
+        customer = {
+            "first_name": request.form.get("first_name", "").strip(),
+            "last_name": request.form.get("last_name", "").strip(),
+            "email": request.form.get("email", "").strip(),
+            "address_1": request.form.get("address_1", "").strip(),
+            "postcode": request.form.get("postcode", "").strip(),
+            "city": request.form.get("city", "").strip(),
+            "country": "NL",
+        }
+        if not all(customer.values()):
+            error = "Vul alle verplichte gegevens in."
+        elif not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", customer["email"]):
+            error = "Vul een geldig e-mailadres in."
+        elif woo_configured():
+            order, error = create_woo_order(cart, customer)
+            if order:
+                session.pop("trendmix_cart", None)
+                return render_template("checkout.html", categories=CATEGORIES, cart=[], cart_count=0, cart_total=0, test_mode=False, order=order, error=None)
+        else:
+            session["trendmix_test_checkout"] = customer
+            return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order=None, error=None)
+    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=False, order=order, error=error)
 
 
 @app.route("/faq")
