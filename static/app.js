@@ -176,7 +176,7 @@ function updateShellLanguage(lang){
   set('.nav-link[href="/pc-componenten"]',t.navPc); set('.nav-link[href="/gadgets"]',t.navGadgets);
   set('.nav-link[href="/smart-home"]',t.navSmart); set('.nav-link[href="/beauty-care"]',t.navBeauty);
   set('.nav-link[href="/lifestyle-sport"]',t.navSport); set('.nav-more',t.navMore);
-  set('.header-contact',t.contact);
+  set('.header-contact','✉ '+t.contact);
   document.querySelectorAll('.tm-footer .footer-column').forEach((col,i)=>{
     const title=col.querySelector('h3'); if(!title)return;
     title.textContent=[t.shop,t.service,'TrendMix'][i]||title.textContent;
