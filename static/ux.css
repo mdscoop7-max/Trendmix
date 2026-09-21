@@ -473,3 +473,43 @@ button,select,a{touch-action:manipulation}
 @media(max-width:470px){
   .product-grid .product-image{height:175px!important;}
 }
+
+
+/* Render/mobile final fix: product photos fill the entire media frame. */
+.product-grid .product-image{
+  background:#0b0e15!important;
+  overflow:hidden!important;
+}
+.product-grid .product-image img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  padding:0!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+@media(max-width:760px){
+  .product-grid .product-image{height:190px!important}
+  .product-grid .product-image img{object-fit:cover!important}
+}
+@media(max-width:470px){
+  .product-grid .product-image{height:175px!important}
+}
+
+/* Contact button: keep the label visible on small screens. */
+@media(max-width:760px){
+  .header-contact{
+    font-size:11px!important;
+    width:auto!important;
+    min-width:82px!important;
+    height:42px!important;
+    padding:0 11px!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:5px!important;
+    white-space:nowrap!important;
+  }
+  .header-contact:before{content:none!important}
+}
