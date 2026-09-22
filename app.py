@@ -4,7 +4,7 @@ import os
 import urllib.request
 import urllib.error
 from pathlib import Path
-from flask import Flask, Response, render_template, request, redirect, url_for, session
+from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
@@ -19,6 +19,8 @@ CATEGORIES = {
     "beauty-care": {"name": "Beauty & Care", "icon": "✨", "eyebrow": "Self-care & beauty"},
     "lifestyle-sport": {"name": "Sport & Lifestyle", "icon": "🏃", "eyebrow": "Move, recover & live"},
 }
+
+CATEGORY_DIRS = {meta["name"]: slug for slug, meta in CATEGORIES.items()}
 
 
 def clean_products(items):
@@ -97,12 +99,18 @@ def slugify(value):
 
 
 def product_url(product):
-    return url_for(
-        "product_detail",
-        category_slug=product["category_slug"],
-        subcategory_slug=product.get("subcategory_slug") or slugify(product.get("subcategory") or product["category_slug"]),
-        product_slug=product["slug"],
-    )
+    category_slug = product["category_slug"]
+    subcategory_slug = product.get("subcategory_slug") or slugify(product.get("subcategory") or category_slug)
+    product_slug = product["slug"]
+    try:
+        return url_for(
+            "product_detail",
+            category_slug=category_slug,
+            subcategory_slug=subcategory_slug,
+            product_slug=product_slug,
+        )
+    except RuntimeError:
+        return f"/{category_slug}/{subcategory_slug}/{product_slug}"
 
 
 def enrich_product(product, category_slug, index):
@@ -148,6 +156,18 @@ def cart_total():
     )
 
 
+def load_all_products():
+    all_products = []
+    for category_slug, items in products.items():
+        for index, raw in enumerate(items):
+            item = enrich_product(raw, category_slug, index)
+            item["category"] = item.get("category_name", category_slug)
+            all_products.append(item)
+    for index, product in enumerate(all_products, start=1):
+        product["id"] = index
+    return all_products
+
+
 def find_product(product_id):
     product_id = str(product_id or "").strip()
     for category_slug, items in products.items():
@@ -161,7 +181,32 @@ def find_product(product_id):
         items = products[match.group(1)]
         if 0 <= index < len(items):
             return enrich_product(items[index], match.group(1), index)
+
+    try:
+        numeric_id = int(product_id)
+    except ValueError:
+        numeric_id = None
+    if numeric_id is not None:
+        for product in load_all_products():
+            if product.get("id") == numeric_id:
+                return product
     return None
+
+
+def filter_products(product_list, category=None, search=None):
+    result = list(product_list)
+    if category:
+        result = [p for p in result if p.get("category") == category or p.get("category_name") == category]
+    if search:
+        needle = str(search).strip().lower()
+        if needle:
+            result = [
+                p for p in result
+                if needle in str(p.get("name", "")).lower()
+                or needle in str(p.get("brand", "")).lower()
+                or needle in str(p.get("description", "")).lower()
+            ]
+    return result
 
 
 # WooCommerce is optional during development. Keep secrets in Vercel environment variables.
@@ -233,6 +278,77 @@ def home():
         search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold()]
     counts = {slug: len(items) for slug, items in products.items()}
     return render_template("index.html", categories=CATEGORIES, featured_products=featured_mix(), category_images=category_images(), search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
+
+
+@app.route("/shop")
+def shop():
+    category = request.args.get("category")
+    search = request.args.get("q", "").strip()
+    all_products = load_all_products()
+    if category and category not in CATEGORY_DIRS:
+        category = None
+    if category:
+        category_name = category
+        filtered = filter_products(all_products, category=category_name, search=search)
+    else:
+        filtered = filter_products(all_products, search=search)
+    return render_template("shop.html", products=filtered, category=category, search=search, categories=CATEGORIES)
+
+
+@app.route("/products")
+def products_page():
+    return redirect(url_for("shop"), code=302)
+
+
+@app.route("/account")
+def account():
+    return render_template("account.html", categories=CATEGORIES)
+
+
+@app.route("/wishlist")
+def wishlist():
+    return render_template("wishlist.html", categories=CATEGORIES, products=[])
+
+
+@app.route("/cart")
+def cart():
+    return redirect(url_for("winkelwagen"), code=302)
+
+
+@app.route("/product/<int:product_id>")
+def product(product_id):
+    product_item = find_product(product_id)
+    if not product_item:
+        return "Product niet gevonden", 404
+    return redirect(product_item["product_url"], code=302)
+
+
+@app.route("/control")
+def control():
+    all_products = load_all_products()
+    category_counts = {}
+    for product in all_products:
+        category_name = product.get("category") or product.get("category_name") or "Onbekend"
+        category_counts[category_name] = category_counts.get(category_name, 0) + 1
+
+    offer_count = sum(1 for product in all_products if product.get("old_price") or product.get("is_offer"))
+    avg_price = round(sum(float(product.get("price", 0) or 0) for product in all_products) / len(all_products), 2) if all_products else 0
+    top_category = max(category_counts.items(), key=lambda item: item[1])[0] if category_counts else "N/A"
+    featured_products = sorted(all_products, key=lambda p: (float(p.get("price", 0) or 0), p.get("name", "")), reverse=True)[:8]
+
+    return render_template(
+        "control.html",
+        products=featured_products,
+        stats={
+            "total_products": len(all_products),
+            "total_categories": len(category_counts),
+            "offers": offer_count,
+            "avg_price": avg_price,
+            "top_category": top_category,
+        },
+        category_counts=sorted(category_counts.items()),
+        categories=CATEGORIES,
+    )
 
 
 INFO_PAGES = {
