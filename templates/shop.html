@@ -1,0 +1,419 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+{% if category %}
+{{ category }} - TrendMix
+{% else %}
+Shop - TrendMix
+{% endif %}
+{% endblock %}
+
+{% block description %}
+{% if category %}
+Ontdek {{ category }} producten bij TrendMix.
+{% else %}
+Ontdek populaire en interessante producten bij TrendMix.
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section shop-page">
+
+```
+<!-- ========================================================
+     SHOP HEADER
+========================================================= -->
+
+<div class="section-heading shop-heading">
+
+    <span class="section-label">
+        TRENDMIX SHOP
+    </span>
+
+    <h1>
+        {% if category %}
+            {{ category }}
+        {% else %}
+            Ontdek iets nieuws
+        {% endif %}
+    </h1>
+
+    <p>
+        Ontdek populaire, handige en interessante producten
+        voor tech, lifestyle en dagelijks gebruik.
+    </p>
+
+</div>
+
+
+<!-- ========================================================
+     CATEGORIE NAVIGATIE
+========================================================= -->
+
+<nav
+    class="category-nav"
+    aria-label="Productcategorieën"
+>
+
+    <a
+        href="{{ url_for('shop') }}"
+        class="{% if not category %}active{% endif %}"
+    >
+        <span aria-hidden="true">✨</span>
+        Alle
+    </a>
+
+
+    <a
+        href="{{ url_for('shop', category='PC-Componenten') }}"
+        class="{% if category == 'PC-Componenten' %}active{% endif %}"
+    >
+        <span aria-hidden="true">🖥️</span>
+        PC-Componenten
+    </a>
+
+
+    <a
+        href="{{ url_for('shop', category='Gadgets') }}"
+        class="{% if category == 'Gadgets' %}active{% endif %}"
+    >
+        <span aria-hidden="true">🔌</span>
+        Gadgets
+    </a>
+
+
+    <a
+        href="{{ url_for('shop', category='Smart Home') }}"
+        class="{% if category == 'Smart Home' %}active{% endif %}"
+    >
+        <span aria-hidden="true">💡</span>
+        Smart Home
+    </a>
+
+
+    <a
+        href="{{ url_for('shop', category='Beauty & Care') }}"
+        class="{% if category == 'Beauty & Care' %}active{% endif %}"
+    >
+        <span aria-hidden="true">💄</span>
+        Beauty &amp; Care
+    </a>
+
+
+    <a
+        href="{{ url_for('shop', category='Lifestyle & Sport') }}"
+        class="{% if category == 'Lifestyle & Sport' %}active{% endif %}"
+    >
+        <span aria-hidden="true">⚽</span>
+        Lifestyle &amp; Sport
+    </a>
+
+
+    <a
+        href="{{ url_for('shop', category='Aanbiedingen') }}"
+        class="{% if category == 'Aanbiedingen' %}active{% endif %}"
+    >
+        <span aria-hidden="true">🔥</span>
+        Aanbiedingen
+    </a>
+
+</nav>
+
+
+<!-- ========================================================
+     ZOEKEN
+========================================================= -->
+
+<div class="shop-toolbar">
+
+    <form
+        action="{{ url_for('shop') }}"
+        method="get"
+        class="shop-search"
+    >
+
+        {% if category %}
+
+        <input
+            type="hidden"
+            name="category"
+            value="{{ category }}"
+        >
+
+        {% endif %}
+
+
+        <div class="search-input-wrapper">
+
+            <span
+                class="search-icon"
+                aria-hidden="true"
+            >
+                🔍
+            </span>
+
+            <input
+                type="search"
+                name="q"
+                value="{{ search or '' }}"
+                placeholder="Zoek in deze collectie..."
+                aria-label="Zoek producten"
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="search-button"
+        >
+            Zoeken
+        </button>
+
+    </form>
+
+
+    <!-- PRODUCT TELLER -->
+
+    <div class="product-count">
+
+        <strong>
+            {{ products|length }}
+        </strong>
+
+        {% if products|length == 1 %}
+            <span>product gevonden</span>
+        {% else %}
+            <span>producten gevonden</span>
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================
+     PRODUCTEN
+========================================================= -->
+
+{% if products %}
+
+<div class="product-grid shop-product-grid">
+
+    {% for product in products %}
+
+    <article class="product-card">
+
+        <!-- PRODUCT AFBEELDING -->
+
+        <a
+            href="{{ url_for('product', product_id=product.id) }}"
+            class="product-card-image"
+        >
+
+            {% if product.badge %}
+
+            <span class="product-badge">
+                {{ product.badge }}
+            </span>
+
+            {% endif %}
+
+
+            {% if product.image %}
+
+            <img
+                src="{{ product.image if product.image.startswith('http') else url_for('static', filename=product.image) }}"
+                alt="{{ product.name }}"
+                loading="lazy"
+            >
+
+            {% elif product.image_url %}
+
+            <img
+                src="{{ product.image_url }}"
+                alt="{{ product.name }}"
+                loading="lazy"
+            >
+
+            {% else %}
+
+            <div class="product-image-placeholder">
+                <span aria-hidden="true">🛍️</span>
+                <span>Geen afbeelding</span>
+            </div>
+
+            {% endif %}
+
+        </a>
+
+
+        <!-- PRODUCT INFORMATIE -->
+
+        <div class="product-card-content">
+
+            <span class="product-category">
+                {{ product.category }}
+            </span>
+
+
+            <h2>
+
+                <a
+                    href="{{ url_for('product', product_id=product.id) }}"
+                >
+                    {{ product.name }}
+                </a>
+
+            </h2>
+
+
+            {% if product.brand %}
+
+            <p class="product-brand">
+                {{ product.brand }}
+            </p>
+
+            {% endif %}
+
+
+            <!-- RATING -->
+
+            {% if product.rating %}
+
+            <div
+                class="product-rating"
+                aria-label="Beoordeling {{ product.rating }} van 5"
+            >
+
+                <span aria-hidden="true">
+                    ⭐
+                </span>
+
+                <strong>
+                    {{ product.rating }}
+                </strong>
+
+                {% if product.reviews is defined %}
+
+                <span>
+                    ({{ product.reviews }})
+                </span>
+
+                {% endif %}
+
+            </div>
+
+            {% else %}
+
+            <div
+                class="product-rating"
+                aria-label="Beoordeling"
+            >
+                <span aria-hidden="true">
+                    ★★★★★
+                </span>
+            </div>
+
+            {% endif %}
+
+
+            <!-- PRIJS + KNOP -->
+
+            <div class="product-card-bottom">
+
+                <div class="product-price">
+
+                    {% if product.old_price %}
+
+                    <span class="old-price">
+                        €{{ "%.2f"|format(product.old_price) }}
+                    </span>
+
+                    {% endif %}
+
+
+                    <strong>
+                        €{{ "%.2f"|format(product.price) }}
+                    </strong>
+
+
+                    {% if product.discount_percentage %}
+
+                    <span class="discount">
+                        -{{ product.discount_percentage }}%
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <a
+                    href="{{ url_for('product', product_id=product.id) }}"
+                    class="product-button"
+                >
+                    Bekijk
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+</div>
+
+
+{% else %}
+
+<!-- ========================================================
+     GEEN PRODUCTEN
+========================================================= -->
+
+<div class="empty-state">
+
+    <div
+        class="empty-state-icon"
+        aria-hidden="true"
+    >
+        🔍
+    </div>
+
+
+    <span class="section-label">
+        GEEN RESULTATEN
+    </span>
+
+
+    <h2>
+        Geen producten gevonden
+    </h2>
+
+
+    <p>
+        We konden geen producten vinden die bij je zoekopdracht
+        passen. Probeer een andere zoekterm of bekijk alle producten.
+    </p>
+
+
+    <a
+        href="{{ url_for('shop') }}"
+        class="btn btn-primary"
+    >
+        Alle producten
+        <span aria-hidden="true">→</span>
+    </a>
+
+</div>
+
+{% endif %}
+```
+
+</section>
+
+{% endblock %}

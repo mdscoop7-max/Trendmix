@@ -1,0 +1,60 @@
+﻿from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return """
+    <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <title>TrendMix</title>
+    </head>
+    <body>
+        <h1>TrendMix werkt! 🎉</h1>
+        <p>De Flask-applicatie draait correct.</p>
+        <p><a href="/products">Producten</a></p>
+        <p><a href="/shop">Shop</a></p>
+        <p><a href="/health">Status</a></p>
+    </body>
+    </html>
+    """
+
+@app.route("/products")
+def products():
+    return """
+    <h1>Producten</h1>
+    <p>De productpagina werkt.</p>
+    <a href="/">Terug naar home</a>
+    """
+
+@app.route("/shop")
+def shop():
+    category = request.args.get("category")
+
+    if category:
+        message = f"Geselecteerde categorie: {category}"
+    else:
+        message = "Alle producten."
+
+    return f"""
+    <h1>Shop</h1>
+    <p>{message}</p>
+    <a href="/">Terug naar home</a>
+    """
+
+@app.route("/health")
+def health():
+    return jsonify({
+        "status": "ok",
+        "app": "TrendMix"
+    })
+
+if __name__ == "__main__":
+    app.run(
+        host="127.0.0.1",
+        port=5000,
+        debug=True,
+        use_reloader=False
+    )

@@ -1,0 +1,208 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+Verlanglijst - TrendMix
+{% endblock %}
+
+{% block description %}
+Bekijk je opgeslagen producten en ontdek wat je later wilt bekijken bij TrendMix.
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section wishlist-page">
+
+```
+<!-- ====================================================
+     PAGINA HEADER
+===================================================== -->
+
+<div class="section-heading">
+
+    <span class="section-label">
+        TRENDMIX
+    </span>
+
+    <h1>
+        Mijn verlanglijst
+    </h1>
+
+    <p>
+        Bewaar hier de producten die je later wilt bekijken.
+    </p>
+
+</div>
+
+
+<!-- ====================================================
+     PRODUCTEN
+===================================================== -->
+
+{% if products %}
+
+<div class="product-grid">
+
+    {% for product in products %}
+
+    <article class="product-card">
+
+        <!-- PRODUCT AFBEELDING -->
+
+        <a
+            href="{{ url_for('product', product_id=product.id) }}"
+            class="product-image"
+        >
+
+            {% if product.image %}
+
+            <img
+                src="{{ url_for('static', filename=product.image) }}"
+                alt="{{ product.name }}"
+                loading="lazy"
+            >
+
+            {% elif product.image_url %}
+
+            <img
+                src="{{ product.image_url }}"
+                alt="{{ product.name }}"
+                loading="lazy"
+            >
+
+            {% else %}
+
+            <div class="product-image-placeholder">
+                <span aria-hidden="true">🛍️</span>
+                <span>Productfoto binnenkort</span>
+            </div>
+
+            {% endif %}
+
+        </a>
+
+
+        <!-- PRODUCT INFORMATIE -->
+
+        <div class="product-card-content">
+
+            <span class="product-category">
+                {{ product.category|default('TrendMix') }}
+            </span>
+
+
+            <h2>
+
+                <a
+                    href="{{ url_for('product', product_id=product.id) }}"
+                >
+                    {{ product.name }}
+                </a>
+
+            </h2>
+
+
+            {% if product.brand %}
+
+            <p class="product-brand">
+                {{ product.brand }}
+            </p>
+
+            {% endif %}
+
+
+            <div class="product-price">
+
+                {% if product.old_price %}
+
+                <span class="old-price">
+                    €{{ "%.2f"|format(product.old_price) }}
+                </span>
+
+                {% endif %}
+
+                <strong>
+                    €{{ "%.2f"|format(product.price) }}
+                </strong>
+
+            </div>
+
+
+            <div class="product-actions">
+
+                <a
+                    href="{{ url_for('product', product_id=product.id) }}"
+                    class="btn btn-primary"
+                >
+                    Bekijk product
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- TERUG NAAR SHOP -->
+
+<div class="section-actions">
+
+    <a
+        href="{{ url_for('shop') }}"
+        class="btn btn-secondary"
+    >
+        Verder winkelen
+        <span aria-hidden="true">→</span>
+    </a>
+
+</div>
+
+
+{% else %}
+
+<!-- ====================================================
+     LEGE VERLANGLIJST
+===================================================== -->
+
+<div class="empty-state">
+
+    <div
+        class="empty-state-icon"
+        aria-hidden="true"
+    >
+        ♡
+    </div>
+
+    <span class="section-label">
+        VERLANGLIJST
+    </span>
+
+    <h2>
+        Je verlanglijst is nog leeg.
+    </h2>
+
+    <p>
+        Voeg producten toe die je later wilt bekijken.
+    </p>
+
+    <a
+        href="{{ url_for('shop') }}"
+        class="btn btn-primary"
+    >
+        Naar de shop
+        <span aria-hidden="true">→</span>
+    </a>
+
+</div>
+
+{% endif %}
+```
+
+</section>
+
+{% endblock %}

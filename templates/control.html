@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}TrendMix Control{% endblock %}
+{% block description %}TrendMix control overview voor productstatus, categorieën en store-performance.{% endblock %}
+
+{% block content %}
+<section class="section shop-page">
+    <div class="section-header">
+        <span class="section-label">TrendMix Control</span>
+        <h1>Controle & overzicht</h1>
+        <p>Bekijk snel de status van de webshop, categorieën en actuele productmix.</p>
+    </div>
+
+    <div class="control-grid">
+        <div class="control-card">
+            <span class="label">Totaal producten</span>
+            <span class="value">{{ stats.total_products }}</span>
+        </div>
+
+        <div class="control-card">
+            <span class="label">Categorieën</span>
+            <span class="value">{{ stats.total_categories }}</span>
+        </div>
+
+        <div class="control-card">
+            <span class="label">Aanbiedingen</span>
+            <span class="value">{{ stats.offers }}</span>
+        </div>
+
+        <div class="control-card">
+            <span class="label">Gemiddelde prijs</span>
+            <span class="value">€{{ '%.2f'|format(stats.avg_price) }}</span>
+        </div>
+
+        <div class="control-card">
+            <span class="label">Top categorie</span>
+            <span class="value">{{ stats.top_category }}</span>
+        </div>
+    </div>
+
+    <div class="control-panel">
+        <h2>Categorie overzicht</h2>
+        <div class="control-table-wrapper">
+            <table class="control-table">
+                <thead>
+                    <tr>
+                        <th>Categorie</th>
+                        <th>Aantal</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category, count in category_counts %}
+                    <tr>
+                        <td>{{ category }}</td>
+                        <td>{{ count }}</td>
+                        <td>
+                            {% if count > 0 %}
+                                <span class="control-tag">Actief</span>
+                            {% else %}
+                                <span class="control-tag secondary">Leeg</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="control-panel">
+        <h2>Top producten</h2>
+        <div class="control-table-wrapper">
+            <table class="control-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Categorie</th>
+                        <th>Prijs</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>€{{ '%.2f'|format(product.price) }}</td>
+                        <td>
+                            {% if product.is_offer or product.old_price %}
+                                <span class="control-tag">Aanbieding</span>
+                            {% else %}
+                                <span class="control-tag secondary">Normaal</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

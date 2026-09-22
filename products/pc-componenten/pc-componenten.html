@@ -1,29 +1,71 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{{ category }} | TrendMix</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ category }} | TechMode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=99">
 </head>
-
 <body>
 
-    <h1>{{ category }}</h1>
-
-    {% for product in products %}
-
-        <div>
-            <h2>{{ product.name }}</h2>
-            <p>€ {{ product.price }}</p>
+    <!-- Top USP Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span>🚚 Gratis verzending vanaf €50</span>
+            <span>🔄 30 dagen retourgarantie</span>
+            <span>📞 Klantenservice 7 dagen per week</span>
         </div>
+    </div>
 
-    {% endfor %}
+    <!-- Hoofdheader (Logo, Zoekbalk, Acties) -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">TECHMODE</span>
+                <span class="logo-sub">Tech • Gadgets • Lifestyle</span>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Zoek naar producten...">
+                <button type="submit">🔍</button>
+            </div>
+
+            <div class="header-actions">
+                <a href="{{ url_for('account') }}" class="action-item">👤 <span>Account</span></a>
+                <a href="{{ url_for('wishlist') }}" class="action-item">❤️ <span>Verlanglijst</span></a>
+                <a href="{{ url_for('shop') }}" class="action-item cart-btn">🛒 <span>Winkelwagen</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigatie Menu -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{{ url_for('home') }}">HOME</a></li>
+            <li><a href="{{ url_for('shop') }}">SHOP</a></li>
+            <li><a href="{{ url_for('shop') }}" class="active">{{ category | upper }}</a></li>
+            <li><a href="{{ url_for('shop') }}">BEST VERKOCHT</a></li>
+            <li><a href="{{ url_for('shop') }}">NIEUW BINNEN</a></li>
+            <li><a href="{{ url_for('shop') }}" class="deal-link">DEALS 🔥</a></li>
+        </ul>
+    </nav>
+
+    <!-- Producten Overzicht voor deze Categorie -->
+    <main class="container">
+        <h2>{{ category }}</h2>
+        <div class="product-grid">
+            {% for product in products %}
+            <div class="product-card">
+                <div class="img-box">[Foto 📷]</div>
+                <h3>{{ product.name }}</h3>
+                <p class="desc">TrendMix selectie</p>
+                <div class="rating">⭐ 4.8</div>
+                <p class="price">€ {{ product.price }}</p>
+                <a href="#" class="btn-sm">Bekijk product</a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
 
 </body>
-
 </html>

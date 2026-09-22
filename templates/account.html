@@ -1,0 +1,111 @@
+﻿{% extends "base.html" %}
+
+{% block title %}
+Account - TrendMix
+{% endblock %}
+
+{% block description %}
+Beheer je TrendMix-account en je persoonlijke gegevens.
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section account-page">
+
+```
+<!-- ====================================================
+     PAGINA HEADER
+===================================================== -->
+
+<div class="section-heading">
+
+    <span class="section-label">
+        TRENDMIX ACCOUNT
+    </span>
+
+    <h1>
+        Mijn account
+    </h1>
+
+    <p>
+        Beheer je account en je TrendMix-gegevens.
+    </p>
+
+</div>
+
+
+<!-- ====================================================
+     ACCOUNT CARD
+===================================================== -->
+
+<div class="account-card">
+
+    {% if current_user and current_user.is_authenticated %}
+
+        <div class="account-icon" aria-hidden="true">
+            👤
+        </div>
+
+        <div class="account-content">
+
+            <span class="account-status">
+                ACCOUNT
+            </span>
+
+            <h2>
+                Welkom terug!
+            </h2>
+
+            <p class="account-email">
+                {{ current_user.email }}
+            </p>
+
+            <p class="account-description">
+                Je bent ingelogd op je TrendMix-account.
+            </p>
+
+        </div>
+
+    {% else %}
+
+        <div class="account-icon" aria-hidden="true">
+            👋
+        </div>
+
+        <div class="account-content">
+
+            <span class="account-status">
+                WELKOM
+            </span>
+
+            <h2>
+                Welkom bij TrendMix
+            </h2>
+
+            <p class="account-description">
+                Je kunt hier binnenkort inloggen of een account
+                aanmaken.
+            </p>
+
+            <div class="account-actions">
+
+                <a
+                    href="{{ url_for('shop') }}"
+                    class="btn btn-primary"
+                >
+                    Ontdek de shop
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+</div>
+```
+
+</section>
+
+{% endblock %}
