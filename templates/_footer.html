@@ -9,8 +9,8 @@
   <div class="shell">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
-        <p data-i18n="footerText">PC- en gaminghardware, gadgets en geselecteerde producten.</p>
+        <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix logo"><span class="brand-name">TrendMix</span></a>
+        <p class="brand-profile" data-i18n="footerText"><strong>TrendMix</strong> is een moderne webshop voor zorgvuldig geselecteerde producten op het gebied van technologie, smart home, beauty en lifestyle. We combineren een breed assortiment met duidelijke productinformatie en een eenvoudige winkelervaring.</p>
         
       </div>
       <div class="footer-column"><h3>Shop</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
