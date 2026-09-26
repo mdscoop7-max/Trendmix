@@ -9,7 +9,7 @@
 <header class="site-header">
   <div class="shell header-main">
     <button class="menu-toggle" type="button" aria-label="Menu openen" aria-expanded="false" data-menu-toggle><span aria-hidden="true">☰</span></button>
-    <a class="brand tm-brand" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix"></a>
+    <a class="brand tm-brand" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix logo"><span class="brand-name">TrendMix</span></a>
     <form class="search-bar" action="/" method="get" role="search">
       <svg class="tm-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
       <input type="search" name="q" value="{{ search_query|default('') }}" placeholder="Zoek naar producten, merken of specificaties" data-i18n-placeholder="searchProducts" aria-label="Zoek producten">
