@@ -261,7 +261,6 @@ def create_woo_order(cart, customer):
     return result, None
 
 
-@app.context_processor
 def format_eur(value):
     """Format a numeric price for visible Dutch storefront output only."""
     try:
