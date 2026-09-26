@@ -262,8 +262,18 @@ def create_woo_order(cart, customer):
 
 
 @app.context_processor
+def format_eur(value):
+    """Format a numeric price for visible Dutch storefront output only."""
+    try:
+        amount = float(value or 0)
+    except (TypeError, ValueError):
+        amount = 0.0
+    return f"€{amount:.2f}".replace(".", ",")
+
+
+@app.context_processor
 def inject_helpers():
-    return {"slugify": slugify, "cart_count": cart_count()}
+    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur}
 
 
 

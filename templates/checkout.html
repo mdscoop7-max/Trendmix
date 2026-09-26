@@ -12,8 +12,8 @@
 {% else %}
 <p class="checkout-intro">{% if test_mode %}Testmodus: WooCommerce is nog niet gekoppeld. Je gegevens worden niet naar een webshop gestuurd.{% else %}Vul je gegevens in om je bestelling te plaatsen.{% endif %}</p>
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
-<div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>€ {{ "%.2f"|format(item.price * item.qty) }}</strong></div>{% endfor %}</div>
-<div class="cart-total"><strong>Totaal</strong><strong>€ {{ "%.2f"|format(cart_total) }}</strong></div>
+<div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
+<div class="cart-total"><strong>Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
 <form method="post" class="checkout-form">
 <label>Voornaam *<input name="first_name" required></label>
 <label>Achternaam *<input name="last_name" required></label>

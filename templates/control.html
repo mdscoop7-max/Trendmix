@@ -29,7 +29,7 @@
 
         <div class="control-card">
             <span class="label">Gemiddelde prijs</span>
-            <span class="value">€{{ '%.2f'|format(stats.avg_price) }}</span>
+            <span class="value">{{ format_eur(stats.avg_price) }}</span>
         </div>
 
         <div class="control-card">
@@ -85,7 +85,7 @@
                     <tr>
                         <td>{{ product.name }}</td>
                         <td>{{ product.category }}</td>
-                        <td>€{{ '%.2f'|format(product.price) }}</td>
+                        <td>{{ format_eur(product.price) }}</td>
                         <td>
                             {% if product.is_offer or product.old_price %}
                                 <span class="control-tag">Aanbieding</span>

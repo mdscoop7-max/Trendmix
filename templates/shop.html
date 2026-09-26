@@ -328,14 +328,14 @@ Ontdek populaire en interessante producten bij TrendMix.
                     {% if product.old_price %}
 
                     <span class="old-price">
-                        €{{ "%.2f"|format(product.old_price) }}
+                        {{ format_eur(product.old_price) }}
                     </span>
 
                     {% endif %}
 
 
                     <strong>
-                        €{{ "%.2f"|format(product.price) }}
+                        {{ format_eur(product.price) }}
                     </strong>
 
 
