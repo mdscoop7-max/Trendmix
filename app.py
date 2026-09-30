@@ -353,40 +353,57 @@ def control():
 
 
 INFO_PAGES = {
-    "over-trendmix": {"title": "Over TrendMix", "description": "Informatie over TrendMix als webshop.", "content": """
-        <p>TrendMix is een moderne webshop voor geselecteerde producten in tech, home, beauty en lifestyle. Je kunt producten bekijken, aan je winkelwagen toevoegen en rechtstreeks via TrendMix bestellen.</p>
-        <h2>Onze webshop</h2>
-        <p>TrendMix toont productinformatie, prijzen en beschikbaarheid zodat je eenvoudig kunt kiezen en bestellen.</p>
-        <h2>Klantenservice</h2>
-        <p>Heb je een vraag over een product of bestelling? Gebruik het contactformulier in de footer.</p>
-        """},
-    "bestellen": {"title": "Bestellen & levering", "description": "Informatie over bestellen, betalen, levering en retouren bij TrendMix.", "content": """
-        <p>Je bestelt rechtstreeks via TrendMix. Voeg een product toe aan je winkelwagen en volg de stappen tijdens het afrekenen.</p>
-        <h2>Betaling</h2>
-        <p>De beschikbare betaalmethode wordt tijdens het afrekenen getoond. Controleer je bestelling voordat je de betaling bevestigt.</p>
-        <h2>Levering</h2>
-        <p>Na betaling wordt je bestelling verwerkt en verzonden naar het opgegeven afleveradres. De actuele levertijd wordt bij het product of tijdens het afrekenen vermeld.</p>
-        <h2>Retouren</h2>
-        <p>Voor retouren gelden de retourvoorwaarden van TrendMix. Neem bij vragen contact op met onze klantenservice.</p>
-        """},
-    "privacy": {"title": "Privacy", "description": "Privacyinformatie voor klanten en bezoekers van TrendMix.", "content": """
-        <p>TrendMix verwerkt gegevens die nodig zijn om bestellingen uit te voeren, betalingen te verwerken, producten te leveren en klantenservice te bieden.</p>
-        <h2>Taalvoorkeur</h2>
-        <p>De gekozen taal kan lokaal in je browser worden opgeslagen zodat TrendMix je voorkeur bij een volgend bezoek kan onthouden.</p>
-        <h2>Externe diensten</h2>
-        <p>Voor betaling, verzending en technische dienstverlening kunnen externe dienstverleners worden gebruikt.</p>
-        <h2>Wijzigingen</h2>
-        <p>Deze informatie kan worden aangepast wanneer de functies van TrendMix veranderen.</p>
-        """},
-    "cookies": {"title": "Cookies & voorkeuren", "description": "Informatie over cookies en voorkeuren bij TrendMix.", "content": """
-        <p>TrendMix gebruikt lokale opslag voor instellingen zoals je taalvoorkeur. Dit helpt de webshop je voorkeur te onthouden.</p>
-        <h2>Functionele opslag</h2>
-        <p>Winkelwagengegevens en taalvoorkeuren kunnen lokaal in je browser worden bewaard om de webshop goed te laten werken.</p>
-        <h2>Voorkeur wissen</h2>
-        <p>Je kunt lokale sitegegevens in de instellingen van je browser wissen.</p>
-        """},
+    "over-trendmix": {"title": "Over TrendMix", "description": "Lees waar TrendMix voor staat en hoe we onze webshop ontwikkelen.", "content": """
+        <p>TrendMix wordt ontwikkeld als een moderne webshop waarin overzicht, duidelijke informatie en een prettige winkelervaring centraal staan. Het assortiment is verdeeld over vijf vaste categorieën: PC & Gaming, Gadgets, Smart Home, Beauty & Care en Sport & Lifestyle.</p>
+        <h2>Waar we voor staan</h2><p>We willen klanten niet door een eindeloze catalogus laten zoeken. TrendMix kiest voor een overzichtelijk assortiment en productpagina’s waarop prijs, belangrijkste kenmerken, voorraad- en leverinformatie zo duidelijk mogelijk worden weergegeven.</p>
+        <h2>Van testfase naar echte webshop</h2><p>TrendMix bevindt zich momenteel in ontwikkeling. Producten en prijzen in de testcatalogus kunnen nog wijzigen. Echte bestellingen worden pas geactiveerd nadat leverancier, betaling, verzending, retourproces en bedrijfsgegevens definitief zijn ingericht en gecontroleerd.</p>
+        <h2>Transparantie</h2><p>Voor de commerciële livegang publiceren we de volledige identiteit en contactgegevens van de verkopende onderneming, de definitieve verkoopvoorwaarden en alle informatie die klanten nodig hebben vóór het sluiten van een overeenkomst.</p>
+        <h2>Vragen of feedback</h2><p>Zie je onduidelijke productinformatie of heb je een vraag over TrendMix? Gebruik dan de contactpagina. Feedback uit de testfase gebruiken we om de webshop verder te verbeteren.</p>
+    """},
+    "bestellen": {"title": "Bestellen & levering", "description": "Informatie over bestellen, prijzen, betalen, levering en orderbevestiging bij TrendMix.", "content": """
+        <p>Deze pagina beschrijft hoe het bestelproces van TrendMix wordt ingericht. Zolang de webshop in testfase is, worden geen definitieve betaal- of leverbeloften gedaan.</p>
+        <h2>Product en prijs</h2><p>Vóór een commerciële bestelling tonen we de belangrijkste productkenmerken, de totale verkoopprijs inclusief toepasselijke belastingen en eventuele bijkomende kosten. Verzendkosten en andere kosten worden uiterlijk vóór het definitief plaatsen van de bestelling duidelijk gemaakt.</p>
+        <h2>Bestellen</h2><p>Je voegt producten toe aan de winkelwagen, controleert aantallen en gegevens en krijgt vóór de definitieve bestelhandeling een overzicht van de bestelling. De bestelknop zal bij livegang ondubbelzinnig duidelijk maken dat de bestelling een betalingsverplichting inhoudt.</p>
+        <h2>Betalen</h2><p>De definitieve betaalmethoden worden vóór livegang gepubliceerd. TrendMix brengt geen betaalmethode of toeslag in rekening die niet vooraf duidelijk is vermeld.</p>
+        <h2>Levering</h2><p>De beschikbare bezorglanden, verzendkosten, verwachte levertijd en eventuele beperkingen worden vóór de bestelling getoond zodra de leverancier en logistieke inrichting definitief zijn. Na een echte bestelling ontvangt de klant een bevestiging met de relevante bestelgegevens.</p>
+        <h2>Probleem met levering</h2><p>Is een bestelling na livegang niet of niet correct geleverd, dan kan de klant contact opnemen met TrendMix. De definitieve contactgegevens en procedure worden vóór livegang op deze website gepubliceerd.</p>
+    """},
+    "retouren": {"title": "Retour & herroeping", "description": "Informatie over wettelijke bedenktijd, herroeping, retourneren en terugbetaling.", "content": """
+        <p>Bij online consumentenkoop geldt in de EU in veel gevallen een wettelijk herroepingsrecht. Voor goederen is de gebruikelijke bedenktijd 14 dagen vanaf ontvangst. Er bestaan wettelijke uitzonderingen; daarom wordt per relevant product duidelijk gemaakt wanneer het herroepingsrecht niet geldt.</p>
+        <h2>Een aankoop herroepen</h2><p>Wanneer TrendMix commercieel live gaat, leggen we vóór de koop duidelijk uit hoe je binnen de wettelijke termijn laat weten dat je de overeenkomst wilt herroepen. We publiceren ook het vereiste modelformulier en de definitieve contact- en retourgegevens.</p>
+        <h2>Product terugsturen</h2><p>Na een geldige herroeping moet het product binnen de wettelijke termijn worden teruggestuurd. Vóór de koop vermelden we wie de directe retourkosten draagt en, waar vereist, welke kosten daarbij te verwachten zijn.</p>
+        <h2>Product beoordelen</h2><p>Tijdens de bedenktijd mag een consument een product beoordelen zoals dat redelijkerwijs in een winkel mogelijk is. Als verder gebruik tot waardevermindering leidt, kan daarvoor volgens de wettelijke regels een vergoeding gelden.</p>
+        <h2>Terugbetaling</h2><p>Bij een geldige herroeping wordt de terugbetaling volgens de wettelijke regels uitgevoerd. Daarbij kan in bepaalde gevallen worden gewacht tot het product is ontvangen of bewijs van terugzending is geleverd.</p>
+        <h2>Online herroepingsfunctie</h2><p>De commerciële versie van TrendMix krijgt vóór livegang de vereiste online mogelijkheid om een daarvoor in aanmerking komende online aankoop eenvoudig te herroepen, inclusief ontvangstbevestiging.</p>
+    """},
+    "voorwaarden": {"title": "Algemene voorwaarden", "description": "Conceptuele opbouw van de verkoopvoorwaarden van TrendMix voor de commerciële livegang.", "content": """
+        <p>De definitieve algemene voorwaarden worden vóór de commerciële livegang juridisch gecontroleerd en gekoppeld aan de identiteit van de verkopende onderneming. Onderstaande onderdelen beschrijven alvast de structuur die klanten mogen verwachten; deze tekst is nog geen definitieve verkoopovereenkomst.</p>
+        <h2>1. Toepasselijkheid en verkoper</h2><p>De voorwaarden zullen vermelden op welke overeenkomsten zij van toepassing zijn en wie de verkopende onderneming is, inclusief handelsnaam, vestigings- en contactgegevens en relevante registratienummers.</p>
+        <h2>2. Aanbod en productinformatie</h2><p>TrendMix beschrijft producten zo duidelijk mogelijk. Kennelijke fouten kunnen worden gecorrigeerd. Voor slimme en verbonden producten wordt waar relevant informatie toegevoegd over compatibiliteit, benodigde diensten en updates zodra die informatie door de leverancier is bevestigd.</p>
+        <h2>3. Prijzen en kosten</h2><p>Consumentenprijzen worden duidelijk weergegeven inclusief toepasselijke belastingen. Eventuele verzend- of andere bijkomende kosten worden vóór de bestelling kenbaar gemaakt.</p>
+        <h2>4. Totstandkoming van de overeenkomst</h2><p>De definitieve voorwaarden beschrijven wanneer een bestelling is geplaatst, wanneer een overeenkomst tot stand komt en hoe de klant daarvan een bevestiging ontvangt.</p>
+        <h2>5. Betaling en levering</h2><p>Beschikbare betaalmethoden, levergebieden, verwachte levertijden en eventuele beperkingen worden vóór de koop duidelijk gemaakt.</p>
+        <h2>6. Herroeping en retour</h2><p>Voor consumenten wordt het wettelijke herroepingsrecht uitgelegd, inclusief termijn, werkwijze, uitzonderingen, retourkosten en terugbetaling. Zie ook de aparte pagina Retour & herroeping.</p>
+        <h2>7. Wettelijke rechten en conformiteit</h2><p>De voorwaarden beperken geen wettelijke consumentenrechten. Als een geleverd product niet aan de overeenkomst beantwoordt, gelden de toepasselijke wettelijke rechten.</p>
+        <h2>8. Klachten</h2><p>Klachten kunnen na livegang via de gepubliceerde contactkanalen worden ingediend. De definitieve procedure vermeldt hoe klachten worden geregistreerd en beantwoord en welke geschillenroute van toepassing is.</p>
+        <h2>9. Privacy</h2><p>Persoonsgegevens worden alleen verwerkt voor duidelijk omschreven doeleinden en volgens het privacybeleid. Voor externe betaal-, verzend- of technische dienstverleners wordt uitgelegd welke rol zij hebben.</p>
+        <h2>10. Wijzigingen</h2><p>Nieuwe voorwaarden gelden niet met terugwerkende kracht ten nadele van reeds gesloten overeenkomsten. De versie die bij een bestelling hoort, moet door de klant kunnen worden bewaard of geraadpleegd.</p>
+    """},
+    "privacy": {"title": "Privacybeleid", "description": "Hoe TrendMix omgaat met persoonsgegevens en privacy.", "content": """
+        <p>TrendMix wil alleen persoonsgegevens verwerken die nodig zijn om de webshop te laten functioneren, vragen te beantwoorden en — na commerciële livegang — bestellingen uit te voeren. Vóór livegang wordt dit privacybeleid aangevuld met de definitieve identiteit en contactgegevens van de verwerkingsverantwoordelijke.</p>
+        <h2>Welke gegevens</h2><p>Afhankelijk van de gebruikte functie kunnen naam, contactgegevens, aflever- en factuurgegevens, bestelgegevens en technische gegevens worden verwerkt. We vragen niet meer gegevens dan nodig is voor het betreffende doel.</p>
+        <h2>Waarvoor</h2><p>Gegevens kunnen worden gebruikt voor klantenservice, uitvoering en administratie van bestellingen, fraudepreventie, wettelijke verplichtingen en het technisch functioneren van de webshop. De definitieve grondslagen en bewaartermijnen worden vóór livegang per doel beschreven.</p>
+        <h2>Dienstverleners</h2><p>Voor onder meer hosting, betaling, e-mail en verzending kunnen externe dienstverleners nodig zijn. Zodra deze partijen definitief zijn gekozen, wordt relevante informatie hierover opgenomen in het privacybeleid.</p>
+        <h2>Jouw privacyrechten</h2><p>De definitieve privacyverklaring legt uit hoe betrokkenen hun toepasselijke rechten kunnen uitoefenen, zoals inzage, correctie of verwijdering waar de wet dat toestaat.</p>
+        <h2>Beveiliging en contact</h2><p>TrendMix neemt passende technische en organisatorische maatregelen voor de functies die worden aangeboden. Het definitieve privacycontact wordt vóór commerciële livegang gepubliceerd.</p>
+    """},
+    "cookies": {"title": "Cookies & voorkeuren", "description": "Informatie over functionele opslag, cookies en toekomstige toestemming.", "content": """
+        <p>TrendMix gebruikt tijdens de ontwikkeling functionele browseropslag voor onderdelen zoals taalvoorkeur en winkelwagenfunctionaliteit. Deze functies zijn bedoeld om de website technisch te laten werken en voorkeuren te onthouden.</p>
+        <h2>Functionele opslag</h2><p>Een taalkeuze of winkelwagen kan lokaal of via een sessie worden bewaard. Zonder deze technische functies kan een deel van de webshop minder goed werken.</p>
+        <h2>Analyse en marketing</h2><p>Voordat niet-noodzakelijke analyse- of marketingtechnologie wordt geactiveerd, wordt gecontroleerd welke toestemming en informatie daarvoor nodig is. TrendMix activeert zulke technologie niet als daarvoor eerst geldige toestemming vereist is.</p>
+        <h2>Voorkeuren wijzigen</h2><p>Bij livegang komt er, indien nodig voor de gebruikte technologie, een duidelijke manier om cookie- en privacyvoorkeuren te bekijken en te wijzigen. Browsergegevens kunnen daarnaast via de instellingen van de browser worden verwijderd.</p>
+    """},
 }
-
 
 
 def render_info_page(info_slug):
@@ -649,6 +666,16 @@ def bestellen():
 @app.route("/privacy")
 def privacy():
     return render_info_page("privacy")
+
+
+@app.route("/retouren")
+def retouren():
+    return render_info_page("retouren")
+
+
+@app.route("/voorwaarden")
+def voorwaarden():
+    return render_info_page("voorwaarden")
 
 
 @app.route("/cookies")
