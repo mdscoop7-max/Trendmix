@@ -125,3 +125,8 @@ body{background:var(--tm-bg);color:var(--tm-text);font-family:var(--tm-font-body
   .cart-link{display:none}
   .search-bar{grid-column:1/-1;grid-row:2;width:100%;max-width:none}
 }
+
+
+/* Improve hero text contrast on the current dark TrendMix theme. */
+.hero-title{color:var(--tm-text,#f4f7fa)!important}
+.hero-title em{color:var(--tm-accent,#21d4fd)!important}
