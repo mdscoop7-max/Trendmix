@@ -576,10 +576,13 @@ def afrekenen():
             "city": request.form.get("city", "").strip(),
             "country": "NL",
         }
+        consent = request.form.get("checkout_consent") == "yes"
         if not all(customer.values()):
             error = "Vul alle verplichte gegevens in."
         elif not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", customer["email"]):
             error = "Vul een geldig e-mailadres in."
+        elif not consent:
+            error = "Controleer en bevestig je gegevens voordat je doorgaat."
         elif woo_configured():
             order, error = create_woo_order(cart, customer)
             if order:
@@ -588,7 +591,7 @@ def afrekenen():
         else:
             session["trendmix_test_checkout"] = customer
             return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order={"id": "TEST"}, error=None)
-    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=not woo_configured(), order=order, error=error)
+    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=not woo_configured(), order=order, error=error, customer=(customer if request.method == "POST" else {}))
 
 
 @app.route("/faq")
@@ -625,7 +628,7 @@ def contact():
 
     payload = {
         "from": from_email,
-        "to": ["mdscoop020@gmail.com"],
+        "to": [os.getenv("CONTACT_TO_EMAIL", from_email)],
         "reply_to": email,
         "subject": f"TrendMix contactformulier: {name}",
         "text": f"Naam: {name}\\nE-mail: {email}\\n\\nBericht:\\n{message}",
@@ -645,13 +648,13 @@ def contact():
             if 200 <= response.status < 300:
                 if is_ajax:
                     return Response(json.dumps({"ok": True}), mimetype="application/json")
-                return redirect(url_for("home") + "?contact=sent#contact")
+                return redirect(url_for("contact_page") + "?status=sent")
     except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
         app.logger.error("Contact mail failed: %s", exc)
 
     if is_ajax:
         return Response(json.dumps({"ok": False}), status=502, mimetype="application/json")
-    return redirect(url_for("home") + "?contact=error#contact")
+    return redirect(url_for("contact_page") + "?status=error")
 
 @app.route("/over-trendmix")
 def over_trendmix():
