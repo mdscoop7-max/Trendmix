@@ -46,8 +46,7 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":request.url_root.rstrip("/") ~ "/"},
       {"@type":"ListItem","position":2,"name":category_name,"item":request.url_root.rstrip("/") ~ "/" ~ category_slug},
-      {"@type":"ListItem","position":3,"name":product.subcategory,"item":request.url_root.rstrip("/") ~ "/" ~ category_slug ~ "/" ~ product.subcategory_slug ~ "/"},
-      {"@type":"ListItem","position":4,"name":product.name,"item":request.url_root.rstrip("/") ~ product.product_url}
+      {"@type":"ListItem","position":3,"name":product.name,"item":request.url_root.rstrip("/") ~ product.product_url}
     ]
   }|tojson }}
   </script>
@@ -59,7 +58,7 @@
   <nav class="breadcrumb" aria-label="Broodkruimel">
     <a href="/">Home</a><span aria-hidden="true">/</span>
     <a href="/{{ category_slug }}">{{ category_name }}</a><span aria-hidden="true">/</span>
-    <span>{{ product.subcategory }}</span>
+    <span>{{ product.name }}</span>
   </nav>
 
   <section class="detail-layout">
@@ -84,7 +83,7 @@
 
     <div class="detail-copy">
       <div class="product-meta-line">
-        <span class="eyebrow dark">{{ product.subcategory }}</span>
+        <span class="eyebrow dark">{{ category_name }}</span>
         {% if product.brand %}<span class="product-brand">{{ product.brand }}</span>{% endif %}
       </div>
       <h1>{{ product.name }}</h1>
@@ -97,7 +96,7 @@
         {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
       </div>
 
-      <p class="detail-description">{{ product.short_description }}</p>
+      <p class="detail-description">{{ product.short_description }}</p><div class="detail-confidence"><span>✓ Duidelijke productinformatie</span><span>✓ Veilig bestellen</span><span>✓ 14 dagen retour</span></div>
 
       <div class="product-availability">
         <strong class="{% if product.stock_status == 'in_stock' %}stock-good{% elif product.stock_status == 'out_of_stock' %}stock-bad{% else %}stock-unknown{% endif %}">
