@@ -9,10 +9,10 @@
 <div id="cartItems">
 {% for item in cart %}
 <div class="cart-row">
-{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}">{% else %}<div class="cart-thumb">🛍️</div>{% endif %}
+{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}" data-product-image data-fallback-icon="🛍️">{% else %}<div class="cart-thumb">🛍️</div>{% endif %}
 <div class="cart-info"><strong>{{ item.name }}</strong><span>{{ format_eur(item.price) }} <span data-i18n="perPiece">per stuk</span></span><strong class="cart-item-subtotal"><span data-i18n="subtotal">Subtotaal</span> · {{ format_eur(item.price * item.qty) }}</strong></div>
 <div class="cart-actions">
-<form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="-1"><button type="submit" aria-label="Aantal verminderen">{% if item.qty == 1 %}×{% else %}−{% endif %}</button></form>
+<form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="-1"><button type="submit" aria-label="Aantal verminderen">−</button></form>
 <b>{{ item.qty }}</b>
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="1"><button type="submit" aria-label="Aantal verhogen">+</button></form>
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="remove"><input type="hidden" name="product_id" value="{{ item.id }}"><button type="submit" aria-label="Product verwijderen">×</button></form>
@@ -25,7 +25,7 @@
 <div class="empty-state"><h3 data-i18n="cartEmpty">Je winkelwagen is leeg</h3><p data-i18n="cartEmptyText">Voeg producten toe vanuit een collectie.</p></div>
 {% endif %}
 <div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
-{% if cart %}<div class="cart-checkout-box"><div><small data-i18n="safeCheckout">Veilig en eenvoudig afrekenen</small><strong>{{ format_eur(cart_total) }}</strong></div><a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Naar afrekenen →</a></div>{% endif %}
+{% if cart %}<div class="cart-checkout-box"><div><small data-i18n="testCheckout">Checkout in testfase</small><strong>{{ format_eur(cart_total) }}</strong></div><a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Naar afrekenen →</a></div>{% endif %}
 </section></main>
 {% include '_footer.html' %}
 </body></html>
