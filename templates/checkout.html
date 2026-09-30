@@ -5,23 +5,23 @@
 <script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script><script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script></head>
 <body>
 <main class="shell cart-page">
-<a class="back-link" href="/winkelwagen">← Terug naar winkelwagen</a><div class="checkout-steps" aria-label="Bestelstappen"><span>1 · Winkelwagen</span><span class="active">2 · Gegevens</span><span>3 · Bevestiging</span></div>
+<a class="back-link" href="/winkelwagen" data-i18n="backCart">← Terug naar winkelwagen</a><div class="checkout-steps" aria-label="Bestelstappen"><span data-i18n="stepCart">1 · Winkelwagen</span><span class="active" data-i18n="stepDetails">2 · Gegevens</span><span data-i18n="stepConfirm">3 · Bevestiging</span></div>
 <section class="cart-panel checkout-page">
-<span class="eyebrow dark">TrendMix</span><h1>Afrekenen</h1>
-{% if order %}<div class="checkout-steps" aria-label="Bestelstappen"><span>1 · Winkelwagen</span><span>2 · Gegevens</span><span class="active">3 · Bevestiging</span></div><div class="empty-state order-success"><h3>{% if order.id == "TEST" %}Testbestelling gecontroleerd{% else %}Bestelling aangemaakt{% endif %}</h3><p>{% if order.id == "TEST" %}De checkout werkt. Er is geen echte bestelling of betaling verstuurd omdat de webshop nog in testmodus staat.{% else %}WooCommerce order #{{ order.id }} is aangemaakt.{% endif %}</p><a class="btn btn-dark" href="/">Terug naar de webshop →</a></div>
+<span class="eyebrow dark">TrendMix</span><h1 data-i18n="checkoutTitle">Afrekenen</h1>
+{% if order %}<div class="checkout-steps" aria-label="Bestelstappen"><span data-i18n="stepCart">1 · Winkelwagen</span><span data-i18n="stepDetails">2 · Gegevens</span><span class="active" data-i18n="stepConfirm">3 · Bevestiging</span></div><div class="empty-state order-success"><h3>{% if order.id == "TEST" %}Testbestelling gecontroleerd{% else %}Bestelling aangemaakt{% endif %}</h3><p>{% if order.id == "TEST" %}De checkout werkt. Er is geen echte bestelling of betaling verstuurd omdat de webshop nog in testmodus staat.{% else %}WooCommerce order #{{ order.id }} is aangemaakt.{% endif %}</p><a class="btn btn-dark" href="/">Terug naar de webshop →</a></div>
 {% else %}
 <p class="checkout-intro">{% if test_mode %}Testmodus: WooCommerce is nog niet gekoppeld. Je gegevens worden niet naar een webshop gestuurd.{% else %}Vul je gegevens in om je bestelling te plaatsen.{% endif %}</p>
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
 <div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
-<div class="cart-total"><strong>Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
-<div class="checkout-layout"><form method="post" class="checkout-form"><h2>Bezorggegevens</h2>
-<label>Voornaam *<input name="first_name" autocomplete="given-name" required></label>
-<label>Achternaam *<input name="last_name" autocomplete="family-name" required></label>
-<label>E-mail *<input type="email" name="email" autocomplete="email" inputmode="email" required></label>
-<label class="field-wide">Adres *<input name="address_1" autocomplete="street-address" required></label>
-<label>Postcode *<input name="postcode" autocomplete="postal-code" inputmode="text" autocapitalize="characters" placeholder="1234 AB" maxlength="10" required><small>Bijvoorbeeld 1234 AB</small></label>
-<label>Woonplaats *<input name="city" autocomplete="address-level2" required></label>
-<label class="field-wide checkout-consent"><input type="checkbox" required> <span>Ik controleer mijn gegevens en bestelling voordat ik doorga.</span></label><button type="submit" class="btn btn-dark field-wide">Bestelling plaatsen →</button></form><aside class="checkout-trust"><h3>Je bestelling</h3><div class="checkout-trust-row"><span>Producten</span><strong>{{ format_eur(cart_total) }}</strong></div><div class="checkout-trust-row"><span>Verzending</span><span>Wordt later bepaald</span></div><div class="checkout-trust-total"><span>Totaal</span><strong>{{ format_eur(cart_total) }}</strong></div><ul><li>✓ Veilige checkout</li><li>✓ 14 dagen retour</li><li>✓ Duidelijke orderbevestiging</li></ul></aside></div>
+<div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
+<div class="checkout-layout"><form method="post" class="checkout-form"><h2 data-i18n="deliveryDetails">Bezorggegevens</h2>
+<label><span data-i18n="firstName">Voornaam</span> *<input name="first_name" autocomplete="given-name" required></label>
+<label><span data-i18n="lastName">Achternaam</span> *<input name="last_name" autocomplete="family-name" required></label>
+<label><span data-i18n="emailLabel">E-mail</span> *<input type="email" name="email" autocomplete="email" inputmode="email" required></label>
+<label class="field-wide"><span data-i18n="addressLabel">Adres</span> *<input name="address_1" autocomplete="street-address" required></label>
+<label><span data-i18n="postcodeLabel">Postcode</span> *<input name="postcode" autocomplete="postal-code" inputmode="text" autocapitalize="characters" placeholder="1234 AB" maxlength="10" required><small>Bijvoorbeeld 1234 AB</small></label>
+<label><span data-i18n="cityLabel">Woonplaats</span> *<input name="city" autocomplete="address-level2" required></label>
+<label class="field-wide checkout-consent"><input type="checkbox" required> <span>Ik controleer mijn gegevens en bestelling voordat ik doorga.</span></label><button type="submit" class="btn btn-dark field-wide" data-i18n="placeOrder">Bestelling plaatsen →</button></form><aside class="checkout-trust"><h3>Je bestelling</h3><div class="checkout-trust-row"><span>Producten</span><strong>{{ format_eur(cart_total) }}</strong></div><div class="checkout-trust-row"><span>Verzending</span><span>Wordt later bepaald</span></div><div class="checkout-trust-total"><span>Totaal</span><strong>{{ format_eur(cart_total) }}</strong></div><ul><li>✓ Veilige checkout</li><li>✓ 14 dagen retour</li><li>✓ Duidelijke orderbevestiging</li></ul></aside></div>
 {% endif %}
-<a class="btn btn-outline checkout-back" href="/winkelwagen">Winkelwagen aanpassen</a>
+<a class="btn btn-outline checkout-back" href="/winkelwagen" data-i18n="editCart">Winkelwagen aanpassen</a>
 </section></main></body></html>
