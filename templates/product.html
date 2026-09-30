@@ -35,7 +35,7 @@
       "url":request.url_root.rstrip("/") ~ product.product_url,
       "price":"%.2f"|format(product.price),
       "priceCurrency":"EUR",
-      "availability":"https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else none
+      **({"availability":"https://schema.org/InStock"} if product.stock_status == "in_stock" else {"availability":"https://schema.org/OutOfStock"} if product.stock_status == "out_of_stock" else {})
     }
   }|tojson }}
   </script>

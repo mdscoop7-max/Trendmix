@@ -7,7 +7,7 @@ from pathlib import Path
 from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or os.urandom(32).hex()
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
@@ -691,7 +691,7 @@ def sitemap():
     for slug, items in products.items():
         for index, raw in enumerate(items):
             urls.append(f"{site_url}{enrich_product(raw, slug, index)['product_url']}")
-    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{url}</loc></url>" for url in urls) + "</urlset>"
+    from xml.sax.saxutils import escape\n    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{escape(url)}</loc></url>" for url in urls) + "</urlset>"
     return Response(xml, mimetype="application/xml")
 
 

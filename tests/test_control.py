@@ -52,3 +52,26 @@ def test_cart_and_checkout_test_flow():
 def test_catalog_is_exactly_100_products():
     products = load_all_products()
     assert len(products) == 100
+
+
+def test_homepage_has_hero_image_fallbacks():
+    client = app.test_client()
+    response = client.get("/")
+    assert response.status_code == 200
+    assert b"data-product-image" in response.data
+
+
+def test_sitemap_is_valid_xml_shape_and_has_products():
+    client = app.test_client()
+    response = client.get("/sitemap.xml")
+    assert response.status_code == 200
+    assert b"<urlset" in response.data
+    assert b"/pc-componenten/" in response.data
+
+
+def test_no_obsolete_affiliate_faq_copy_on_faq_page():
+    client = app.test_client()
+    response = client.get("/faq")
+    assert response.status_code == 200
+    assert b"externe aanbieder" not in response.data.lower()
+    assert b"affiliate links" not in response.data.lower()
