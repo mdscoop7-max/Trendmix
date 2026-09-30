@@ -4,7 +4,7 @@
   <script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script></head>
 <body>
 {% include "_header.html" %}
-<main class="shell cart-page"><a class="back-link" href="/" data-i18n="continueShopping">← Verder winkelen</a><div class="checkout-steps" aria-label="Bestelstappen"><span class="active">1 · Winkelwagen</span><span>2 · Gegevens</span><span>3 · Bevestiging</span></div><section class="cart-panel"><span class="eyebrow dark">TrendMix</span><h1 data-i18n="cartTitle">Je winkelwagen</h1>
+<main class="shell cart-page"><a class="back-link" href="/" data-i18n="continueShopping">← Verder winkelen</a><div class="checkout-steps" aria-label="Bestelstappen"><span class="active" data-i18n="stepCart">1 · Winkelwagen</span><span data-i18n="stepDetails">2 · Gegevens</span><span data-i18n="stepConfirm">3 · Bevestiging</span></div><section class="cart-panel"><span class="eyebrow dark">TrendMix</span><h1 data-i18n="cartTitle">Je winkelwagen</h1>
 {% if cart %}
 <div id="cartItems">
 {% for item in cart %}
@@ -22,10 +22,10 @@
 </div>
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="clear"><button type="submit" class="btn btn-outline cart-clear" data-i18n="clearCart">Winkelwagen leegmaken</button></form>
 {% else %}
-<div class="empty-state"><h3>Je winkelwagen is leeg</h3><p>Voeg producten toe vanuit een collectie.</p></div>
+<div class="empty-state"><h3 data-i18n="cartEmpty">Je winkelwagen is leeg</h3><p data-i18n="cartEmptyText">Voeg producten toe vanuit een collectie.</p></div>
 {% endif %}
 <div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
-{% if cart %}<div class="cart-checkout-box"><div><small>Veilig en eenvoudig afrekenen</small><strong>{{ format_eur(cart_total) }}</strong></div><a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Naar afrekenen →</a></div>{% endif %}
+{% if cart %}<div class="cart-checkout-box"><div><small data-i18n="safeCheckout">Veilig en eenvoudig afrekenen</small><strong>{{ format_eur(cart_total) }}</strong></div><a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Naar afrekenen →</a></div>{% endif %}
 </section></main>
 {% include '_footer.html' %}
 </body></html>
