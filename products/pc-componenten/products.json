@@ -1,14 +1,14 @@
 {
   "category": "PC Componenten",
-  "source": "TrendMix product catalog",
+  "source": "TrendMix research shortlist - supplier match pending",
   "products": [
     {
-      "name": "360mm ARGB AIO Water Cooling",
+      "name": "2TB NVMe PCIe 4.0 SSD",
       "price": 129.95,
       "cost_price": 79.95,
       "margin": 38.5,
       "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-69d27641",
       "slug": "360mm-argb-aio-water-cooling",
@@ -19,15 +19,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "360mm ARGB AIO Water Cooling voor dagelijks gebruik binnen PC Componenten.",
-      "description": "360mm ARGB AIO Water Cooling is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "2TB NVMe PCIe 4.0 SSD - voorlopige TrendMix productselectie.",
+      "description": "2TB NVMe PCIe 4.0 SSD staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "360mm ARGB AIO Water Cooling | TrendMix",
+      "seo_title": "2TB NVMe PCIe 4.0 SSD | TrendMix",
       "seo_description": "360mm ARGB AIO Water Cooling binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -38,12 +38,12 @@
       ]
     },
     {
-      "name": "240mm ARGB AIO Water Cooling",
+      "name": "1TB NVMe PCIe 4.0 SSD",
       "price": 89.95,
       "cost_price": 54.95,
       "margin": 38.9,
       "image": "https://images.unsplash.com/photo-1587202372634-32705e3bf4c7?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-5803a626",
       "slug": "240mm-argb-aio-water-cooling",
@@ -54,15 +54,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1587202372634-32705e3bf4c7?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "240mm ARGB AIO Water Cooling voor dagelijks gebruik binnen PC Componenten.",
-      "description": "240mm ARGB AIO Water Cooling is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "1TB NVMe PCIe 4.0 SSD - voorlopige TrendMix productselectie.",
+      "description": "1TB NVMe PCIe 4.0 SSD staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "240mm ARGB AIO Water Cooling | TrendMix",
+      "seo_title": "1TB NVMe PCIe 4.0 SSD | TrendMix",
       "seo_description": "240mm ARGB AIO Water Cooling binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -73,12 +73,12 @@
       ]
     },
     {
-      "name": "280mm AIO Water Cooling",
+      "name": "32GB DDR5-6000 RAM Kit",
       "price": 109.95,
       "cost_price": 66.95,
       "margin": 39.1,
       "image": "https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-9b97a95a",
       "slug": "280mm-aio-water-cooling",
@@ -89,15 +89,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "280mm AIO Water Cooling voor dagelijks gebruik binnen PC Componenten.",
-      "description": "280mm AIO Water Cooling is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "32GB DDR5-6000 RAM Kit - voorlopige TrendMix productselectie.",
+      "description": "32GB DDR5-6000 RAM Kit staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "280mm AIO Water Cooling | TrendMix",
+      "seo_title": "32GB DDR5-6000 RAM Kit | TrendMix",
       "seo_description": "280mm AIO Water Cooling binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -108,12 +108,12 @@
       ]
     },
     {
-      "name": "High-Performance Air CPU Cooler",
+      "name": "64GB DDR5 RAM Kit",
       "price": 59.95,
       "cost_price": 34.95,
       "margin": 41.7,
       "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-80e4ad34",
       "slug": "high-performance-air-cpu-cooler",
@@ -124,15 +124,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "High-Performance Air CPU Cooler voor dagelijks gebruik binnen PC Componenten.",
-      "description": "High-Performance Air CPU Cooler is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "64GB DDR5 RAM Kit - voorlopige TrendMix productselectie.",
+      "description": "64GB DDR5 RAM Kit staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "High-Performance Air CPU Cooler | TrendMix",
+      "seo_title": "64GB DDR5 RAM Kit | TrendMix",
       "seo_description": "High-Performance Air CPU Cooler binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -143,12 +143,12 @@
       ]
     },
     {
-      "name": "1000W 80+ Gold Gaming Power Supply",
+      "name": "850W 80+ Gold ATX 3.1 PSU",
       "price": 149.95,
       "cost_price": 99.95,
       "margin": 33.3,
       "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-833ef527",
       "slug": "1000w-80-plus-gold-gaming-power-supply",
@@ -159,15 +159,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "1000W 80+ Gold Gaming Power Supply voor dagelijks gebruik binnen PC Componenten.",
-      "description": "1000W 80+ Gold Gaming Power Supply is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "850W 80+ Gold ATX 3.1 PSU - voorlopige TrendMix productselectie.",
+      "description": "850W 80+ Gold ATX 3.1 PSU staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "1000W 80+ Gold Gaming Power Supply | TrendMix",
+      "seo_title": "850W 80+ Gold ATX 3.1 PSU | TrendMix",
       "seo_description": "1000W 80+ Gold Gaming Power Supply binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -178,12 +178,12 @@
       ]
     },
     {
-      "name": "850W 80+ Gold Gaming Power Supply",
+      "name": "1000W 80+ Gold ATX 3.1 PSU",
       "price": 119.95,
       "cost_price": 79.95,
       "margin": 33.3,
       "image": "https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-8b7e8385",
       "slug": "850w-80-plus-gold-gaming-power-supply",
@@ -194,15 +194,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "850W 80+ Gold Gaming Power Supply voor dagelijks gebruik binnen PC Componenten.",
-      "description": "850W 80+ Gold Gaming Power Supply is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "1000W 80+ Gold ATX 3.1 PSU - voorlopige TrendMix productselectie.",
+      "description": "1000W 80+ Gold ATX 3.1 PSU staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "850W 80+ Gold Gaming Power Supply | TrendMix",
+      "seo_title": "1000W 80+ Gold ATX 3.1 PSU | TrendMix",
       "seo_description": "850W 80+ Gold Gaming Power Supply voor krachtige pc-systemen. Bekijk de prijs, productinformatie en passende alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -213,12 +213,12 @@
       ]
     },
     {
-      "name": "750W 80+ Gold Gaming Power Supply",
+      "name": "360mm ARGB AIO CPU Cooler",
       "price": 99.95,
       "cost_price": 64.95,
       "margin": 35,
       "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-c5c2ba04",
       "slug": "750w-80-plus-gold-gaming-power-supply",
@@ -229,15 +229,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "750W 80+ Gold Gaming Power Supply voor dagelijks gebruik binnen PC Componenten.",
-      "description": "750W 80+ Gold Gaming Power Supply is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "360mm ARGB AIO CPU Cooler - voorlopige TrendMix productselectie.",
+      "description": "360mm ARGB AIO CPU Cooler staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "750W 80+ Gold Gaming Power Supply | TrendMix",
+      "seo_title": "360mm ARGB AIO CPU Cooler | TrendMix",
       "seo_description": "750W 80+ Gold Gaming Power Supply voor krachtige pc-systemen. Bekijk de prijs, productinformatie en passende alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -248,12 +248,12 @@
       ]
     },
     {
-      "name": "Fully Modular Gaming PSU",
+      "name": "240mm ARGB AIO CPU Cooler",
       "price": 109.95,
       "cost_price": 69.95,
       "margin": 36.4,
       "image": "https://images.unsplash.com/photo-1587202372583-49330a15584d?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-0c980974",
       "slug": "fully-modular-gaming-psu",
@@ -264,15 +264,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1587202372583-49330a15584d?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Fully Modular Gaming PSU voor dagelijks gebruik binnen PC Componenten.",
-      "description": "Fully Modular Gaming PSU is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "240mm ARGB AIO CPU Cooler - voorlopige TrendMix productselectie.",
+      "description": "240mm ARGB AIO CPU Cooler staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "Fully Modular Gaming PSU | TrendMix",
+      "seo_title": "240mm ARGB AIO CPU Cooler | TrendMix",
       "seo_description": "Fully Modular Gaming PSU binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -283,12 +283,12 @@
       ]
     },
     {
-      "name": "PCIe 5.0 / ATX 3.1 Gaming PSU",
+      "name": "Dual-Tower Air CPU Cooler",
       "price": 139.95,
       "cost_price": 89.95,
       "margin": 35.7,
       "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-ca554140",
       "slug": "pcie-50-atx-31-gaming-psu",
@@ -299,15 +299,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "PCIe 5.0 / ATX 3.1 Gaming PSU voor dagelijks gebruik binnen PC Componenten.",
-      "description": "PCIe 5.0 / ATX 3.1 Gaming PSU is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Dual-Tower Air CPU Cooler - voorlopige TrendMix productselectie.",
+      "description": "Dual-Tower Air CPU Cooler staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "PCIe 5.0 / ATX 3.1 Gaming PSU | TrendMix",
+      "seo_title": "Dual-Tower Air CPU Cooler | TrendMix",
       "seo_description": "PCIe 5.0 / ATX 3.1 Gaming PSU binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -318,12 +318,12 @@
       ]
     },
     {
-      "name": "High-Speed DDR5 RGB Gaming RAM",
+      "name": "Airflow ATX Gaming Case",
       "price": 94.95,
       "cost_price": 59.95,
       "margin": 36.9,
       "image": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-59722456",
       "slug": "high-speed-ddr5-rgb-gaming-ram",
@@ -334,15 +334,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "High-Speed DDR5 RGB Gaming RAM voor dagelijks gebruik binnen PC Componenten.",
-      "description": "High-Speed DDR5 RGB Gaming RAM is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Airflow ATX Gaming Case - voorlopige TrendMix productselectie.",
+      "description": "Airflow ATX Gaming Case staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "High-Speed DDR5 RGB Gaming RAM | TrendMix",
+      "seo_title": "Airflow ATX Gaming Case | TrendMix",
       "seo_description": "High-Speed DDR5 RGB Gaming RAM binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -352,12 +352,12 @@
       ]
     },
     {
-      "name": "32GB DDR5 Gaming RAM Kit",
+      "name": "B650 WiFi Gaming Motherboard",
       "price": 79.95,
       "cost_price": 49.95,
       "margin": 37.5,
       "image": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80&sat=-10",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-7ba0af15",
       "slug": "32gb-ddr5-gaming-ram-kit",
@@ -368,15 +368,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=80&sat=-10"
       ],
-      "short_description": "32GB DDR5 Gaming RAM Kit voor dagelijks gebruik binnen PC Componenten.",
-      "description": "32GB DDR5 Gaming RAM Kit is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "B650 WiFi Gaming Motherboard - voorlopige TrendMix productselectie.",
+      "description": "B650 WiFi Gaming Motherboard staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "32GB DDR5 Gaming RAM Kit | TrendMix",
+      "seo_title": "B650 WiFi Gaming Motherboard | TrendMix",
       "seo_description": "32GB DDR5 Gaming RAM Kit binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -386,12 +386,12 @@
       ]
     },
     {
-      "name": "64GB DDR5 Gaming RAM Kit",
+      "name": "Z890 WiFi Gaming Motherboard",
       "price": 149.95,
       "cost_price": 94.95,
       "margin": 36.7,
       "image": "https://images.unsplash.com/photo-1592664474505-51c549ad15c5?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-d84c7b16",
       "slug": "64gb-ddr5-gaming-ram-kit",
@@ -402,15 +402,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1592664474505-51c549ad15c5?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "64GB DDR5 Gaming RAM Kit voor dagelijks gebruik binnen PC Componenten.",
-      "description": "64GB DDR5 Gaming RAM Kit is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Z890 WiFi Gaming Motherboard - voorlopige TrendMix productselectie.",
+      "description": "Z890 WiFi Gaming Motherboard staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "64GB DDR5 Gaming RAM Kit | TrendMix",
+      "seo_title": "Z890 WiFi Gaming Motherboard | TrendMix",
       "seo_description": "64GB DDR5 Gaming RAM Kit binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -420,12 +420,12 @@
       ]
     },
     {
-      "name": "1TB NVMe Gen4 Gaming SSD",
+      "name": "WiFi 7 PCIe Adapter",
       "price": 69.95,
       "cost_price": 44.95,
       "margin": 35.7,
       "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&sat=10",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-9ba8574f",
       "slug": "1tb-nvme-gen4-gaming-ssd",
@@ -436,15 +436,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&sat=10"
       ],
-      "short_description": "1TB NVMe Gen4 Gaming SSD voor dagelijks gebruik binnen PC Componenten.",
-      "description": "1TB NVMe Gen4 Gaming SSD is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "WiFi 7 PCIe Adapter - voorlopige TrendMix productselectie.",
+      "description": "WiFi 7 PCIe Adapter staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "1TB NVMe Gen4 Gaming SSD | TrendMix",
+      "seo_title": "WiFi 7 PCIe Adapter | TrendMix",
       "seo_description": "1TB NVMe Gen4 Gaming SSD binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -455,12 +455,12 @@
       ]
     },
     {
-      "name": "2TB NVMe Gen4 Gaming SSD",
+      "name": "Mechanical Gaming Keyboard",
       "price": 119.95,
       "cost_price": 74.95,
       "margin": 37.5,
       "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&con=15",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-d9deb390",
       "slug": "2tb-nvme-gen4-gaming-ssd",
@@ -471,15 +471,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80&con=15"
       ],
-      "short_description": "2TB NVMe Gen4 Gaming SSD voor dagelijks gebruik binnen PC Componenten.",
-      "description": "2TB NVMe Gen4 Gaming SSD is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Mechanical Gaming Keyboard - voorlopige TrendMix productselectie.",
+      "description": "Mechanical Gaming Keyboard staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "2TB NVMe Gen4 Gaming SSD | TrendMix",
+      "seo_title": "Mechanical Gaming Keyboard | TrendMix",
       "seo_description": "2TB NVMe Gen4 Gaming SSD binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -490,12 +490,12 @@
       ]
     },
     {
-      "name": "4TB NVMe Gaming SSD",
+      "name": "Wireless Gaming Mouse",
       "price": 229.95,
       "cost_price": 149.95,
       "margin": 34.8,
       "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80&sat=15",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-b012880a",
       "slug": "4tb-nvme-gaming-ssd",
@@ -506,15 +506,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80&sat=15"
       ],
-      "short_description": "4TB NVMe Gaming SSD voor dagelijks gebruik binnen PC Componenten.",
-      "description": "4TB NVMe Gaming SSD is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Wireless Gaming Mouse - voorlopige TrendMix productselectie.",
+      "description": "Wireless Gaming Mouse staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "4TB NVMe Gaming SSD | TrendMix",
+      "seo_title": "Wireless Gaming Mouse | TrendMix",
       "seo_description": "4TB NVMe Gaming SSD binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -525,12 +525,12 @@
       ]
     },
     {
-      "name": "PCIe 4.0 NVMe SSD Heatsink",
+      "name": "Wireless Gaming Headset",
       "price": 24.95,
       "cost_price": 9.95,
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-641a6b87",
       "slug": "pcie-40-nvme-ssd-heatsink",
@@ -541,15 +541,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "PCIe 4.0 NVMe SSD Heatsink voor dagelijks gebruik binnen PC Componenten.",
-      "description": "PCIe 4.0 NVMe SSD Heatsink is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Wireless Gaming Headset - voorlopige TrendMix productselectie.",
+      "description": "Wireless Gaming Headset staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "PCIe 4.0 NVMe SSD Heatsink | TrendMix",
+      "seo_title": "Wireless Gaming Headset | TrendMix",
       "seo_description": "PCIe 4.0 NVMe SSD Heatsink binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -560,12 +560,12 @@
       ]
     },
     {
-      "name": "GPU Vertical Mount Kit",
+      "name": "PC Gaming Controller",
       "price": 49.95,
       "cost_price": 29.95,
       "margin": 40,
       "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80&sat=20",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-a44f8af2",
       "slug": "gpu-vertical-mount-kit",
@@ -576,15 +576,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=900&q=80&sat=20"
       ],
-      "short_description": "GPU Vertical Mount Kit voor dagelijks gebruik binnen PC Componenten.",
-      "description": "GPU Vertical Mount Kit is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "PC Gaming Controller - voorlopige TrendMix productselectie.",
+      "description": "PC Gaming Controller staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "GPU Vertical Mount Kit | TrendMix",
+      "seo_title": "PC Gaming Controller | TrendMix",
       "seo_description": "GPU Vertical Mount Kit binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -592,12 +592,12 @@
       ]
     },
     {
-      "name": "GPU Anti-Sag Support Bracket",
+      "name": "4K Streaming Webcam",
       "price": 29.95,
       "cost_price": 11.95,
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1587202372162-4d9a7f5f2c65?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-4c0866da",
       "slug": "gpu-anti-sag-support-bracket",
@@ -608,15 +608,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1587202372162-4d9a7f5f2c65?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "GPU Anti-Sag Support Bracket voor dagelijks gebruik binnen PC Componenten.",
-      "description": "GPU Anti-Sag Support Bracket is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "4K Streaming Webcam - voorlopige TrendMix productselectie.",
+      "description": "4K Streaming Webcam staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "GPU Anti-Sag Support Bracket | TrendMix",
+      "seo_title": "4K Streaming Webcam | TrendMix",
       "seo_description": "GPU Anti-Sag Support Bracket binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -624,12 +624,12 @@
       ]
     },
     {
-      "name": "ARGB Gaming Case Fans — 3/6 Pack",
+      "name": "Stream Deck Macro Pad",
       "price": 49.95,
       "cost_price": 27.95,
       "margin": 44,
       "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-93a4de2d",
       "slug": "argb-gaming-case-fans-36-pack",
@@ -640,15 +640,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "ARGB Gaming Case Fans — 3/6 Pack voor dagelijks gebruik binnen PC Componenten.",
-      "description": "ARGB Gaming Case Fans — 3/6 Pack is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Stream Deck Macro Pad - voorlopige TrendMix productselectie.",
+      "description": "Stream Deck Macro Pad staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "ARGB Gaming Case Fans — 3/6 Pack | TrendMix",
+      "seo_title": "Stream Deck Macro Pad | TrendMix",
       "seo_description": "ARGB Gaming Case Fans — 3/6 Pack binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
@@ -659,12 +659,12 @@
       ]
     },
     {
-      "name": "Premium ARGB Gaming PC Case",
+      "name": "Gas-Spring Monitor Arm",
       "price": 139.95,
       "cost_price": 89.95,
       "margin": 35.7,
       "image": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=900&q=80",
-      "supplier": "Gaming Components Supplier",
+      "supplier": "Nog te koppelen",
       "orders": 0,
       "id": "tm-pc-componenten-1b0fbd5c",
       "slug": "premium-argb-gaming-pc-case",
@@ -675,15 +675,15 @@
       "badge": null,
       "stock_status": "unknown",
       "stock_quantity": null,
-      "delivery_time": "Nog te bevestigen",
+      "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [
         "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Premium ARGB Gaming PC Case voor dagelijks gebruik binnen PC Componenten.",
-      "description": "Premium ARGB Gaming PC Case is onderdeel van de TrendMix-collectie binnen PC Componenten. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
+      "short_description": "Gas-Spring Monitor Arm - voorlopige TrendMix productselectie.",
+      "description": "Gas-Spring Monitor Arm staat in de voorlopige TrendMix-selectie. Merk, leverancier, voorraad, prijs, specificaties en definitieve productfoto worden bevestigd zodra de leverancier is gekoppeld.",
       "specifications": {},
       "usps": [],
-      "seo_title": "Premium ARGB Gaming PC Case | TrendMix",
+      "seo_title": "Gas-Spring Monitor Arm | TrendMix",
       "seo_description": "Premium ARGB Gaming PC Case binnen PC Componenten. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
       "related_product_ids": [
