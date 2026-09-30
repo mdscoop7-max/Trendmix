@@ -422,14 +422,6 @@ def category_page(category_slug):
         enrich_product(item, category_slug, index)
         for index, item in enumerate(products[category_slug])
     ]
-    subcategories = {}
-    for item in category_products:
-        subcategories.setdefault(item["subcategory_slug"], {
-            "name": item["subcategory"],
-            "slug": item["subcategory_slug"],
-            "count": 0,
-        })
-        subcategories[item["subcategory_slug"]]["count"] += 1
     return render_template(
         "category.html",
         category_name=category["name"],
