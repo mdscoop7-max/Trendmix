@@ -216,18 +216,9 @@ const finalEcommerceUiTranslations={
 Object.keys(finalEcommerceUiTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...finalEcommerceUiTranslations[lang]};});
 
 
-/* Final category-page wording translations. */
-Object.assign(translations.nl,{shopBySubcategory:'Shop per subcategorie'});
-Object.assign(translations.en,{shopBySubcategory:'Shop by subcategory'});
-Object.assign(translations.fr,{shopBySubcategory:'Acheter par sous-catégorie'});
-Object.assign(translations.de,{shopBySubcategory:'Nach Unterkategorie shoppen'});
-Object.assign(translations.it,{shopBySubcategory:'Acquista per sottocategoria'});
-Object.assign(translations.es,{shopBySubcategory:'Comprar por subcategoría'});
-
-
 /* Commerce/service translations for all storefront pages. */
 const commerceTranslations={
-nl:{service:'Service',faq:'Veelgestelde vragen',orderingDelivery:'Bestellen & levering',needHelp:'Hulp nodig bij je bestelling?',helpText:'Bekijk de FAQ of neem contact met ons op.',viewFaq:'Bekijk FAQ',safeOrder:'✓ Veilig bestellen',clearPrices:'✓ Duidelijke prijzen',return14:'✓ 14 dagen retour',testShop:'✓ Webshop in testfase',testCollection:'Testcollectie',testCollectionNote:'Geselecteerd voor de TrendMix testcollectie',customerService:'KLANTENSERVICE',contactLead:'Heb je een vraag over een product, bestelling of levering? Vul het formulier in. We gebruiken je gegevens alleen om je vraag te beantwoorden.'},
+nl:{service:'Service',faq:'Veelgestelde vragen',orderingDelivery:'Bestellen & levering',needHelp:'Hulp nodig bij je bestelling?',helpText:'Bekijk de FAQ of neem contact met ons op.',viewFaq:'Bekijk FAQ',safeOrder:'✓ Checkout in testfase',clearPrices:'✓ Duidelijke prijzen',return14:'✓ Retourinformatie vóór livegang',testShop:'✓ Webshop in testfase',testCollection:'Testcollectie',testCollectionNote:'Geselecteerd voor de TrendMix testcollectie',customerService:'KLANTENSERVICE',contactLead:'Heb je een vraag over een product, bestelling of levering? Vul het formulier in. We gebruiken je gegevens alleen om je vraag te beantwoorden.'},
 en:{service:'Service',faq:'Frequently asked questions',orderingDelivery:'Ordering & delivery',needHelp:'Need help with your order?',helpText:'View the FAQ or contact us.',viewFaq:'View FAQ',safeOrder:'✓ Secure ordering',clearPrices:'✓ Clear prices',return14:'✓ 14-day returns',testShop:'✓ Store in test phase',testCollection:'Test collection',testCollectionNote:'Selected for the TrendMix test collection',customerService:'CUSTOMER SERVICE',contactLead:'Have a question about a product, order or delivery? Fill in the form. We only use your details to answer your question.'},
 de:{service:'Service',faq:'Häufige Fragen',orderingDelivery:'Bestellung & Lieferung',needHelp:'Hilfe bei deiner Bestellung?',helpText:'Sieh dir die FAQ an oder kontaktiere uns.',viewFaq:'FAQ ansehen',safeOrder:'✓ Sicher bestellen',clearPrices:'✓ Klare Preise',return14:'✓ 14 Tage Rückgabe',testShop:'✓ Shop in Testphase',testCollection:'Testkollektion',testCollectionNote:'Für die TrendMix-Testkollektion ausgewählt',customerService:'KUNDENSERVICE',contactLead:'Fragen zu Produkt, Bestellung oder Lieferung? Nutze das Formular. Wir verwenden deine Daten nur zur Beantwortung deiner Anfrage.'},
 fr:{service:'Service',faq:'Questions fréquentes',orderingDelivery:'Commande & livraison',needHelp:'Besoin d’aide pour votre commande ?',helpText:'Consultez la FAQ ou contactez-nous.',viewFaq:'Voir la FAQ',safeOrder:'✓ Commande sécurisée',clearPrices:'✓ Prix clairs',return14:'✓ Retour sous 14 jours',testShop:'✓ Boutique en phase de test',testCollection:'Collection test',testCollectionNote:'Sélectionné pour la collection test TrendMix',customerService:'SERVICE CLIENT',contactLead:'Une question sur un produit, une commande ou une livraison ? Remplissez le formulaire. Vos données servent uniquement à répondre à votre demande.'},
