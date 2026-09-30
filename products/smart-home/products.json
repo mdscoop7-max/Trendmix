@@ -174,9 +174,8 @@
       "price": 29.95,
       "cost_price": 11.95,
       "margin": 60.1,
-      "image": "https://www.cpourtoi.net/cdn/shop/files/Tapo-T100-Detecteur-de-Mouvement-Intelligent-Detection-Portee-Allumage-Automatique-Compatible-Alexa-et-Google-Home-TAPO-175743998.jpg?v=1767897147&width=1946",
+      "image": "",
       "orders": 0,
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
       "id": "tm-smart-home-55ea091f",
       "slug": "smart-motion-sensor",
       "brand": null,
@@ -187,9 +186,7 @@
       "stock_status": "unknown",
       "stock_quantity": null,
       "delivery_time": "Nog te bevestigen",
-      "images": [
-        "https://www.cpourtoi.net/cdn/shop/files/Tapo-T100-Detecteur-de-Mouvement-Intelligent-Detection-Portee-Allumage-Automatique-Compatible-Alexa-et-Google-Home-TAPO-175743998.jpg?v=1767897147&width=1946"
-      ],
+      "images": [],
       "short_description": "Smart Motion Sensor voor dagelijks gebruik binnen Smart Home.",
       "description": "Smart Motion Sensor is onderdeel van de TrendMix-collectie binnen Smart Home. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
       "specifications": {},
