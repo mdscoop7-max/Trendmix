@@ -236,3 +236,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   }
 });
+
+
+// Replace broken remote product images with a local-looking, truthful visual fallback.
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('img[data-product-image]').forEach(img=>{img.addEventListener('error',()=>{const box=img.parentElement;if(!box)return;const fallback=document.createElement('span');fallback.className='tm-image-fallback';fallback.setAttribute('aria-label',img.alt||'Productafbeelding niet beschikbaar');fallback.innerHTML='<b>'+((img.dataset.fallbackIcon||'✦'))+'</b><small>TrendMix</small>';img.replaceWith(fallback);},{once:true});});});
