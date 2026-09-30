@@ -134,3 +134,20 @@ def test_mobile_navigation_contains_core_shopping_tasks():
     response = client.get("/")
     for target in (b'/#collecties', b'/#featured', b'/winkelwagen', b'/contact'):
         assert target in response.data
+
+
+def test_no_stale_production_trust_claims_in_client_translation_layers():
+    from pathlib import Path
+    app_js = Path("static/app.js").read_text(encoding="utf-8").lower()
+    language_js = Path("static/languages.js").read_text(encoding="utf-8").lower()
+    for stale in ("secure payment", "sichere zahlung", "14-day returns", "14 tage rückgabe"):
+        assert stale not in app_js
+    assert "shopbysubcategory" not in language_js.lower()
+
+
+def test_base_design_tokens_match_light_storefront():
+    from pathlib import Path
+    tokens = Path("static/design-tokens.css").read_text(encoding="utf-8").lower()
+    assert "--tm-bg:#f6f7fb" in tokens
+    assert "--tm-text:#172033" in tokens
+    assert "--tm-accent:#6555df" in tokens
