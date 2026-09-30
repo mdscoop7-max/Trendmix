@@ -75,3 +75,17 @@ def test_no_obsolete_affiliate_faq_copy_on_faq_page():
     assert response.status_code == 200
     assert b"externe aanbieder" not in response.data.lower()
     assert b"affiliate links" not in response.data.lower()
+
+
+def test_language_bundle_has_no_obsolete_affiliate_store_model():
+    from pathlib import Path
+    content = Path("static/languages.js").read_text(encoding="utf-8").lower()
+    for obsolete in ("independent product catalog", "onafhankelijke productcatalogus", "external retailer", "externe aanbieder"):
+        assert obsolete not in content
+
+
+def test_language_bundle_keeps_all_six_languages():
+    from pathlib import Path
+    content = Path("static/languages.js").read_text(encoding="utf-8")
+    for language in ("nl:", "en:", "de:", "fr:", "it:", "es:"):
+        assert language in content
