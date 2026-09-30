@@ -307,9 +307,8 @@
       "price": 39.95,
       "cost_price": 16.95,
       "margin": 57.6,
-      "image": "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg",
+      "image": "",
       "orders": 0,
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
       "id": "tm-gadgets-d24055f4",
       "slug": "usb-c-multi-port-hub",
       "brand": null,
@@ -320,9 +319,7 @@
       "stock_status": "unknown",
       "stock_quantity": null,
       "delivery_time": "Nog te bevestigen",
-      "images": [
-        "https://m.media-amazon.com/images/I/71Z9T0VgGyL._AC_SL1500_.jpg"
-      ],
+      "images": [],
       "short_description": "USB-C Multi-Port Hub voor dagelijks gebruik binnen Gadgets.",
       "description": "USB-C Multi-Port Hub is onderdeel van de TrendMix-collectie binnen Gadgets. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
       "specifications": {},
