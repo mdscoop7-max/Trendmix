@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'trendmix-cart-secret-change-me')
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
-SITE_URL = "https://trendmix.onrender.com"
+SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 
 CATEGORIES = {
     "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️", "eyebrow": "Performance & gaming"},
@@ -574,7 +574,7 @@ def afrekenen():
         else:
             session["trendmix_test_checkout"] = customer
             return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order={"id": "TEST"}, error=None)
-    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=False, order=order, error=error)
+    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=not woo_configured(), order=order, error=error)
 
 
 @app.route("/faq")
@@ -592,10 +592,10 @@ def contact():
     message = request.form.get("message", "").strip()
 
     if not name or not email or not message or len(name) > 120 or len(email) > 254 or len(message) > 5000:
-        return redirect(url_for("home") + "?contact=error#contact")
+        return redirect(url_for("contact_page") + "?status=error")
 
     if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
-        return redirect(url_for("home") + "?contact=error#contact")
+        return redirect(url_for("contact_page") + "?status=error")
 
     is_ajax = request.args.get("ajax") == "1" or request.headers.get("X-Requested-With") == "XMLHttpRequest"
     api_key = os.getenv("RESEND_API_KEY")
@@ -607,7 +607,7 @@ def contact():
         app.logger.info("Contact test submission received from %s <%s>: %s", name, email, message)
         if is_ajax:
             return Response(json.dumps({"ok": True, "test_mode": True}), mimetype="application/json")
-        return redirect(url_for("home") + "?contact=sent#contact")
+        return redirect(url_for("contact_page") + "?status=sent")
 
     payload = {
         "from": from_email,
@@ -661,15 +661,17 @@ def cookies():
 
 @app.route("/robots.txt")
 def robots():
-    return Response(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", mimetype="text/plain")
+    site_url = SITE_URL or request.url_root.rstrip("/")
+    return Response(f"User-agent: *\nAllow: /\nSitemap: {site_url}/sitemap.xml\n", mimetype="text/plain")
 
 
 @app.route("/sitemap.xml")
 def sitemap():
-    urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/{slug}" for slug in CATEGORIES] + [f"{SITE_URL}/{path}" for path in INFO_PAGES] + [f"{SITE_URL}/faq"]
+    site_url = SITE_URL or request.url_root.rstrip("/")
+    urls = [f"{site_url}/"] + [f"{site_url}/{slug}" for slug in CATEGORIES] + [f"{site_url}/{path}" for path in INFO_PAGES] + [f"{site_url}/faq"]
     for slug, items in products.items():
         for index, raw in enumerate(items):
-            urls.append(f"{SITE_URL}{enrich_product(raw, slug, index)['product_url']}")
+            urls.append(f"{site_url}{enrich_product(raw, slug, index)['product_url']}")
     xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{url}</loc></url>" for url in urls) + "</urlset>"
     return Response(xml, mimetype="application/xml")
 
