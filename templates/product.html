@@ -35,7 +35,7 @@
       "url":request.url_root.rstrip("/") ~ product.product_url,
       "price":"%.2f"|format(product.price),
       "priceCurrency":"EUR",
-      "availability":"https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else "https://schema.org/LimitedAvailability"
+      "availability":"https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else none
     }
   }|tojson }}
   </script>
@@ -96,7 +96,7 @@
         {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
       </div>
 
-      <p class="detail-description">{{ product.short_description }}</p><div class="detail-confidence"><span data-i18n="clearProductInfo">✓ Duidelijke productinformatie</span><span data-i18n="safeOrder">✓ Veilig bestellen</span><span data-i18n="return14">✓ 14 dagen retour</span></div>
+      <p class="detail-description">{{ product.short_description }}</p><div class="detail-confidence"><span data-i18n="clearProductInfo">✓ Duidelijke productinformatie</span><span data-i18n="testCollection">Testcollectie</span><span data-i18n="returnPolicy">Retourvoorwaarden vóór livegang</span></div>
 
       <div class="product-availability">
         <strong class="{% if product.stock_status == 'in_stock' %}stock-good{% elif product.stock_status == 'out_of_stock' %}stock-bad{% else %}stock-unknown{% endif %}">
@@ -104,7 +104,7 @@
           {% elif product.stock_status == "out_of_stock" %}Niet op voorraad
           {% else %}<span data-i18n="stockUnconfirmed">Voorraad nog niet gekoppeld</span>{% endif %}
         </strong>
-        <span><span data-i18n="deliveryTime">Levertijd</span>: <span data-i18n="deliveryUnconfirmed">{{ product.delivery_time }}</span></span>
+        <span><span data-i18n="deliveryTime">Levertijd</span>: {% if product.delivery_time and product.delivery_time != "Wordt bevestigd bij leverancier" %}<span>{{ product.delivery_time }}</span>{% else %}<span data-i18n="deliveryUnconfirmed">Wordt bevestigd bij leverancier</span>{% endif %}</span>
       </div>
 
       {% if product.usps %}
@@ -159,7 +159,7 @@
     <form action="/winkelwagen" method="post">
       <input type="hidden" name="action" value="add">
       <input type="hidden" name="product_id" value="{{ product.id }}">
-      <button type="submit">In winkelwagen · € {{ "%.2f"|format(product.price)|replace(".", ",") }}</button>
+      <button type="submit"><span data-i18n="addCart">In winkelwagen</span> · € {{ "%.2f"|format(product.price)|replace(".", ",") }}</button>
     </form>
   </div>
 
