@@ -1,8 +1,8 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span>Home</span></a>
-  <a href="/#collecties"><span>▦</span><span>Categorieën</span></a>
-  <a href="/#featured"><span>✦</span><span>Highlights</span></a>
-  <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span>Winkelwagen</span></a>
+  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
+  <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
+  <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
+  <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span data-i18n="cartTitle">Winkelwagen</span></a>
   <a href="/faq"><span>?</span><span>FAQ</span></a>
 </nav>
 <footer class="site-footer tm-footer">
@@ -14,10 +14,10 @@
         
       </div>
       <div class="footer-column"><h3>Shop</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
-      <div class="footer-column"><h3>Service</h3><a href="/faq">Veelgestelde vragen</a><a href="/bestellen">Bestellen & levering</a><a href="/contact">Contact</a><a href="/winkelwagen">Winkelwagen</a></div>
+      <div class="footer-column"><h3 data-i18n="service">Service</h3><a href="/faq" data-i18n="faq">Veelgestelde vragen</a><a href="/bestellen" data-i18n="orderingDelivery">Bestellen & levering</a><a href="/contact" data-i18n="contactTitle">Contact</a><a href="/winkelwagen" data-i18n="cartTitle">Winkelwagen</a></div>
       <div class="footer-column"><h3>TrendMix</h3><a href="/over-trendmix">Over TrendMix</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a></div>
     </div>
-    <div class="footer-newsletter"><div><strong>Hulp nodig bij je bestelling?</strong><span>Bekijk de FAQ of neem contact met ons op.</span></div><div><a href="/faq">Bekijk FAQ</a><a href="/contact">Contact</a></div></div><div class="footer-trust"><span>✓ Veilig bestellen</span><span>✓ Duidelijke prijzen</span><span>✓ 14 dagen retour</span><span>✓ Nederlandse webshop</span></div>
+    <div class="footer-newsletter"><div><strong data-i18n="needHelp">Hulp nodig bij je bestelling?</strong><span data-i18n="helpText">Bekijk de FAQ of neem contact met ons op.</span></div><div><a href="/faq" data-i18n="viewFaq">Bekijk FAQ</a><a href="/contact" data-i18n="contactTitle">Contact</a></div></div><div class="footer-trust"><span data-i18n="safeOrder">✓ Veilig bestellen</span><span data-i18n="clearPrices">✓ Duidelijke prijzen</span><span data-i18n="return14">✓ 14 dagen retour</span><span data-i18n="testShop">✓ Webshop in testfase</span></div>
     <div class="footer-bottom"><span>© 2026 TrendMix Test</span><span>KvK: TEST-NIET-GEREGISTREERD · BTW: TEST-NIET-GEREGISTREERD · Testadres 1, 0000 AA Teststad</span><span>test@example.com · Telefoon: TEST-NIET-INGESTELD</span></div>
   </div>
 </footer>
