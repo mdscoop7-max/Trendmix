@@ -60,7 +60,7 @@ def load_catalog():
                     continue
                 global_seen.add(key)
                 unique_items.append(item)
-            catalog[slug] = unique_items
+            # TrendMix testcatalogus: exact 20 artikelen per hoofdcollectie (5 x 20 = 100).\n            # Bij een leverancierskoppeling vervangen we deze selectie door de echte feed.\n            catalog[slug] = unique_items[:20]
         except (FileNotFoundError, json.JSONDecodeError, OSError):
             catalog[slug] = []
     return catalog
