@@ -1,6 +1,6 @@
 <article class="product-card" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
   <a class="product-image" href="{{ product.product_url }}" aria-label="{{ product.name }}">
-    {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async" data-fallback-icon="{{ product.icon|default('✨') }}">{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
+    {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async" data-fallback-icon="{{ product.icon|default('✨') }}" data-product-image>{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
     {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
   </a>
   <div class="product-body">
