@@ -13,17 +13,16 @@
 <main class="shell info-page">
   <a class="back-link" href="/">← Terug naar TrendMix</a>
   <article class="info-card contact-page-card">
-    <span class="eyebrow" data-i18n="customerService">KLANTENSERVICE</span>
-    <h1>Contact</h1>
+    <div class="commerce-heading contact-heading"><div><span class="eyebrow" data-i18n="customerService">KLANTENSERVICE</span><h1>Waar kunnen we mee helpen?</h1></div><span class="commerce-badge">Digitaal bereikbaar</span></div>
     <p class="info-lead" data-i18n="contactLead">Heb je een vraag over een product, bestelling of levering? Vul het formulier in. We gebruiken je gegevens alleen om je vraag te beantwoorden.</p>
-    <div class="contact-service-grid"><form class="contact-form contact-form-modal contact-page-form" action="/contact" method="post">
+    <div class="contact-service-grid"><form class="contact-form contact-form-modal contact-page-form modern-form" action="/contact" method="post"><div class="form-heading"><span>✦</span><div><h2>Stuur ons een bericht</h2><p>We gebruiken je gegevens alleen om je vraag te behandelen.</p></div></div>
       <div class="contact-form-row">
-        <label><span data-i18n="contactName">Naam</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span data-i18n="contactEmail">E-mail</span><input type="email" name="email" autocomplete="email" required></label>
+        <label><span data-i18n="contactName">Naam</span><input placeholder="Je naam" type="text" name="name" autocomplete="name" required></label>
+        <label><span data-i18n="contactEmail">E-mail</span><input placeholder="naam@voorbeeld.nl" type="email" name="email" autocomplete="email" required></label>
       </div>
-      <label><span data-i18n="contactMessage">Bericht</span><textarea name="message" rows="8" required></textarea></label>
+      <label><span data-i18n="contactMessage">Bericht</span><textarea placeholder="Vertel kort waarmee we je kunnen helpen..." name="message" rows="8" required></textarea></label>
       <button type="submit" class="btn btn-dark" data-i18n="contactSubmit">Verstuur bericht →</button><div class="contact-form-status" hidden role="status" aria-live="polite"></div>
-    </form><aside class="contact-service-aside"><h2 data-i18n="contactHelpTitle">Waarmee kunnen we helpen?</h2><div><strong data-i18n="contactProductQuestion">Productvraag</strong><span data-i18n="contactProductHelp">Vraag naar specificaties of de collectie.</span></div><div><strong data-i18n="contactOrder">Bestelling</strong><span data-i18n="contactOrderHelp">Vermeld je ordernummer zodra echte bestellingen actief zijn.</span></div><div><strong data-i18n="contactDelivery">Levering & retour</strong><span data-i18n="contactDeliveryHelp">Bekijk ook Bestellen & levering en de FAQ.</span></div><a href="/faq" data-i18n="viewFaq">Bekijk veelgestelde vragen →</a></aside></div>
+    </form><aside class="contact-service-aside"><div class="support-icon">✦</div><h2 data-i18n="contactHelpTitle">Waarmee kunnen we helpen?</h2><div><strong data-i18n="contactProductQuestion">Productvraag</strong><span data-i18n="contactProductHelp">Vraag naar specificaties of de collectie.</span></div><div><strong data-i18n="contactOrder">Bestelling</strong><span data-i18n="contactOrderHelp">Vermeld je ordernummer zodra echte bestellingen actief zijn.</span></div><div><strong data-i18n="contactDelivery">Levering & retour</strong><span data-i18n="contactDeliveryHelp">Bekijk ook Bestellen & levering en de FAQ.</span></div><a href="/faq" data-i18n="viewFaq">Bekijk veelgestelde vragen →</a></aside></div>
   </article>
 </main>
 {% include "_footer.html" %}
