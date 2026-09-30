@@ -1,12 +1,12 @@
 :root{
-  --tm-bg:#070b10;
-  --tm-surface:#0d131a;
-  --tm-surface-2:#111922;
-  --tm-card:#101820;
-  --tm-text:#f4f7fa;
-  --tm-muted:#9aa7b4;
-  --tm-line:#23303b;
-  --tm-accent:#21d4fd;
+  --tm-bg:#f6f7fb;
+  --tm-surface:#ffffff;
+  --tm-surface-2:#f1f4f8;
+  --tm-card:#ffffff;
+  --tm-text:#172033;
+  --tm-muted:#64748b;
+  --tm-line:#dfe4ed;
+  --tm-accent:#6555df;
   --tm-accent-strong:#08b9e6;
   --tm-accent-soft:rgba(33,212,253,.12);
   --tm-success:#4ade80;
