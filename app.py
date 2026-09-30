@@ -100,17 +100,11 @@ def slugify(value):
 
 def product_url(product):
     category_slug = product["category_slug"]
-    subcategory_slug = product.get("subcategory_slug") or slugify(product.get("subcategory") or category_slug)
     product_slug = product["slug"]
     try:
-        return url_for(
-            "product_detail",
-            category_slug=category_slug,
-            subcategory_slug=subcategory_slug,
-            product_slug=product_slug,
-        )
+        return url_for("product_detail", category_slug=category_slug, product_slug=product_slug)
     except RuntimeError:
-        return f"/{category_slug}/{subcategory_slug}/{product_slug}"
+        return f"/{category_slug}/{product_slug}"
 
 
 def enrich_product(product, category_slug, index):
@@ -435,30 +429,10 @@ def category_page(category_slug):
 
 @app.route("/<category_slug>/<subcategory_slug>/")
 def subcategory_page(category_slug, subcategory_slug):
-    if category_slug not in products:
+    """Keep old collection URLs working, but send them to the main collection."""
+    if category_slug not in CATEGORIES:
         return "Pagina niet gevonden", 404
-    matching = []
-    subcategory_name = None
-    for index, raw in enumerate(products[category_slug]):
-        item = enrich_product(raw, category_slug, index)
-        if item["subcategory_slug"] == subcategory_slug:
-            matching.append(item)
-            subcategory_name = item["subcategory"]
-    if not matching:
-        return "Pagina niet gevonden", 404
-    category = CATEGORIES[category_slug]
-    return render_template(
-        "category.html",
-        category_name=category["name"],
-        category_icon=category["icon"],
-        category_eyebrow=category["eyebrow"],
-        category_slug=category_slug,
-        categories=CATEGORIES,
-        products=matching,
-        subcategories=[],
-        subcategory_slug=subcategory_slug,
-        subcategory_name=subcategory_name,
-    )
+    return redirect(url_for("category_page", category_slug=category_slug), code=301)
 
 
 @app.route("/product/<category_slug>/<int:product_index>")
@@ -469,31 +443,23 @@ def legacy_product_detail(category_slug, product_index):
     return redirect(product["product_url"], code=301)
 
 
-@app.route("/<category_slug>/<subcategory_slug>/<product_slug>")
-def product_detail(category_slug, subcategory_slug, product_slug):
+@app.route("/<category_slug>/<product_slug>")
+def product_detail(category_slug, product_slug):
     if category_slug not in products:
         return "Product niet gevonden", 404
     match = None
     for index, raw in enumerate(products[category_slug]):
         item = enrich_product(raw, category_slug, index)
-        if item["slug"] == product_slug and item["subcategory_slug"] == subcategory_slug:
+        if item["slug"] == product_slug:
             match = item
             break
     if not match:
-        for index, raw in enumerate(products[category_slug]):
-            item = enrich_product(raw, category_slug, index)
-            if item["slug"] == product_slug:
-                return redirect(item["product_url"], code=301)
         return "Product niet gevonden", 404
-    related = []
-    for index, raw in enumerate(products[category_slug]):
-        item = enrich_product(raw, category_slug, index)
-        if item["id"] != match["id"] and (
-            item["subcategory_slug"] == match["subcategory_slug"] or not related
-        ):
-            related.append(item)
-        if len(related) >= 6:
-            break
+    related = [
+        enrich_product(raw, category_slug, index)
+        for index, raw in enumerate(products[category_slug])
+        if enrich_product(raw, category_slug, index)["id"] != match["id"]
+    ][:6]
     return render_template(
         "product.html",
         product=match,
@@ -503,6 +469,17 @@ def product_detail(category_slug, subcategory_slug, product_slug):
         categories=CATEGORIES,
         related=related,
     )
+
+
+@app.route("/<category_slug>/<subcategory_slug>/<product_slug>")
+def legacy_product_url(category_slug, subcategory_slug, product_slug):
+    if category_slug not in products:
+        return "Product niet gevonden", 404
+    for index, raw in enumerate(products[category_slug]):
+        item = enrich_product(raw, category_slug, index)
+        if item["slug"] == product_slug:
+            return redirect(item["product_url"], code=301)
+    return "Product niet gevonden", 404
 
 
 @app.route("/winkelwagen", methods=["GET", "POST"])
@@ -691,12 +668,6 @@ def robots():
 def sitemap():
     urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/{slug}" for slug in CATEGORIES] + [f"{SITE_URL}/{path}" for path in INFO_PAGES] + [f"{SITE_URL}/faq"]
     for slug, items in products.items():
-        subcats = {}
-        for index, raw in enumerate(items):
-            item = enrich_product(raw, slug, index)
-            subcats[item["subcategory_slug"]] = item
-        for subcat_slug in subcats:
-            urls.append(f"{SITE_URL}/{slug}/{subcat_slug}/")
         for index, raw in enumerate(items):
             urls.append(f"{SITE_URL}{enrich_product(raw, slug, index)['product_url']}")
     xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{url}</loc></url>" for url in urls) + "</urlset>"
