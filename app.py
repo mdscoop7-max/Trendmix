@@ -114,8 +114,6 @@ def enrich_product(product, category_slug, index):
     item["index"] = index
     item.setdefault("id", f"tm-{category_slug}-{slugify(item.get('name'))}-{index}")
     item.setdefault("slug", slugify(item.get("name")) or f"product-{index + 1}")
-    item.setdefault("subcategory", CATEGORIES[category_slug]["name"])
-    item.setdefault("subcategory_slug", slugify(item["subcategory"]))
     item.setdefault("brand", None)
     item.setdefault("old_price", None)
     item.setdefault("badge", None)
@@ -423,7 +421,6 @@ def category_page(category_slug):
         category_slug=category_slug,
         categories=CATEGORIES,
         products=category_products,
-        subcategories=list(subcategories.values()),
     )
 
 
