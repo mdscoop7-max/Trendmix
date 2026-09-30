@@ -7,7 +7,7 @@
   <title>{{ product.seo_title }}</title>
   <meta name="description" content="{{ product.seo_description }}">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="{{ product.product_url }}">
+  <link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ product.product_url }}">
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -32,10 +32,10 @@
     "brand":({"@type":"Brand","name":product.brand} if product.brand else none),
     "offers":{
       "@type":"Offer",
-      "url":product.product_url,
+      "url":request.url_root.rstrip("/") ~ product.product_url,
       "price":"%.2f"|format(product.price),
       "priceCurrency":"EUR",
-      "availability":"https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else "https://schema.org/PreOrder"
+      "availability":"https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else "https://schema.org/LimitedAvailability"
     }
   }|tojson }}
   </script>
@@ -102,9 +102,9 @@
         <strong class="{% if product.stock_status == 'in_stock' %}stock-good{% elif product.stock_status == 'out_of_stock' %}stock-bad{% else %}stock-unknown{% endif %}">
           {% if product.stock_status == "in_stock" %}Op voorraad
           {% elif product.stock_status == "out_of_stock" %}Niet op voorraad
-          {% else %}Voorraad controleren{% endif %}
+          {% else %}<span data-i18n="stockUnconfirmed">Voorraad nog niet gekoppeld</span>{% endif %}
         </strong>
-        <span><span data-i18n="deliveryTime">Levertijd</span>: {{ product.delivery_time }}</span>
+        <span><span data-i18n="deliveryTime">Levertijd</span>: <span data-i18n="deliveryUnconfirmed">{{ product.delivery_time }}</span></span>
       </div>
 
       {% if product.usps %}
