@@ -65,7 +65,7 @@
     <div class="detail-gallery">
       <div class="detail-image">
         {% if product.images %}
-          <img src="{{ product.images[0] }}" alt="{{ product.name }}" loading="eager" decoding="async">
+          <img src="{{ product.images[0] }}" alt="{{ product.name }}" loading="eager" decoding="async" data-product-image data-fallback-icon="{{ product.icon|default('✨') }}">
         {% else %}
           <span class="image-fallback" data-i18n="noImage">Geen afbeelding beschikbaar</span>
         {% endif %}
@@ -74,7 +74,7 @@
       <div class="detail-thumbnails" aria-label="Productafbeeldingen">
         {% for image in product.images %}
           <button type="button" aria-label="Afbeelding {{ loop.index }}">
-            <img src="{{ image }}" alt="" loading="lazy" decoding="async">
+            <img src="{{ image }}" alt="" loading="lazy" decoding="async" data-product-image data-fallback-icon="{{ product.icon|default('✨') }}">
           </button>
         {% endfor %}
       </div>
