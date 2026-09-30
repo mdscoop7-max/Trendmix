@@ -240,3 +240,18 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // Replace broken remote product images with a local-looking, truthful visual fallback.
 document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('img[data-product-image]').forEach(img=>{img.addEventListener('error',()=>{const box=img.parentElement;if(!box)return;const fallback=document.createElement('span');fallback.className='tm-image-fallback';fallback.setAttribute('aria-label',img.alt||'Productafbeelding niet beschikbaar');fallback.innerHTML='<b>'+((img.dataset.fallbackIcon||'✦'))+'</b><small>TrendMix</small>';img.replaceWith(fallback);},{once:true});});});
+
+
+/* TrendMix customer-service assistant: safe local test flow until the live AI service is connected. */
+document.addEventListener('DOMContentLoaded',()=>{
+ const root=document.getElementById('trendmixAi'); if(!root)return;
+ const panel=root.querySelector('.tm-ai-panel'),messages=root.querySelector('[data-ai-messages]'),input=root.querySelector('[data-ai-input]');
+ const open=()=>{root.hidden=false;panel.classList.add('open');setTimeout(()=>input&&input.focus(),80)};
+ const close=()=>{panel.classList.remove('open');root.hidden=true};
+ document.querySelectorAll('[data-ai-open]').forEach(b=>b.addEventListener('click',open)); root.querySelectorAll('[data-ai-close]').forEach(b=>b.addEventListener('click',close));
+ const add=(text,who='bot')=>{const d=document.createElement('div');d.className='tm-ai-message '+who;d.textContent=text;messages.appendChild(d);messages.scrollTop=messages.scrollHeight};
+ const answer=q=>{const s=q.toLowerCase(); if(/retour|terug|return/.test(s))return 'Meld je retour eerst aan bij TrendMix. Na aanmelding ontvang je de retourinstructies en het retouradres dat bij de leverancier van jouw bestelling hoort. Stuur een product niet zonder instructies terug.'; if(/lever|bezorg|verzend|shipping/.test(s))return 'De definitieve levertijd en verzendkosten worden per product en bestelling bevestigd zodra de leverancier is gekoppeld. In deze testfase doen we nog geen definitieve leverbelofte.'; if(/bestel|betaal|order|payment/.test(s))return 'TrendMix is nog in testfase. Echte betalingen en definitieve bestellingen worden pas geactiveerd nadat leverancier, betaalmethode en voorwaarden volledig zijn gekoppeld.'; if(/contact|klacht|mens|medewerker|whatsapp/.test(s))return 'Voor een complexe vraag of klacht kun je het contactformulier gebruiken. WhatsApp wordt toegevoegd zodra het zakelijke kanaal is gekoppeld. Er wordt geen openbaar telefoonnummer voor klantenservice gebruikt.'; if(/privacy|cookie/.test(s))return 'Je vindt onze informatie onder Privacybeleid en Cookies & voorkeuren in de footer. De definitieve gegevens worden vóór commerciële livegang gecontroleerd.'; return 'Ik kan nu al basisvragen beantwoorden over bestellen, levering, retouren, contact en voorwaarden. Voor productspecifieke of ordergebonden antwoorden wordt de live AI-service later gekoppeld.'};
+ const ask=q=>{if(!q.trim())return;add(q.trim(),'user');setTimeout(()=>add(answer(q)),180)};
+ root.querySelectorAll('[data-ai-question]').forEach(b=>b.addEventListener('click',()=>ask(b.textContent)));
+ root.querySelector('[data-ai-form]').addEventListener('submit',e=>{e.preventDefault();const q=input.value;input.value='';ask(q)});
+});
