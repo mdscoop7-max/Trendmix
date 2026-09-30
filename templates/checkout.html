@@ -8,7 +8,7 @@
 <a class="back-link" href="/winkelwagen">← Terug naar winkelwagen</a><div class="checkout-steps" aria-label="Bestelstappen"><span>1 · Winkelwagen</span><span class="active">2 · Gegevens</span><span>3 · Bevestiging</span></div>
 <section class="cart-panel checkout-page">
 <span class="eyebrow dark">TrendMix</span><h1>Afrekenen</h1>
-{% if order %}<div class="empty-state"><h3>Bestelling aangemaakt</h3><p>WooCommerce order #{{ order.id }} is aangemaakt.</p></div>
+{% if order %}<div class="checkout-steps" aria-label="Bestelstappen"><span>1 · Winkelwagen</span><span>2 · Gegevens</span><span class="active">3 · Bevestiging</span></div><div class="empty-state order-success"><h3>{% if order.id == "TEST" %}Testbestelling gecontroleerd{% else %}Bestelling aangemaakt{% endif %}</h3><p>{% if order.id == "TEST" %}De checkout werkt. Er is geen echte bestelling of betaling verstuurd omdat de webshop nog in testmodus staat.{% else %}WooCommerce order #{{ order.id }} is aangemaakt.{% endif %}</p><a class="btn btn-dark" href="/">Terug naar de webshop →</a></div>
 {% else %}
 <p class="checkout-intro">{% if test_mode %}Testmodus: WooCommerce is nog niet gekoppeld. Je gegevens worden niet naar een webshop gestuurd.{% else %}Vul je gegevens in om je bestelling te plaatsen.{% endif %}</p>
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
