@@ -5,25 +5,25 @@
   <title>Contact | TrendMix</title>
   <meta name="description" content="Neem contact op met TrendMix over een product, bestelling of andere vraag.">
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
-  <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260930-1') }}">
   <script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script>
 </head>
 <body>
 {% include "_header.html" %}
 <main class="shell info-page">
   <a class="back-link" href="/">← Terug naar TrendMix</a>
-  <article class="info-card">
+  <article class="info-card contact-page-card">
     <span class="eyebrow">KLANTENSERVICE</span>
     <h1>Contact</h1>
     <p class="info-lead">Heb je een vraag over een product, bestelling of levering? Vul het formulier in. We gebruiken je gegevens alleen om je vraag te beantwoorden.</p>
-    <form class="contact-form contact-form-modal" action="/contact" method="post">
+    <div class="contact-service-grid"><form class="contact-form contact-form-modal contact-page-form" action="/contact" method="post">
       <div class="contact-form-row">
         <label>Naam<input type="text" name="name" autocomplete="name" required></label>
         <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
       </div>
       <label>Bericht<textarea name="message" rows="8" required></textarea></label>
       <button type="submit" class="btn btn-dark">Verstuur bericht</button>
-    </form>
+    </form><aside class="contact-service-aside"><h2>Waarmee kunnen we helpen?</h2><div><strong>Productvraag</strong><span>Vraag naar specificaties of de collectie.</span></div><div><strong>Bestelling</strong><span>Vermeld je ordernummer zodra echte bestellingen actief zijn.</span></div><div><strong>Levering & retour</strong><span>Bekijk ook Bestellen & levering en de FAQ.</span></div><a href="/faq">Bekijk veelgestelde vragen →</a></aside></div>
   </article>
 </main>
 {% include "_footer.html" %}
