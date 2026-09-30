@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#070b10">
+  <meta name="theme-color" content="#f6f7fb">
   <title>{{ product.seo_title }}</title>
   <meta name="description" content="{{ product.seo_description }}">
   <meta name="robots" content="index,follow">
@@ -19,7 +19,7 @@
   {% endif %}
   <meta property="og:title" content="{{ product.seo_title }}">
   <meta property="og:description" content="{{ product.seo_description }}">
-  <meta property="og:type" content="product">
+  <meta property="og:type" content="product">\n  <meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ product.product_url }}">\n  <meta name="twitter:card" content="{% if product.images %}summary_large_image{% else %}summary{% endif %}">
   <script type="application/ld+json">
   {{ {
     "@context":"https://schema.org",

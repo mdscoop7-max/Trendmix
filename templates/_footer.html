@@ -1,9 +1,9 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
   <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
-  <a href="/#collecties"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
+  <a href="/#collecties" class="{% if request.path in ['/pc-componenten','/gadgets','/smart-home','/beauty-care','/lifestyle-sport'] %}active{% endif %}"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
   <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
   <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span data-i18n="cartTitle">Winkelwagen</span></a>
-  <a href="/faq"><span>?</span><span>FAQ</span></a>
+  <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}"><span>✉</span><span data-i18n="contactTitle">Contact</span></a>
 </nav>
 <footer class="site-footer tm-footer">
   <div class="shell">

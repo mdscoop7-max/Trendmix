@@ -276,7 +276,7 @@ def home():
     search_results = []
     if query:
         needle = query.casefold()
-        search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold()]
+        search_results = [item for item in all_items if needle in item["name"].casefold() or needle in item["category_name"].casefold() or needle in str(item.get("brand") or "").casefold() or needle in str(item.get("description") or "").casefold() or needle in " ".join(f"{key} {value}" for key, value in (item.get("specifications") or {}).items()).casefold()]
     counts = {slug: len(items) for slug, items in products.items()}
     return render_template("index.html", categories=CATEGORIES, featured_products=featured_mix(), category_images=category_images(), search_query=query, search_results=search_results, counts=counts, total_products=len(all_items))
 

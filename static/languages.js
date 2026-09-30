@@ -256,3 +256,15 @@ const serviceCheckoutPolish={
  es:{developmentStore:'Tienda en desarrollo · los datos comerciales y de contacto se añadirán antes del lanzamiento.',returnPolicy:'✓ Condiciones de devolución antes del lanzamiento',contactHelpTitle:'¿Cómo podemos ayudarte?',contactProductQuestion:'Pregunta sobre producto',contactProductHelp:'Pregunta por especificaciones o la colección.',contactOrder:'Pedido',contactOrderHelp:'Indica tu número de pedido cuando los pedidos reales estén activos.',contactDelivery:'Entrega y devoluciones',contactDeliveryHelp:'Consulta Pedidos y entrega y las FAQ.',checkoutConsent:'Reviso mis datos y el pedido antes de continuar.',yourOrder:'Tu pedido',productsLabel:'Productos',shippingLabel:'Envío',shippingLater:'Se determinará más adelante',testCheckout:'✓ Checkout en modo de prueba',shippingConfirmedLater:'✓ Envío confirmado más adelante',clearConfirmation:'✓ Confirmación de pedido clara'}
 };
 Object.keys(serviceCheckoutPolish).forEach(k=>translations[k]={...(translations[k]||{}),...serviceCheckoutPolish[k]});
+
+
+/* Final storefront navigation/service translations */
+const finalStorefrontTranslations={
+ nl:{uspDelivery:'Levering volgens productinformatie',uspCheckout:'Checkout in testfase',uspReturns:'Retourinformatie duidelijk vermeld',uspPrices:'Duidelijke prijzen',categoryProducts:'Bekijk producten'},
+ en:{uspDelivery:'Delivery as shown with product',uspCheckout:'Checkout in test mode',uspReturns:'Clear return information',uspPrices:'Clear prices',categoryProducts:'View products'},
+ de:{uspDelivery:'Lieferung laut Produktinformation',uspCheckout:'Checkout im Testmodus',uspReturns:'Klare Rückgabeinformationen',uspPrices:'Klare Preise',categoryProducts:'Produkte ansehen'},
+ fr:{uspDelivery:'Livraison selon la fiche produit',uspCheckout:'Paiement en mode test',uspReturns:'Informations de retour claires',uspPrices:'Prix clairs',categoryProducts:'Voir les produits'},
+ it:{uspDelivery:'Consegna come indicato nel prodotto',uspCheckout:'Checkout in modalità test',uspReturns:'Informazioni reso chiare',uspPrices:'Prezzi chiari',categoryProducts:'Vedi prodotti'},
+ es:{uspDelivery:'Entrega según la información del producto',uspCheckout:'Checkout en modo prueba',uspReturns:'Información de devolución clara',uspPrices:'Precios claros',categoryProducts:'Ver productos'}
+};
+Object.keys(finalStorefrontTranslations).forEach(lang=>{translations[lang]={...(translations[lang]||{}),...finalStorefrontTranslations[lang]};});
