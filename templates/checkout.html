@@ -5,7 +5,7 @@
 <script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script><script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script></head>
 <body>
 <main class="shell cart-page">
-<a class="back-link" href="/winkelwagen">← Terug naar winkelwagen</a>
+<a class="back-link" href="/winkelwagen">← Terug naar winkelwagen</a><div class="checkout-steps" aria-label="Bestelstappen"><span>1 · Winkelwagen</span><span class="active">2 · Gegevens</span><span>3 · Bevestiging</span></div>
 <section class="cart-panel checkout-page">
 <span class="eyebrow dark">TrendMix</span><h1>Afrekenen</h1>
 {% if order %}<div class="empty-state"><h3>Bestelling aangemaakt</h3><p>WooCommerce order #{{ order.id }} is aangemaakt.</p></div>
@@ -14,15 +14,14 @@
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
 <div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
 <div class="cart-total"><strong>Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
-<form method="post" class="checkout-form">
+<div class="checkout-layout"><form method="post" class="checkout-form"><h2>Bezorggegevens</h2>
 <label>Voornaam *<input name="first_name" required></label>
 <label>Achternaam *<input name="last_name" required></label>
 <label>E-mail *<input type="email" name="email" required></label>
-<label>Adres *<input name="address_1" required></label>
-<label>Postcode *<input name="postcode" required></label>
-<label>Woonplaats *<input name="city" required></label>
-<button type="submit" class="btn btn-dark">Bestelling plaatsen →</button>
-</form>
+<label class="field-wide">Adres *<input name="address_1" autocomplete="street-address" required></label>
+<label>Postcode *<input name="postcode" autocomplete="postal-code" required></label>
+<label>Woonplaats *<input name="city" autocomplete="address-level2" required></label>
+<label class="field-wide checkout-consent"><input type="checkbox" required> <span>Ik controleer mijn gegevens en bestelling voordat ik doorga.</span></label><button type="submit" class="btn btn-dark field-wide">Bestelling plaatsen →</button></form><aside class="checkout-trust"><h3>Je bestelling</h3><div class="checkout-trust-row"><span>Producten</span><strong>{{ format_eur(cart_total) }}</strong></div><div class="checkout-trust-row"><span>Verzending</span><span>Wordt later bepaald</span></div><div class="checkout-trust-total"><span>Totaal</span><strong>{{ format_eur(cart_total) }}</strong></div><ul><li>✓ Veilige checkout</li><li>✓ 14 dagen retour</li><li>✓ Duidelijke orderbevestiging</li></ul></aside></div>
 {% endif %}
 <a class="btn btn-outline checkout-back" href="/winkelwagen">Winkelwagen aanpassen</a>
 </section></main></body></html>
