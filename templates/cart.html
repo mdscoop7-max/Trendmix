@@ -4,7 +4,7 @@
   <script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script></head>
 <body>
 {% include "_header.html" %}
-<main class="shell cart-page"><a class="back-link" href="/" data-i18n="continueShopping">← Verder winkelen</a><div class="checkout-steps" aria-label="Bestelstappen"><span class="active" data-i18n="stepCart">1 · Winkelwagen</span><span data-i18n="stepDetails">2 · Gegevens</span><span data-i18n="stepConfirm">3 · Bevestiging</span></div><section class="cart-panel"><span class="eyebrow dark">TrendMix</span><h1 data-i18n="cartTitle">Je winkelwagen</h1>
+<main class="shell cart-page"><a class="back-link" href="/" data-i18n="continueShopping">← Verder winkelen</a><div class="checkout-steps" aria-label="Bestelstappen"><span class="active" data-i18n="stepCart">1 · Winkelwagen</span><span data-i18n="stepDetails">2 · Gegevens</span><span data-i18n="stepConfirm">3 · Bevestiging</span></div><section class="cart-panel commerce-card"><div class="commerce-heading"><div><span class="eyebrow dark">TrendMix</span><h1 data-i18n="cartTitle">Je winkelwagen</h1><p>Controleer je producten en aantallen voordat je doorgaat.</p></div><span class="commerce-badge">{{ cart_count }} item{% if cart_count != 1 %}s{% endif %}</span></div>
 {% if cart %}
 <div id="cartItems">
 {% for item in cart %}
@@ -24,7 +24,7 @@
 {% else %}
 <div class="empty-state"><h3 data-i18n="cartEmpty">Je winkelwagen is leeg</h3><p data-i18n="cartEmptyText">Voeg producten toe vanuit een collectie.</p></div>
 {% endif %}
-<div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
+<div class="cart-total modern-total"><span><small>Overzicht</small><strong data-i18n="total">Totaal</strong></span><strong>{{ format_eur(cart_total) }}</strong></div>
 {% if cart %}<div class="cart-checkout-box"><div><small data-i18n="testCheckout">Checkout in testfase</small><strong>{{ format_eur(cart_total) }}</strong></div><a class="btn btn-dark checkout-button" href="/afrekenen" data-i18n="checkout">Naar afrekenen →</a></div>{% endif %}
 </section></main>
 {% include '_footer.html' %}
