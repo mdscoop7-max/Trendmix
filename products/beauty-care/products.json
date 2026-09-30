@@ -177,9 +177,8 @@
       "price": 34.95,
       "cost_price": 12.95,
       "margin": 62.9,
-      "image": "https://m.media-amazon.com/images/I/61X7wEZVPRL._SL1430_.jpg",
+      "image": "",
       "orders": 0,
-      "image_source": "Internet product image — replace with supplier/manufacturer-approved asset before commercial launch.",
       "id": "tm-beauty-care-947796d5",
       "slug": "facial-cleansing-brush",
       "brand": null,
@@ -190,9 +189,7 @@
       "stock_status": "unknown",
       "stock_quantity": null,
       "delivery_time": "Nog te bevestigen",
-      "images": [
-        "https://m.media-amazon.com/images/I/61X7wEZVPRL._SL1430_.jpg"
-      ],
+      "images": [],
       "short_description": "Facial Cleansing Brush voor dagelijks gebruik binnen Beauty & Care.",
       "description": "Facial Cleansing Brush is onderdeel van de TrendMix-collectie binnen Beauty & Care. Bekijk de productinformatie en vergelijk dit artikel met alternatieven binnen dezelfde categorie.",
       "specifications": {},
