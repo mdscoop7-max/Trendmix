@@ -536,7 +536,11 @@ def winkelwagen():
                 delta = 0
             for item in cart:
                 if item.get("id") == product_id:
-                    item["qty"] = max(1, int(item.get("qty", 1)) + delta)
+                    new_qty = int(item.get("qty", 1)) + delta
+                    if new_qty <= 0:
+                        cart = [cart_item for cart_item in cart if cart_item.get("id") != product_id]
+                    else:
+                        item["qty"] = min(99, new_qty)
                     break
 
         elif action == "remove":
@@ -592,7 +596,7 @@ def afrekenen():
                 return render_template("checkout.html", categories=CATEGORIES, cart=[], cart_count=0, cart_total=0, test_mode=False, order=order, error=None)
         else:
             session["trendmix_test_checkout"] = customer
-            return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order=None, error=None)
+            return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order={"id": "TEST"}, error=None)
     return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=False, order=order, error=error)
 
 
