@@ -8,6 +8,7 @@
     <link rel="canonical" href="{{ request.url_root.rstrip('/') }}/"><link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml"><link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260920-1') }}"><link rel="stylesheet" href="{{ url_for('static', filename='category-cards.css', v='20260920-1') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script>
   <script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script>
 <script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"WebSite","name":"TrendMix","url":request.url_root.rstrip("/") ~ "/","potentialAction":{"@type":"SearchAction","target":request.url_root.rstrip("/") ~ "/?q={search_term_string}","query-input":"required name=search_term_string"}}|tojson }}</script>
+<script type="application/ld+json">{{ {"@context":"https://schema.org","@type":"Organization","name":"TrendMix","url":request.url_root.rstrip("/") ~ "/"}|tojson }}</script>
 </head>
 <body>
 {% include "_header.html" %}
