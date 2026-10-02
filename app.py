@@ -691,7 +691,8 @@ def sitemap():
     for slug, items in products.items():
         for index, raw in enumerate(items):
             urls.append(f"{site_url}{enrich_product(raw, slug, index)['product_url']}")
-    from xml.sax.saxutils import escape\n    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{escape(url)}</loc></url>" for url in urls) + "</urlset>"
+    from xml.sax.saxutils import escape
+    xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{escape(url)}</loc></url>" for url in urls) + "</urlset>"
     return Response(xml, mimetype="application/xml")
 
 
