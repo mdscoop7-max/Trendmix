@@ -32,13 +32,13 @@
     "image":product.images,
     "sku":product.id,
     "brand":({"@type":"Brand","name":product.brand} if product.brand else none),
-    "offers":{
+    "offers":({
       "@type":"Offer",
       "url":request.url_root.rstrip("/") ~ product.product_url,
       "price":"%.2f"|format(product.price),
       "priceCurrency":"EUR",
-      "availability":("https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock" if product.stock_status == "out_of_stock" else "https://schema.org/PreOrder")
-    }
+      "availability":("https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock")
+    } if product.stock_status in ["in_stock","out_of_stock"] else none)
   }|tojson }}
   </script>
   <script type="application/ld+json">
@@ -98,7 +98,8 @@
         {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
       </div>
 
-      <p class="detail-description">{{ product.short_description }}</p><div class="detail-confidence"><span data-i18n="clearProductInfo">✓ Duidelijke productinformatie</span><span data-i18n="testCollection">Testcollectie</span><span data-i18n="returnPolicy">Retourvoorwaarden vóór livegang</span></div>
+      <p class="detail-description">{{ product.short_description }}</p>
+      <p class="detail-test-note">Demo-product en testprijs. Definitieve productfoto, prijs, voorraad en specificaties worden vóór commerciële livegang met de leverancier bevestigd.</p><div class="detail-confidence"><span data-i18n="clearProductInfo">✓ Duidelijke productinformatie</span><span data-i18n="testCollection">Testcollectie</span><span data-i18n="returnPolicy">Retourvoorwaarden vóór livegang</span></div>
 
       <div class="product-availability">
         <strong class="{% if product.stock_status == 'in_stock' %}stock-good{% elif product.stock_status == 'out_of_stock' %}stock-bad{% else %}stock-unknown{% endif %}">
@@ -120,6 +121,10 @@
           <input type="hidden" name="action" value="add">
           <input type="hidden" name="product_id" value="{{ product.id }}">
           <button type="submit" class="btn btn-dark" data-i18n="addCart">In winkelwagen</button>
+        </form>
+        <form action="/wishlist" method="post">
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <button type="submit" class="btn btn-outline">{% if product.id in wishlist_ids %}♥ In favorieten{% else %}♡ Bewaar als favoriet{% endif %}</button>
         </form>
         <a class="btn btn-outline" href="/{{ category_slug }}" data-i18n="continueShopping">Verder winkelen</a>
       </div>
