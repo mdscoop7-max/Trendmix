@@ -13,10 +13,10 @@ PRODUCTS_DIR = BASE_DIR / "products"
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 
 CATEGORIES = {
-    "home-living": {"name": "Home & Living", "icon": "🏡", "eyebrow": "Wonen, organiseren & comfort"},
     "gadgets": {"name": "Gadgets", "icon": "⚡", "eyebrow": "Slimme tech voor elke dag"},
     "smart-home": {"name": "Smart Home", "icon": "🏠", "eyebrow": "Comfort & connected living"},
     "beauty-care": {"name": "Beauty & Care", "icon": "✨", "eyebrow": "Self-care & beauty"},
+    "home-living": {"name": "Home & Living", "icon": "🏡", "eyebrow": "Wonen, organiseren & comfort"},
     "lifestyle-sport": {"name": "Lifestyle & Sport", "icon": "🏃", "eyebrow": "Bewegen, herstellen & leven"},
 }
 
@@ -92,7 +92,10 @@ def featured_mix():
 
 
 def category_images():
-    return {slug: (items[0].get("image", "") if items else "") for slug, items in products.items()}
+    return {
+        slug: next((item.get("image", "") for item in items if item.get("image")), "")
+        for slug, items in products.items()
+    }
 
 
 def slugify(value):
