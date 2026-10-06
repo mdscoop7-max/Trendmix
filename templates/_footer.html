@@ -1,6 +1,6 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
   <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
-  <a href="/#collecties" class="{% if request.path in ['/pc-componenten','/gadgets','/smart-home','/beauty-care','/lifestyle-sport'] %}active{% endif %}"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
+  <a href="/#collecties" class="{% if request.path in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}active{% endif %}"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
   <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
   <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span data-i18n="cartTitle">Winkelwagen</span></a>
   <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}"><span>✉</span><span data-i18n="contactTitle">Contact</span></a>
@@ -10,7 +10,7 @@
     <div class="footer-intro">
       <div class="footer-brand">
         <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix logo"><span class="brand-name">TrendMix</span></a>
-        <p>TrendMix wordt ontwikkeld als een overzichtelijke Europese webshop voor zorgvuldig geselecteerde producten in PC & Gaming, Gadgets, Smart Home, Beauty & Care en Sport & Lifestyle. We willen klanten vóór het bestellen duidelijke productinformatie, prijzen, leverinformatie en servicevoorwaarden geven.</p>
+        <p>TrendMix wordt ontwikkeld als een overzichtelijke Europese webshop voor zorgvuldig geselecteerde producten in Gadgets, Smart Home, Beauty & Care, Home & Living en Lifestyle & Sport. We willen klanten vóór het bestellen duidelijke productinformatie, prijzen, leverinformatie en servicevoorwaarden geven.</p>
         <p class="footer-development-note"><strong>Ontwikkelfase:</strong> de definitieve leverancier, betaalmethoden, bedrijfsgegevens en verzendtarieven worden vóór de commerciële livegang ingevuld en gecontroleerd. Retourinstructies en het juiste leveranciers-retouradres worden per retouraanvraag verstrekt.</p>
       </div>
       <div class="footer-help-card"><span>TrendMix klantenservice</span><strong>Vraag het aan de TrendMix Assistent</strong><p>Voor vragen over producten, bestellen, levering, retouren en voorwaarden. De assistent helpt direct en verwijst complexe zaken door naar onze klantenservice.</p><button type="button" class="footer-ai-button" data-ai-open>Open TrendMix Assistent →</button></div>
