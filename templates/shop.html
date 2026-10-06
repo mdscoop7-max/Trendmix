@@ -20,7 +20,7 @@ Ontdek populaire en interessante producten bij TrendMix.
 
 <section class="page-section shop-page">
 
-```
+
 <!-- ========================================================
      SHOP HEADER
 ========================================================= -->
@@ -63,17 +63,6 @@ Ontdek populaire en interessante producten bij TrendMix.
         <span aria-hidden="true">✨</span>
         Alle
     </a>
-
-
-    <a
-        href="{{ url_for('shop', category='PC-Componenten') }}"
-        class="{% if category == 'PC-Componenten' %}active{% endif %}"
-    >
-        <span aria-hidden="true">🖥️</span>
-        PC-Componenten
-    </a>
-
-
     <a
         href="{{ url_for('shop', category='Gadgets') }}"
         class="{% if category == 'Gadgets' %}active{% endif %}"
@@ -110,13 +99,8 @@ Ontdek populaire en interessante producten bij TrendMix.
     </a>
 
 
-    <a
-        href="{{ url_for('shop', category='Aanbiedingen') }}"
-        class="{% if category == 'Aanbiedingen' %}active{% endif %}"
-    >
-        <span aria-hidden="true">🔥</span>
-        Aanbiedingen
-    </a>
+    <a href="/home-living" class=""><span aria-hidden="true">🏡</span>Home &amp; Living</a>
+    <a href="/aanbiedingen" class="{% if category == 'Aanbiedingen' %}active{% endif %}"><span aria-hidden="true">%</span>Aanbiedingen</a>
 
 </nav>
 
@@ -208,7 +192,7 @@ Ontdek populaire en interessante producten bij TrendMix.
         <!-- PRODUCT AFBEELDING -->
 
         <a
-            href="{{ url_for('product', product_id=product.id) }}"
+            href="{{ product.product_url }}"
             class="product-card-image"
         >
 
@@ -261,7 +245,7 @@ Ontdek populaire en interessante producten bij TrendMix.
             <h2>
 
                 <a
-                    href="{{ url_for('product', product_id=product.id) }}"
+                    href="{{ product.product_url }}"
                 >
                     {{ product.name }}
                 </a>
@@ -276,48 +260,6 @@ Ontdek populaire en interessante producten bij TrendMix.
             </p>
 
             {% endif %}
-
-
-            <!-- RATING -->
-
-            {% if product.rating %}
-
-            <div
-                class="product-rating"
-                aria-label="Beoordeling {{ product.rating }} van 5"
-            >
-
-                <span aria-hidden="true">
-                    ⭐
-                </span>
-
-                <strong>
-                    {{ product.rating }}
-                </strong>
-
-                {% if product.reviews is defined %}
-
-                <span>
-                    ({{ product.reviews }})
-                </span>
-
-                {% endif %}
-
-            </div>
-
-            {% else %}
-
-            <div
-                class="product-rating"
-                aria-label="Beoordeling"
-            >
-                <span aria-hidden="true">
-                    ★★★★★
-                </span>
-            </div>
-
-            {% endif %}
-
 
             <!-- PRIJS + KNOP -->
 
@@ -351,7 +293,7 @@ Ontdek populaire en interessante producten bij TrendMix.
 
 
                 <a
-                    href="{{ url_for('product', product_id=product.id) }}"
+                    href="{{ product.product_url }}"
                     class="product-button"
                 >
                     Bekijk
@@ -412,7 +354,7 @@ Ontdek populaire en interessante producten bij TrendMix.
 </div>
 
 {% endif %}
-```
+
 
 </section>
 
