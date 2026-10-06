@@ -152,7 +152,7 @@
       "price": 34.95,
       "cost_price": 12.95,
       "margin": 62.9,
-      "image": "",
+      "image": "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "id": "tm-beauty-care-06-automatic-curling-iron",
       "slug": "automatic-curling-iron",
@@ -164,7 +164,9 @@
       "stock_status": "unknown",
       "stock_quantity": null,
       "delivery_time": "Wordt bevestigd bij leverancier",
-      "images": [],
+      "images": [
+        "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=900&q=80"
+      ],
       "short_description": "Automatic Curling Iron — voorlopige TrendMix productselectie binnen Beauty & Care.",
       "description": "Automatic Curling Iron is opgenomen in de voorlopige TrendMix-selectie binnen Beauty & Care. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
