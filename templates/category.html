@@ -5,8 +5,24 @@
 <body>
 {% include "_header.html" %}
 <main>
-<section class="category-hero shell category-theme-{{ category_slug }}"><div class="category-copy"><span class="eyebrow" data-category-eyebrow="{{ category_slug }}">{{ category_eyebrow }}</span><h1>{{ category_icon }} <span data-category-name="{{ category_slug }}">{{ category_name }}</span></h1><p data-i18n="categoryIntro">Een scherpe selectie producten, rustig gepresenteerd en eenvoudig te bekijken op desktop en mobiel.</p><div class="hero-stats"><div><strong>{{ products|length }}</strong><span data-i18n="products">producten</span></div><div><strong>{{ products|length }}</strong><span data-i18n="selectedItems">geselecteerd</span></div></div></div><div class="category-visual">{% if products and products[0].image %}<img src="{{ products[0].image }}" alt="{{ products[0].name }}" loading="eager" decoding="async" data-product-image data-fallback-icon="{{ products[0].icon|default('✨') }}">{% endif %}<span>{{ category_name }}</span></div></section>
-<section class="shell content-section"><div class="section-head category-toolbar"><div><span class="eyebrow dark" data-category-name="{{ category_slug }}">{{ category_name }}</span><h2 data-i18n="allProducts">Alle producten</h2></div><div class="toolbar-right"><span>{{ products|length }} <span data-i18n="uniqueItems">unieke items</span></span><label class="sort-control"><span data-i18n="sortBy">Sorteer</span><select data-sort-products aria-label="Sorteer producten"><option value="recommended" data-i18n="sortRecommended">Aanbevolen</option><option value="price-low" data-i18n="sortLow">Prijs laag → hoog</option><option value="price-high" data-i18n="sortHigh">Prijs hoog → laag</option><option value="name" data-i18n="sortName">Naam A → Z</option></select></label></div></div><div class="product-grid" data-product-grid>{% for product in products %}{% include '_product_card.html' %}{% else %}<div class="empty-state"><span>🛍️</span><h3 data-i18n="noProducts">Geen producten</h3></div>{% endfor %}</div></section>
+<section class="category-hero shell category-theme-{{ category_slug }}">
+  <div class="category-copy">
+    <span class="eyebrow" data-category-eyebrow="{{ category_slug }}">{{ category_eyebrow }}</span>
+    <h1><span data-category-name="{{ category_slug }}">{{ category_name }}</span></h1>
+    {% if category_slug == "gadgets" %}<p>Handige tech en slimme accessoires die je dagelijkse routine eenvoudiger maken.</p>
+    {% elif category_slug == "smart-home" %}<p>Slimmer wonen met praktische verlichting, sensoren en connected producten voor thuis.</p>
+    {% elif category_slug == "beauty-care" %}<p>Moderne self-care, beautytools en verzorgingsproducten voor jouw dagelijkse routine.</p>
+    {% elif category_slug == "home-living" %}<p>Praktische producten voor keuken, organisatie, comfort en een fijner thuis.</p>
+    {% else %}<p>Producten voor bewegen, herstel, onderweg en een actieve dagelijkse lifestyle.</p>{% endif %}
+    <a class="tm-category-cta" href="#producten">Bekijk producten <span>→</span></a>
+  </div>
+  <div class="category-visual">
+    {% set ns = namespace(hero=None) %}{% for item in products %}{% if not ns.hero and item.image %}{% set ns.hero = item %}{% endif %}{% endfor %}
+    {% if ns.hero %}<img src="{{ ns.hero.image }}" alt="{{ category_name }}" loading="eager" decoding="async" data-product-image data-fallback-icon="{{ category_icon }}">{% else %}<div class="tm-category-fallback"><span>{{ category_icon }}</span><strong>{{ category_name }}</strong></div>{% endif %}
+    <span>{{ category_name }}</span>
+  </div>
+</section>
+<section class="shell content-section" id="producten"><div class="section-head category-toolbar"><div><span class="eyebrow dark" data-category-name="{{ category_slug }}">{{ category_name }}</span><h2 data-i18n="allProducts">Alle producten</h2></div><div class="toolbar-right"><span>{{ products|length }} <span data-i18n="uniqueItems">unieke items</span></span><label class="sort-control"><span data-i18n="sortBy">Sorteer</span><select data-sort-products aria-label="Sorteer producten"><option value="recommended" data-i18n="sortRecommended">Aanbevolen</option><option value="price-low" data-i18n="sortLow">Prijs laag → hoog</option><option value="price-high" data-i18n="sortHigh">Prijs hoog → laag</option><option value="name" data-i18n="sortName">Naam A → Z</option></select></label></div></div><div class="product-grid" data-product-grid>{% for product in products %}{% include '_product_card.html' %}{% else %}<div class="empty-state"><span>🛍️</span><h3 data-i18n="noProducts">Geen producten</h3></div>{% endfor %}</div></section>
 <section class="shell category-bottom"><div><span class="eyebrow dark">TrendMix</span><h2 data-i18n="moreToDiscover">Meer te ontdekken.</h2><p data-i18n="moreText">Ga naar een andere collectie en ontdek de rest van de catalogus.</p></div><div class="category-links">{% for slug, category in categories.items() %}<a href="/{{ slug }}" class="mini-link{% if slug == category_slug %} selected{% endif %}"><span>{{ category.icon }}</span><span data-category-name="{{ slug }}">{{ category.name }}</span><b>→</b></a>{% endfor %}</div></section>
 </main>
 {% include '_footer.html' %}
