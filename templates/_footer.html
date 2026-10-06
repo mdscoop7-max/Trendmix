@@ -1,28 +1,40 @@
 <nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span data-i18n="footerHome">Home</span></a>
-  <a href="/#collecties" class="{% if request.path in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}active{% endif %}"><span>▦</span><span data-i18n="footerCategories">Categorieën</span></a>
-  <a href="/#featured"><span>✦</span><span data-i18n="footerHighlights">Highlights</span></a>
-  <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span data-i18n="cartTitle">Winkelwagen</span></a>
-  <a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}"><span>✉</span><span data-i18n="contactTitle">Contact</span></a>
+  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span>Home</span></a>
+  <a href="/#collecties" class="{% if request.path in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}active{% endif %}"><span>▦</span><span>Categorieën</span></a>
+  <a href="/wishlist" class="{% if request.path == '/wishlist' %}active{% endif %}"><span>♡</span><span>Favorieten</span></a>
+  <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span>Winkelwagen</span></a>
+  <a href="/account" class="{% if request.path == '/account' %}active{% endif %}"><span>♙</span><span>Account</span></a>
 </nav>
-<footer class="site-footer tm-footer">
+
+<section class="tm-newsletter">
+  <div class="shell tm-newsletter-inner">
+    <div class="tm-newsletter-copy"><span class="tm-newsletter-icon">✉</span><div><h2>Blijf op de hoogte van TrendMix</h2><p>Ontvang later updates over nieuwe collecties en aanbiedingen zodra onze nieuwsbrief beschikbaar is.</p></div></div>
+    <div class="tm-newsletter-form"><label for="tmNewsletter">Nieuwsbrief in voorbereiding</label><div><input id="tmNewsletter" type="email" placeholder="Je e-mailadres" disabled><button type="button" disabled>Binnenkort</button></div><small>We verwerken geen nieuwsbriefinschrijvingen zolang deze functie nog niet actief is.</small></div>
+  </div>
+</section>
+
+<footer class="site-footer tm-footer tm-footer-v2">
   <div class="shell">
-    <div class="footer-intro">
-      <div class="footer-brand">
-        <a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt="TrendMix logo"><span class="brand-name">TrendMix</span></a>
-        <p>TrendMix wordt ontwikkeld als een overzichtelijke Europese webshop voor zorgvuldig geselecteerde producten in Gadgets, Smart Home, Beauty & Care, Home & Living en Lifestyle & Sport. We willen klanten vóór het bestellen duidelijke productinformatie, prijzen, leverinformatie en servicevoorwaarden geven.</p>
-        <p class="footer-development-note"><strong>Ontwikkelfase:</strong> de definitieve leverancier, betaalmethoden, bedrijfsgegevens en verzendtarieven worden vóór de commerciële livegang ingevuld en gecontroleerd. Retourinstructies en het juiste leveranciers-retouradres worden per retouraanvraag verstrekt.</p>
-      </div>
-      <div class="footer-help-card"><span>TrendMix klantenservice</span><strong>Vraag het aan de TrendMix Assistent</strong><p>Voor vragen over producten, bestellen, levering, retouren en voorwaarden. De assistent helpt direct en verwijst complexe zaken door naar onze klantenservice.</p><button type="button" class="footer-ai-button" data-ai-open>Open TrendMix Assistent →</button></div>
+    <div class="tm-footer-grid">
+      <div class="tm-footer-brand"><a class="brand footer-logo" href="/" aria-label="TrendMix home"><img src="{{ url_for('static', filename='logo.svg') }}" alt=""><span class="brand-name">TrendMix</span></a><p>Slimme producten voor jouw dagelijks leven. TrendMix bouwt aan een overzichtelijke webshop voor gadgets, smart home, beauty & care, home & living en lifestyle & sport.</p><p class="tm-footer-muted">De webshop bevindt zich nog in ontwikkeling. Definitieve leveranciers-, verzend-, betaal- en bedrijfsinformatie wordt vóór commerciële livegang gecontroleerd en gepubliceerd.</p></div>
+      <div class="footer-column"><h3>Winkel</h3><a href="/gadgets">Gadgets</a><a href="/smart-home">Smart Home</a><a href="/beauty-care">Beauty & Care</a><a href="/home-living">Home & Living</a><a href="/lifestyle-sport">Lifestyle & Sport</a><a href="/aanbiedingen">Aanbiedingen</a><a href="/shop">Alle producten</a></div>
+      <div class="footer-column"><h3>Klantenservice</h3><a href="/contact">Contact</a><a href="/faq">Veelgestelde vragen</a><a href="/bestellen">Bestellen & levering</a><a href="/retouren">Retour & herroeping</a><a href="/account">Mijn account</a><a href="/winkelwagen">Winkelwagen</a><a href="/wishlist">Favorieten</a></div>
+      <div class="footer-column"><h3>Over TrendMix</h3><a href="/over-trendmix">Over ons</a><a href="/voorwaarden">Algemene voorwaarden</a><a href="/privacy">Privacybeleid</a><a href="/cookies">Cookiebeleid & voorkeuren</a><a href="/bestellen">Prijs- & leverinformatie</a><a href="/retouren">Consumentenrechten</a></div>
+      <div class="footer-column tm-footer-help"><h3>Hulp nodig?</h3><p>Heb je een vraag over een product, bestellen, levering, retouren of voorwaarden? Bekijk de FAQ of stuur ons een bericht.</p><a class="tm-footer-contact" href="/contact">✉ &nbsp; Naar contactformulier <span>→</span></a><button type="button" class="footer-link-button" data-ai-open>Open TrendMix Assistent →</button></div>
     </div>
-    <div class="footer-links-pro">
-      <div class="footer-column"><h3>Shop</h3>{% for slug, category in categories.items() %}<a href="/{{ slug }}">{{ category.name }}</a>{% endfor %}</div>
-      <div class="footer-column"><h3>Klantenservice</h3><button type="button" class="footer-link-button" data-ai-open>TrendMix Assistent</button><a href="/bestellen">Bestellen & levering</a><a href="/retouren">Retour & herroeping</a><a href="/faq">Veelgestelde vragen</a><a href="/contact">Contact & klachten</a></div>
-      <div class="footer-column"><h3>Over TrendMix</h3><a href="/over-trendmix">Over ons</a><a href="/voorwaarden">Algemene voorwaarden</a><a href="/privacy">Privacybeleid</a><a href="/cookies">Cookies & voorkeuren</a></div>
-      <div class="footer-column footer-company"><h3>Bedrijfsinformatie</h3><p>Handelsnaam: TrendMix</p><p>De wettelijk vereiste bedrijfs- en registratiegegevens en het definitieve service-e-mailadres worden vóór livegang gepubliceerd. Klantenservice verloopt digitaal via de TrendMix Assistent en het contactformulier. WhatsApp wordt later toegevoegd.</p><p>TrendMix accepteert geen echte bestellingen voordat deze gegevens en de definitieve verkoopvoorwaarden zijn ingevuld.</p></div>
+    <div class="tm-footer-trust">
+      <div><b>▣</b><span><strong>Leverinformatie</strong><small>Per product duidelijk vermeld</small></span></div>
+      <div><b>↻</b><span><strong>Retourinformatie</strong><small>Rechten en uitzonderingen uitgelegd</small></span></div>
+      <div><b>◇</b><span><strong>Checkout</strong><small>Momenteel in testfase</small></span></div>
+      <div><b>✓</b><span><strong>Duidelijke prijzen</strong><small>Kosten vóór bestellen zichtbaar</small></span></div>
+      <div><b>♧</b><span><strong>Klantenservice</strong><small>Digitaal contact & assistent</small></span></div>
     </div>
-    <div class="footer-consumer-note"><strong>Duidelijk vóór je bestelt</strong><p>Bij commerciële livegang tonen we vóór het afronden van een bestelling onder meer de totale prijs en bijkomende kosten, betaalwijze, leverinformatie, wettelijke rechten, klachtenprocedure en informatie over het herroepingsrecht en eventuele uitzonderingen.</p></div>
-    <div class="footer-bottom"><span>© 2026 TrendMix</span><span>Webshop in ontwikkeling · definitieve juridische en bedrijfsgegevens volgen vóór livegang.</span></div>
+    <div class="tm-footer-info">
+      <div><strong>Betalen</strong><p>Definitieve betaalmethoden worden vóór livegang gepubliceerd.</p></div>
+      <div><strong>Levergebied</strong><p>Beschikbare landen, tarieven en levertijden worden per product en bestelling bevestigd.</p></div>
+      <div><strong>Bedrijfsinformatie</strong><p>Handelsnaam: TrendMix. Wettelijk vereiste registratie- en contactgegevens volgen vóór commerciële livegang.</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 TrendMix · Webshop in ontwikkeling</span><nav aria-label="Juridische links"><a href="/voorwaarden">Voorwaarden</a><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/contact">Contact</a></nav></div>
   </div>
 </footer>
 <div class="tm-ai" id="trendmixAi" hidden><button type="button" class="tm-ai-fab" data-ai-open aria-label="Open TrendMix Assistent">✦</button><section class="tm-ai-panel" role="dialog" aria-modal="false" aria-labelledby="tmAiTitle"><header><div><span>TrendMix</span><strong id="tmAiTitle">Assistent</strong></div><button type="button" data-ai-close aria-label="Sluiten">×</button></header><div class="tm-ai-messages" data-ai-messages><div class="tm-ai-message bot">Hoi! Ik ben de TrendMix Assistent. Ik kan helpen met producten, bestellen, levering, retouren en algemene voorwaarden. De webshop is nog in testfase.</div></div><div class="tm-ai-quick"><button type="button" data-ai-question="retour">Retour</button><button type="button" data-ai-question="levering">Levering</button><button type="button" data-ai-question="bestellen">Bestellen</button><button type="button" data-ai-question="contact">Contact</button></div><form class="tm-ai-form" data-ai-form><input type="text" data-ai-input autocomplete="off" placeholder="Stel je vraag..." aria-label="Vraag aan TrendMix Assistent"><button type="submit">→</button></form><small>Assistent in testfase · bij complexe vragen verwijzen we door.</small></section></div>
