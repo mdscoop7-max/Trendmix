@@ -17,7 +17,7 @@ CATEGORIES = {
     "gadgets": {"name": "Gadgets", "icon": "⚡", "eyebrow": "Slimme tech voor elke dag"},
     "smart-home": {"name": "Smart Home", "icon": "🏠", "eyebrow": "Comfort & connected living"},
     "beauty-care": {"name": "Beauty & Care", "icon": "✨", "eyebrow": "Self-care & beauty"},
-    "lifestyle-sport": {"name": "Sport & Lifestyle", "icon": "🏃", "eyebrow": "Move, recover & live"},
+    "lifestyle-sport": {"name": "Lifestyle & Sport", "icon": "🏃", "eyebrow": "Bewegen, herstellen & leven"},
 }
 
 CATEGORY_DIRS = {meta["name"]: slug for slug, meta in CATEGORIES.items()}
@@ -78,11 +78,13 @@ def catalog_items():
 
 
 def featured_mix():
+    """Mix categories for the storefront and prefer products with usable imagery."""
     mixed = []
-    for index in range(4):
-        for slug in CATEGORIES:
+    category_order = ["gadgets", "smart-home", "beauty-care", "lifestyle-sport", "home-living"]
+    for index in range(20):
+        for slug in category_order:
             items = products.get(slug, [])
-            if index < len(items):
+            if index < len(items) and items[index].get("image"):
                 mixed.append(enrich_product(items[index], slug, index))
             if len(mixed) >= 10:
                 return mixed
