@@ -268,7 +268,7 @@ def format_eur(value):
 
 @app.context_processor
 def inject_helpers():
-    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur}
+    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur, "wishlist_ids": set(session.get("trendmix_wishlist", []))}
 
 
 
@@ -316,9 +316,24 @@ def account():
     return render_template("account.html", categories=CATEGORIES)
 
 
-@app.route("/wishlist")
+@app.route("/wishlist", methods=["GET", "POST"])
 def wishlist():
-    return render_template("wishlist.html", categories=CATEGORIES, products=[])
+    saved = session.get("trendmix_wishlist", [])
+    if request.method == "POST":
+        product_id = request.form.get("product_id", "").strip()
+        action = request.form.get("action", "toggle")
+        if action == "clear":
+            saved = []
+        elif product_id:
+            if product_id in saved:
+                saved.remove(product_id)
+            else:
+                saved.append(product_id)
+        session["trendmix_wishlist"] = saved
+        session.modified = True
+        return redirect(request.referrer or url_for("wishlist"))
+    wishlist_products = [item for product_id in saved if (item := find_product(product_id))]
+    return render_template("wishlist.html", categories=CATEGORIES, products=wishlist_products, wishlist_ids=set(saved))
 
 
 @app.route("/cart")
