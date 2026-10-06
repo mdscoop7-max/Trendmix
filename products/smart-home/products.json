@@ -9,8 +9,8 @@
       "margin": 56.7,
       "image": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-d39ed238",
-      "slug": "flowluxe-ripple-wall-light",
+      "id": "tm-smart-home-01-smart-led-light-bulb",
+      "slug": "smart-led-light-bulb",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -22,19 +22,14 @@
       "images": [
         "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart LED Light Bulb - voorlopige TrendMix productselectie.",
-      "description": "Smart LED Light Bulb staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart LED Light Bulb — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart LED Light Bulb is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart LED Light Bulb | TrendMix",
-      "seo_description": "FlowLuxe Ripple Wall Light binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart LED Light Bulb binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-b3848f91",
-        "tm-smart-home-a74c8484",
-        "tm-smart-home-bd3896e0",
-        "tm-smart-home-cac3b26b"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart RGB LED Strip",
@@ -43,8 +38,8 @@
       "margin": 54.3,
       "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-f9cbf364",
-      "slug": "cornerlux-led-art-shelf",
+      "id": "tm-smart-home-02-smart-rgb-led-strip",
+      "slug": "smart-rgb-led-strip",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -56,19 +51,14 @@
       "images": [
         "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart RGB LED Strip - voorlopige TrendMix productselectie.",
-      "description": "Smart RGB LED Strip staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart RGB LED Strip — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart RGB LED Strip is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart RGB LED Strip | TrendMix",
-      "seo_description": "CornerLux LED Art Shelf binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart RGB LED Strip binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0",
-        "tm-smart-home-ad1ba415"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "WiFi Smart Plug",
@@ -77,8 +67,8 @@
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-7aee289b",
-      "slug": "raindrop-plant-cloud-dripper",
+      "id": "tm-smart-home-03-wifi-smart-plug",
+      "slug": "wifi-smart-plug",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -90,19 +80,14 @@
       "images": [
         "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "WiFi Smart Plug - voorlopige TrendMix productselectie.",
-      "description": "WiFi Smart Plug staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "WiFi Smart Plug — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "WiFi Smart Plug is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "WiFi Smart Plug | TrendMix",
-      "seo_description": "RainDrop Plant Cloud Dripper binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "WiFi Smart Plug binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0",
-        "tm-smart-home-ad1ba415"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Power Strip",
@@ -111,8 +96,8 @@
       "margin": 65.2,
       "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-b3848f91",
-      "slug": "smart-led-light-bulb",
+      "id": "tm-smart-home-04-smart-power-strip",
+      "slug": "smart-power-strip",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -124,19 +109,14 @@
       "images": [
         "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Power Strip - voorlopige TrendMix productselectie.",
-      "description": "Smart Power Strip staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Power Strip — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Power Strip is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Power Strip | TrendMix",
-      "seo_description": "Smart LED Light Bulb binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Power Strip binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-d39ed238",
-        "tm-smart-home-a74c8484",
-        "tm-smart-home-bd3896e0",
-        "tm-smart-home-cac3b26b"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "2K Indoor Security Camera",
@@ -145,8 +125,8 @@
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-c75012e2",
-      "slug": "wifi-smart-plug",
+      "id": "tm-smart-home-05-2k-indoor-security-camera",
+      "slug": "2k-indoor-security-camera",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -158,16 +138,14 @@
       "images": [
         "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "2K Indoor Security Camera - voorlopige TrendMix productselectie.",
-      "description": "2K Indoor Security Camera staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "2K Indoor Security Camera — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "2K Indoor Security Camera is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "2K Indoor Security Camera | TrendMix",
-      "seo_description": "WiFi Smart Plug binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "2K Indoor Security Camera binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-e4541567"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Outdoor WiFi Security Camera",
@@ -176,8 +154,8 @@
       "margin": 60.1,
       "image": "",
       "orders": 0,
-      "id": "tm-smart-home-55ea091f",
-      "slug": "smart-motion-sensor",
+      "id": "tm-smart-home-06-outdoor-wifi-security-camera",
+      "slug": "outdoor-wifi-security-camera",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -187,18 +165,14 @@
       "stock_quantity": null,
       "delivery_time": "Wordt bevestigd bij leverancier",
       "images": [],
-      "short_description": "Outdoor WiFi Security Camera - voorlopige TrendMix productselectie.",
-      "description": "Outdoor WiFi Security Camera staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Outdoor WiFi Security Camera — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Outdoor WiFi Security Camera is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Outdoor WiFi Security Camera | TrendMix",
-      "seo_description": "Smart Motion Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Outdoor WiFi Security Camera binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-15f2168d",
-        "tm-smart-home-0ba6c59f",
-        "tm-smart-home-a5ef2cab"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Video Doorbell",
@@ -207,8 +181,8 @@
       "margin": 44.5,
       "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-91d59ce0",
-      "slug": "smart-doorbell",
+      "id": "tm-smart-home-07-smart-video-doorbell",
+      "slug": "smart-video-doorbell",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -220,16 +194,14 @@
       "images": [
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Video Doorbell - voorlopige TrendMix productselectie.",
-      "description": "Smart Video Doorbell staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Video Doorbell — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Video Doorbell is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Video Doorbell | TrendMix",
-      "seo_description": "Smart Doorbell binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Video Doorbell binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-571c6289"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Home Hub",
@@ -238,8 +210,8 @@
       "margin": 50,
       "image": "https://images.unsplash.com/photo-1530052618097-0f2c4b3b9bfa?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-6f119978",
-      "slug": "smart-air-quality-monitor",
+      "id": "tm-smart-home-08-smart-home-hub",
+      "slug": "smart-home-hub",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -251,19 +223,14 @@
       "images": [
         "https://images.unsplash.com/photo-1530052618097-0f2c4b3b9bfa?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Home Hub - voorlopige TrendMix productselectie.",
-      "description": "Smart Home Hub staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Home Hub — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Home Hub is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Home Hub | TrendMix",
-      "seo_description": "Smart Air Quality Monitor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Home Hub binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-659f00b0",
-        "tm-smart-home-ad1ba415"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Motion Sensor",
@@ -272,8 +239,8 @@
       "margin": 55.6,
       "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-659f00b0",
-      "slug": "smart-power-strip",
+      "id": "tm-smart-home-09-smart-motion-sensor",
+      "slug": "smart-motion-sensor",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -285,19 +252,14 @@
       "images": [
         "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Motion Sensor - voorlopige TrendMix productselectie.",
-      "description": "Smart Motion Sensor staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Motion Sensor — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Motion Sensor is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Motion Sensor | TrendMix",
-      "seo_description": "Smart Power Strip binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Motion Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-ad1ba415"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Door and Window Sensor",
@@ -306,8 +268,8 @@
       "margin": 46.2,
       "image": "https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-ad1ba415",
-      "slug": "smart-home-starter-kit",
+      "id": "tm-smart-home-10-door-and-window-sensor",
+      "slug": "door-and-window-sensor",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -319,19 +281,14 @@
       "images": [
         "https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Door and Window Sensor - voorlopige TrendMix productselectie.",
-      "description": "Door and Window Sensor staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Door and Window Sensor — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Door and Window Sensor is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Door and Window Sensor | TrendMix",
-      "seo_description": "Smart Home Starter Kit binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Door and Window Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Temperature and Humidity Sensor",
@@ -340,8 +297,8 @@
       "margin": 63.4,
       "image": "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80&con=10",
       "orders": 0,
-      "id": "tm-smart-home-15f2168d",
-      "slug": "smart-temperature-sensor",
+      "id": "tm-smart-home-11-temperature-and-humidity-sensor",
+      "slug": "temperature-and-humidity-sensor",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -353,18 +310,14 @@
       "images": [
         "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80&con=10"
       ],
-      "short_description": "Temperature and Humidity Sensor - voorlopige TrendMix productselectie.",
-      "description": "Temperature and Humidity Sensor staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Temperature and Humidity Sensor — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Temperature and Humidity Sensor is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Temperature and Humidity Sensor | TrendMix",
-      "seo_description": "Smart Temperature Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Temperature and Humidity Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-55ea091f",
-        "tm-smart-home-0ba6c59f",
-        "tm-smart-home-a5ef2cab"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Water Leak Sensor",
@@ -373,8 +326,8 @@
       "margin": 60,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-a74c8484",
-      "slug": "rgb-ambient-light-bar",
+      "id": "tm-smart-home-12-smart-water-leak-sensor",
+      "slug": "smart-water-leak-sensor",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -386,19 +339,14 @@
       "images": [
         "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Water Leak Sensor - voorlopige TrendMix productselectie.",
-      "description": "Smart Water Leak Sensor staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Water Leak Sensor — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Water Leak Sensor is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Water Leak Sensor | TrendMix",
-      "seo_description": "RGB Ambient Light Bar binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Water Leak Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-d39ed238",
-        "tm-smart-home-b3848f91",
-        "tm-smart-home-bd3896e0",
-        "tm-smart-home-cac3b26b"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Thermostat",
@@ -407,8 +355,8 @@
       "margin": 60.1,
       "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-e421d9cf",
-      "slug": "automatic-soap-dispenser",
+      "id": "tm-smart-home-13-smart-thermostat",
+      "slug": "smart-thermostat",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -420,19 +368,14 @@
       "images": [
         "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Thermostat - voorlopige TrendMix productselectie.",
-      "description": "Smart Thermostat staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Thermostat — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Thermostat is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Thermostat | TrendMix",
-      "seo_description": "Automatic Soap Dispenser binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Thermostat binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Radiator Valve",
@@ -441,8 +384,8 @@
       "margin": 50,
       "image": "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-8b31efda",
-      "slug": "cordless-handheld-vacuum",
+      "id": "tm-smart-home-14-smart-radiator-valve",
+      "slug": "smart-radiator-valve",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -454,19 +397,14 @@
       "images": [
         "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Radiator Valve - voorlopige TrendMix productselectie.",
-      "description": "Smart Radiator Valve staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Radiator Valve — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Radiator Valve is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Radiator Valve | TrendMix",
-      "seo_description": "Cordless Handheld Vacuum binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Radiator Valve binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Entry Lock",
@@ -475,8 +413,8 @@
       "margin": 63.4,
       "image": "https://images.unsplash.com/photo-1602874801006-e26f3f1a4d7b?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-bf250085",
-      "slug": "mini-aroma-diffuser",
+      "id": "tm-smart-home-15-smart-entry-lock",
+      "slug": "smart-entry-lock",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -488,19 +426,14 @@
       "images": [
         "https://images.unsplash.com/photo-1602874801006-e26f3f1a4d7b?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Smart Entry Lock - voorlopige TrendMix productselectie.",
-      "description": "Smart Entry Lock staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Entry Lock — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Entry Lock is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Entry Lock | TrendMix",
-      "seo_description": "Mini Aroma Diffuser binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Entry Lock binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Smoke Detector",
@@ -509,8 +442,8 @@
       "margin": 50,
       "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80&sat=-20",
       "orders": 0,
-      "id": "tm-smart-home-889610d3",
-      "slug": "smart-curtain-controller",
+      "id": "tm-smart-home-16-smart-smoke-detector",
+      "slug": "smart-smoke-detector",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -522,19 +455,14 @@
       "images": [
         "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80&sat=-20"
       ],
-      "short_description": "Smart Smoke Detector - voorlopige TrendMix productselectie.",
-      "description": "Smart Smoke Detector staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Smoke Detector — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Smoke Detector is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Smoke Detector | TrendMix",
-      "seo_description": "Smart Curtain Controller binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Smoke Detector binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Robot Vacuum Cleaner",
@@ -543,8 +471,8 @@
       "margin": 64.1,
       "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-bd3896e0",
-      "slug": "wifi-led-night-light",
+      "id": "tm-smart-home-17-robot-vacuum-cleaner",
+      "slug": "robot-vacuum-cleaner",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -556,19 +484,14 @@
       "images": [
         "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Robot Vacuum Cleaner - voorlopige TrendMix productselectie.",
-      "description": "Robot Vacuum Cleaner staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Robot Vacuum Cleaner — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Robot Vacuum Cleaner is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Robot Vacuum Cleaner | TrendMix",
-      "seo_description": "WiFi LED Night Light binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Robot Vacuum Cleaner binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-d39ed238",
-        "tm-smart-home-b3848f91",
-        "tm-smart-home-a74c8484",
-        "tm-smart-home-cac3b26b"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Air Quality Monitor",
@@ -577,8 +500,8 @@
       "margin": 63.4,
       "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=80&sat=-10",
       "orders": 0,
-      "id": "tm-smart-home-cac3b26b",
-      "slug": "rechargeable-cabinet-light",
+      "id": "tm-smart-home-18-smart-air-quality-monitor",
+      "slug": "smart-air-quality-monitor",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -590,19 +513,14 @@
       "images": [
         "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=80&sat=-10"
       ],
-      "short_description": "Smart Air Quality Monitor - voorlopige TrendMix productselectie.",
-      "description": "Smart Air Quality Monitor staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Air Quality Monitor — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Air Quality Monitor is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Air Quality Monitor | TrendMix",
-      "seo_description": "Rechargeable Cabinet Light binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Air Quality Monitor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-d39ed238",
-        "tm-smart-home-b3848f91",
-        "tm-smart-home-a74c8484",
-        "tm-smart-home-bd3896e0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Smart Curtain Controller",
@@ -611,8 +529,8 @@
       "margin": 41.7,
       "image": "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80&con=20",
       "orders": 0,
-      "id": "tm-smart-home-3ae29305",
-      "slug": "digital-door-lock",
+      "id": "tm-smart-home-19-smart-curtain-controller",
+      "slug": "smart-curtain-controller",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -624,19 +542,14 @@
       "images": [
         "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=900&q=80&con=20"
       ],
-      "short_description": "Smart Curtain Controller - voorlopige TrendMix productselectie.",
-      "description": "Smart Curtain Controller staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Smart Curtain Controller — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Smart Curtain Controller is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Smart Curtain Controller | TrendMix",
-      "seo_description": "Digital Door Lock binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Smart Curtain Controller binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-f9cbf364",
-        "tm-smart-home-7aee289b",
-        "tm-smart-home-6f119978",
-        "tm-smart-home-659f00b0"
-      ]
+      "related_product_ids": []
     },
     {
       "name": "Rechargeable Motion Cabinet Lights",
@@ -645,8 +558,8 @@
       "margin": 60,
       "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
-      "id": "tm-smart-home-0ba6c59f",
-      "slug": "smart-water-leak-sensor",
+      "id": "tm-smart-home-20-rechargeable-motion-cabinet-lights",
+      "slug": "rechargeable-motion-cabinet-lights",
       "brand": null,
       "subcategory": "Smart Home",
       "subcategory_slug": "smart-home",
@@ -658,18 +571,14 @@
       "images": [
         "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80"
       ],
-      "short_description": "Rechargeable Motion Cabinet Lights - voorlopige TrendMix productselectie.",
-      "description": "Rechargeable Motion Cabinet Lights staat in de voorlopige TrendMix-selectie. Definitieve leverancier, voorraad, prijs, specificaties en productfoto volgen later.",
+      "short_description": "Rechargeable Motion Cabinet Lights — voorlopige TrendMix productselectie binnen Smart Home.",
+      "description": "Rechargeable Motion Cabinet Lights is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
       "usps": [],
       "seo_title": "Rechargeable Motion Cabinet Lights | TrendMix",
-      "seo_description": "Smart Water Leak Sensor binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
+      "seo_description": "Rechargeable Motion Cabinet Lights binnen Smart Home. Bekijk prijs, productinformatie en alternatieven bij TrendMix.",
       "faq": [],
-      "related_product_ids": [
-        "tm-smart-home-55ea091f",
-        "tm-smart-home-15f2168d",
-        "tm-smart-home-a5ef2cab"
-      ]
+      "related_product_ids": []
     }
   ]
 }
