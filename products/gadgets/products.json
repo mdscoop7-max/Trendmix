@@ -268,7 +268,7 @@
       "price": 39.95,
       "cost_price": 16.95,
       "margin": 57.6,
-      "image": "",
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "id": "tm-gadgets-10-universal-travel-adapter-usb-c",
       "slug": "universal-travel-adapter-usb-c",
@@ -280,7 +280,9 @@
       "stock_status": "unknown",
       "stock_quantity": null,
       "delivery_time": "Wordt bevestigd bij leverancier",
-      "images": [],
+      "images": [
+        "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80"
+      ],
       "short_description": "Universal Travel Adapter USB-C — voorlopige TrendMix productselectie binnen Gadgets.",
       "description": "Universal Travel Adapter USB-C is opgenomen in de voorlopige TrendMix-selectie binnen Gadgets. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
