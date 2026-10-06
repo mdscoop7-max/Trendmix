@@ -13,7 +13,7 @@ PRODUCTS_DIR = BASE_DIR / "products"
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 
 CATEGORIES = {
-    "pc-componenten": {"name": "PC-Componenten", "icon": "🖥️", "eyebrow": "Performance & gaming"},
+    "home-living": {"name": "Home & Living", "icon": "🏡", "eyebrow": "Wonen, organiseren & comfort"},
     "gadgets": {"name": "Gadgets", "icon": "⚡", "eyebrow": "Slimme tech voor elke dag"},
     "smart-home": {"name": "Smart Home", "icon": "🏠", "eyebrow": "Comfort & connected living"},
     "beauty-care": {"name": "Beauty & Care", "icon": "✨", "eyebrow": "Self-care & beauty"},
@@ -60,7 +60,7 @@ def load_catalog():
                     continue
                 global_seen.add(key)
                 unique_items.append(item)
-            # TrendMix testcatalogus: exact 20 artikelen per hoofdcollectie (5 x 20 = 100).
+            # TrendMix testcatalogus: maximaal 20 artikelen per actieve hoofdcollectie.
             # Bij een leverancierskoppeling vervangen we deze selectie door de echte feed.
             catalog[slug] = unique_items[:20]
         except (FileNotFoundError, json.JSONDecodeError, OSError):
@@ -356,7 +356,7 @@ def control():
 
 INFO_PAGES = {
     "over-trendmix": {"title": "Over TrendMix", "description": "Lees waar TrendMix voor staat en hoe we onze webshop ontwikkelen.", "content": """
-        <p>TrendMix wordt ontwikkeld als een moderne webshop waarin overzicht, duidelijke informatie en een prettige winkelervaring centraal staan. Het assortiment is verdeeld over vijf vaste categorieën: PC & Gaming, Gadgets, Smart Home, Beauty & Care en Sport & Lifestyle.</p>
+        <p>TrendMix wordt ontwikkeld als een moderne webshop waarin overzicht, duidelijke informatie en een prettige winkelervaring centraal staan. Het assortiment is verdeeld over vijf vaste categorieën: Gadgets, Smart Home, Beauty & Care, Home & Living en Lifestyle & Sport.</p>
         <h2>Waar we voor staan</h2><p>We willen klanten niet door een eindeloze catalogus laten zoeken. TrendMix kiest voor een overzichtelijk assortiment en productpagina’s waarop prijs, belangrijkste kenmerken, voorraad- en leverinformatie zo duidelijk mogelijk worden weergegeven.</p>
         <h2>Van testfase naar echte webshop</h2><p>TrendMix bevindt zich momenteel in ontwikkeling. Producten en prijzen in de testcatalogus kunnen nog wijzigen. Echte bestellingen worden pas geactiveerd nadat leverancier, betaling, verzending, retourproces en bedrijfsgegevens definitief zijn ingericht en gecontroleerd.</p>
         <h2>Transparantie</h2><p>Voor de commerciële livegang publiceren we de volledige identiteit en contactgegevens van de verkopende onderneming, de definitieve verkoopvoorwaarden en alle informatie die klanten nodig hebben vóór het sluiten van een overeenkomst.</p>
