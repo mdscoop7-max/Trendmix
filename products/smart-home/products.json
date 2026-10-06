@@ -152,7 +152,7 @@
       "price": 29.95,
       "cost_price": 11.95,
       "margin": 60.1,
-      "image": "",
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80",
       "orders": 0,
       "id": "tm-smart-home-06-outdoor-wifi-security-camera",
       "slug": "outdoor-wifi-security-camera",
@@ -164,7 +164,9 @@
       "stock_status": "unknown",
       "stock_quantity": null,
       "delivery_time": "Wordt bevestigd bij leverancier",
-      "images": [],
+      "images": [
+        "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80"
+      ],
       "short_description": "Outdoor WiFi Security Camera — voorlopige TrendMix productselectie binnen Smart Home.",
       "description": "Outdoor WiFi Security Camera is opgenomen in de voorlopige TrendMix-selectie binnen Smart Home. Definitieve leverancier, voorraad, productspecificaties, levertijd en productfoto worden vóór commerciële livegang gecontroleerd.",
       "specifications": {},
