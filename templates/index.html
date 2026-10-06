@@ -34,12 +34,12 @@
 {% if search_query %}<section class="shell content-section" id="results"><div class="section-head"><div><span class="eyebrow dark">Zoeken</span><h2>Zoekresultaten</h2></div><p>{{ search_results|length }} resultaten voor “{{ search_query }}”</p></div><div class="product-grid">{% for product in search_results %}{% include '_product_card.html' %}{% else %}<div class="empty-state"><h3>Geen resultaten</h3><p>Probeer een andere zoekterm.</p></div>{% endfor %}</div></section>{% endif %}
 
 <section class="shell tm-ref-categories" id="collecties">
-  {% for slug, category in categories.items() %}{% if loop.index <= 4 %}<a href="/{{ slug }}" class="tm-ref-category"><div>{% if category_images.get(slug) %}<img src="{{ category_images.get(slug) }}" alt="" loading="lazy" decoding="async" data-product-image data-fallback-icon="{{ category.icon }}">{% else %}<span class="category-icon">{{ category.icon }}</span>{% endif %}</div><section><h3>{{ category.name }}</h3><p>{{ category.eyebrow }}</p></section><b>›</b></a>{% endif %}{% endfor %}
+  {% for slug, category in categories.items() %}<a href="/{{ slug }}" class="tm-ref-category"><div>{% if category_images.get(slug) %}<img src="{{ category_images.get(slug) }}" alt="" loading="lazy" decoding="async" data-product-image data-fallback-icon="{{ category.icon }}">{% else %}<span class="category-icon">{{ category.icon }}</span>{% endif %}</div><section><h3>{{ category.name }}</h3><p>{{ category.eyebrow }}</p></section><b>›</b></a>{% endif %}{% endfor %}
 </section>
 
 <section class="shell tm-ref-products" id="featured">
   <div class="tm-ref-products-head"><div><span>TRENDMIX</span><h2>Populaire producten</h2><p>Ontdek onze uitgelichte producten uit verschillende collecties.</p></div><a href="/shop">Bekijk alle producten →</a></div>
-  <div class="tm-ref-product-row">{% for product in featured_products[:6] %}{% include '_product_card.html' %}{% endfor %}</div>
+  <div class="tm-ref-product-row">{% for product in featured_products[:10] %}{% include '_product_card.html' %}{% endfor %}</div>
 </section>
 </main>
 {% include "_footer.html" %}
