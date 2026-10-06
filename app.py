@@ -591,7 +591,7 @@ def afrekenen():
             "address_1": request.form.get("address_1", "").strip(),
             "postcode": request.form.get("postcode", "").strip(),
             "city": request.form.get("city", "").strip(),
-            "country": "NL",
+            "country": request.form.get("country", "").strip().upper(),
         }
         consent = request.form.get("checkout_consent") == "yes"
         if not all(customer.values()):
