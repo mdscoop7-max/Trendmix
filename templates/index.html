@@ -18,11 +18,11 @@
 <section class="shell tm-ref-hero">
   <div class="tm-ref-copy">
     <span class="tm-ref-kicker">TRENDMIX</span>
-    <h1>Slimme producten<br>voor jouw dagelijks leven.</h1>
-    <p>Ontdek de nieuwste trends in gadgets, smart home,<br>beauty & care, home & living en lifestyle — alles op één plek.</p>
-    <a class="tm-ref-shop" href="#featured">Shop nu <span>→</span></a>
+    <h1>Slimme gadgets<br>voor een makkelijker leven.</h1>
+    <p>Handige tech, praktische accessoires en slimme producten voor thuis, onderweg en op kantoor.</p>
+    <a class="tm-ref-shop" href="/gadgets">Bekijk gadgets <span>→</span></a>
   </div>
-  <div class="tm-ref-scene">{% if featured_products %}<img src="{{ featured_products[0].image }}" alt="{{ featured_products[0].name }}" decoding="async" data-product-image data-fallback-icon="✨">{% endif %}<span>Trends<br>voor een<br>mooier leven ♡</span></div>
+  <div class="tm-ref-scene"><div class="tm-gadget-showcase">{% for product in featured_products[:4] %}{% if product.image %}<a href="{{ product.product_url }}" aria-label="{{ product.name }}"><img src="{{ product.image }}" alt="{{ product.name }}" loading="{% if loop.first %}eager{% else %}lazy{% endif %}" decoding="async" data-product-image></a>{% endif %}{% endfor %}</div></div>
   <div class="tm-ref-benefits">
     <div><b>▣</b><span><strong>Levering</strong><small>Volgens productinformatie</small></span></div>
     <div><b>↻</b><span><strong>Retourinformatie</strong><small>Duidelijk vóór bestellen</small></span></div>
@@ -39,7 +39,7 @@
 
 <section class="shell tm-ref-products" id="featured">
   <div class="tm-ref-products-head"><div><span>TRENDMIX</span><h2>Populaire producten</h2><p>Ontdek onze uitgelichte producten uit verschillende collecties.</p></div><a href="/shop">Bekijk alle producten →</a></div>
-  <div class="tm-ref-product-row">{% for product in featured_products[:10] %}{% include '_product_card.html' %}{% endfor %}</div>
+  <div class="tm-ref-product-row">{% for product in featured_products[:20] %}{% include '_product_card.html' %}{% endfor %}</div>
 </section>
 </main>
 {% include "_footer.html" %}
