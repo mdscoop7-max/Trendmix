@@ -6,11 +6,11 @@
   <meta name="description" content="Ontdek zorgvuldig geselecteerde producten voor gadgets, smart home, beauty & care, home & living en lifestyle & sport bij TrendMix.">
   <meta property="og:type" content="website"><meta property="og:title" content="TrendMix | Slim gekozen voor elke dag"><meta property="og:description" content="Gadgets, smart home, beauty, wonen en lifestyle overzichtelijk op één plek."><meta property="og:url" content="{{ request.url_root.rstrip('/') }}/"><meta property="og:image" content="{{ url_for('static', filename='favicon.svg') }}"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow">
   <link rel="canonical" href="{{ request.url_root.rstrip('/') }}/"><link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
-  <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260920-1') }}"><link rel="stylesheet" href="{{ url_for('static', filename='category-cards.css', v='20260920-1') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='ref-20261006-2') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='ux.css', v='20260920-1') }}"><link rel="stylesheet" href="{{ url_for('static', filename='category-cards.css', v='20260920-1') }}"><link rel="stylesheet" href="{{ url_for('static', filename='language-sticky.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='storefront-20261013-3') }}">
   <script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script><script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script>
   <script type="application/ld+json">{{ {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":request.url_root.rstrip("/") ~ "/#organization","name":"TrendMix","url":request.url_root.rstrip("/") ~ "/"},{"@type":"WebSite","@id":request.url_root.rstrip("/") ~ "/#website","name":"TrendMix","url":request.url_root.rstrip("/") ~ "/","publisher":{"@id":request.url_root.rstrip("/") ~ "/#organization"},"potentialAction":{"@type":"SearchAction","target":request.url_root.rstrip("/") ~ "/?q={search_term_string}","query-input":"required name=search_term_string"}}]}|tojson }}</script>
 </head>
-<body class="tm-home">
+<body class="tm-home tm-new-storefront">
 {% include "_header.html" %}
 <main>
 {% if request.args.get("contact") == "sent" %}<div class="shell contact-success" role="status" aria-live="polite">✓ Je bericht is verzonden.</div>{% elif request.args.get("contact") == "error" %}<div class="shell contact-success" role="status" aria-live="polite">Je bericht kon niet worden verzonden.</div>{% endif %}
@@ -20,7 +20,7 @@
     <span class="tm-ref-kicker">TRENDMIX</span>
     <h1>Slimme gadgets<br>voor een makkelijker leven.</h1>
     <p>Handige tech, praktische accessoires en slimme producten voor thuis, onderweg en op kantoor.</p>
-    <a class="tm-ref-shop" href="/gadgets">Bekijk gadgets <span>→</span></a>
+    <a class="tm-ref-shop" href="#featured">Bekijk producten <span>→</span></a>
   </div>
   <div class="tm-ref-scene"><div class="tm-gadget-showcase">{% for product in featured_products[:4] %}{% if product.image %}<a href="{{ product.product_url }}" aria-label="{{ product.name }}"><img src="{{ product.image }}" alt="{{ product.name }}" loading="{% if loop.first %}eager{% else %}lazy{% endif %}" decoding="async" data-product-image></a>{% endif %}{% endfor %}</div></div>
   <div class="tm-ref-benefits">
@@ -33,16 +33,12 @@
 
 {% if search_query %}<section class="shell content-section" id="results"><div class="section-head"><div><span class="eyebrow dark">Zoeken</span><h2>Zoekresultaten</h2></div><p>{{ search_results|length }} resultaten voor “{{ search_query }}”</p></div><div class="product-grid">{% for product in search_results %}{% include '_product_card.html' %}{% else %}<div class="empty-state"><h3>Geen resultaten</h3><p>Probeer een andere zoekterm.</p></div>{% endfor %}</div></section>{% endif %}
 
-<section class="shell tm-ref-categories" id="collecties"><div class="tm-app-section-title"><h2>Shop per categorie</h2><span>Ontdek jouw favorieten</span></div>
-  {% for slug, category in categories.items() %}<a href="/{{ slug }}" class="tm-ref-category"><div>{% if category_images.get(slug) %}<img src="{{ category_images.get(slug) }}" alt="" loading="lazy" decoding="async" data-product-image data-fallback-icon="{{ category.icon }}">{% else %}<span class="category-icon">{{ category.icon }}</span>{% endif %}</div><section><h3>{{ category.name }}</h3><p>{{ category.eyebrow }}</p></section><b>›</b></a>{% endfor %}
-</section>
-
 <section class="shell tm-ref-products" id="featured">
-  <div class="tm-ref-products-head"><div><span>TRENDMIX</span><h2>Populaire producten</h2><p>Ontdek onze uitgelichte producten uit verschillende collecties.</p></div><a href="/shop">Bekijk alle producten →</a></div>
+  <div class="tm-ref-products-head"><div><span>TRENDMIX</span><h2>Ontdek onze producten</h2><p>Ontdek onze uitgelichte producten uit verschillende collecties.</p></div><a href="/shop">Bekijk alle producten →</a></div>
   <div class="tm-ref-product-row">{% for product in featured_products[:20] %}{% include '_product_card.html' %}{% endfor %}</div>
 </section>
 </main>
 {% include "_footer.html" %}
-<nav class="tm-app-bottom-nav" aria-label="Mobiele navigatie"><a href="/"><span>⌂</span>Home</a><a href="/#collecties"><span>▦</span>Categorieën</a><a href="/wishlist"><span>♡</span>Favorieten</a><a href="/winkelwagen"><span>🛒</span>Winkelwagen</a><a href="/account"><span>♙</span>Account</a></nav>
+<nav class="tm-app-bottom-nav" aria-label="Mobiele navigatie"><a href="/"><span>⌂</span>Home</a><a href="/shop"><span>▦</span>Categorieën</a><a href="/wishlist"><span>♡</span>Favorieten</a><a href="/winkelwagen"><span>🛒</span>Winkelwagen</a><a href="/account"><span>♙</span>Account</a></nav>
 </body>
 </html>
