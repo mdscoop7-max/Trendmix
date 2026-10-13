@@ -78,17 +78,8 @@ def catalog_items():
 
 
 def featured_mix():
-    """Mix categories for the storefront and prefer products with usable imagery."""
-    mixed = []
-    category_order = ["gadgets", "smart-home", "beauty-care", "lifestyle-sport", "home-living"]
-    for index in range(20):
-        for slug in category_order:
-            items = products.get(slug, [])
-            if index < len(items) and items[index].get("image"):
-                mixed.append(enrich_product(items[index], slug, index))
-            if len(mixed) >= 10:
-                return mixed
-    return mixed
+    """Show the 20 curated gadget products on the homepage."""
+    return [enrich_product(item, "gadgets", index) for index, item in enumerate(products.get("gadgets", [])[:20])]
 
 
 def category_images():
