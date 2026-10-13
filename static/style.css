@@ -184,3 +184,14 @@ body{background:#fff;color:var(--tm-ink)}
 .detail-test-note{margin:14px 0 0;padding:12px 14px;border:1px solid #e6e2d8;border-radius:10px;background:#faf8f3;color:#6d706b;font-size:12px;line-height:1.55}
 .detail-actions form{margin:0}
 @media(max-width:760px){.product-wishlist-form{right:7px;top:7px}.product-heart{width:34px;height:34px;font-size:18px}.detail-test-note{font-size:11px}}
+
+
+/* TrendMix mobile shopping-app experience */
+.tm-app-bottom-nav{display:none}.tm-app-section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;width:100%;margin-bottom:12px}.tm-app-section-title h2{font-size:clamp(19px,3vw,26px);margin:0;color:#0b1d39}.tm-app-section-title span{font-size:12px;color:#66758d}
+@media(max-width:760px){
+body.tm-home{background:#f7f9fe;padding-bottom:80px}
+.tm-app-bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:8px 4px max(9px,env(safe-area-inset-bottom));background:#fff;border-top:1px solid #dfe6f2;box-shadow:0 -5px 25px #102d5014}
+.tm-app-bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#536078;font-size:10px;font-weight:650;min-height:49px;text-decoration:none}.tm-app-bottom-nav a:first-child{color:#0866f5}.tm-app-bottom-nav a span{font-size:23px;line-height:1.1}
+.tm-home .tm-ref-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tm-home .tm-app-section-title{grid-column:1/-1}.tm-home .tm-ref-category{min-width:0;overflow:hidden;border-radius:16px;background:#fff;box-shadow:0 3px 14px #152c5010}.tm-home .tm-ref-category img{object-fit:contain}.tm-home .tm-ref-products{margin-bottom:22px}
+.tm-home .tm-ref-shop{background:#0866f5;color:white;border-radius:12px}
+}
