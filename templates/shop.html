@@ -117,7 +117,7 @@ Ontdek populaire en interessante producten bij TrendMix.
         class="shop-search"
     >
 
-        {% if category %}
+        {% if category and not deals_page %}
 
         <input
             type="hidden"
@@ -333,13 +333,12 @@ Ontdek populaire en interessante producten bij TrendMix.
 
 
     <h2>
-        Geen producten gevonden
+        {% if deals_page %}Nog geen actuele aanbiedingen{% else %}Geen producten gevonden{% endif %}
     </h2>
 
 
     <p>
-        We konden geen producten vinden die bij je zoekopdracht
-        passen. Probeer een andere zoekterm of bekijk alle producten.
+        {% if deals_page %}Er zijn op dit moment geen bevestigde aanbiedingen. We tonen pas kortingen zodra de actieprijzen gecontroleerd zijn. Bekijk ondertussen onze volledige collectie.{% else %}We konden geen producten vinden die bij je zoekopdracht passen. Probeer een andere zoekterm of bekijk alle producten.{% endif %}
     </p>
 
 
