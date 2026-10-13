@@ -13,11 +13,11 @@ PRODUCTS_DIR = BASE_DIR / "products"
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 
 CATEGORIES = {
-    "gadgets": {"name": "Gadgets", "icon": "⚡", "eyebrow": "Slimme tech voor elke dag"},
-    "smart-home": {"name": "Smart Home", "icon": "🏠", "eyebrow": "Comfort & connected living"},
-    "beauty-care": {"name": "Beauty & Care", "icon": "✨", "eyebrow": "Self-care & beauty"},
-    "home-living": {"name": "Home & Living", "icon": "🏡", "eyebrow": "Wonen, organiseren & comfort"},
-    "lifestyle-sport": {"name": "Lifestyle & Sport", "icon": "🏃", "eyebrow": "Bewegen, herstellen & leven"},
+    "gadgets": {"name": "Gadgets", "icon": "▣", "eyebrow": "Slimme tech voor elke dag"},
+    "smart-home": {"name": "Smart Home", "icon": "⌂", "eyebrow": "Comfort & connected living"},
+    "beauty-care": {"name": "Beauty & Care", "icon": "♧", "eyebrow": "Self-care & beauty"},
+    "home-living": {"name": "Home & Living", "icon": "▤", "eyebrow": "Wonen, organiseren & comfort"},
+    "lifestyle-sport": {"name": "Lifestyle & Sport", "icon": "♢", "eyebrow": "Bewegen, herstellen & leven"},
 }
 
 CATEGORY_DIRS = {meta["name"]: slug for slug, meta in CATEGORIES.items()}
