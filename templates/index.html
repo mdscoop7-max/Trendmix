@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#f5f1e8">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0866f5">
   <title>TrendMix | Slimme producten voor elke dag</title>
   <meta name="description" content="Ontdek zorgvuldig geselecteerde producten voor gadgets, smart home, beauty & care, home & living en lifestyle & sport bij TrendMix.">
   <meta property="og:type" content="website"><meta property="og:title" content="TrendMix | Slim gekozen voor elke dag"><meta property="og:description" content="Gadgets, smart home, beauty, wonen en lifestyle overzichtelijk op één plek."><meta property="og:url" content="{{ request.url_root.rstrip('/') }}/"><meta property="og:image" content="{{ url_for('static', filename='favicon.svg') }}"><meta name="twitter:card" content="summary"><meta name="robots" content="index,follow">
@@ -33,7 +33,7 @@
 
 {% if search_query %}<section class="shell content-section" id="results"><div class="section-head"><div><span class="eyebrow dark">Zoeken</span><h2>Zoekresultaten</h2></div><p>{{ search_results|length }} resultaten voor “{{ search_query }}”</p></div><div class="product-grid">{% for product in search_results %}{% include '_product_card.html' %}{% else %}<div class="empty-state"><h3>Geen resultaten</h3><p>Probeer een andere zoekterm.</p></div>{% endfor %}</div></section>{% endif %}
 
-<section class="shell tm-ref-categories" id="collecties">
+<section class="shell tm-ref-categories" id="collecties"><div class="tm-app-section-title"><h2>Shop per categorie</h2><span>Ontdek jouw favorieten</span></div>
   {% for slug, category in categories.items() %}<a href="/{{ slug }}" class="tm-ref-category"><div>{% if category_images.get(slug) %}<img src="{{ category_images.get(slug) }}" alt="" loading="lazy" decoding="async" data-product-image data-fallback-icon="{{ category.icon }}">{% else %}<span class="category-icon">{{ category.icon }}</span>{% endif %}</div><section><h3>{{ category.name }}</h3><p>{{ category.eyebrow }}</p></section><b>›</b></a>{% endfor %}
 </section>
 
@@ -43,5 +43,6 @@
 </section>
 </main>
 {% include "_footer.html" %}
+<nav class="tm-app-bottom-nav" aria-label="Mobiele navigatie"><a href="/"><span>⌂</span>Home</a><a href="/#collecties"><span>▦</span>Categorieën</a><a href="/favorieten"><span>♡</span>Favorieten</a><a href="/winkelwagen"><span>🛒</span>Winkelwagen</a><a href="/account"><span>♙</span>Account</a></nav>
 </body>
 </html>
