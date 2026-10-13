@@ -297,7 +297,7 @@ def shop():
 @app.route("/aanbiedingen")
 def deals():
     deal_products = [item for item in load_all_products() if item.get("old_price") and float(item.get("old_price") or 0) > float(item.get("price") or 0)]
-    return render_template("shop.html", products=deal_products, category="Aanbiedingen", search="", categories=CATEGORIES)
+    return render_template("shop.html", products=deal_products, category="Aanbiedingen", search="", categories=CATEGORIES, deals_page=True)
 
 
 @app.route("/products")
