@@ -5,6 +5,7 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session
+from product_art import render_product_svg
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or os.urandom(32).hex()
@@ -105,6 +106,22 @@ def product_url(product):
         return f"/{category_slug}/{product_slug}"
 
 
+BROKEN_IMAGE_HOSTS = ("loremflickr.com", "placeimg.com", "source.unsplash.com")
+
+
+def needs_generated_image(url):
+    """Lege of onbetrouwbare placeholder-afbeeldingen vervangen we door eigen TrendMix-art."""
+    url = str(url or "").strip()
+    return not url or any(host in url for host in BROKEN_IMAGE_HOSTS)
+
+
+def product_art_url(category_slug, product_slug):
+    try:
+        return url_for("product_art", category_slug=category_slug, product_slug=product_slug)
+    except RuntimeError:
+        return f"/img/product/{category_slug}/{product_slug}.svg"
+
+
 def enrich_product(product, category_slug, index):
     item = dict(product)
     item["category_slug"] = category_slug
@@ -118,7 +135,9 @@ def enrich_product(product, category_slug, index):
     item.setdefault("stock_status", "unknown")
     item.setdefault("stock_quantity", None)
     item.setdefault("delivery_time", "Wordt bevestigd bij leverancier")
-    item.setdefault("images", [item["image"]] if item.get("image") else [])
+    if needs_generated_image(item.get("image")):
+        item["image"] = product_art_url(category_slug, item["slug"])
+    item["images"] = [img for img in (item.get("images") or []) if not needs_generated_image(img)] or [item["image"]]
     item.setdefault("short_description", f"Bekijk {item['name']} binnen de {item['category_name']}-testcollectie.")
     item.setdefault("description", item.get("short_description") or f"{item['name']} is onderdeel van de TrendMix-collectie.")
     item.setdefault("specifications", {})
@@ -695,6 +714,18 @@ def voorwaarden():
 @app.route("/cookies")
 def cookies():
     return render_info_page("cookies")
+
+
+@app.route("/img/product/<category_slug>/<product_slug>.svg")
+def product_art(category_slug, product_slug):
+    name = product_slug.replace("-", " ").capitalize()
+    for raw in products.get(category_slug, []):
+        if (raw.get("slug") or slugify(raw.get("name"))) == product_slug:
+            name = raw.get("name") or name
+            break
+    response = Response(render_product_svg(name, category_slug), mimetype="image/svg+xml")
+    response.headers["Cache-Control"] = "public, max-age=604800, immutable"
+    return response
 
 
 @app.route("/robots.txt")

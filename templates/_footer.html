@@ -1,10 +1,4 @@
-<nav class="mobile-app-nav" aria-label="Mobiele navigatie">
-  <a href="/" class="{% if request.path == '/' %}active{% endif %}"><span>⌂</span><span>Home</span></a>
-  <a href="/#collecties" class="{% if request.path in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}active{% endif %}"><span>▦</span><span>Categorieën</span></a>
-  <a href="/wishlist" class="{% if request.path == '/wishlist' %}active{% endif %}"><span>♡</span><span>Favorieten</span></a>
-  <a href="/winkelwagen" class="{% if request.path in ['/winkelwagen','/afrekenen'] %}active{% endif %}"><span>🛒</span><span>Winkelwagen</span></a>
-  <a href="/account" class="{% if request.path == '/account' %}active{% endif %}"><span>♙</span><span>Account</span></a>
-</nav>
+{% include '_bottomnav.html' %}
 
 <section class="tm-newsletter">
   <div class="shell tm-newsletter-inner">

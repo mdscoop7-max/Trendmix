@@ -1,0 +1,53 @@
+{# TrendMix mobiele onderbalk — één partial voor alle pagina's #}
+{% set p = request.path %}
+{% set cats = ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport','/aanbiedingen','/shop'] %}
+{% set is_shop = p in cats or p.startswith('/shop') or (p.count('/') == 2 and p.split('/')[1] in ['gadgets','smart-home','beauty-care','home-living','lifestyle-sport']) %}
+<style>
+img[src*="/img/product/"]{object-fit:cover!important;padding:0!important;background:#f3f7ff}
+.heroitem img[src*="/img/product/"]{border-radius:inherit}
+.tm-dock{display:none}
+@media(max-width:760px){
+  body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
+  .bottomnav,.mobile-app-nav{display:none!important}
+  .tm-dock{position:fixed;z-index:1200;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;padding:6px;border-radius:26px;background:rgba(255,255,255,.86);border:1px solid rgba(214,224,240,.9);box-shadow:0 18px 42px rgba(14,38,82,.22),0 2px 6px rgba(14,38,82,.06);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);font-family:inherit}
+  .tm-dock a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;min-height:58px;border-radius:19px;color:#5b6b84;font-size:10px;font-weight:700;letter-spacing:-.2px;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:color .2s ease,background .25s ease,transform .15s ease}
+  .tm-dock a:active{transform:scale(.92)}
+  .tm-dock .tm-dock-ico{position:relative;display:grid;place-items:center;width:26px;height:26px}
+  .tm-dock svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+  .tm-dock a.is-active{color:#fff;background:linear-gradient(140deg,#2f83ff 0%,#0866f5 55%,#0553d6 100%);box-shadow:0 8px 18px rgba(8,102,245,.38),inset 0 1px 0 rgba(255,255,255,.28)}
+  .tm-dock a.is-active svg{transform:translateY(-1px) scale(1.06)}
+  .tm-dock a.is-active .tm-fill{fill:currentColor;fill-opacity:.22}
+  .tm-dock a:not(.is-active):hover{color:#0866f5;background:#eef4ff}
+  .tm-dock a:focus-visible{outline:3px solid #ffb648;outline-offset:2px}
+  .tm-dock-badge{position:absolute;top:-6px;right:-10px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#f32647;color:#fff;font-size:10px;font-weight:800;line-height:18px;text-align:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(243,38,71,.4)}
+  .tm-dock a.is-active .tm-dock-badge{border-color:#0866f5}
+  .tm-dock-label{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mobile-sticky-cart{bottom:calc(98px + env(safe-area-inset-bottom,0px))!important;z-index:1150!important;border-radius:18px}
+  body:has(.mobile-sticky-cart){padding-bottom:calc(170px + env(safe-area-inset-bottom,0px))!important}
+  .tm-ai-fab,.tm-ai{bottom:calc(100px + env(safe-area-inset-bottom,0px))!important}
+}
+@media(max-width:360px){.tm-dock{left:6px;right:6px;padding:5px}.tm-dock a{font-size:9.5px}}
+@media(prefers-color-scheme:dark){@media(max-width:760px){.tm-dock{background:rgba(18,24,38,.88);border-color:rgba(60,72,98,.8)}.tm-dock a{color:#a9b5ca}.tm-dock a:not(.is-active):hover{background:rgba(47,131,255,.14);color:#7fb2ff}.tm-dock-badge{border-color:#121826}}}
+</style>
+<nav class="tm-dock" aria-label="Mobiele navigatie">
+  <a href="/" class="{% if p == '/' %}is-active{% endif %}" {% if p == '/' %}aria-current="page"{% endif %}>
+    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1H15v-6h-6v6H4.5a1 1 0 0 1-1-1z"/></svg></span>
+    <span class="tm-dock-label">Home</span>
+  </a>
+  <a href="/shop" class="{% if is_shop %}is-active{% endif %}" {% if is_shop %}aria-current="page"{% endif %}>
+    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect class="tm-fill" x="3.5" y="3.5" width="7" height="7" rx="2"/><rect class="tm-fill" x="13.5" y="3.5" width="7" height="7" rx="2"/><rect class="tm-fill" x="3.5" y="13.5" width="7" height="7" rx="2"/><circle cx="17" cy="17" r="3.2"/><path d="m19.4 19.4 1.6 1.6"/></svg></span>
+    <span class="tm-dock-label">Shop</span>
+  </a>
+  <a href="/wishlist" class="{% if p == '/wishlist' %}is-active{% endif %}" {% if p == '/wishlist' %}aria-current="page"{% endif %}>
+    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M12 20.5s-8-4.6-8-10.6A4.4 4.4 0 0 1 12 7.3a4.4 4.4 0 0 1 8 2.6c0 6-8 10.6-8 10.6z"/></svg>{% if wishlist_ids %}<span class="tm-dock-badge">{{ wishlist_ids|length }}</span>{% endif %}</span>
+    <span class="tm-dock-label">Favorieten</span>
+  </a>
+  <a href="/winkelwagen" class="{% if p in ['/winkelwagen','/afrekenen'] %}is-active{% endif %}" {% if p in ['/winkelwagen','/afrekenen'] %}aria-current="page"{% endif %}>
+    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M5 8h14l-1.2 10.6a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9z"/><path d="M8.5 10V7a3.5 3.5 0 0 1 7 0v3"/></svg>{% if cart_count %}<span class="tm-dock-badge" data-cart-count>{{ cart_count }}</span>{% endif %}</span>
+    <span class="tm-dock-label">Winkelwagen</span>
+  </a>
+  <a href="/account" class="{% if p == '/account' %}is-active{% endif %}" {% if p == '/account' %}aria-current="page"{% endif %}>
+    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="tm-fill" cx="12" cy="8" r="4"/><path class="tm-fill" d="M4.5 20.5a7.5 7.5 0 0 1 15 0z"/></svg></span>
+    <span class="tm-dock-label">Account</span>
+  </a>
+</nav>
