@@ -1,103 +1,78 @@
 {% extends "base.html" %}
-
-{% block title %}TrendMix Control{% endblock %}
-{% block description %}TrendMix control overview voor productstatus, categorieën en store-performance.{% endblock %}
-
+{% block title %}Controle & overzicht | TrendMix{% endblock %}
+{% block description %}Overzicht van de productcatalogus en categorieën van TrendMix in de testfase.{% endblock %}
+{% block extra_css %}
+<style>
+.tm-control{max-width:1160px;margin:auto;padding:12px 0 36px;color:#14233b;font-family:Arial,Helvetica,sans-serif}
+.tm-control *{box-sizing:border-box}
+.tm-control-hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#102c5d,#0866f5 75%,#31a8fa);border-radius:25px;padding:34px;color:#fff;box-shadow:0 18px 42px #174b9429}
+.tm-control-hero:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;right:-70px;top:-125px;background:#ffffff15}
+.tm-control-kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#cce5ff}
+.tm-control-hero h1{font-size:clamp(28px,4vw,43px);line-height:1.1;margin:13px 0;color:white}
+.tm-control-hero p{max-width:660px;color:#e2efff;line-height:1.65;margin:0}
+.tm-control-pill{display:inline-flex;align-items:center;gap:8px;border-radius:50px;padding:8px 13px;background:#ffffff20;border:1px solid #ffffff35;font-size:12px;font-weight:700;margin-top:19px}
+.tm-control-pill:before{content:"";width:8px;height:8px;border-radius:50%;background:#f7c66b}
+.tm-control-metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px;margin:21px 0 27px}
+.tm-control-metric{border:1px solid #e3eaf6;border-radius:19px;background:#fff;padding:20px;box-shadow:0 8px 26px #1b366b0a;min-width:0}
+.tm-control-metric .label{display:block;font-size:12px;color:#61728c;font-weight:700;margin-bottom:14px}
+.tm-control-metric .value{display:block;font-size:clamp(18px,2.4vw,29px);font-weight:850;line-height:1.2;overflow-wrap:anywhere;color:#122746}
+.tm-control-metric:first-child{background:#eef5ff;border-color:#cfe1ff}.tm-control-metric:first-child .value{color:#0866f5}
+.tm-control-panels{display:grid;grid-template-columns:1fr;gap:20px}
+.tm-control-panel{border:1px solid #e0e8f4;background:#fff;border-radius:23px;padding:24px;box-shadow:0 8px 28px #1b366b0b;min-width:0}
+.tm-control-panel h2{font-size:21px;margin:0 0 7px;color:#132746}
+.tm-control-panel>p{font-size:13px;margin:0 0 18px;color:#64748b}
+.tm-control-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tm-control-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}
+.tm-control-table th{background:#f3f7fe;color:#526682;font-size:11px;letter-spacing:.3px;text-transform:uppercase;padding:13px 15px;white-space:nowrap}
+.tm-control-table th:first-child{border-radius:10px 0 0 10px}.tm-control-table th:last-child{border-radius:0 10px 10px 0}
+.tm-control-table td{padding:15px;border-bottom:1px solid #edf1f8;color:#253953;vertical-align:middle}
+.tm-control-table tbody tr:last-child td{border-bottom:0}
+.tm-control-table tbody tr:hover{background:#f8fbff}
+.tm-control-tag{display:inline-flex;align-items:center;gap:6px;border-radius:50px;background:#e7f8f0;color:#08764b;font-size:11px;font-weight:800;padding:6px 10px;white-space:nowrap}
+.tm-control-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tm-control-tag.secondary{background:#eef2f8;color:#52657d}
+.tm-control-note{display:flex;gap:12px;align-items:flex-start;border-radius:17px;background:#fff8e9;border:1px solid #ffe7af;padding:16px 18px;margin-top:20px;color:#77561c;font-size:13px;line-height:1.6}
+.tm-control-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.tm-control-actions a{display:inline-flex;padding:12px 17px;border-radius:12px;background:#0866f5;color:#fff;font-weight:800;font-size:13px;text-decoration:none}
+.tm-control-actions a+a{background:#eaf2ff;color:#0866f5}
+@media(max-width:850px){.tm-control-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.tm-control-hero{padding:25px 21px;border-radius:20px}.tm-control-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tm-control-metric{padding:16px;border-radius:16px}.tm-control-metric:last-child{grid-column:1/-1}.tm-control-panel{padding:17px;border-radius:18px}.tm-control-table{min-width:490px}.tm-control-table td,.tm-control-table th{padding:12px}.tm-control-actions a{flex:1;justify-content:center}}
+</style>
+{% endblock %}
 {% block content %}
-<section class="section shop-page">
-    <div class="section-header">
-        <span class="section-label">TrendMix Control</span>
-        <h1>Controle & overzicht</h1>
-        <p>Bekijk snel de status van de webshop, categorieën en actuele productmix.</p>
-    </div>
-
-    <div class="control-grid">
-        <div class="control-card">
-            <span class="label">Totaal producten</span>
-            <span class="value">{{ stats.total_products }}</span>
-        </div>
-
-        <div class="control-card">
-            <span class="label">Categorieën</span>
-            <span class="value">{{ stats.total_categories }}</span>
-        </div>
-
-        <div class="control-card">
-            <span class="label">Aanbiedingen</span>
-            <span class="value">{{ stats.offers }}</span>
-        </div>
-
-        <div class="control-card">
-            <span class="label">Gemiddelde prijs</span>
-            <span class="value">{{ format_eur(stats.avg_price) }}</span>
-        </div>
-
-        <div class="control-card">
-            <span class="label">Top categorie</span>
-            <span class="value">{{ stats.top_category }}</span>
-        </div>
-    </div>
-
-    <div class="control-panel">
-        <h2>Categorie overzicht</h2>
-        <div class="control-table-wrapper">
-            <table class="control-table">
-                <thead>
-                    <tr>
-                        <th>Categorie</th>
-                        <th>Aantal</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for category, count in category_counts %}
-                    <tr>
-                        <td>{{ category }}</td>
-                        <td>{{ count }}</td>
-                        <td>
-                            {% if count > 0 %}
-                                <span class="control-tag">Actief</span>
-                            {% else %}
-                                <span class="control-tag secondary">Leeg</span>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="control-panel">
-        <h2>Top producten</h2>
-        <div class="control-table-wrapper">
-            <table class="control-table">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Categorie</th>
-                        <th>Prijs</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for product in products %}
-                    <tr>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.category }}</td>
-                        <td>{{ format_eur(product.price) }}</td>
-                        <td>
-                            {% if product.is_offer or product.old_price %}
-                                <span class="control-tag">Aanbieding</span>
-                            {% else %}
-                                <span class="control-tag secondary">Normaal</span>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+<section class="tm-control" aria-label="TrendMix catalogusoverzicht">
+  <div class="tm-control-hero">
+    <span class="tm-control-kicker">TrendMix · Catalogusoverzicht</span>
+    <h1>Controle & overzicht</h1>
+    <p>Een helder overzicht van de productcatalogus, de verdeling over categorieën en de gegevens die momenteel beschikbaar zijn.</p>
+    <span class="tm-control-pill">Webshop in ontwikkeling</span>
+  </div>
+  <div class="tm-control-metrics" aria-label="Cataloguscijfers">
+    <div class="tm-control-metric"><span class="label">Producten</span><strong class="value">{{ stats.total_products }}</strong></div>
+    <div class="tm-control-metric"><span class="label">Categorieën</span><strong class="value">{{ stats.total_categories }}</strong></div>
+    <div class="tm-control-metric"><span class="label">Gemarkeerde aanbiedingen</span><strong class="value">{{ stats.offers }}</strong></div>
+    <div class="tm-control-metric"><span class="label">Gemiddelde catalogusprijs</span><strong class="value">{{ format_eur(stats.avg_price) }}</strong></div>
+    <div class="tm-control-metric"><span class="label">Grootste categorie</span><strong class="value">{{ stats.top_category }}</strong></div>
+  </div>
+  <div class="tm-control-panels">
+    <section class="tm-control-panel">
+      <h2>Categorieën</h2><p>Aantal producten per categorie in de huidige catalogus.</p>
+      <div class="tm-control-scroll"><table class="tm-control-table"><thead><tr><th scope="col">Categorie</th><th scope="col">Producten</th><th scope="col">Catalogusstatus</th></tr></thead><tbody>
+      {% for category, count in category_counts %}
+      <tr><td><strong>{{ category }}</strong></td><td>{{ count }}</td><td>{% if count > 0 %}<span class="tm-control-tag">Gevuld</span>{% else %}<span class="tm-control-tag secondary">Nog leeg</span>{% endif %}</td></tr>
+      {% else %}<tr><td colspan="3">Geen categoriegegevens beschikbaar.</td></tr>{% endfor %}
+      </tbody></table></div>
+    </section>
+    <section class="tm-control-panel">
+      <h2>Productoverzicht</h2><p>Productgegevens uit de huidige catalogus. Vermelde prijzen en aanbiedingen zijn nog niet definitief gevalideerd.</p>
+      <div class="tm-control-scroll"><table class="tm-control-table"><thead><tr><th scope="col">Product</th><th scope="col">Categorie</th><th scope="col">Prijs</th><th scope="col">Vermelding</th></tr></thead><tbody>
+      {% for product in products %}
+      <tr><td><strong>{{ product.name }}</strong></td><td>{{ product.category }}</td><td>{{ format_eur(product.price) }}</td><td>{% if product.is_offer or product.old_price %}<span class="tm-control-tag secondary">Als aanbieding gemarkeerd</span>{% else %}<span class="tm-control-tag secondary">Standaard</span>{% endif %}</td></tr>
+      {% else %}<tr><td colspan="4">Nog geen producten beschikbaar.</td></tr>{% endfor %}
+      </tbody></table></div>
+    </section>
+  </div>
+  <div class="tm-control-note"><span aria-hidden="true">ⓘ</span><span><strong>Let op:</strong> dit overzicht toont catalogusgegevens, geen onafhankelijke kwaliteitscontrole of live voorraadstatus. Productfoto's, prijzen, betaalproces en overige webshopfuncties moeten vóór commerciële livegang worden gecontroleerd.</span></div>
+  <div class="tm-control-actions"><a href="/shop">Bekijk producten →</a><a href="/">Terug naar home</a></div>
 </section>
 {% endblock %}
