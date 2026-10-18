@@ -4,6 +4,7 @@
 <meta name="description" content="Ontdek gadgets, smart home, beauty, wonen en lifestyle bij TrendMix.">
 <link rel="canonical" href="{{ request.url_root.rstrip('/') }}/"><link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='storefront-v2.css',v='20261017-footer1') }}">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"{{ request.url_root.rstrip('/') }}/#organization","name":"TrendMix","url":"{{ request.url_root.rstrip('/') }}/"},{"@type":"WebSite","@id":"{{ request.url_root.rstrip('/') }}/#website","name":"TrendMix","url":"{{ request.url_root.rstrip('/') }}/","publisher":{"@id":"{{ request.url_root.rstrip('/') }}/#organization"}}]}</script>
 </head><body>
 <div class="topline"><div class="wrap topitems"><span>♧ &nbsp; Levering volgens productinformatie</span><span>↻ &nbsp; Retourinformatie</span><span>♢ &nbsp; Checkout in testfase</span><span>✉ &nbsp; Klantenservice</span><a href="/account">Account</a><a href="/wishlist">♡ Favorieten</a><a href="/winkelwagen">🛒 Winkelwagen ({{ cart_count|default(0) }})</a></div></div>
 <header class="header wrap"><a class="wordmark" href="/">Trend<span>Mix</span></a><form class="search" action="/" method="get"><input name="q" type="search" value="{{ search_query|default('') }}" placeholder="Zoek naar producten, merken of specificaties…" aria-label="Zoek producten"><button type="submit">⌕ <span>Zoeken</span></button></form><a class="offer" href="/aanbiedingen">％ Aanbiedingen</a></header>
