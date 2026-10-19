@@ -16,6 +16,18 @@ Ontdek populaire en interessante producten bij TrendMix.
 {% endif %}
 {% endblock %}
 
+{% block extra_css %}
+<style>
+.tm-shop-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:20px 0 38px}
+.tm-shop-grid .item{min-width:0}
+.tm-shop-grid .photo{display:block;aspect-ratio:1.1;overflow:hidden;background:#eaf2ff}
+.tm-shop-grid .photo img{width:100%;height:100%;object-fit:cover}
+.tm-shop-grid .iteminfo{padding:13px}
+.tm-shop-grid .iteminfo h3{font-size:16px;line-height:1.4;min-height:45px}
+.tm-shop-grid .iteminfo .add{width:100%}
+@media(max-width:760px){.tm-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px!important}.tm-shop-grid .iteminfo{padding:12px!important}.tm-shop-grid .iteminfo h3{font-size:14px!important;min-height:55px}.tm-shop-grid .iteminfo .add{font-size:13px!important;padding:12px 4px!important}.tm-shop-grid .photo{aspect-ratio:1.15}.tm-shop-grid .photo img{object-fit:cover}}
+</style>
+{% endblock %}
 {% block content %}
 
 <section class="page-section shop-page">
@@ -183,134 +195,11 @@ Ontdek populaire en interessante producten bij TrendMix.
 
 {% if products %}
 
-<div class="product-grid shop-product-grid">
-
-    {% for product in products %}
-
-    <article class="product-card">
-
-        <!-- PRODUCT AFBEELDING -->
-
-        <a
-            href="{{ product.product_url }}"
-            class="product-card-image"
-        >
-
-            {% if product.badge %}
-
-            <span class="product-badge">
-                {{ product.badge }}
-            </span>
-
-            {% endif %}
-
-
-            {% if product.image %}
-
-            <img
-                src="{{ product.image if product.image.startswith('http') else url_for('static', filename=product.image) }}"
-                alt="{{ product.name }}"
-                loading="lazy"
-            >
-
-            {% elif product.image_url %}
-
-            <img
-                src="{{ product.image_url }}"
-                alt="{{ product.name }}"
-                loading="lazy"
-            >
-
-            {% else %}
-
-            <div class="product-image-placeholder">
-                <span aria-hidden="true">🛍️</span>
-                <span>Geen afbeelding</span>
-            </div>
-
-            {% endif %}
-
-        </a>
-
-
-        <!-- PRODUCT INFORMATIE -->
-
-        <div class="product-card-content">
-
-            <span class="product-category">
-                {{ product.category }}
-            </span>
-
-
-            <h2>
-
-                <a
-                    href="{{ product.product_url }}"
-                >
-                    {{ product.name }}
-                </a>
-
-            </h2>
-
-
-            {% if product.brand %}
-
-            <p class="product-brand">
-                {{ product.brand }}
-            </p>
-
-            {% endif %}
-
-            <!-- PRIJS + KNOP -->
-
-            <div class="product-card-bottom">
-
-                <div class="product-price">
-
-                    {% if product.old_price %}
-
-                    <span class="old-price">
-                        {{ format_eur(product.old_price) }}
-                    </span>
-
-                    {% endif %}
-
-
-                    <strong>
-                        {{ format_eur(product.price) }}
-                    </strong>
-
-
-                    {% if product.discount_percentage %}
-
-                    <span class="discount">
-                        -{{ product.discount_percentage }}%
-                    </span>
-
-                    {% endif %}
-
-                </div>
-
-
-                <a
-                    href="{{ product.product_url }}"
-                    class="product-button"
-                >
-                    Bekijk
-                    <span aria-hidden="true">→</span>
-                </a>
-
-            </div>
-
-        </div>
-
-    </article>
-
-    {% endfor %}
-
+<div class="productgrid tm-shop-grid">
+{% for product in products %}
+  {% include '_storefront_card.html' %}
+{% endfor %}
 </div>
-
-
 {% else %}
 
 <!-- ========================================================
