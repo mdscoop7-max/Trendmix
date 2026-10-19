@@ -29,3 +29,9 @@ main .tm-offers-hero img {
     }
 }
 
+/* Gadgets image is taller: keep its full content, but reduce desktop size. */
+@media (min-width: 761px) {
+    main .tm-new-hero:has(img[src*="gadgets.jpg"]) {
+        max-width: 760px;
+    }
+}
