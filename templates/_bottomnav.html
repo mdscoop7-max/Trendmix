@@ -30,20 +30,11 @@ img[src*="/img/product/"]{object-fit:cover!important;padding:0!important;backgro
 @media(prefers-color-scheme:dark){@media(max-width:760px){.tm-dock{background:rgba(18,24,38,.88);border-color:rgba(60,72,98,.8)}.tm-dock a{color:#a9b5ca}.tm-dock a:not(.is-active):hover{background:rgba(47,131,255,.14);color:#7fb2ff}.tm-dock-badge{border-color:#121826}}}
 </style>
 <nav class="tm-dock" aria-label="Mobiele navigatie">
-  <a href="/" class="{% if p == '/' %}is-active{% endif %}" {% if p == '/' %}aria-current="page"{% endif %}>
-    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1H15v-6h-6v6H4.5a1 1 0 0 1-1-1z"/></svg></span>
-    <span class="tm-dock-label">Home</span>
-  </a>
-  <a href="/shop" class="{% if is_shop %}is-active{% endif %}" {% if is_shop %}aria-current="page"{% endif %}>
-    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect class="tm-fill" x="3.5" y="3.5" width="7" height="7" rx="2"/><rect class="tm-fill" x="13.5" y="3.5" width="7" height="7" rx="2"/><rect class="tm-fill" x="3.5" y="13.5" width="7" height="7" rx="2"/><circle cx="17" cy="17" r="3.2"/><path d="m19.4 19.4 1.6 1.6"/></svg></span>
-    <span class="tm-dock-label">Shop</span>
-  </a>
-  <a href="/wishlist" class="{% if p == '/wishlist' %}is-active{% endif %}" {% if p == '/wishlist' %}aria-current="page"{% endif %}>
-    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M12 20.5s-8-4.6-8-10.6A4.4 4.4 0 0 1 12 7.3a4.4 4.4 0 0 1 8 2.6c0 6-8 10.6-8 10.6z"/></svg>{% if wishlist_ids %}<span class="tm-dock-badge">{{ wishlist_ids|length }}</span>{% endif %}</span>
-    <span class="tm-dock-label">Favorieten</span>
-  </a>
-  <a href="/aanbiedingen" class="{% if p == '/aanbiedingen' %}is-active{% endif %}" {% if p == '/aanbiedingen' %}aria-current="page"{% endif %}><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M4 9V5a1 1 0 0 1 1-1h5l10 10a2 2 0 0 1 0 3l-3 3a2 2 0 0 1-3 0L4 10z"/><circle cx="8" cy="8" r="1.3"/></svg></span><span class="tm-dock-label">Aanbiedingen</span></a>
-  <a href="/#collecties" class="{% if p in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}is-active{% endif %}"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect class="tm-fill" x="3" y="3" width="7" height="7" rx="1.5"/><rect class="tm-fill" x="14" y="3" width="7" height="7" rx="1.5"/><rect class="tm-fill" x="3" y="14" width="7" height="7" rx="1.5"/><rect class="tm-fill" x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="tm-dock-label">Collecties</span></a>
+  <a href="/" class="{% if p == '/' %}is-active{% endif %}" {% if p == '/' %}aria-current="page"{% endif %} aria-label="Home"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v9.5A1.5 1.5 0 0 1 19.5 21H15v-7H9v7H4.5A1.5 1.5 0 0 1 3 19.5z"/></svg></span><span class="tm-dock-label">Home</span></a>
+  <a href="/shop" class="{% if is_shop %}is-active{% endif %}" {% if is_shop %}aria-current="page"{% endif %} aria-label="Shop"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="14" rx="3"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg></span><span class="tm-dock-label">Shop</span></a>
+  <a href="/wishlist" class="{% if p == '/wishlist' %}is-active{% endif %}" {% if p == '/wishlist' %}aria-current="page"{% endif %} aria-label="Favorieten"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 5.6a5.4 5.4 0 0 0-7.6 0l-.8.8-.8-.8a5.4 5.4 0 0 0-7.6 7.6L12 21l8.4-7.8a5.4 5.4 0 0 0 0-7.6z"/></svg>{% if wishlist_ids %}<span class="tm-dock-badge">{{ wishlist_ids|length }}</span>{% endif %}</span><span class="tm-dock-label">Favorieten</span></a>
+  <a href="/aanbiedingen" class="{% if p == '/aanbiedingen' %}is-active{% endif %}" {% if p == '/aanbiedingen' %}aria-current="page"{% endif %} aria-label="Aanbiedingen"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.5h8.3L21 13.7a2.3 2.3 0 0 1 0 3.3L17 21a2.3 2.3 0 0 1-3.3 0L4.5 11.8a3.4 3.4 0 0 1-1-2.4z"/><circle cx="8.5" cy="8.5" r="1.3"/></svg></span><span class="tm-dock-label">Aanbiedingen</span></a>
+  <a href="/#collecties" class="{% if p in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}is-active{% endif %}" aria-label="Collecties"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.3" height="7.3" rx="2"/><rect x="13.7" y="3" width="7.3" height="7.3" rx="2"/><rect x="3" y="13.7" width="7.3" height="7.3" rx="2"/><rect x="13.7" y="13.7" width="7.3" height="7.3" rx="2"/></svg></span><span class="tm-dock-label">Collecties</span></a>
 </nav>
 
 <style>
@@ -293,4 +284,29 @@ main .tm-campaign .tm-photo{object-position:center 57%!important}
 main .tm-campaign::before{background:linear-gradient(180deg,rgba(4,13,30,.92) 0%,rgba(4,13,30,.72) 45%,rgba(4,13,30,.04) 88%)!important}
 }
 @media(min-width:761px){main .tm-campaign{min-height:420px!important;max-height:500px!important}}
+</style>
+
+<style>
+/* TrendMix refined mobile dock 2026; desktop styles untouched */
+@media (max-width:760px) {
+  .tm-dock { left:12px!important; right:12px!important; bottom:calc(11px + env(safe-area-inset-bottom,0px))!important; display:grid!important; grid-template-columns:repeat(5,minmax(0,1fr))!important; gap:2px!important; padding:7px 6px!important; border-radius:26px!important; background:rgba(255,255,255,.96)!important; border:1px solid #dfe8f5!important; box-shadow:0 10px 36px rgba(16,39,75,.15),0 3px 8px rgba(16,39,75,.05)!important; backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+  .tm-dock a { min-height:64px!important; min-width:0!important; gap:3px!important; border-radius:19px!important; background:transparent!important; box-shadow:none!important; color:#63748d!important; font-size:10px!important; font-weight:750!important; }
+  .tm-dock .tm-dock-ico { display:grid; place-items:center; width:37px!important; height:37px!important; border-radius:13px; background:#f2f6fc; color:#526985; transition:transform .18s ease,background .18s ease,color .18s ease; }
+  .tm-dock svg { width:23px!important; height:23px!important; fill:none!important; stroke:currentColor!important; stroke-width:1.9!important; stroke-linecap:round; stroke-linejoin:round; }
+  .tm-dock a.is-active { color:#0967e9!important; }
+  .tm-dock a.is-active .tm-dock-ico { color:#fff!important; background:linear-gradient(135deg,#2e91ff,#0866f5 72%,#064dc6)!important; box-shadow:0 5px 13px rgba(8,102,245,.30)!important; transform:translateY(-1px); }
+  .tm-dock a.is-active svg { transform:none!important; }
+  .tm-dock a:not(.is-active):hover .tm-dock-ico { background:#e6efff; color:#0967e9; }
+  .tm-dock a:focus-visible { outline:3px solid #ffb648!important; outline-offset:-2px; }
+  .tm-dock .tm-dock-label { max-width:100%; white-space:nowrap; letter-spacing:-.1px; }
+  .tm-dock .tm-dock-badge { border-color:#fff!important; }
+}
+@media (max-width:360px) {
+  .tm-dock { left:6px!important; right:6px!important; padding-inline:3px!important; }
+  .tm-dock a { font-size:9px!important; }
+  .tm-dock .tm-dock-ico { width:34px!important; height:34px!important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tm-dock a,.tm-dock svg,.tm-dock .tm-dock-ico { transition:none!important; }
+}
 </style>
