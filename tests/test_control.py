@@ -355,3 +355,20 @@ def test_catalog_product_cards_and_detail_are_bilingual():
     source = Path("static/trendmix-ui-2026.js").read_text(encoding="utf-8")
     assert "function translateProductText()" in source
     assert "$$('[data-tm-product-nl][data-tm-product-en]')" in source
+
+
+def test_extended_english_labels_across_website():
+    from pathlib import Path
+    script = Path("static/trendmix-english-labels.js").read_text(encoding="utf-8")
+    assert "TrendMixEnglishLabels" in script
+    assert '"Je winkelwagen": "Your shopping cart"' in script
+    assert '"Algemene voorwaarden": "Terms and Conditions"' in script
+    translator = Path("static/trendmix-ui-2026.js").read_text(encoding="utf-8")
+    assert "function translateRemainingText()" in translator
+    assert "translateRemainingText();" in translator
+    client = app.test_client()
+    for path in ("/", "/shop", "/wishlist", "/winkelwagen", "/contact",
+                 "/privacy", "/retouren", "/beauty-care/elektrische-gezichtsroller"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        assert "trendmix-english-labels.js" in response.get_data(as_text=True)

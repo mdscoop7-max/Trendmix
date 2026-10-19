@@ -81,6 +81,68 @@
       if(description&&meta)meta.setAttribute('content',lang==='en'?description.dataset.tmProductEn:description.dataset.tmProductNl);
     }
   }
+  function translateRemainingText(){
+    const dictionary=window.TrendMixEnglishLabels||{};
+    const extra={
+      'Zoek naar producten, merken of specificaties…':'Search products, brands or specifications…',
+      'Zoek producten…':'Search products…',
+      'Zoek in deze collectie...':'Search this collection...',
+      'Zoek producten':'Search products',
+      'Zoekresultaten':'Search results',
+      'Je e-mailadres':'Your email address',
+      'Je naam':'Your name',
+      'naam@voorbeeld.nl':'name@example.com',
+      'jouw@email.nl':'you@example.com',
+      'Vertel kort waarmee we je kunnen helpen...':'Tell us briefly how we can help...',
+      'Waar kunnen we je mee helpen?':'How can we help?',
+      'Aantal verminderen':'Decrease quantity',
+      'Aantal verhogen':'Increase quantity',
+      'Product verwijderen':'Remove product',
+      'Toevoegen aan winkelwagen':'Add to cart',
+      'Toevoegen aan favorieten':'Add to favourites',
+      'Verwijderen uit favorieten':'Remove from favourites',
+      'Bekijk producten in':'View products in',
+      'Stuur ons direct een bericht':'Send us a message',
+      'Geen resultaten gevonden.':'No results found.',
+      'product gevonden':'product found',
+      'producten gevonden':'products found',
+      'Bericht':'Message'
+    };
+    const mapping={...dictionary,...extra};
+    const excluded='script,style,noscript,textarea,option,select,[data-tm-product-nl],[data-tm-info-nl],[data-tm-tr],[data-i18n]';
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    let node;
+    while((node=walker.nextNode())){
+      const element=node.parentElement;
+      if(!element||element.closest(excluded))continue;
+      if(node.__tmLocaleOriginal===undefined)node.__tmLocaleOriginal=node.__tmOriginal!==undefined?node.__tmOriginal:node.nodeValue;
+      const original=node.__tmLocaleOriginal;
+      const trimmed=original.trim();
+      if(!trimmed||trimmed.length>800)continue;
+      let english=mapping[trimmed];
+      if(!english&&/^\d+ producten$/.test(trimmed))english=trimmed.replace('producten','products');
+      if(!english&&/^\d+ resultaten$/.test(trimmed))english=trimmed.replace('resultaten','results');
+      if(!english&&/^\d+ producten in /.test(trimmed))english=trimmed.replace('producten in','products in');
+      if(lang==='en'&&english)node.nodeValue=original.replace(trimmed,english);
+      else node.nodeValue=original;
+    }
+    // Attributes retain the Dutch original as a per-element data property.
+    $$('[placeholder],[aria-label],[title]').forEach(node=>{
+      if(node.closest('[data-tm-product-nl],[data-tm-info-nl]'))return;
+      for(const attr of ['placeholder','aria-label','title']){
+        if(!node.hasAttribute(attr))continue;
+        const key='__tmOriginal'+attr.replace(/[^a-z]/g,'_');
+        if(node[key]===undefined)node[key]=node.getAttribute(attr);
+        const original=node[key];
+        if(mapping[original])node.setAttribute(attr,lang==='en'?mapping[original]:original);
+      }
+    });
+    if(!$('[data-tm-info-root]')&&!$('.tm-product-page')){
+      if(document.__tmOriginalPageTitle===undefined)document.__tmOriginalPageTitle=document.title;
+      const title=document.__tmOriginalPageTitle;
+      document.title=lang==='en'?(mapping[title]||title):title;
+    }
+  }
   function setLanguage(value,propagate){
     lang=value==='en'?'en':'nl';
     document.documentElement.lang=lang;
@@ -104,6 +166,7 @@
         picker.value=lang;picker.dispatchEvent(new Event('change',{bubbles:true}));
       }
     }
+    translateRemainingText();
   }
   function lock(){document.body.classList.toggle('tm-mobile-overlay-open',!!opened)}
   function openDialog(kind,activator){
