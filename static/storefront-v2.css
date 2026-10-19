@@ -67,3 +67,81 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
     height: auto !important;
   }
 }
+
+/* TrendMix desktop compact banners — images and mobile untouched */
+@media (min-width: 992px) {
+  /* Same full width as the menu, with a 340–400px-high desktop frame. */
+  main.wrap > .tm-new-hero,
+  main.wrap > .tm-offers-hero,
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
+    height: clamp(340px, 28vw, 400px);
+    max-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 0;
+    background-color: #102447;
+  }
+
+  /* Extend the original artwork across the whole frame as a soft backdrop.
+     Keep the full, sharp image in front: no text, CTA, or image cropping. */
+  main.wrap > .tm-new-hero::before,
+  main.wrap > .tm-offers-hero::before,
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero::before {
+    content: "";
+    position: absolute;
+    inset: -28px;
+    z-index: 0;
+    background-image: var(--tm-hero-desktop-image);
+    background-size: cover;
+    background-position: center;
+    filter: blur(22px) brightness(.54);
+    pointer-events: none;
+  }
+
+  main.wrap > .tm-new-hero > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  main.wrap > .tm-new-hero img,
+  main.wrap > .tm-offers-hero > img,
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero > img {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: auto !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    border-radius: 12px;
+  }
+
+  main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) {
+    --tm-hero-desktop-image: url("/static/images/hero/gadgets.jpg");
+  }
+  main.wrap > .tm-new-hero:has(img[src*="smart-home.png"]) {
+    --tm-hero-desktop-image: url("/static/images/hero/smart-home.png");
+  }
+  main.wrap > .tm-new-hero:has(img[src*="beauty-care.png"]) {
+    --tm-hero-desktop-image: url("/static/images/hero/beauty-care.png");
+  }
+  main.wrap > .tm-new-hero:has(img[src*="lifestyle-sport.jpg"]) {
+    --tm-hero-desktop-image: url("/static/images/hero/lifestyle-sport.jpg");
+  }
+  main.wrap > .tm-offers-hero {
+    --tm-hero-desktop-image: url("/static/images/hero/aanbiedingen.png");
+  }
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
+    --tm-hero-desktop-image: url("/static/images/hero/alle-producten.png");
+  }
+}
