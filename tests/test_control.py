@@ -324,3 +324,34 @@ def test_information_page_translation_bundle_and_original_hero_untouched():
     response = client.get("/")
     assert response.status_code == 200
     assert 'images/hero/gadgets.jpg' in response.get_data(as_text=True)
+
+
+def test_all_test_products_have_curated_english_names():
+    import json
+    from pathlib import Path
+    names = json.loads(Path("content/product-names-en.json").read_text(encoding="utf-8"))
+    assert len(names) == 5
+    for slug, group in names.items():
+        assert len(group) == 20, slug
+    from app import load_all_products, filter_products
+    products = load_all_products()
+    assert len(products) == 100
+    assert all(p["en_name"] and p["en_short_description"] and p["en_description"] for p in products)
+    product = next(p for p in products if p["category_slug"] == "gadgets")
+    results = filter_products(products, search=product["en_name"])
+    assert any(p["id"] == product["id"] for p in results)
+
+
+def test_catalog_product_cards_and_detail_are_bilingual():
+    client = app.test_client()
+    for path in ("/", "/shop", "/gadgets", "/beauty-care/elektrische-gezichtsroller", "/winkelwagen"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        html = response.get_data(as_text=True)
+        if path != "/winkelwagen":
+            assert "data-tm-product-nl=" in html, path
+            assert "data-tm-product-en=" in html, path
+    from pathlib import Path
+    source = Path("static/trendmix-ui-2026.js").read_text(encoding="utf-8")
+    assert "function translateProductText()" in source
+    assert "$$('[data-tm-product-nl][data-tm-product-en]')" in source

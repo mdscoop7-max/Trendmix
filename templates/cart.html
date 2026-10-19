@@ -11,8 +11,8 @@
 <div id="cartItems">
 {% for item in cart %}
 <div class="cart-row">
-{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}" data-product-image data-fallback-icon="🛍️">{% else %}<div class="cart-thumb">{{ tm_icon('bag') }}</div>{% endif %}
-<div class="cart-info"><strong>{{ item.name }}</strong><span>{{ format_eur(item.price) }} <span data-i18n="perPiece">per stuk</span></span><strong class="cart-item-subtotal"><span data-i18n="subtotal">Subtotaal</span> · {{ format_eur(item.price * item.qty) }}</strong></div>
+{% if item.image %}<img src="{{ item.image }}" alt="{{ item.name }}" data-tm-product-nl="{{ item.name }}" data-tm-product-en="{{ item.en_name }}" data-product-image data-fallback-icon="🛍️">{% else %}<div class="cart-thumb">{{ tm_icon('bag') }}</div>{% endif %}
+<div class="cart-info"><strong data-tm-product-nl="{{ item.name }}" data-tm-product-en="{{ item.en_name }}">{{ item.name }}</strong><span>{{ format_eur(item.price) }} <span data-i18n="perPiece">per stuk</span></span><strong class="cart-item-subtotal"><span data-i18n="subtotal">Subtotaal</span> · {{ format_eur(item.price * item.qty) }}</strong></div>
 <div class="cart-actions">
 <form action="/winkelwagen" method="post"><input type="hidden" name="action" value="change"><input type="hidden" name="product_id" value="{{ item.id }}"><input type="hidden" name="delta" value="-1"><button type="submit" aria-label="Aantal verminderen">{{ tm_icon('minus') }}</button></form>
 <b>{{ item.qty }}</b>

@@ -16,6 +16,8 @@ app.config.update(
 )
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
+with (BASE_DIR / "content" / "product-names-en.json").open(encoding="utf-8") as _product_translation_stream:
+    PRODUCT_NAMES_EN = json.load(_product_translation_stream)
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 
 CATEGORIES = {
@@ -134,6 +136,14 @@ def enrich_product(product, category_slug, index):
     item["index"] = index
     item.setdefault("id", f"tm-{category_slug}-{slugify(item.get('name'))}-{index}")
     item.setdefault("slug", slugify(item.get("name")) or f"product-{index + 1}")
+    item["en_name"] = PRODUCT_NAMES_EN.get(category_slug, {}).get(item["slug"], item["name"])
+    item["en_short_description"] = f"{item['en_name']} — a provisional selection from the TrendMix test catalogue."
+    item["en_description"] = (
+        f"{item['en_name']} is a provisional product in the TrendMix catalogue. "
+        "The image is temporary and may differ from the final item. "
+        "Specifications, pricing, supplier, availability and delivery times "
+        "will be verified before commercial sales."
+    )
     item.setdefault("brand", None)
     item.setdefault("old_price", None)
     item.setdefault("badge", None)
@@ -175,6 +185,7 @@ def cart_items():
         valid.append({
             "id": product["id"],
             "name": product["name"],
+            "en_name": product["en_name"],
             "price": float(product.get("price", 0) or 0),
             "image": product.get("image", ""),
             "category_name": product["category_name"],
@@ -244,6 +255,7 @@ def filter_products(product_list, category=None, search=None):
             result = [
                 p for p in result
                 if needle in str(p.get("name", "")).lower()
+                or needle in str(p.get("en_name", "")).lower()
                 or needle in str(p.get("brand", "")).lower()
                 or needle in str(p.get("description", "")).lower()
             ]

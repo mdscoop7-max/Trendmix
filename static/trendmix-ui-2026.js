@@ -61,6 +61,26 @@
     const meta=$('meta[name="description"]');
     if(meta&&description)meta.setAttribute('content',description);
   }
+  function translateProductText(){
+    $$('[data-tm-product-nl][data-tm-product-en]').forEach(node=>{
+      const translated=lang==='en'?node.dataset.tmProductEn:node.dataset.tmProductNl;
+      if(translated===undefined)return;
+      if(node.tagName==='IMG')node.setAttribute('alt',translated);
+      else node.textContent=translated;
+      const card=node.closest('[data-product-card]');
+      if(card&&node.tagName!=='IMG')card.dataset.name=translated.toLowerCase();
+    });
+    $$('[data-tm-product-label-nl][data-tm-product-label-en]').forEach(node=>{
+      node.setAttribute('aria-label',lang==='en'?node.dataset.tmProductLabelEn:node.dataset.tmProductLabelNl);
+    });
+    const detail=$('.tm-product-page .detail-copy h1[data-tm-product-nl]');
+    if(detail){
+      document.title=(lang==='en'?detail.dataset.tmProductEn:detail.dataset.tmProductNl)+' | TrendMix';
+      const description=$('.tm-product-page .detail-description');
+      const meta=$('meta[name="description"]');
+      if(description&&meta)meta.setAttribute('content',lang==='en'?description.dataset.tmProductEn:description.dataset.tmProductNl);
+    }
+  }
   function setLanguage(value,propagate){
     lang=value==='en'?'en':'nl';
     document.documentElement.lang=lang;
@@ -76,6 +96,7 @@
     save(lang);
     translateCommonUI();
     translateInformationPage();
+    translateProductText();
     if(propagate){
       if(typeof window.applyLanguage==='function')window.applyLanguage(lang);
       const picker=$('#trendmixLanguage')||$('#languageSelect');

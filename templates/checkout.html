@@ -15,7 +15,7 @@
 {% else %}
 <p class="checkout-intro">{% if test_mode %}Testmodus: WooCommerce is nog niet gekoppeld. Je gegevens worden niet naar een webshop gestuurd.{% else %}Vul je gegevens in om je bestelling te plaatsen.{% endif %}</p>
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
-<div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span>{{ item.name }} × {{ item.qty }}</span><strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
+<div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span data-tm-product-nl="{{ item.name }}" data-tm-product-en="{{ item.en_name }}">{{ item.name }}</span> × {{ item.qty }}<strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
 <div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
 <div class="checkout-layout"><form method="post" class="checkout-form modern-form"><div class="form-heading"><span>01</span><div><h2 data-i18n="deliveryDetails">Bezorggegevens</h2><p>Velden met * zijn verplicht.</p></div></div>
 <label><span data-i18n="firstName">Voornaam *</span><input placeholder="Voornaam" name="first_name" autocomplete="given-name" required value="{{ customer.get('first_name', '') if customer else '' }}"></label>

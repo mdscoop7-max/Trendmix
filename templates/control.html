@@ -67,7 +67,7 @@
       <h2>Productoverzicht</h2><p>Productgegevens uit de huidige catalogus. Vermelde prijzen en aanbiedingen zijn nog niet definitief gevalideerd.</p>
       <div class="tm-control-scroll"><table class="tm-control-table"><thead><tr><th scope="col">Product</th><th scope="col">Categorie</th><th scope="col">Prijs</th><th scope="col">Vermelding</th></tr></thead><tbody>
       {% for product in products %}
-      <tr><td><strong>{{ product.name }}</strong></td><td>{{ product.category }}</td><td>{{ format_eur(product.price) }}</td><td>{% if product.is_offer or product.old_price %}<span class="tm-control-tag secondary">Als aanbieding gemarkeerd</span>{% else %}<span class="tm-control-tag secondary">Standaard</span>{% endif %}</td></tr>
+      <tr><td><strong data-tm-product-nl="{{ product.name }}" data-tm-product-en="{{ product.en_name }}">{{ product.name }}</strong></td><td>{{ product.category }}</td><td>{{ format_eur(product.price) }}</td><td>{% if product.is_offer or product.old_price %}<span class="tm-control-tag secondary">Als aanbieding gemarkeerd</span>{% else %}<span class="tm-control-tag secondary">Standaard</span>{% endif %}</td></tr>
       {% else %}<tr><td colspan="4">Nog geen producten beschikbaar.</td></tr>{% endfor %}
       </tbody></table></div>
     </section>

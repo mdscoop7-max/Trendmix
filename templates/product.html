@@ -62,14 +62,14 @@
   <nav class="breadcrumb" aria-label="Broodkruimel">
     <a href="/">Home</a><span aria-hidden="true">/</span>
     <a href="/{{ category_slug }}">{{ category_name }}</a><span aria-hidden="true">/</span>
-    <span>{{ product.name }}</span>
+    <span data-tm-product-nl="{{ product.name }}" data-tm-product-en="{{ product.en_name }}">{{ product.name }}</span>
   </nav>
 
   <section class="detail-layout">
     <div class="detail-gallery">
       <div class="detail-image">
         {% if product.images %}
-          <img src="{{ product.images[0] }}" alt="{{ product.name }}" loading="eager" decoding="async" data-product-image data-fallback-icon="{{ product.icon|default('✨') }}">
+          <img src="{{ product.images[0] }}" alt="{{ product.name }}" data-tm-product-nl="{{ product.name }}" data-tm-product-en="{{ product.en_name }}" loading="eager" decoding="async" data-product-image data-fallback-icon="{{ product.icon|default('✨') }}">
         {% else %}
           <span class="image-fallback" data-i18n="noImage">Geen afbeelding beschikbaar</span>
         {% endif %}
@@ -90,7 +90,7 @@
         <span class="eyebrow dark">{{ category_name }}</span>
         {% if product.brand %}<span class="product-brand">{{ product.brand }}</span>{% endif %}
       </div>
-      <h1>{{ product.name }}</h1>
+      <h1 data-tm-product-nl="{{ product.name }}" data-tm-product-en="{{ product.en_name }}">{{ product.name }}</h1>
 
       <div class="detail-price-row">
         <strong class="detail-price">€ {{ "%.2f"|format(product.price)|replace(".", ",") }}</strong>
@@ -100,7 +100,7 @@
         {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
       </div>
 
-      <p class="detail-description">{{ product.short_description }}</p>
+      <p class="detail-description" data-tm-product-nl="{{ product.short_description }}" data-tm-product-en="{{ product.en_short_description }}">{{ product.short_description }}</p>
       <p class="detail-test-note">Demo-product en testprijs. Definitieve productfoto, prijs, voorraad en specificaties worden vóór commerciële livegang met de leverancier bevestigd.</p><div class="detail-confidence"><span data-i18n="clearProductInfo">{{ tm_icon('check') }} Duidelijke productinformatie</span><span data-i18n="testCollection">Testcollectie</span><span data-i18n="returnPolicy">Retourvoorwaarden vóór livegang</span></div>
 
       <div class="product-availability">
@@ -137,7 +137,7 @@
     <div class="content-panel">
       <span class="eyebrow dark" data-i18n="productInfo">Productinformatie</span>
       <h2 data-i18n="descriptionLabel">Beschrijving</h2>
-      <p>{{ product.description }}</p>
+      <p data-tm-product-nl="{{ product.description }}" data-tm-product-en="{{ product.en_description }}">{{ product.description }}</p>
     </div>
 
     {% if product.specifications %}
