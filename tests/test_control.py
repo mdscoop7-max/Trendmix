@@ -277,3 +277,50 @@ def test_product_buttons_render_accessible_vector_icons():
     assert 'tm-unified-icon' in html
     assert 'class="heartform"' in html
     assert 'class="add"' in html
+
+
+def test_information_pages_have_professional_bilingual_content():
+    from pathlib import Path
+    import json
+    client = app.test_client()
+    expected_sections = {
+        "over-trendmix": 7,
+        "voorwaarden": 12,
+        "privacy": 11,
+        "cookies": 9,
+        "bestellen": 9,
+        "retouren": 9,
+    }
+    for slug, minimum in expected_sections.items():
+        source = Path("content/information") / f"{slug}.json"
+        content = json.loads(source.read_text(encoding="utf-8"))
+        assert content["slug"] == slug
+        for language in ("nl", "en"):
+            document = content[language]
+            assert len(document["sections"]) >= minimum
+            assert len(document["lead"]) > 90
+            assert document["title"] and document["description"]
+        assert len(content["nl"]["sections"]) == len(content["en"]["sections"])
+        response = client.get("/" + slug)
+        assert response.status_code == 200, slug
+        html = response.get_data(as_text=True)
+        assert 'data-tm-info-root' in html, slug
+        assert 'class="tm-info-toc"' in html, slug
+        assert 'data-tm-info-en=' in html, slug
+        assert 'data-tm-info-nl=' in html, slug
+        assert html.count('class="tm-info-section"') >= minimum
+        assert html.count("<h1") == 1, slug
+        assert 'rel="canonical"' in html, slug
+        assert "trendmix-info.css" in html, slug
+
+
+def test_information_page_translation_bundle_and_original_hero_untouched():
+    from pathlib import Path
+    script = Path("static/trendmix-ui-2026.js").read_text(encoding="utf-8")
+    assert "function translateInformationPage()" in script
+    assert "$$('[data-tm-info-nl][data-tm-info-en]').forEach" in script
+    assert "$$('[data-tm-tr]').forEach" in script
+    client = app.test_client()
+    response = client.get("/")
+    assert response.status_code == 200
+    assert 'images/hero/gadgets.jpg' in response.get_data(as_text=True)

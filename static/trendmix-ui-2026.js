@@ -48,20 +48,34 @@
       });
     });
   }
+  function translateInformationPage(){
+    const root=$('[data-tm-info-root]');
+    if(!root)return;
+    $$('[data-tm-info-nl][data-tm-info-en]').forEach(node=>{
+      const value=lang==='en'?node.dataset.tmInfoEn:node.dataset.tmInfoNl;
+      if(value!==undefined)node.textContent=value;
+    });
+    const title=lang==='en'?root.dataset.tmPageTitleEn:root.dataset.tmPageTitleNl;
+    const description=lang==='en'?root.dataset.tmPageDescriptionEn:root.dataset.tmPageDescriptionNl;
+    if(title)document.title=title+' | TrendMix';
+    const meta=$('meta[name="description"]');
+    if(meta&&description)meta.setAttribute('content',description);
+  }
   function setLanguage(value,propagate){
     lang=value==='en'?'en':'nl';
     document.documentElement.lang=lang;
     const globalSelect=$('#tmGlobalLanguage');
     if(globalSelect)globalSelect.value=lang;
-    $('[data-tm-tr]').forEach(node=>{
+    $$('[data-tm-tr]').forEach(node=>{
       const text=node.dataset[lang==='en'?'tmEn':'tmNl'];
       if(text!==undefined)node.textContent=text;
     });
-    $$('[data-tm-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.tmLanguage===lang)));
+    $$$('[data-tm-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.tmLanguage===lang)));
     const input=$('[data-tm-ai-input]');if(input)input.placeholder=labels[lang].ask;
-    $$('[data-tm-menu-trigger]').forEach(btn=>btn.setAttribute('aria-label',labels[lang].menu));
+    $$$('[data-tm-menu-trigger]').forEach(btn=>btn.setAttribute('aria-label',labels[lang].menu));
     save(lang);
     translateCommonUI();
+    translateInformationPage();
     if(propagate){
       if(typeof window.applyLanguage==='function')window.applyLanguage(lang);
       const picker=$('#trendmixLanguage')||$('#languageSelect');
@@ -79,7 +93,7 @@
     drawer.hidden=kind!=='drawer';
     assist.hidden=kind!=='ai';
     opened=kind;
-    $$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded',String(kind==='drawer')));
+    $$$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded',String(kind==='drawer')));
     lock();
     const focus=kind==='drawer'?drawer.querySelector('[data-tm-drawer-close]'):assist.querySelector('[data-tm-ai-input]');
     if(focus)focus.focus({preventScroll:true});
@@ -88,7 +102,7 @@
     const drawer=$('#tmMobileDrawer'),assist=$('#tmSmartAssistant');
     if(drawer)drawer.hidden=true;
     if(assist)assist.hidden=true;
-    $$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded','false'));
+    $$$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded','false'));
     opened=null;lock();
     if(focusBack&&returnFocus&&typeof returnFocus.focus==='function')returnFocus.focus({preventScroll:true});
   }
@@ -128,15 +142,15 @@
     lang=stored()==='en'?'en':'nl';setLanguage(lang,false);
     const globalSelect=$('#tmGlobalLanguage');
     if(globalSelect)globalSelect.addEventListener('change',()=>setLanguage(globalSelect.value,true));
-    $('[data-tm-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.tmLanguage,true)));
-    $$('[data-tm-menu-trigger]').forEach(btn=>btn.addEventListener('click',()=>{opened==='drawer'?closeDialog():openDialog('drawer',btn)}));
-    $$('[data-tm-drawer-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
-    $$('[data-tm-ai-open]').forEach(btn=>btn.addEventListener('click',()=>{
+    $$('[data-tm-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.tmLanguage,true)));
+    $$$('[data-tm-menu-trigger]').forEach(btn=>btn.addEventListener('click',()=>{opened==='drawer'?closeDialog():openDialog('drawer',btn)}));
+    $$$('[data-tm-drawer-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
+    $$$('[data-tm-ai-open]').forEach(btn=>btn.addEventListener('click',()=>{
       if(opened==='drawer')closeDialog(false);
       openDialog('ai',btn);
     }));
-    $$('[data-tm-ai-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
-    $$('[data-tm-quick]').forEach(btn=>btn.addEventListener('click',()=>{
+    $$$('[data-tm-ai-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
+    $$$('[data-tm-quick]').forEach(btn=>btn.addEventListener('click',()=>{
       const type=btn.dataset.tmQuick;
       const nl={shipping:'Levering',returns:'Retouren',orders:'Bestellen',contact:'Contact'};
       const en={shipping:'Delivery',returns:'Returns',orders:'Ordering',contact:'Contact'};

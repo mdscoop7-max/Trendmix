@@ -487,7 +487,31 @@ def render_info_page(info_slug):
     page = INFO_PAGES.get(info_slug)
     if not page:
         return "Pagina niet gevonden", 404
-    return render_template("info.html", title=page["title"], description=page["description"], info_slug=info_slug, path=f"/{info_slug}", content=page["content"], categories=CATEGORIES)
+
+    # Professional bilingual information pages are stored locally, with the Dutch
+    # text rendered on the server for accessibility and search indexing. No
+    # supplier, delivery, payment or business details are invented.
+    info_file = BASE_DIR / "content" / "information" / f"{info_slug}.json"
+    info_doc = None
+    if info_file.is_file():
+        with info_file.open(encoding="utf-8") as stream:
+            info_doc = json.load(stream)
+        if info_doc.get("slug") != info_slug or not all(
+            info_doc.get(language, {}).get("sections") for language in ("nl", "en")
+        ):
+            raise ValueError(f"Invalid bilingual information document: {info_slug}")
+
+    source = info_doc["nl"] if info_doc else page
+    return render_template(
+        "info.html",
+        title=source["title"],
+        description=source["description"],
+        info_slug=info_slug,
+        path=f"/{info_slug}",
+        content=page["content"],
+        info_doc=info_doc,
+        categories=CATEGORIES,
+    )
 
 
 @app.route("/<category_slug>")
