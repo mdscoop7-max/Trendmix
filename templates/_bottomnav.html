@@ -170,3 +170,69 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 .footer.professional-footer .footer-column a{font-size:12px!important;line-height:1.4!important;margin:0 0 10px!important}
 }
 </style>
+
+<style>
+/* TrendMix 2026 category-specific responsive campaign hero */
+.tm-campaign{--tm-accent:#0866f5;--tm-dark:#061a3b;position:relative!important;isolation:isolate;display:flex!important;align-items:center;min-height:400px!important;overflow:hidden!important;background:var(--tm-dark)!important;border-radius:23px!important;color:#fff!important;box-shadow:0 18px 45px #0d264523}
+.tm-campaign::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 83% 34%,color-mix(in srgb,var(--tm-accent),transparent 25%),transparent 53%),linear-gradient(100deg,var(--tm-dark) 3%,color-mix(in srgb,var(--tm-dark),#233456 25%) 65%,#0b1d34)}
+.tm-campaign .herotext{width:min(55%,680px);padding:44px 5%;z-index:2;text-shadow:0 2px 14px #07152970}
+.tm-campaign .pill{background:var(--tm-accent)!important;letter-spacing:.09em}
+.tm-campaign .herotext h1{color:#fff!important;font-size:clamp(30px,3.8vw,57px)!important;line-height:1.08!important;letter-spacing:-.04em!important}
+.tm-campaign .herotext p{color:#e4eaf6!important;max-width:480px;font-size:clamp(13px,1.35vw,17px)!important}
+.tm-campaign .heroperks{color:#e3ecfa!important;gap:13px!important;font-size:11px!important}
+.tm-campaign .herobutton{display:inline-flex!important;margin-top:24px;padding:15px 25px;border-radius:12px;background:var(--tm-accent);color:#fff;font-size:14px;font-weight:800;box-shadow:0 8px 22px #020b2155}
+.tm-campaign .heropics{position:absolute;right:1%;top:0;bottom:0;width:51%;display:flex!important;align-items:center;justify-content:center;padding:15px!important;pointer-events:none}
+.tm-campaign .heroitem{display:none!important}
+.tm-campaign .tm-visual{width:100%;height:100%;max-height:385px;filter:drop-shadow(0 20px 30px #0005)}
+.tm-campaign.tm-smart{--tm-accent:#ff791e;--tm-dark:#412313}
+.tm-campaign.tm-beauty{--tm-accent:#f52e91;--tm-dark:#502039}
+.tm-campaign.tm-home{--tm-accent:#17a96c;--tm-dark:#173a2a}
+.tm-campaign.tm-sport{--tm-accent:#8546ff;--tm-dark:#231743}
+@media(max-width:760px){.tm-campaign{min-height:490px!important;display:block!important;border-radius:18px!important}.tm-campaign .herotext{width:100%;padding:27px 23px 0!important}.tm-campaign .herotext h1{font-size:clamp(29px,8vw,39px)!important;max-width:370px}.tm-campaign .herotext p{font-size:13px!important;max-width:310px}.tm-campaign .heroperks{display:none!important}.tm-campaign .herobutton{margin-top:13px;padding:12px 19px;font-size:12px}.tm-campaign .heropics{top:auto;bottom:0;left:0;right:0;width:100%;height:48%;padding:0 8px!important}.tm-campaign .tm-visual{max-height:240px}}
+@media(max-width:380px){.tm-campaign{min-height:465px!important}.tm-campaign .herotext h1{font-size:28px!important}.tm-campaign .heropics{height:44%}}
+@media(prefers-reduced-motion:no-preference){.tm-campaign .tm-visual{animation:tmfloat 7s ease-in-out infinite alternate}@keyframes tmfloat{to{transform:translateY(-7px)}}}
+</style>
+<script>
+(function(){
+var route=location.pathname.split('/')[1]||'gadgets';
+var configs={
+'gadgets':{cls:'',title:'Unieke gadgets voor een slimmer leven',desc:'Ontdek bijzondere en praktische gadgets die je dagelijkse leven leuker en makkelijker maken.',accent:'#2387ff',items:['moon','projector','robot','earbuds']},
+'smart-home':{cls:'tm-smart',title:'Een slimmer thuis, elke dag',desc:'Ontdek slimme oplossingen voor meer comfort, sfeer en gemak in huis.',accent:'#ff963a',items:['camera','bulb','thermostat','speaker']},
+'beauty-care':{cls:'tm-beauty',title:'Verzorging die bij jou past',desc:'Ontdek beautytools en verzorgingsproducten voor jouw dagelijkse routine.',accent:'#ff68b3',items:['mask','bottle','dryer','serum']},
+'home-living':{cls:'tm-home',title:'Sfeervol wonen met slimme details',desc:'Bijzondere woonaccessoires en praktische vondsten voor een fijn thuis.',accent:'#44d19b',items:['lamp','vase','clock','candle']},
+'lifestyle-sport':{cls:'tm-sport',title:'Actiever leven, meer energie',desc:'Ontdek accessoires voor sport, herstel en een actieve levensstijl.',accent:'#ae7aff',items:['watch','bottle','mat','massage']}
+};
+var config=configs[route];if(!config)return;
+var hero=document.querySelector('main .hero');if(!hero)return;
+var text=hero.querySelector('.herotext'),pics=hero.querySelector('.heropics');if(!text||!pics)return;
+hero.classList.add('tm-campaign');if(config.cls)hero.classList.add(config.cls);
+var h=text.querySelector('h1'),p=text.querySelector('p'),button=text.querySelector('.herobutton');
+if(h)h.textContent=config.title;if(p)p.textContent=config.desc;
+if(button){button.textContent='Bekijk '+(route==='gadgets'?'gadgets':route==='smart-home'?'Smart Home':route==='beauty-care'?'Beauty & Care':route==='home-living'?'Home & Living':'Lifestyle & Sport')+' →';button.href=route==='gadgets'&&location.pathname==='/'?'/gadgets':'#producten';}
+var art={
+moon:'<circle cx="80" cy="77" r="53" fill="#ffe8ad"/><circle cx="64" cy="65" r="12" fill="#c9a96c" opacity=".36"/><circle cx="101" cy="91" r="17" fill="#c9a96c" opacity=".26"/><rect x="33" y="142" width="94" height="14" rx="7" fill="#c49359"/>',
+projector:'<rect x="18" y="58" width="135" height="83" rx="24" fill="#f0f6ff"/><circle cx="59" cy="99" r="30" fill="#123769"/><circle cx="59" cy="99" r="19" fill="#2b9dff"/><circle cx="59" cy="99" r="9" fill="#a4e9ff"/>',
+robot:'<rect x="39" y="52" width="94" height="97" rx="29" fill="#f5f9ff"/><rect x="49" y="70" width="74" height="43" rx="20" fill="#162d51"/><circle cx="72" cy="92" r="7" fill="#4ccaff"/><circle cx="102" cy="92" r="7" fill="#4ccaff"/><rect x="78" y="29" width="13" height="27" rx="6" fill="#f5f9ff"/>',
+earbuds:'<rect x="20" y="72" width="135" height="75" rx="33" fill="#111e32"/><rect x="30" y="50" width="115" height="46" rx="22" fill="#273e5e"/><ellipse cx="65" cy="88" rx="15" ry="22" fill="#050d1b"/><ellipse cx="110" cy="88" rx="15" ry="22" fill="#050d1b"/>',
+camera:'<rect x="31" y="38" width="110" height="112" rx="40" fill="#f6f8f9"/><circle cx="86" cy="92" r="37" fill="#293344"/><circle cx="86" cy="92" r="22" fill="#4399d4"/><circle cx="86" cy="92" r="11" fill="#0b1e32"/>',
+bulb:'<path d="M86 24C31 24 24 95 58 120L65 144H108L116 120C151 93 139 24 86 24Z" fill="#ffe5a0"/><rect x="63" y="141" width="47" height="20" rx="8" fill="#f7f7fa"/>',
+thermostat:'<circle cx="86" cy="92" r="64" fill="#222a32"/><circle cx="86" cy="92" r="53" fill="#353e46"/><text x="86" y="108" text-anchor="middle" fill="#fff" font-size="43" font-family="Arial">20°</text>',
+speaker:'<ellipse cx="86" cy="102" rx="64" ry="49" fill="#263445"/><ellipse cx="86" cy="102" rx="58" ry="43" fill="#151e29"/><path d="M31 111Q86 145 141 111" fill="none" stroke="#4fb5ff" stroke-width="6"/>',
+mask:'<path d="M87 21C23 20 26 72 41 117Q54 153 86 157Q118 153 132 117C147 72 151 21 87 21Z" fill="#ffe2ef"/><path d="M48 84Q66 70 78 85M96 85Q110 70 126 84" fill="none" stroke="#ef68a5" stroke-width="8"/><path d="M76 127Q87 135 99 127" fill="none" stroke="#ed74a4" stroke-width="5"/>',
+bottle:'<rect x="57" y="43" width="60" height="112" rx="13" fill="#ffb2d2"/><rect x="68" y="24" width="38" height="27" rx="5" fill="#e9a65f"/><rect x="66" y="78" width="42" height="39" rx="4" fill="#fff1f7"/>',
+dryer:'<path d="M25 59Q23 33 56 33H132Q157 34 157 70Q155 101 123 101H88L71 158H44L59 101H54Q25 101 25 59Z" fill="#f7d3e6"/><circle cx="129" cy="67" r="21" fill="#bb6e9c"/>',
+serum:'<rect x="50" y="62" width="74" height="90" rx="12" fill="#ffcedf"/><rect x="70" y="33" width="34" height="33" rx="5" fill="#d89d57"/><rect x="77" y="18" width="20" height="19" rx="4" fill="#ffebf5"/>',
+lamp:'<path d="M28 77Q30 15 87 15Q144 15 146 77Z" fill="#ffe8b4"/><rect x="76" y="75" width="22" height="63" rx="9" fill="#f8e4c5"/><ellipse cx="87" cy="145" rx="51" ry="12" fill="#e8b981"/>',
+vase:'<path d="M52 34H122L112 58Q150 113 117 153H58Q24 113 63 58Z" fill="#ead2ad"/><path d="M88 35Q58 6 40 20M88 35Q120 0 144 20" fill="none" stroke="#65b98d" stroke-width="7"/>',
+clock:'<rect x="19" y="46" width="135" height="92" rx="22" fill="#273c34"/><text x="86" y="109" text-anchor="middle" fill="#d7ffdc" font-size="36" font-family="Arial">10:28</text>',
+candle:'<rect x="52" y="69" width="70" height="83" rx="11" fill="#f4ead8"/><path d="M86 63Q60 36 87 13Q111 41 86 63Z" fill="#ffc26b"/>',
+watch:'<rect x="62" y="8" width="49" height="160" rx="19" fill="#272c42"/><rect x="37" y="47" width="99" height="86" rx="24" fill="#131829" stroke="#6d76a0" stroke-width="7"/><text x="86" y="101" text-anchor="middle" fill="#7cefc5" font-size="29" font-family="Arial">10:08</text>',
+mat:'<rect x="25" y="67" width="135" height="62" rx="30" fill="#8b69dc"/><ellipse cx="30" cy="98" rx="23" ry="32" fill="#b99bff"/><ellipse cx="30" cy="98" rx="10" ry="19" fill="#5b399c"/>',
+massage:'<path d="M38 46H133Q150 46 150 71Q150 96 133 96H91L80 156H52L65 96H38Q20 96 20 71Q20 46 38 46Z" fill="#25293a"/><circle cx="135" cy="71" r="22" fill="#474c5f"/>'
+};
+var coords=[[58,13,1.18],[256,69,.95],[400,7,1.12],[510,155,.86]];
+var svg='<svg class="tm-visual" viewBox="0 0 700 355" role="img" aria-label="Illustraties van '+route.replace(/-/g,' ')+' producten" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tmPod" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".27"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></linearGradient></defs><ellipse cx="352" cy="315" rx="323" ry="28" fill="#000" opacity=".22"/><path d="M15 273Q350 230 685 273V312Q350 358 15 312Z" fill="url(#tmPod)"/>';
+config.items.forEach(function(key,i){var q=coords[i];svg+='<g transform="translate('+q[0]+' '+q[1]+') scale('+q[2]+')"><ellipse cx="86" cy="165" rx="78" ry="14" fill="#000" opacity=".22"/>'+art[key]+'</g>'});
+svg+='</svg>';pics.innerHTML=svg;
+})();
+</script>
