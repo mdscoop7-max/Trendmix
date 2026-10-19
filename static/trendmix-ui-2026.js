@@ -1,0 +1,119 @@
+/* TrendMix bilingual navigation and FAQ assistant.
+   Only Dutch/English UI copy is translated; this is not a live AI API. */
+(function(){
+  'use strict';
+  const storageKey='trendmix-language';
+  const labels={nl:{menu:'Menu openen',close:'Sluiten',ask:'Stel je vraag…',help:'TrendMix Hulp',intro:'Hoi! Ik kan helpen met vragen over TrendMix. De webshop en assistent zijn nog in testfase.',none:'Ik kan je helpen met producten, bestellen, levering, retouren en privacy. Kijk ook bij de veelgestelde vragen of stuur een bericht via Contact.',returns:'De retourvoorwaarden zijn te lezen op de pagina Retour & herroeping. Het uiteindelijke retouradres en de verzendinstructies worden bevestigd zodra de leverancier gekoppeld is. Stuur niets zonder instructies terug.',shipping:'De leverancier en de verzendtarieven zijn nog niet bevestigd. Daarom doet TrendMix momenteel geen definitieve belofte over bezorging of levertijd.',orders:'TrendMix bevindt zich in de testfase. De winkelwagen en checkout zijn voor demonstratie. Er worden nog geen echte betalingen verwerkt.',contact:'Gebruik de pagina Contact voor vragen. Zolang onze maildienst niet is gekoppeld, kan het contactformulier nog geen echte berichten afleveren.',privacy:'Privacyinformatie en cookievoorkeuren vind je onderaan de website op de pagina’s Privacybeleid en Cookies.',products:'De productcollectie is voorlopig. Foto’s, prijzen, voorraad en details worden bevestigd wanneer de leverancier is aangesloten.',caution:'Deel in deze chat geen persoonsgegevens of bestelgegevens.'},
+  en:{menu:'Open menu',close:'Close',ask:'Ask a question…',help:'TrendMix Help',intro:'Hello! I can help with general TrendMix questions. The shop and assistant are still in test mode.',none:'I can help with questions about products, ordering, shipping, returns and privacy. You can also check the FAQ or contact page.',returns:'Read the Returns & withdrawal page for our current policy. The final return address and shipping instructions will be confirmed once a supplier is connected. Do not return items without instructions.',shipping:'Our supplier and shipping costs are not yet confirmed. TrendMix cannot promise delivery dates or shipping fees during this test period.',orders:'TrendMix is still in test mode. The cart and checkout are for demonstration, and no real payments are processed.',contact:'Please use our Contact page for questions. Until the email service is configured, messages sent through the contact form cannot yet be delivered.',privacy:'You can read the Privacy Policy and Cookies pages linked in the footer.',products:'This is a provisional product collection. Photos, prices, stock levels and details will be confirmed after the supplier is connected.',caution:'Do not share personal information or order details here.'}};
+  const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+  let lang='nl', returnFocus=null, opened=null;
+  function stored(){try{return localStorage.getItem(storageKey)}catch(e){return null}}
+  function save(k){try{localStorage.setItem(storageKey,k)}catch(e){}}
+  function setLanguage(value,propagate){
+    lang=value==='en'?'en':'nl';
+    $$('[data-tm-tr]').forEach(node=>{
+      const text=node.dataset[lang==='en'?'tmEn':'tmNl'];
+      if(text!==undefined)node.textContent=text;
+    });
+    $$('[data-tm-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.tmLanguage===lang)));
+    const input=$('[data-tm-ai-input]');if(input)input.placeholder=labels[lang].ask;
+    $$('[data-tm-menu-trigger]').forEach(btn=>btn.setAttribute('aria-label',labels[lang].menu));
+    save(lang);
+    if(propagate){
+      document.documentElement.lang=lang;
+      const picker=$('#trendmixLanguage')||$('#languageSelect');
+      if(picker && picker.value!==lang){
+        picker.value=lang;picker.dispatchEvent(new Event('change',{bubbles:true}));
+      }
+    }
+  }
+  function lock(){document.body.classList.toggle('tm-mobile-overlay-open',!!opened)}
+  function openDialog(kind,activator){
+    const drawer=$('#tmMobileDrawer'),assist=$('#tmSmartAssistant');
+    if(!drawer||!assist)return;
+    if(opened)closeDialog(false);
+    returnFocus=activator||document.activeElement;
+    drawer.hidden=kind!=='drawer';
+    assist.hidden=kind!=='ai';
+    opened=kind;
+    $$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded',String(kind==='drawer')));
+    lock();
+    const focus=kind==='drawer'?drawer.querySelector('[data-tm-drawer-close]'):assist.querySelector('[data-tm-ai-input]');
+    if(focus)focus.focus({preventScroll:true});
+  }
+  function closeDialog(focusBack=true){
+    const drawer=$('#tmMobileDrawer'),assist=$('#tmSmartAssistant');
+    if(drawer)drawer.hidden=true;
+    if(assist)assist.hidden=true;
+    $$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded','false'));
+    opened=null;lock();
+    if(focusBack&&returnFocus&&typeof returnFocus.focus==='function')returnFocus.focus({preventScroll:true});
+  }
+  function topic(question){
+    const t=String(question||'').toLowerCase();
+    if(/retour|return|refund|terug|herroep|exchange|ruilen/.test(t))return 'returns';
+    if(/lever|bezorg|verzend|shipping|deliver|postage|ship/.test(t))return 'shipping';
+    if(/bestel|betaal|betalen|order|pay|checkout|payment|winkelwagen|cart/.test(t))return 'orders';
+    if(/contact|klacht|mens|medewerker|employee|support|email|e-mail|whatsapp|helpdesk/.test(t))return 'contact';
+    if(/privacy|cookie|data|persoonsgegev/.test(t))return 'privacy';
+    if(/product|voorraad|foto|prijs|price|stock|gadgets|beauty|sport|shop|catalog|collectie/.test(t))return 'products';
+    return 'none';
+  }
+  function addMessage(value,who){
+    const list=$('[data-tm-ai-messages]');if(!list)return;
+    const bubble=document.createElement('p');
+    bubble.className='tm-assist-bubble '+(who==='user'?'user':'bot');
+    bubble.textContent=String(value).slice(0,500);
+    list.appendChild(bubble);
+    list.scrollTop=list.scrollHeight;
+  }
+  function answer(question,selected){
+    const value=String(question||'').trim().slice(0,500);
+    if(!value)return;
+    addMessage(value,'user');
+    const classification=selected||topic(value);
+    addMessage(labels[lang][classification]||labels[lang].none,'bot');
+  }
+  function trapTab(event,root){
+    const list=Array.from(root.querySelectorAll('button:not([disabled]),input:not([disabled]),a[href]')).filter(node=>node.getClientRects().length>0);
+    if(!list.length)return;
+    const first=list[0],last=list[list.length-1];
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+  }
+  function boot(){
+    lang=stored()==='en'?'en':'nl';setLanguage(lang,false);
+    $$('[data-tm-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.tmLanguage,true)));
+    $$('[data-tm-menu-trigger]').forEach(btn=>btn.addEventListener('click',()=>{opened==='drawer'?closeDialog():openDialog('drawer',btn)}));
+    $$('[data-tm-drawer-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
+    $$('[data-tm-ai-open]').forEach(btn=>btn.addEventListener('click',()=>{
+      if(opened==='drawer')closeDialog(false);
+      openDialog('ai',btn);
+    }));
+    $$('[data-tm-ai-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
+    $$('[data-tm-quick]').forEach(btn=>btn.addEventListener('click',()=>{
+      const type=btn.dataset.tmQuick;
+      const nl={shipping:'Levering',returns:'Retouren',orders:'Bestellen',contact:'Contact'};
+      const en={shipping:'Delivery',returns:'Returns',orders:'Ordering',contact:'Contact'};
+      answer((lang==='en'?en:nl)[type]||type,type);
+    }));
+    const form=$('[data-tm-ai-form]');
+    if(form)form.addEventListener('submit',event=>{
+      event.preventDefault();const input=$('[data-tm-ai-input]');if(!input)return;
+      const value=input.value;input.value='';answer(value);
+    });
+    document.addEventListener('keydown',event=>{
+      if(!opened)return;
+      if(event.key==='Escape'){event.preventDefault();closeDialog();return;}
+      if(event.key==='Tab')trapTab(event,opened==='drawer'?$('#tmMobileDrawer'):$('#tmSmartAssistant'));
+    });
+    const picker=$('#trendmixLanguage')||$('#languageSelect');
+    if(picker)picker.addEventListener('change',()=>{if(picker.value==='nl'||picker.value==='en')setLanguage(picker.value,false)});
+    window.addEventListener('storage',event=>{if(event.key===storageKey&&(event.newValue==='nl'||event.newValue==='en'))setLanguage(event.newValue,false)});
+    if(window.matchMedia){
+      const media=window.matchMedia('(min-width:761px)');
+      if(typeof media.addEventListener==='function')media.addEventListener('change',()=>{if(opened==='drawer'&&media.matches)closeDialog(false)});
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();

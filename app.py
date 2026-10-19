@@ -156,7 +156,34 @@ def enrich_product(product, category_slug, index):
 
 
 def cart_items():
-    return session.get("trendmix_cart", [])
+    """Read only valid catalog items from the signed session; never trust cached prices."""
+    valid = []
+    seen = set()
+    for item in session.get("trendmix_cart", []):
+        if not isinstance(item, dict):
+            continue
+        product_id = str(item.get("id", "")).strip()
+        if not product_id or product_id in seen:
+            continue
+        product = find_product(product_id)
+        if not product:
+            continue
+        try:
+            qty = max(1, min(99, int(item.get("qty", 1))))
+        except (TypeError, ValueError):
+            qty = 1
+        valid.append({
+            "id": product["id"],
+            "name": product["name"],
+            "price": float(product.get("price", 0) or 0),
+            "image": product.get("image", ""),
+            "category_name": product["category_name"],
+            "qty": qty,
+        })
+        seen.add(product_id)
+        if len(valid) >= 40:
+            break
+    return valid
 
 
 def cart_count():
@@ -226,6 +253,11 @@ def filter_products(product_list, category=None, search=None):
 # WooCommerce is optional during development. Keep secrets in Vercel environment variables.
 def woo_configured():
     return bool(os.getenv("WOOCOMMERCE_URL") and os.getenv("WOOCOMMERCE_CONSUMER_KEY") and os.getenv("WOOCOMMERCE_CONSUMER_SECRET"))
+
+
+def live_orders_enabled():
+    """Require an explicit go-live switch; connecting credentials is not permission to order."""
+    return woo_configured() and os.getenv("TRENDMIX_LIVE_ORDERS", "").lower() == "true"
 
 
 def woo_request(method, path, payload=None):
@@ -349,7 +381,9 @@ def wishlist():
                 saved.append(product_id)
         session["trendmix_wishlist"] = saved
         session.modified = True
-        return redirect(request.referrer or url_for("wishlist"))
+        referrer = request.referrer or ""
+        safe_referrer = referrer.startswith(request.host_url.rstrip("/") + "/")
+        return redirect(referrer if safe_referrer else url_for("wishlist"))
     wishlist_products = [item for product_id in saved if (item := find_product(product_id))]
     return render_template("wishlist.html", categories=CATEGORIES, products=wishlist_products, wishlist_ids=set(saved))
 
@@ -541,10 +575,10 @@ def winkelwagen():
         if action == "add":
             product = find_product(request.form.get("product_id", "").strip())
             if product:
-                found = next((item for item in cart if item["id"] == product["id"]), None)
+                found = next((item for item in cart if str(item["id"]) == str(product["id"])), None)
                 if found:
-                    found["qty"] = max(1, int(found.get("qty", 1))) + 1
-                else:
+                    found["qty"] = min(99, max(1, int(found.get("qty", 1))) + 1)
+                elif len(cart) < 40:
                     cart.append({
                         "id": product["id"],
                         "name": product["name"],
@@ -561,22 +595,22 @@ def winkelwagen():
             except ValueError:
                 delta = 0
             for item in cart:
-                if item.get("id") == product_id:
+                if str(item.get("id")) == product_id:
                     new_qty = int(item.get("qty", 1)) + delta
                     if new_qty <= 0:
-                        cart = [cart_item for cart_item in cart if cart_item.get("id") != product_id]
+                        cart = [cart_item for cart_item in cart if str(cart_item.get("id")) != product_id]
                     else:
                         item["qty"] = min(99, new_qty)
                     break
 
         elif action == "remove":
             product_id = request.form.get("product_id", "").strip()
-            cart = [item for item in cart if item.get("id") != product_id]
+            cart = [item for item in cart if str(item.get("id")) != product_id]
 
         elif action == "clear":
             cart = []
 
-        session["trendmix_cart"] = cart
+        session["trendmix_cart"] = [{"id": item["id"], "qty": item["qty"]} for item in cart]
         session.modified = True
         return redirect(url_for("winkelwagen"))
 
@@ -618,7 +652,7 @@ def afrekenen():
             error = "Vul een geldig e-mailadres in."
         elif not consent:
             error = "Controleer en bevestig je gegevens voordat je doorgaat."
-        elif woo_configured():
+        elif live_orders_enabled():
             order, error = create_woo_order(cart, customer)
             if order:
                 session.pop("trendmix_cart", None)
@@ -626,7 +660,7 @@ def afrekenen():
         else:
             session["trendmix_test_checkout"] = customer
             return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order={"id": "TEST"}, error=None)
-    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=not woo_configured(), order=order, error=error, customer=(customer if request.method == "POST" else {}))
+    return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=not live_orders_enabled(), order=order, error=error, customer=(customer if request.method == "POST" else {}))
 
 
 @app.route("/faq")
@@ -653,13 +687,11 @@ def contact():
     api_key = os.getenv("RESEND_API_KEY")
     from_email = os.getenv("CONTACT_FROM_EMAIL")
 
-    # Testvriendelijk: zonder mailconfiguratie accepteren we het formulier alsnog.
-    # Zo kan de volledige gebruikersflow op Vercel worden getest zonder dat e-mail al is gekoppeld.
+    # Never claim a customer message was delivered if outbound email is not configured.
     if not api_key or not from_email:
-        app.logger.info("Contact test submission received from %s <%s>: %s", name, email, message)
         if is_ajax:
-            return Response(json.dumps({"ok": True, "test_mode": True}), mimetype="application/json")
-        return redirect(url_for("contact_page") + "?status=sent")
+            return Response(json.dumps({"ok": False, "test_mode": True, "error": "mail_not_configured"}), status=503, mimetype="application/json")
+        return redirect(url_for("contact_page") + "?status=unavailable")
 
     payload = {
         "from": from_email,
