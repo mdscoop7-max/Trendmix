@@ -29,9 +29,17 @@ main .tm-offers-hero img {
     }
 }
 
-/* Gadgets image is taller: keep its full content, but reduce desktop size. */
-@media (min-width: 761px) {
-    main .tm-new-hero:has(img[src*="gadgets.jpg"]) {
-        max-width: 760px;
+/* Gadgets: match the other banners' outer width, but show its taller
+   image at a smaller scale without cropping embedded text or CTA. */
+main .tm-new-hero:has(img[src*="gadgets.jpg"]) {
+    background: #081a38;
+}
+main .tm-new-hero:has(img[src*="gadgets.jpg"]) img {
+    width: 80%;
+    margin: 0 auto;
+}
+@media (max-width: 760px) {
+    main .tm-new-hero:has(img[src*="gadgets.jpg"]) img {
+        width: 88%;
     }
 }
