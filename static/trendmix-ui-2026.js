@@ -152,9 +152,9 @@
       const text=node.dataset[lang==='en'?'tmEn':'tmNl'];
       if(text!==undefined)node.textContent=text;
     });
-    $$$('[data-tm-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.tmLanguage===lang)));
+    $('[data-tm-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.tmLanguage===lang)));
     const input=$('[data-tm-ai-input]');if(input)input.placeholder=labels[lang].ask;
-    $$$('[data-tm-menu-trigger]').forEach(btn=>btn.setAttribute('aria-label',labels[lang].menu));
+    $('[data-tm-menu-trigger]').forEach(btn=>btn.setAttribute('aria-label',labels[lang].menu));
     save(lang);
     translateCommonUI();
     translateInformationPage();
@@ -177,7 +177,7 @@
     drawer.hidden=kind!=='drawer';
     assist.hidden=kind!=='ai';
     opened=kind;
-    $$$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded',String(kind==='drawer')));
+    $('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded',String(kind==='drawer')));
     lock();
     const focus=kind==='drawer'?drawer.querySelector('[data-tm-drawer-close]'):assist.querySelector('[data-tm-ai-input]');
     if(focus)focus.focus({preventScroll:true});
@@ -186,7 +186,7 @@
     const drawer=$('#tmMobileDrawer'),assist=$('#tmSmartAssistant');
     if(drawer)drawer.hidden=true;
     if(assist)assist.hidden=true;
-    $$$('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded','false'));
+    $('[data-tm-menu-trigger]').forEach(b=>b.setAttribute('aria-expanded','false'));
     opened=null;lock();
     if(focusBack&&returnFocus&&typeof returnFocus.focus==='function')returnFocus.focus({preventScroll:true});
   }
@@ -200,20 +200,67 @@
     if(/product|voorraad|foto|prijs|price|stock|gadgets|beauty|sport|shop|catalog|collectie/.test(t))return 'products';
     return 'none';
   }
+  let sending=false;
   function addMessage(value,who){
-    const list=$('[data-tm-ai-messages]');if(!list)return;
-    const bubble=document.createElement('p');
+    const list=$('[data-tm-ai-messages]');if(!list)return null;
+    const bubble=document.createElement('div');
     bubble.className='tm-assist-bubble '+(who==='user'?'user':'bot');
-    bubble.textContent=String(value).slice(0,500);
+    const span=document.createElement('span');
+    span.textContent=String(value||'').slice(0,2000);
+    bubble.appendChild(span);
     list.appendChild(bubble);
     list.scrollTop=list.scrollHeight;
+    return bubble;
   }
-  function answer(question,selected){
+  function addLinks(bubble,links){
+    if(!bubble||!Array.isArray(links))return;
+    const holder=document.createElement('div');
+    holder.className='tm-assist-answer-links';
+    links.slice(0,4).forEach(link=>{
+      if(!link||typeof link.url!=='string'||!/^\/[a-z0-9\/-]+$/.test(link.url))return;
+      const a=document.createElement('a');
+      a.href=link.url;
+      a.textContent=String(link.label||'Meer informatie').slice(0,90)+' →';
+      holder.appendChild(a);
+    });
+    if(holder.childElementCount)bubble.appendChild(holder);
+  }
+  async function answer(question){
     const value=String(question||'').trim().slice(0,500);
-    if(!value)return;
+    if(!value||sending)return;
+    sending=true;
+    const submit=$('[data-tm-ai-form] button[type="submit"]');
+    if(submit)submit.disabled=true;
     addMessage(value,'user');
-    const classification=selected||topic(value);
-    addMessage(labels[lang][classification]||labels[lang].none,'bot');
+    const bubble=addMessage(lang==='en'?'Searching the catalog…':'Ik zoek het voor je op…','bot');
+    const ctrl=new AbortController();
+    const timer=setTimeout(()=>ctrl.abort(),12000);
+    try{
+      const res=await fetch('/api/trendmix-assistant',{
+        method:'POST',credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({question:value,language:lang,page:window.location.pathname}),
+        signal:ctrl.signal
+      });
+      const data=await res.json();
+      if(!res.ok||!data.ok)throw Error(data.error||'unavailable');
+      if(bubble){
+        bubble.firstElementChild.textContent=String(data.answer||'').slice(0,2000);
+        addLinks(bubble,data.links);
+        const list=$('[data-tm-ai-messages]');if(list)list.scrollTop=list.scrollHeight;
+      }
+    }catch(err){
+      if(bubble){
+        bubble.firstElementChild.textContent=(err.message==='rate_limited')
+          ?(lang==='en'?'Too many messages. Try again later.':'Te veel vragen. Probeer het later opnieuw.')
+          :(lang==='en'?'Service temporarily unavailable. Please try again.':'De hulp is tijdelijk niet bereikbaar. Probeer het opnieuw.');
+        addLinks(bubble,[{label:'FAQ',url:'/faq'}]);
+      }
+    }finally{
+      clearTimeout(timer);
+      sending=false;
+      if(submit)submit.disabled=false;
+    }
   }
   function trapTab(event,root){
     const list=Array.from(root.querySelectorAll('button:not([disabled]),input:not([disabled]),a[href]')).filter(node=>node.getClientRects().length>0);
@@ -227,17 +274,17 @@
     const globalSelect=$('#tmGlobalLanguage');
     if(globalSelect)globalSelect.addEventListener('change',()=>setLanguage(globalSelect.value,true));
     $$('[data-tm-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.tmLanguage,true)));
-    $$$('[data-tm-menu-trigger]').forEach(btn=>btn.addEventListener('click',()=>{opened==='drawer'?closeDialog():openDialog('drawer',btn)}));
-    $$$('[data-tm-drawer-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
-    $$$('[data-tm-ai-open]').forEach(btn=>btn.addEventListener('click',()=>{
+    $('[data-tm-menu-trigger]').forEach(btn=>btn.addEventListener('click',()=>{opened==='drawer'?closeDialog():openDialog('drawer',btn)}));
+    $('[data-tm-drawer-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
+    $('[data-tm-ai-open]').forEach(btn=>btn.addEventListener('click',()=>{
       if(opened==='drawer')closeDialog(false);
       openDialog('ai',btn);
     }));
-    $$$('[data-tm-ai-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
-    $$$('[data-tm-quick]').forEach(btn=>btn.addEventListener('click',()=>{
+    $('[data-tm-ai-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
+    $('[data-tm-quick]').forEach(btn=>btn.addEventListener('click',()=>{
       const type=btn.dataset.tmQuick;
-      const nl={shipping:'Levering',returns:'Retouren',orders:'Bestellen',contact:'Contact'};
-      const en={shipping:'Delivery',returns:'Returns',orders:'Ordering',contact:'Contact'};
+      const nl={shipping:'Levering',returns:'Retouren',orders:'Bestellen',contact:'Contact',products:'Welke producten verkoopt TrendMix?',after:'Hulp na een bestelling'};
+      const en={shipping:'Delivery',returns:'Returns',orders:'Ordering',contact:'Contact',products:'Which products do you sell?',after:'Help after ordering'};
       answer((lang==='en'?en:nl)[type]||type,type);
     }));
     const form=$('[data-tm-ai-form]');

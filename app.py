@@ -828,5 +828,10 @@ def trendmix_security_headers(response):
     response.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
     return response
 
+
+# Public read-only support endpoint; customer orders remain private.
+from trendmix_assistant import register_trendmix_assistant
+register_trendmix_assistant(app, products, CATEGORIES, live_orders_enabled)
+
 if __name__ == "__main__":
     app.run(debug=True)

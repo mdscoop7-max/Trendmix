@@ -266,3 +266,12 @@ body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:
 .checkout-trust ul .tm-unified-icon {color:#0866f5;width:18px;height:18px;margin-right:4px;}
 .categoryart.has-image .tm-unified-icon {display:none;}
 @media(prefers-reduced-motion:reduce){.tm-digital-nav .categorylinks a {transition:none!important;}}
+
+/* Grounded chat answers and product links; no other mobile layout changes. */
+.tm-assist-bubble{font-size:14px!important;line-height:1.55!important}
+.tm-assist-answer-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.tm-assist-answer-links a{background:#fff;color:#0759ce;border:1px solid #c9dcf7;border-radius:10px;display:inline-block;padding:8px 10px;font-size:12px;font-weight:800;text-decoration:none}
+.tm-assist-answer-links a:hover{background:#e5f1ff}
+.tm-assist-answer-links a:focus-visible{outline:3px solid #ffc55b;outline-offset:2px}
+.tm-assist-form button:disabled{opacity:.6;cursor:wait}
+.tm-assist-disclaimer{font-size:11px;line-height:1.4}
