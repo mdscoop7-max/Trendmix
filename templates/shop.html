@@ -1,4 +1,4 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}
 {% if category %}
@@ -31,6 +31,7 @@ Ontdek populaire en interessante producten bij TrendMix.
 {% block content %}
 
 <section class="page-section shop-page">
+<a href="#producten" class="tm-shop-hero" aria-label="Bekijk alle producten"><img src="{{ url_for('static', filename='images/hero/alle-producten.png') }}" alt="Ontdek alle producten van TrendMix" style="display:block;width:100%;height:auto;border-radius:18px;"></a>
 
 
 <!-- ========================================================

@@ -746,5 +746,14 @@ def sitemap():
     return Response(xml, mimetype="application/xml")
 
 
+@app.after_request
+def trendmix_security_headers(response):
+    # Safe baseline headers; a strict CSP requires a separate audit of inline scripts.
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    response.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+    return response
+
 if __name__ == "__main__":
     app.run(debug=True)
