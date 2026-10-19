@@ -24,124 +24,176 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
 @media(max-width:370px){.bottomnav{left:7px;right:7px;gap:2px;padding:7px 4px}.bottomnav a{font-size:9px}.bottomnav a span{font-size:21px}}
 @media(prefers-reduced-motion:reduce){.bottomnav a{transition:none}}
 
-/* TrendMix desktop hero width alignment — mobile styles untouched.
-   Match the category navigation's .wrap width; keep the images uncropped. */
+
+/* Desktop: crisp full-bleed product photos with separate readable copy.
+   The original image files, original mobile banners and navigation are unchanged. */
+.tm-desktop-hero-copy { display:none; }
+
 @media (min-width: 992px) {
-  main.wrap > .tm-new-hero,
-  main.wrap > .tm-offers-hero {
-    display: block;
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  main.wrap > .tm-new-hero img,
-  main.wrap > .tm-offers-hero img {
-    display: block;
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain;
-  }
-
-  /* Remove the narrow Gadget inset/background only on desktop. */
-  main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) {
-    background: transparent !important;
-  }
-  main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) img {
-    width: 100% !important;
-    margin: 0 !important;
-  }
-
-  /* The shop has a narrower inner page-section: center only its hero
-     across the same 1460px / viewport-minus-48px width as the menu. */
-  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
-    display: block;
-    width: min(1460px, calc(100vw - 48px)) !important;
-    max-width: none !important;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero img {
-    display: block;
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-
-/* TrendMix desktop compact banners — images and mobile untouched */
-@media (min-width: 992px) {
-  /* Same full width as the menu, with a 340–400px-high desktop frame. */
   main.wrap > .tm-new-hero,
   main.wrap > .tm-offers-hero,
   main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
-    height: clamp(340px, 28vw, 400px);
-    max-height: 400px;
-    display: flex;
+    display: flex !important;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
+    width: 100% !important;
+    max-width: none !important;
+    height: clamp(340px, 26vw, 390px) !important;
+    max-height: 390px !important;
+    margin: 16px auto 26px;
     padding: 0;
-    background-color: #102447;
-  }
-
-  /* Extend the original artwork across the whole frame as a soft backdrop.
-     Keep the full, sharp image in front: no text, CTA, or image cropping. */
-  main.wrap > .tm-new-hero::before,
-  main.wrap > .tm-offers-hero::before,
-  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero::before {
-    content: "";
-    position: absolute;
-    inset: -28px;
-    z-index: 0;
-    background-image: var(--tm-hero-desktop-image);
-    background-size: cover;
-    background-position: center;
-    filter: blur(22px) brightness(.54);
-    pointer-events: none;
-  }
-
-  main.wrap > .tm-new-hero > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    z-index: 1;
-    width: 100%;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 18px;
+    --tm-veil: #12233f;
+    --tm-accent: #0866f5;
+    --tm-cta-ink: #ffffff;
+    --tm-photo-position: center;
+    background-color: var(--tm-veil) !important;
+    background-image: linear-gradient(to right, var(--tm-veil) 0%, var(--tm-veil) 34%, transparent 75%), var(--tm-photo) !important;
+    background-size: cover, cover !important;
+    background-position: center, var(--tm-photo-position) !important;
+    background-repeat: no-repeat !important;
+  }
+
+  /* The real artwork fills the banner. Its printed-in copy is masked under
+     the solid gradient; real desktop HTML copy replaces it with no cropping. */
+  main.wrap > .tm-new-hero > a,
+  main.wrap.legacy-main .page-section.shop-page > a.tm-shop-hero {
+    display: flex !important;
     height: 100%;
+    width: 100%;
+    align-items: center;
+    text-decoration: none;
   }
 
   main.wrap > .tm-new-hero img,
   main.wrap > .tm-offers-hero > img,
   main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero > img {
-    display: block;
+    display: none !important;
+  }
+
+  main .tm-desktop-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: min(49%, 610px);
+    height: 100%;
+    padding: 15px 20px 15px clamp(24px, 3.9vw, 65px);
     position: relative;
     z-index: 1;
-    width: auto !important;
-    max-width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    margin: 0 auto !important;
-    border-radius: 12px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  main .tm-desktop-brand {
+    display: block;
+    font-weight: 900;
+    font-size: clamp(22px, 2.4vw, 33px);
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  main .tm-desktop-brand span { color: #1688ff; }
+  main .tm-desktop-tag {
+    background: var(--tm-accent);
+    border-radius: 999px;
+    padding: 7px 15px;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1.1px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  main .tm-desktop-hero-copy h2 {
+    color: inherit;
+    margin: 0 0 9px;
+    font-size: clamp(23px, 2.45vw, 36px);
+    font-weight: 900;
+    letter-spacing: -.55px;
+    line-height: 1.07;
+    max-width: 470px;
+  }
+  main .tm-desktop-hero-copy p {
+    color: inherit;
+    opacity: .94;
+    font-size: clamp(12px, 1.15vw, 15px);
+    line-height: 1.42;
+    margin: 0 0 16px;
+    max-width: 390px;
+  }
+  main .tm-desktop-cta {
+    background: var(--tm-accent);
+    color: var(--tm-cta-ink) !important;
+    display: inline-block;
+    width: auto;
+    border-radius: 10px;
+    padding: 12px 19px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  main .tm-desktop-cta:focus-visible,
+  main .tm-new-hero > a:focus-visible,
+  main a.tm-shop-hero:focus-visible {
+    outline: 3px solid #ffc55c;
+    outline-offset: -4px;
+  }
+
+  /* Legacy shop content is narrower than the category navigation.
+     Extend only its hero, not the product grid. */
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
+    width: min(1460px, calc(100vw - 48px)) !important;
+    max-width: none !important;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
   }
 
   main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) {
-    --tm-hero-desktop-image: url("/static/images/hero/gadgets.jpg");
+    --tm-photo: url("/static/images/hero/gadgets.jpg");
+    --tm-photo-position: 65% 55%;
+    --tm-veil: #0b1d3c;
+    --tm-accent: #087df7;
   }
   main.wrap > .tm-new-hero:has(img[src*="smart-home.png"]) {
-    --tm-hero-desktop-image: url("/static/images/hero/smart-home.png");
+    --tm-photo: url("/static/images/hero/smart-home.png");
+    --tm-photo-position: 65% 53%;
+    --tm-veil: #27202a;
+    --tm-accent: #fa743e;
   }
   main.wrap > .tm-new-hero:has(img[src*="beauty-care.png"]) {
-    --tm-hero-desktop-image: url("/static/images/hero/beauty-care.png");
+    --tm-photo: url("/static/images/hero/beauty-care.png");
+    --tm-photo-position: 65% 48%;
+    --tm-veil: #40192c;
+    --tm-accent: #ed3f8f;
   }
   main.wrap > .tm-new-hero:has(img[src*="lifestyle-sport.jpg"]) {
-    --tm-hero-desktop-image: url("/static/images/hero/lifestyle-sport.jpg");
+    --tm-photo: url("/static/images/hero/lifestyle-sport.jpg");
+    --tm-photo-position: 65% 52%;
+    --tm-veil: #182541;
+    --tm-accent: #087df7;
   }
   main.wrap > .tm-offers-hero {
-    --tm-hero-desktop-image: url("/static/images/hero/aanbiedingen.png");
+    --tm-photo: url("/static/images/hero/aanbiedingen.png");
+    --tm-photo-position: 65% 53%;
+    --tm-veil: #f9ede4;
+    --tm-accent: #e93462;
+    color: #15253e;
+  }
+  main.wrap > .tm-offers-hero .tm-desktop-hero-copy {
+    color: #16243b;
   }
   main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
-    --tm-hero-desktop-image: url("/static/images/hero/alle-producten.png");
+    --tm-photo: url("/static/images/hero/alle-producten.png");
+    --tm-photo-position: 72% 50%;
+    --tm-veil: #192d42;
+    --tm-accent: #e5b34f;
+    --tm-cta-ink: #18243b;
   }
 }
