@@ -23,3 +23,28 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
 }
 @media(max-width:370px){.bottomnav{left:7px;right:7px;gap:2px;padding:7px 4px}.bottomnav a{font-size:9px}.bottomnav a span{font-size:21px}}
 @media(prefers-reduced-motion:reduce){.bottomnav a{transition:none}}
+
+/* TrendMix desktop hero width alignment - mobile unchanged */
+@media (min-width: 992px) {
+  main.wrap > .tm-new-hero,
+  main.wrap > .tm-offers-hero {
+    width: 100%;
+    max-width: none;
+  }
+  /* Gadgets: full banner width rather than a small image surrounded by space. */
+  main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) {
+    background: transparent;
+  }
+  main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) img {
+    width: 100%;
+    margin: 0;
+  }
+  /* Shop: only the banner spans the navigation width, not the whole product layout. */
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
+    width: min(1460px, calc(100vw - 48px));
+    max-width: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
