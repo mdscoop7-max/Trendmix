@@ -53,7 +53,7 @@ function sortProducts(value){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  const select=document.getElementById('trendmixLanguage') || document.getElementById('languageSelect');
+  const select=document.getElementById('trendmixLanguage') || document.getElementById('languageSelect') || document.getElementById('tmGlobalLanguage');
   const saved=localStorage.getItem('trendmix-language')||detectTrendMixLanguage();
   if(select){select.value=saved;select.addEventListener('change',e=>applyLanguage(e.target.value));}
   document.querySelectorAll('[data-language]').forEach(button=>{
@@ -213,7 +213,7 @@ Object.assign(translations.es,{curatedPick:'DESTACADO',resultsFor:'resultados pa
 
 /* TrendMix language self-check: catches selector/translation regressions in the browser console. */
 function trendMixLanguageSelfTest(){
-  const select=document.getElementById('trendmixLanguage')||document.getElementById('languageSelect');
+  const select=document.getElementById('trendmixLanguage')||document.getElementById('languageSelect')||document.getElementById('tmGlobalLanguage');
   const languages=Object.keys(translations);
   const missing=languages.filter(lang=>!translations[lang]||!translations[lang].heroTitle);
   const result={selectFound:!!select,languages,missing,active:document.documentElement.lang||'nl'};
@@ -225,7 +225,7 @@ function trendMixLanguageSelfTest(){
 
 document.addEventListener('DOMContentLoaded',()=>{
   trendMixLanguageSelfTest();
-  const select=document.getElementById('trendmixLanguage')||document.getElementById('languageSelect');
+  const select=document.getElementById('trendmixLanguage')||document.getElementById('languageSelect')||document.getElementById('tmGlobalLanguage');
   if(select){
     select.addEventListener('change',()=>{
       const lang=select.value;
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 // Replace broken remote product images with a local-looking, truthful visual fallback.
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('img[data-product-image]').forEach(img=>{img.addEventListener('error',()=>{const box=img.parentElement;if(!box)return;const fallback=document.createElement('span');fallback.className='tm-image-fallback';fallback.setAttribute('aria-label',img.alt||'Productafbeelding niet beschikbaar');fallback.innerHTML='<b>'+((img.dataset.fallbackIcon||'✦'))+'</b><small>TrendMix</small>';img.replaceWith(fallback);},{once:true});});});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('img[data-product-image]').forEach(img=>{img.addEventListener('error',()=>{const box=img.parentElement;if(!box)return;const fallback=document.createElement('span');fallback.className='tm-image-fallback';fallback.setAttribute('aria-label',img.alt||'Productafbeelding niet beschikbaar');fallback.innerHTML='<b class="tm-unified-fallback"><svg class="tm-unified-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="7" width="16" height="14" rx="2.5"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg></b><small>TrendMix</small>';img.replaceWith(fallback);},{once:true});});});
 
 
 /* TrendMix customer-service assistant: safe local test flow until the live AI service is connected. */

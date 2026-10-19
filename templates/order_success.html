@@ -1,3 +1,4 @@
+{% from '_tm_icons.html' import tm_icon %}
 ﻿{% extends "base.html" %}
 
 {% block title %}Bestelling Geplaatst | TrendMix{% endblock %}
@@ -7,7 +8,7 @@
 <section class="shop-page">
 
     <section class="shop-header">
-        <div class="empty-icon" style="font-size: 48px; margin-bottom: 15px;">🎉</div>
+        <div class="empty-icon" style="font-size: 48px; margin-bottom: 15px;">{{ tm_icon('check') }}</div>
         <h1>Bedankt voor je bestelling!</h1>
         <p>
             Je bestelling is succesvol geplaatst en wordt zo snel mogelijk verwerkt.

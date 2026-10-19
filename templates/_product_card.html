@@ -1,7 +1,8 @@
+{% from '_tm_icons.html' import tm_icon %}
 <article class="product-card product-card--{{ product.category_slug }}" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
-  <form class="product-wishlist-form" action="/wishlist" method="post"><input type="hidden" name="product_id" value="{{ product.id }}"><button type="submit" class="product-heart" aria-label="{% if product.id in wishlist_ids %}Verwijderen uit favorieten{% else %}Toevoegen aan favorieten{% endif %}">{% if product.id in wishlist_ids %}♥{% else %}♡{% endif %}</button></form>
+  <form class="product-wishlist-form" action="/wishlist" method="post"><input type="hidden" name="product_id" value="{{ product.id }}"><button type="submit" class="product-heart" aria-label="{% if product.id in wishlist_ids %}Verwijderen uit favorieten{% else %}Toevoegen aan favorieten{% endif %}"><span class="tm-heart-mark {% if product.id in wishlist_ids %}tm-heart-selected{% endif %}">{{ tm_icon('heart') }}</span></button></form>
   <a class="product-image" href="{{ product.product_url }}" aria-label="{{ product.name }}">
-    {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async" data-fallback-icon="{{ product.icon|default('✨') }}" data-product-image>{% else %}<span class="image-fallback">{{ product.icon|default('✨') }}</span>{% endif %}
+    {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy" decoding="async" data-fallback-icon="{{ product.icon|default('✨') }}" data-product-image>{% else %}<span class="image-fallback">{{ tm_icon('bag') }}</span>{% endif %}
     {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
   </a>
   <div class="product-body">
@@ -12,7 +13,7 @@
       <form class="card-cart-form" action="/winkelwagen" method="post">
         <input type="hidden" name="action" value="add">
         <input type="hidden" name="product_id" value="{{ product.id }}">
-        <button type="submit" class="card-add" aria-label="Toevoegen aan winkelwagen">＋ <span data-i18n="addShort">Toevoegen</span></button>
+        <button type="submit" class="card-add" aria-label="Toevoegen aan winkelwagen">{{ tm_icon('plus') }} <span data-i18n="addShort">Toevoegen</span></button>
       </form>
     </div>
   </div>

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from '_tm_icons.html' import tm_icon %}
 
 {% block title %}
 {% if category %}
@@ -97,14 +98,14 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
         href="{{ url_for('shop') }}"
         class="{% if not category %}active{% endif %}"
     >
-        <span aria-hidden="true">✨</span>
+        <span aria-hidden="true">{{ tm_icon('grid') }}</span>
         Alle
     </a>
     <a
         href="{{ url_for('shop', category='Gadgets') }}"
         class="{% if category == 'Gadgets' %}active{% endif %}"
     >
-        <span aria-hidden="true">🔌</span>
+        <span aria-hidden="true">{{ tm_icon('device') }}</span>
         Gadgets
     </a>
 
@@ -113,7 +114,7 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
         href="{{ url_for('shop', category='Smart Home') }}"
         class="{% if category == 'Smart Home' %}active{% endif %}"
     >
-        <span aria-hidden="true">💡</span>
+        <span aria-hidden="true">{{ tm_icon('home') }}</span>
         Smart Home
     </a>
 
@@ -122,7 +123,7 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
         href="{{ url_for('shop', category='Beauty & Care') }}"
         class="{% if category == 'Beauty & Care' %}active{% endif %}"
     >
-        <span aria-hidden="true">💄</span>
+        <span aria-hidden="true">{{ tm_icon('beauty') }}</span>
         Beauty &amp; Care
     </a>
 
@@ -131,13 +132,13 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
         href="{{ url_for('shop', category='Lifestyle & Sport') }}"
         class="{% if category == 'Lifestyle & Sport' %}active{% endif %}"
     >
-        <span aria-hidden="true">⚽</span>
+        <span aria-hidden="true">{{ tm_icon('sport') }}</span>
         Lifestyle &amp; Sport
     </a>
 
 
-    <a href="/home-living" class=""><span aria-hidden="true">🏡</span>Home &amp; Living</a>
-    <a href="/aanbiedingen" class="{% if category == 'Aanbiedingen' %}active{% endif %}"><span aria-hidden="true">%</span>Aanbiedingen</a>
+    <a href="/home-living" class=""><span aria-hidden="true">{{ tm_icon('home') }}</span>Home &amp; Living</a>
+    <a href="/aanbiedingen" class="{% if category == 'Aanbiedingen' %}active{% endif %}"><span aria-hidden="true">{{ tm_icon('tag') }}</span>Aanbiedingen</a>
 
 </nav>
 
@@ -171,7 +172,7 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
                 class="search-icon"
                 aria-hidden="true"
             >
-                🔍
+                {{ tm_icon('search') }}
             </span>
 
             <input
@@ -237,7 +238,7 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
         class="empty-state-icon"
         aria-hidden="true"
     >
-        🔍
+        {{ tm_icon('search') }}
     </div>
 
 

@@ -233,3 +233,47 @@ def test_live_orders_require_explicit_enable_flag(monkeypatch):
     monkeypatch.setenv("WOOCOMMERCE_CONSUMER_SECRET", "test")
     monkeypatch.delenv("TRENDMIX_LIVE_ORDERS", raising=False)
     assert live_orders_enabled() is False
+
+
+def test_global_language_dropdown_is_present_across_storefront():
+    client = app.test_client()
+    pages = ("/", "/gadgets", "/smart-home", "/beauty-care", "/lifestyle-sport",
+             "/shop", "/wishlist", "/winkelwagen", "/contact", "/faq",
+             "/over-trendmix", "/account", "/aanbiedingen",
+             "/beauty-care/elektrische-gezichtsroller")
+    for path in pages:
+        response = client.get(path)
+        assert response.status_code == 200, path
+        html = response.get_data(as_text=True)
+        assert html.count('id="tmGlobalLanguage"') == 1, path
+        assert '<option value="nl">' in html, path
+        assert '<option value="en">' in html, path
+        assert 'tm-global-language' in html, path
+
+
+def test_original_category_menu_and_svg_icons_survive_redesign():
+    from pathlib import Path
+    client = app.test_client()
+    for path in ("/", "/smart-home", "/beauty-care", "/aanbiedingen", "/shop"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        html = response.get_data(as_text=True)
+        assert 'class="categories tm-digital-nav"' in html, path
+        assert 'class="tm-nav-icon"' in html, path
+        assert '<svg' in html, path
+        for category in ("/gadgets", "/smart-home", "/beauty-care",
+                         "/lifestyle-sport", "/shop"):
+            assert f'href="{category}"' in html
+    css = Path("static/trendmix-ui-2026.css").read_text(encoding="utf-8")
+    assert "min-height:54px!important" in css
+    assert "display:block!important" in css
+
+
+def test_product_buttons_render_accessible_vector_icons():
+    client = app.test_client()
+    response = client.get("/shop")
+    assert response.status_code == 200
+    html = response.get_data(as_text=True)
+    assert 'tm-unified-icon' in html
+    assert 'class="heartform"' in html
+    assert 'class="add"' in html

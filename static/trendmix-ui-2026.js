@@ -9,9 +9,51 @@
   let lang='nl', returnFocus=null, opened=null;
   function stored(){try{return localStorage.getItem(storageKey)}catch(e){return null}}
   function save(k){try{localStorage.setItem(storageKey,k)}catch(e){}}
+  const commonLabels={
+    'Levering volgens productinformatie':'Delivery according to product details',
+    'Retourinformatie':'Returns information',
+    'Checkout in testfase':'Test checkout',
+    'Klantenservice':'Customer service',
+    'Favorieten':'Favorites',
+    'Winkelwagen':'Cart',
+    'Aanbiedingen':'Deals',
+    'Alle producten':'All products',
+    'Winkelen':'Shop',
+    'Over TrendMix':'About TrendMix',
+    'Over ons':'About us',
+    'Algemene voorwaarden':'Terms and conditions',
+    'Privacybeleid':'Privacy policy',
+    'Cookiebeleid & voorkeuren':'Cookies and preferences',
+    'Bestellen & levering':'Ordering and delivery',
+    'Retour & herroeping':'Returns and withdrawal',
+    'Mijn account':'My account',
+    'Veelgestelde vragen':'FAQ',
+    'Hulp nodig?':'Need help?',
+    'Duidelijke prijzen':'Clear pricing',
+    'Betalen':'Payment',
+    'Levergebied':'Delivery area',
+    'Bedrijfsinformatie':'Business details',
+    'Taal':'Language'
+  };
+  function translateCommonUI(){
+    const selectors='.topitems>span,.topitems>a,.footer-column>a,.footer-column>h2,.footer-column>h3,.tm-footer-help>h3,.tm-footer-trust strong,.tm-footer-info>div>strong,.footer-bottom a,.tm-newsletter-copy h2';
+    $(selectors).forEach(element=>{
+      Array.from(element.childNodes).forEach(node=>{
+        if(node.nodeType!==3)return;
+        if(node.__tmOriginal===undefined)node.__tmOriginal=node.nodeValue;
+        const raw=node.__tmOriginal;
+        const text=raw.trim();
+        const english=commonLabels[text];
+        if(english)node.nodeValue=raw.replace(text,lang==='en'?english:text);
+      });
+    });
+  }
   function setLanguage(value,propagate){
     lang=value==='en'?'en':'nl';
-    $$('[data-tm-tr]').forEach(node=>{
+    document.documentElement.lang=lang;
+    const globalSelect=$('#tmGlobalLanguage');
+    if(globalSelect)globalSelect.value=lang;
+    $('[data-tm-tr]').forEach(node=>{
       const text=node.dataset[lang==='en'?'tmEn':'tmNl'];
       if(text!==undefined)node.textContent=text;
     });
@@ -19,8 +61,9 @@
     const input=$('[data-tm-ai-input]');if(input)input.placeholder=labels[lang].ask;
     $$('[data-tm-menu-trigger]').forEach(btn=>btn.setAttribute('aria-label',labels[lang].menu));
     save(lang);
+    translateCommonUI();
     if(propagate){
-      document.documentElement.lang=lang;
+      if(typeof window.applyLanguage==='function')window.applyLanguage(lang);
       const picker=$('#trendmixLanguage')||$('#languageSelect');
       if(picker && picker.value!==lang){
         picker.value=lang;picker.dispatchEvent(new Event('change',{bubbles:true}));
@@ -83,7 +126,9 @@
   }
   function boot(){
     lang=stored()==='en'?'en':'nl';setLanguage(lang,false);
-    $$('[data-tm-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.tmLanguage,true)));
+    const globalSelect=$('#tmGlobalLanguage');
+    if(globalSelect)globalSelect.addEventListener('change',()=>setLanguage(globalSelect.value,true));
+    $('[data-tm-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.tmLanguage,true)));
     $$('[data-tm-menu-trigger]').forEach(btn=>btn.addEventListener('click',()=>{opened==='drawer'?closeDialog():openDialog('drawer',btn)}));
     $$('[data-tm-drawer-close]').forEach(btn=>btn.addEventListener('click',()=>closeDialog()));
     $$('[data-tm-ai-open]').forEach(btn=>btn.addEventListener('click',()=>{
