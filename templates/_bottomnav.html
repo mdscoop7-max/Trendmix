@@ -1,6 +1,6 @@
 {# TrendMix mobiele onderbalk — één partial voor alle pagina's #}
 {% set p = request.path %}
-{% set cats = ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport','/aanbiedingen','/shop'] %}
+{% set cats = ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport','/shop'] %}
 {% set is_shop = p in cats or p.startswith('/shop') or (p.count('/') == 2 and p.split('/')[1] in ['gadgets','smart-home','beauty-care','home-living','lifestyle-sport']) %}
 <style>
 img[src*="/img/product/"]{object-fit:cover!important;padding:0!important;background:#f3f7ff}
@@ -42,14 +42,8 @@ img[src*="/img/product/"]{object-fit:cover!important;padding:0!important;backgro
     <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M12 20.5s-8-4.6-8-10.6A4.4 4.4 0 0 1 12 7.3a4.4 4.4 0 0 1 8 2.6c0 6-8 10.6-8 10.6z"/></svg>{% if wishlist_ids %}<span class="tm-dock-badge">{{ wishlist_ids|length }}</span>{% endif %}</span>
     <span class="tm-dock-label">Favorieten</span>
   </a>
-  <a href="/winkelwagen" class="{% if p in ['/winkelwagen','/afrekenen'] %}is-active{% endif %}" {% if p in ['/winkelwagen','/afrekenen'] %}aria-current="page"{% endif %}>
-    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M5 8h14l-1.2 10.6a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9z"/><path d="M8.5 10V7a3.5 3.5 0 0 1 7 0v3"/></svg>{% if cart_count %}<span class="tm-dock-badge" data-cart-count>{{ cart_count }}</span>{% endif %}</span>
-    <span class="tm-dock-label">Winkelwagen</span>
-  </a>
-  <a href="/account" class="{% if p == '/account' %}is-active{% endif %}" {% if p == '/account' %}aria-current="page"{% endif %}>
-    <span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="tm-fill" cx="12" cy="8" r="4"/><path class="tm-fill" d="M4.5 20.5a7.5 7.5 0 0 1 15 0z"/></svg></span>
-    <span class="tm-dock-label">Account</span>
-  </a>
+  <a href="/aanbiedingen" class="{% if p == '/aanbiedingen' %}is-active{% endif %}" {% if p == '/aanbiedingen' %}aria-current="page"{% endif %}><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tm-fill" d="M4 9V5a1 1 0 0 1 1-1h5l10 10a2 2 0 0 1 0 3l-3 3a2 2 0 0 1-3 0L4 10z"/><circle cx="8" cy="8" r="1.3"/></svg></span><span class="tm-dock-label">Aanbiedingen</span></a>
+  <a href="/#collecties" class="{% if p in ['/gadgets','/smart-home','/beauty-care','/home-living','/lifestyle-sport'] %}is-active{% endif %}"><span class="tm-dock-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect class="tm-fill" x="3" y="3" width="7" height="7" rx="1.5"/><rect class="tm-fill" x="14" y="3" width="7" height="7" rx="1.5"/><rect class="tm-fill" x="3" y="14" width="7" height="7" rx="1.5"/><rect class="tm-fill" x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="tm-dock-label">Collecties</span></a>
 </nav>
 
 <style>
@@ -67,10 +61,10 @@ img[src*="/img/product/"]{object-fit:cover!important;padding:0!important;backgro
 .header.wrap{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:12px!important}
 .header .wordmark{flex:1 1 auto!important}
 .tm-header-actions{order:1;gap:6px}
-.tm-header-action{width:43px;height:43px;padding:8px;border-radius:14px;background:#f0f6ff}
+.tm-header-action{width:43px;height:43px;padding:8px;border-radius:14px;background:#f0f6ff}.tm-header-action[href="/winkelwagen"]{background:#0866f5!important;color:#fff!important;border-color:#0866f5!important;box-shadow:0 5px 13px #0866f544}
 .tm-header-action .tm-action-text{display:none}
 .header .search{order:3;flex:1 0 100%!important;margin:0!important}
-.header .offer{order:2;margin:0!important}
+.header .offer{display:none!important}
 .categorytile.has-catalog-image .categoryart{min-height:120px}
 .tm-dock{gap:3px!important;padding:7px!important;border-radius:25px!important}
 .tm-dock a{min-height:63px!important;border-radius:19px!important}
@@ -82,6 +76,7 @@ img[src*="/img/product/"]{object-fit:cover!important;padding:0!important;backgro
 <script>
 (function(){
 function applyTrendMix(){
+  document.querySelectorAll('.categoryshowcase').forEach(function(el){el.id='collecties';});
   document.querySelectorAll('header.header').forEach(function(header){
     if(header.querySelector('.tm-header-actions'))return;
     var actions=document.createElement('nav');
