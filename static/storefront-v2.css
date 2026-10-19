@@ -24,27 +24,46 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
 @media(max-width:370px){.bottomnav{left:7px;right:7px;gap:2px;padding:7px 4px}.bottomnav a{font-size:9px}.bottomnav a span{font-size:21px}}
 @media(prefers-reduced-motion:reduce){.bottomnav a{transition:none}}
 
-/* TrendMix desktop hero width alignment - mobile unchanged */
+/* TrendMix desktop hero width alignment — mobile styles untouched.
+   Match the category navigation's .wrap width; keep the images uncropped. */
 @media (min-width: 992px) {
   main.wrap > .tm-new-hero,
   main.wrap > .tm-offers-hero {
-    width: 100%;
-    max-width: none;
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
   }
-  /* Gadgets: full banner width rather than a small image surrounded by space. */
+
+  main.wrap > .tm-new-hero img,
+  main.wrap > .tm-offers-hero img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  /* Remove the narrow Gadget inset/background only on desktop. */
   main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) {
-    background: transparent;
+    background: transparent !important;
   }
   main.wrap > .tm-new-hero:has(img[src*="gadgets.jpg"]) img {
-    width: 100%;
-    margin: 0;
+    width: 100% !important;
+    margin: 0 !important;
   }
-  /* Shop: only the banner spans the navigation width, not the whole product layout. */
+
+  /* The shop has a narrower inner page-section: center only its hero
+     across the same 1460px / viewport-minus-48px width as the menu. */
   main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero {
-    width: min(1460px, calc(100vw - 48px));
-    max-width: none;
+    display: block;
+    width: min(1460px, calc(100vw - 48px)) !important;
+    max-width: none !important;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+  }
+  main.wrap.legacy-main .page-section.shop-page > .tm-shop-hero img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
   }
 }
