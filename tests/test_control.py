@@ -151,3 +151,32 @@ def test_base_design_tokens_match_light_storefront():
     assert "--tm-bg:#f6f7fb" in tokens
     assert "--tm-text:#172033" in tokens
     assert "--tm-accent:#6555df" in tokens
+
+
+def test_rankfix_audit_home_and_categories_have_one_h1():
+    client = app.test_client()
+    for path in ("/", "/gadgets", "/smart-home", "/beauty-care", "/lifestyle-sport", "/home-living"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        html = response.get_data(as_text=True).lower()
+        assert html.count("<h1") == 1, f"{path} heeft geen unieke h1"
+
+
+def test_rankfix_audit_canonicals_and_meta_descriptions():
+    client = app.test_client()
+    for path in ("/shop", "/contact", "/privacy", "/over-trendmix", "/aanbiedingen"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        html = response.get_data(as_text=True)
+        assert 'rel="canonical"' in html, f"{path} mist canonical"
+        assert 'name="description"' in html, f"{path} mist description"
+
+
+def test_session_cookie_security_flags():
+    client = app.test_client()
+    product = load_all_products()[0]
+    response = client.post("/winkelwagen", data={"action": "add", "product_id": product["id"]})
+    header = response.headers.get("Set-Cookie", "")
+    assert "Secure" in header
+    assert "HttpOnly" in header
+    assert "SameSite=Lax" in header
