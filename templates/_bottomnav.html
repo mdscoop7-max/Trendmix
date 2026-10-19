@@ -280,3 +280,17 @@ var img=document.createElement('img');img.className='tm-photo';img.src=cfg.url;i
 pic.appendChild(img);
 })();
 </script>
+
+<style>
+/* Compact responsive campaigns: imagery remains visible without taking a full phone screen. */
+@media(max-width:760px){
+main .tm-campaign{min-height:0!important;height:390px!important;max-height:390px!important;overflow:hidden!important;border-radius:24px!important}
+main .tm-campaign .herotext{padding:22px 20px!important;max-width:100%!important}
+main .tm-campaign .herotext h1{font-size:clamp(26px,6.1vw,34px)!important;line-height:1.08!important;max-width:330px!important;margin:12px 0!important}
+main .tm-campaign .herotext p{font-size:13px!important;line-height:1.4!important;max-width:285px!important;margin-bottom:14px!important}
+main .tm-campaign .herobutton{font-size:13px!important;padding:12px 16px!important}
+main .tm-campaign .tm-photo{object-position:center 57%!important}
+main .tm-campaign::before{background:linear-gradient(180deg,rgba(4,13,30,.92) 0%,rgba(4,13,30,.72) 45%,rgba(4,13,30,.04) 88%)!important}
+}
+@media(min-width:761px){main .tm-campaign{min-height:420px!important;max-height:500px!important}}
+</style>
