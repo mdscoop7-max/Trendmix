@@ -236,3 +236,47 @@ config.items.forEach(function(key,i){var q=coords[i];svg+='<g transform="transla
 svg+='</svg>';pics.innerHTML=svg;
 })();
 </script>
+
+<style>
+/* Photography replaces the previous cartoon vector hero. */
+.tm-campaign{min-height:420px!important;background:#101c32!important}
+.tm-campaign::before{z-index:0!important;background:linear-gradient(90deg,rgba(4,13,30,.94) 0%,rgba(4,13,30,.78) 39%,rgba(4,13,30,.15) 100%)!important}
+.tm-campaign .herotext{position:relative;z-index:2;width:min(57%,680px)!important}
+.tm-campaign .heropics{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;padding:0!important;z-index:-1!important;pointer-events:none}
+.tm-campaign .tm-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+.tm-campaign .tm-photo-credit{position:absolute;bottom:8px;right:12px;color:#fff9;font-size:9px;text-shadow:0 1px 4px #000}
+.tm-campaign .herotext h1{font-size:clamp(30px,3.5vw,53px)!important}
+.tm-campaign .herobutton{box-shadow:0 7px 22px #0005}
+@media(max-width:760px){
+.tm-campaign{min-height:520px!important}
+.tm-campaign::before{background:linear-gradient(180deg,rgba(4,13,30,.92) 0%,rgba(4,13,30,.74) 38%,rgba(4,13,30,.03) 78%)!important}
+.tm-campaign .herotext{width:100%!important;padding:27px 23px!important}
+.tm-campaign .heropics{inset:0!important;width:100%!important;height:100%!important}
+.tm-campaign .tm-photo{object-position:center bottom}
+.tm-campaign .herotext h1{font-size:clamp(29px,7.5vw,38px)!important}
+.tm-campaign .tm-photo-credit{bottom:10px}
+}
+</style>
+<script>
+(function(){
+var path=location.pathname;
+var isCategory=/^\/(gadgets|smart-home|beauty-care|home-living|lifestyle-sport)\/?$/.test(path);
+var dock=document.querySelector('.tm-dock');
+if(dock){var links=dock.querySelectorAll('a');links.forEach(function(a){a.classList.remove('is-active');a.removeAttribute('aria-current')});
+var index=path==='/'?0:path==='/shop'?1:path==='/wishlist'?2:path==='/aanbiedingen'?3:isCategory?4:-1;
+if(index>=0&&links[index]){links[index].classList.add('is-active');links[index].setAttribute('aria-current','page')}}
+var category=path==='/'?'gadgets':path.replace(/^\//,'').replace(/\/$/,'');
+var photos={
+'gadgets':{url:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=85',position:'center center'},
+'smart-home':{url:'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1600&q=85',position:'center center'},
+'beauty-care':{url:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1600&q=85',position:'center center'},
+'home-living':{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85',position:'center center'},
+'lifestyle-sport':{url:'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=85',position:'center center'}
+};
+var cfg=photos[category],hero=document.querySelector('main .tm-campaign');if(!cfg||!hero)return;
+var pic=hero.querySelector('.heropics');if(!pic)return;
+pic.innerHTML='';
+var img=document.createElement('img');img.className='tm-photo';img.src=cfg.url;img.alt='Fotografische sfeerimpressie voor '+category.replace(/-/g,' ');img.loading='eager';img.decoding='async';img.style.objectPosition=cfg.position;
+pic.appendChild(img);
+})();
+</script>
