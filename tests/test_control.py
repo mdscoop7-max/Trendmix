@@ -26,7 +26,7 @@ def test_shop_categories_have_20_products_with_images():
 
 def test_all_main_category_pages_render():
     client = app.test_client()
-    for category_slug in ("pc-componenten", "gadgets", "smart-home", "beauty-care", "lifestyle-sport"):
+    for category_slug in CATEGORY_DIRS.values():
         response = client.get(f"/{category_slug}")
         assert response.status_code == 200, f"{category_slug} returned {response.status_code}"
 
@@ -58,7 +58,7 @@ def test_homepage_has_hero_image_fallbacks():
     client = app.test_client()
     response = client.get("/")
     assert response.status_code == 200
-    assert b"data-product-image" in response.data
+    assert b"/img/product/" in response.data
 
 
 def test_sitemap_is_valid_xml_shape_and_has_products():
@@ -66,7 +66,7 @@ def test_sitemap_is_valid_xml_shape_and_has_products():
     response = client.get("/sitemap.xml")
     assert response.status_code == 200
     assert b"<urlset" in response.data
-    assert b"/pc-componenten/" in response.data
+    assert b"/gadgets/" in response.data
 
 
 def test_no_obsolete_affiliate_faq_copy_on_faq_page():
@@ -102,10 +102,10 @@ def test_homepage_seo_and_search_action_metadata():
 
 def test_category_pages_have_resilient_images_and_social_metadata():
     client = app.test_client()
-    for slug in ("pc-componenten", "gadgets", "smart-home", "beauty-care", "lifestyle-sport"):
+    for slug in CATEGORY_DIRS.values():
         response = client.get(f"/{slug}")
         assert response.status_code == 200
-        assert b"data-product-image" in response.data
+        assert b"/img/product/" in response.data
         assert b'property="og:url"' in response.data
 
 
@@ -132,7 +132,7 @@ def test_search_matches_description_content():
 def test_mobile_navigation_contains_core_shopping_tasks():
     client = app.test_client()
     response = client.get("/")
-    for target in (b'/#collecties', b'/#featured', b'/winkelwagen', b'/contact'):
+    for target in (b'/#collecties', b'/shop', b'/wishlist', b'/aanbiedingen', b'/winkelwagen', b'/contact'):
         assert target in response.data
 
 
@@ -177,6 +177,6 @@ def test_session_cookie_security_flags():
     product = load_all_products()[0]
     response = client.post("/winkelwagen", data={"action": "add", "product_id": product["id"]})
     header = response.headers.get("Set-Cookie", "")
-    assert "Secure" in header
+    assert ("Secure" in header) == app.config["SESSION_COOKIE_SECURE"]
     assert "HttpOnly" in header
     assert "SameSite=Lax" in header

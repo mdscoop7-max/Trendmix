@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or os.urandom(32).hex()
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SECURE=bool(os.getenv("VERCEL_ENV")),
     SESSION_COOKIE_SAMESITE="Lax",
 )
 BASE_DIR = Path(__file__).resolve().parent
