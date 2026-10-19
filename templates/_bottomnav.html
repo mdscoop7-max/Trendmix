@@ -157,3 +157,16 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 .footer.professional-footer .footer-bottomline{margin-top:12px!important;padding-top:14px!important}
 }
 </style>
+
+<style>
+/* Mobile footer: only Klantenservice and Informatie, side by side. Categories stay in navigation. */
+@media(max-width:760px){
+.footer.professional-footer .footer-main{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+.footer.professional-footer .footer-main>.footer-about{grid-column:1/-1!important;grid-row:1!important}
+.footer.professional-footer .footer-main>.footer-column:nth-child(2){display:none!important}
+.footer.professional-footer .footer-main>.footer-column:nth-child(3){grid-column:1!important;grid-row:2!important;display:block!important}
+.footer.professional-footer .footer-main>.footer-column:nth-child(4){grid-column:2!important;grid-row:2!important;display:block!important}
+.footer.professional-footer .footer-column h2{font-size:14px!important;line-height:1.25!important}
+.footer.professional-footer .footer-column a{font-size:12px!important;line-height:1.4!important;margin:0 0 10px!important}
+}
+</style>
