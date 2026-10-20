@@ -275,3 +275,26 @@ body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:
 .tm-assist-answer-links a:focus-visible{outline:3px solid #ffc55b;outline-offset:2px}
 .tm-assist-form button:disabled{opacity:.6;cursor:wait}
 .tm-assist-disclaimer{font-size:11px;line-height:1.4}
+
+/* AI TrendMix floating button: distinct indigo-blue accent, regular shop buttons unchanged. */
+.tm-assist-fab{
+  background:linear-gradient(110deg,#5940dd 0%,#3655e8 48%,#087ce9 100%)!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.35)!important;
+  box-shadow:0 10px 25px rgba(55,68,201,.35),0 3px 9px rgba(8,102,245,.18)!important;
+  letter-spacing:.1px;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.tm-assist-fab:hover{transform:translateY(-2px);box-shadow:0 13px 30px rgba(69,55,208,.43)!important;}
+.tm-assist-fab:focus-visible{outline:3px solid #ffb947;outline-offset:3px;}
+.tm-assist-fab .tm-ai-brand{display:inline-flex;gap:7px;align-items:center;white-space:nowrap;font-size:13px;}
+.tm-assist-fab .tm-ai-brand b{font-size:13px;font-weight:900;}
+.tm-assist-fab .tm-ai-pill{
+  display:inline-flex;align-items:center;justify-content:center;min-width:27px;
+  padding:3px 6px;border-radius:7px;
+  color:#fff;background:rgba(255,255,255,.19);
+  border:1px solid rgba(255,255,255,.33);
+  font-size:11px;font-weight:900;letter-spacing:.5px;
+}
+@media(max-width:760px){.tm-assist-fab .tm-ai-brand{gap:5px;font-size:12px;}.tm-assist-fab .tm-ai-brand b{font-size:12px;}}
+@media(prefers-reduced-motion:reduce){.tm-assist-fab{transition:none!important;}}
