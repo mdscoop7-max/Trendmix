@@ -38,11 +38,23 @@ def test_visible_heroes_are_prioritized_without_changing_images():
 
 
 def test_shared_cart_footer_and_ai_trendmix_remain_everywhere():
+    from app import load_all_products
+
     client = app.test_client()
     for path in ("/", "/gadgets", "/shop", "/aanbiedingen", "/winkelwagen",
-                 "/contact", "/faq", "/privacy", "/wishlist", "/afrekenen"):
+                 "/contact", "/faq", "/privacy", "/wishlist"):
         response = client.get(path)
         assert response.status_code == 200, path
         html = response.get_data(as_text=True)
         assert html.count('class="site-footer tm-footer tm-footer-v2"') == 1, path
         assert 'AI TrendMix' in html, path
+
+    # Checkout correctly redirects when the cart is empty. Populate a test
+    # cart first so the actual checkout page is inspected, not the redirect.
+    product = load_all_products()[0]
+    client.post("/winkelwagen", data={"action": "add", "product_id": str(product["id"])})
+    response = client.get("/afrekenen")
+    assert response.status_code == 200
+    html = response.get_data(as_text=True)
+    assert html.count('class="site-footer tm-footer tm-footer-v2"') == 1
+    assert 'AI TrendMix' in html
