@@ -1,0 +1,48 @@
+"""Fast startup safeguards for static assets and above-the-fold banners."""
+from app import app
+
+
+def test_static_browser_cache_and_private_pages():
+    client = app.test_client()
+    versioned = client.get("/static/storefront-v2.css?v=20261017-footer1")
+    assert versioned.status_code == 200
+    assert "immutable" in versioned.headers["Cache-Control"]
+    assert "max-age=604800" in versioned.headers["Cache-Control"]
+
+    unversioned = client.get("/static/trendmix-hero-fix.css")
+    assert unversioned.status_code == 200
+    assert "max-age=900" in unversioned.headers["Cache-Control"]
+
+    hero = client.get("/static/images/hero/beauty-care.png")
+    assert hero.status_code == 200
+    assert "max-age=3600" in hero.headers["Cache-Control"]
+
+    # Do not share cart state, customer pages or assistant answers via public caching.
+    for path in ("/", "/winkelwagen", "/api/trendmix-assistant"):
+        response = client.get(path)
+        assert "public" not in response.headers.get("Cache-Control", "")
+
+
+def test_visible_heroes_are_prioritized_without_changing_images():
+    client = app.test_client()
+    for path in ("/", "/gadgets", "/smart-home", "/beauty-care",
+                 "/lifestyle-sport", "/shop", "/aanbiedingen"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        assert 'fetchpriority="high"' in response.get_data(as_text=True), path
+
+    shop = client.get("/shop").get_data(as_text=True)
+    offers = client.get("/aanbiedingen").get_data(as_text=True)
+    assert 'rel="preload" as="image"' in shop
+    assert 'rel="preload" as="image"' in offers
+
+
+def test_shared_cart_footer_and_ai_trendmix_remain_everywhere():
+    client = app.test_client()
+    for path in ("/", "/gadgets", "/shop", "/aanbiedingen", "/winkelwagen",
+                 "/contact", "/faq", "/privacy", "/wishlist", "/afrekenen"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        html = response.get_data(as_text=True)
+        assert html.count('class="site-footer tm-footer tm-footer-v2"') == 1, path
+        assert 'AI TrendMix' in html, path

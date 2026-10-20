@@ -826,6 +826,15 @@ def trendmix_security_headers(response):
     response.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
     response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
     response.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+    # Browser caching speeds up repeat page visits without caching private pages,
+    # cart state, API replies or customer information.
+    if request.path.startswith("/static/") and response.status_code == 200:
+        if request.args.get("v"):
+            response.headers["Cache-Control"] = "public, max-age=604800, immutable"
+        elif response.mimetype.startswith("image/"):
+            response.headers["Cache-Control"] = "public, max-age=3600, stale-while-revalidate=86400"
+        else:
+            response.headers["Cache-Control"] = "public, max-age=900, stale-while-revalidate=3600"
     return response
 
 

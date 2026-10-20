@@ -166,7 +166,12 @@
         picker.value=lang;picker.dispatchEvent(new Event('change',{bubbles:true}));
       }
     }
-    translateRemainingText();
+    // Dutch is the HTML default. Skip a costly document-wide text walk
+    // on the first paint; still translate fully for English or switching back.
+    if(lang==='en'||document.documentElement.dataset.tmWasEnglish==='1'){
+      translateRemainingText();
+    }
+    document.documentElement.dataset.tmWasEnglish=(lang==='en'?'1':'0');
   }
   function lock(){document.body.classList.toggle('tm-mobile-overlay-open',!!opened)}
   function openDialog(kind,activator){
