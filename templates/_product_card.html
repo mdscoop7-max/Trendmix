@@ -1,6 +1,6 @@
 {% from '_tm_icons.html' import tm_icon %}
 <article class="product-card product-card--{{ product.category_slug }}" data-product-card data-price="{{ product.price }}" data-name="{{ product.name|lower }}">
-  <form class="product-wishlist-form" action="/wishlist" method="post"><input type="hidden" name="product_id" value="{{ product.id }}"><button type="submit" class="product-heart" aria-label="{% if product.id in wishlist_ids %}Verwijderen uit favorieten{% else %}Toevoegen aan favorieten{% endif %}"><span class="tm-heart-mark {% if product.id in wishlist_ids %}tm-heart-selected{% endif %}">{{ tm_icon('heart') }}</span></button></form>
+  <form class="product-wishlist-form" action="/wishlist" method="post"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="product_id" value="{{ product.id }}"><button type="submit" class="product-heart" aria-label="{% if product.id in wishlist_ids %}Verwijderen uit favorieten{% else %}Toevoegen aan favorieten{% endif %}"><span class="tm-heart-mark {% if product.id in wishlist_ids %}tm-heart-selected{% endif %}">{{ tm_icon('heart') }}</span></button></form>
   <a class="product-image" href="{{ product.product_url }}" aria-label="{{ product.name }}" data-tm-product-label-nl="{{ product.name }}" data-tm-product-label-en="{{ product.en_name }}">
     {% if product.image %}<img src="{{ product.image }}" alt="{{ product.name }}" data-tm-product-nl="{{ product.name }}" data-tm-product-en="{{ product.en_name }}" loading="lazy" decoding="async" data-fallback-icon="{{ product.icon|default('✨') }}" data-product-image>{% else %}<span class="image-fallback">{{ tm_icon('bag') }}</span>{% endif %}
     {% if product.badge %}<span class="product-badge">{{ product.badge }}</span>{% endif %}
@@ -10,7 +10,7 @@
     <h3><a href="{{ product.product_url }}" data-tm-product-nl="{{ product.name }}" data-tm-product-en="{{ product.en_name }}">{{ product.name }}</a></h3>
     <div class="product-bottom">
       <strong>{{ format_eur(product.price) }}</strong>
-      <form class="card-cart-form" action="/winkelwagen" method="post">
+      <form class="card-cart-form" action="/winkelwagen" method="post"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
         <input type="hidden" name="action" value="add">
         <input type="hidden" name="product_id" value="{{ product.id }}">
         <button type="submit" class="card-add" aria-label="Toevoegen aan winkelwagen">{{ tm_icon('plus') }} <span data-i18n="addShort">Toevoegen</span></button>
