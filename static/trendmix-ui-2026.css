@@ -298,3 +298,207 @@ body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:
 }
 @media(max-width:760px){.tm-assist-fab .tm-ai-brand{gap:5px;font-size:12px;}.tm-assist-fab .tm-ai-brand b{font-size:12px;}}
 @media(prefers-reduced-motion:reduce){.tm-assist-fab{transition:none!important;}}
+
+
+/* 2026-10-21: One light, accessible, collapsible store menu beneath search.
+   No JavaScript and no changes to banners or product cards. */
+.tm-digital-nav.tm-menu-compact{
+  display:block!important;
+  overflow:visible!important;
+  background:#f7fbfd!important;
+  box-shadow:0 2px 8px rgba(19,45,71,.06)!important;
+  border-block:1px solid #dbe8f1!important;
+}
+.tm-digital-nav .tm-category-menu-wrap{
+  padding-block:8px 9px;
+}
+.tm-digital-nav .tm-category-dropdown{
+  display:block;
+  width:100%;
+}
+.tm-digital-nav .tm-category-dropdown > summary.tm-menu-summary{
+  box-sizing:border-box;
+  width:min(100%,420px);
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:10px 17px;
+  border:1px solid #09657b;
+  border-radius:12px;
+  background:linear-gradient(110deg,#096a7e,#0a597c);
+  box-shadow:0 3px 10px rgba(2,73,93,.17);
+  color:#fff;
+  font:800 14px/1.25 Arial,Helvetica,sans-serif;
+  letter-spacing:.1px;
+  list-style:none;
+  cursor:pointer;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.tm-digital-nav .tm-category-dropdown > summary.tm-menu-summary::-webkit-details-marker{display:none}
+.tm-digital-nav .tm-category-dropdown > summary.tm-menu-summary::marker{content:""}
+.tm-digital-nav .tm-category-dropdown > summary.tm-menu-summary:hover{
+  background:linear-gradient(110deg,#075d73,#094a6a);
+}
+.tm-digital-nav .tm-category-dropdown > summary.tm-menu-summary:focus-visible{
+  outline:3px solid #ffbd55;
+  outline-offset:3px;
+}
+.tm-digital-nav .tm-menu-hamburger{
+  flex:0 0 21px;
+  width:21px;
+  height:21px;
+}
+.tm-digital-nav .tm-menu-chevron{
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  margin-left:auto;
+  transition:transform .18s ease;
+}
+.tm-digital-nav .tm-category-dropdown[open] .tm-menu-chevron{
+  transform:rotate(180deg);
+}
+.tm-digital-nav .tm-category-dropdown:not([open]) > .categorylinks,
+.tm-digital-nav .tm-category-dropdown:not([open]) > .tm-menu-quick-links{
+  display:none!important;
+}
+.tm-digital-nav .tm-category-dropdown[open] > .categorylinks.tm-category-menu-links{
+  box-sizing:border-box;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px!important;
+  margin-top:10px;
+  padding:14px;
+  min-height:0!important;
+  width:100%!important;
+  overflow:visible!important;
+  justify-content:stretch!important;
+  white-space:normal!important;
+  background:#fff;
+  border:1px solid #d8e7f0;
+  border-radius:14px;
+  box-shadow:0 8px 21px rgba(15,43,74,.08);
+}
+.tm-digital-nav .tm-category-dropdown[open] > .categorylinks.tm-category-menu-links a{
+  box-sizing:border-box;
+  min-height:51px;
+  display:flex!important;
+  justify-content:flex-start!important;
+  align-items:center;
+  gap:10px!important;
+  padding:11px 13px!important;
+  white-space:normal!important;
+  font:750 14px/1.3 Arial,Helvetica,sans-serif!important;
+  background:#f3f8fc!important;
+  border:1px solid #e0eaf3;
+  border-radius:10px!important;
+  color:#183450!important;
+  text-align:left;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.tm-digital-nav .tm-category-dropdown[open] > .categorylinks.tm-category-menu-links a:hover{
+  background:#e3f0fc!important;
+  border-color:#9fc9e9;
+}
+.tm-digital-nav .tm-category-dropdown[open] > .categorylinks.tm-category-menu-links a.selected{
+  background:#0d69c9!important;
+  color:#fff!important;
+  border-color:#0d69c9!important;
+}
+.tm-digital-nav .tm-category-dropdown[open] .tm-nav-icon{
+  width:25px!important;
+  height:25px!important;
+  flex:0 0 25px!important;
+}
+.tm-digital-nav .tm-category-dropdown[open] .tm-nav-icon svg{
+  width:21px!important;
+  height:21px!important;
+}
+.tm-digital-nav .tm-category-dropdown[open] > .tm-menu-quick-links{
+  display:flex!important;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:10px 0 0;
+}
+.tm-digital-nav .tm-category-dropdown .tm-menu-quick-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:9px 14px;
+  background:#ecf4fb;
+  border:1px solid #d5e6f2;
+  border-radius:10px;
+  color:#234966;
+  font-weight:750;
+  font-size:13px;
+  text-decoration:none;
+}
+.tm-digital-nav .tm-category-dropdown .tm-menu-quick-links a:hover{
+  background:#d9ecfa;
+  color:#075c93;
+}
+.tm-digital-nav .tm-category-dropdown a:focus-visible{
+  outline:3px solid #ffbd55!important;
+  outline-offset:2px;
+}
+.tm-products-scroll-target{scroll-margin-top:16px}
+@media(max-width:760px){
+  .tm-digital-nav.tm-menu-compact{display:block!important;overflow:visible!important}
+  .tm-digital-nav .tm-category-menu-wrap{padding-block:7px 8px}
+  .tm-digital-nav .tm-category-dropdown > summary.tm-menu-summary{
+    width:100%;
+    min-height:45px;
+    padding:10px 14px;
+    font-size:13px;
+    border-radius:12px;
+  }
+  .tm-digital-nav .tm-category-dropdown[open] > .categorylinks.tm-category-menu-links{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px!important;
+    padding:9px;
+    white-space:normal!important;
+    overflow:visible!important;
+    min-height:0!important;
+    justify-content:stretch!important;
+  }
+  .tm-digital-nav .tm-category-dropdown[open] > .categorylinks.tm-category-menu-links a{
+    min-height:48px;
+    padding:9px 8px!important;
+    font-size:12px!important;
+    gap:7px!important;
+    flex-shrink:1!important;
+    white-space:normal!important;
+  }
+  .tm-digital-nav .tm-category-dropdown[open] .tm-nav-icon{
+    flex:0 0 20px!important;
+    width:20px!important;
+    height:20px!important;
+  }
+  .tm-digital-nav .tm-category-dropdown[open] .tm-nav-icon svg{
+    width:19px!important;
+    height:19px!important;
+  }
+  .tm-digital-nav .tm-category-dropdown[open] > .tm-menu-quick-links{gap:7px}
+  .tm-digital-nav .tm-category-dropdown .tm-menu-quick-links a{
+    font-size:12px;
+    min-height:36px;
+    padding:8px 11px;
+  }
+  /* Fifth dock item now takes customers to products, never opens the drawer. */
+  .tm-dock > a.tm-dock-menu-trigger{
+    text-decoration:none!important;
+    font-family:inherit!important;
+    font-weight:750!important;
+  }
+  .tm-dock > a.tm-dock-menu-trigger.is-active .tm-dock-ico{
+    background:#0866f5!important;
+    color:#fff!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .tm-digital-nav .tm-menu-chevron{transition:none}
+}
