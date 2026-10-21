@@ -1,10 +1,12 @@
 import json
 import re
 import os
+import hmac
+import secrets
 import urllib.request
 import urllib.error
 from pathlib import Path
-from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session
+from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
 from product_art import render_product_svg
 
 app = Flask(__name__)
@@ -13,6 +15,9 @@ app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SECURE=bool(os.getenv("VERCEL_ENV")),
     SESSION_COOKIE_SAMESITE="Lax",
+    MAX_CONTENT_LENGTH=65536,
+    MAX_FORM_MEMORY_SIZE=32768,
+    MAX_FORM_PARTS=50,
 )
 BASE_DIR = Path(__file__).resolve().parent
 PRODUCTS_DIR = BASE_DIR / "products"
@@ -328,9 +333,37 @@ def format_eur(value):
     return f"€{amount:.2f}".replace(".", ",")
 
 
+def csrf_token():
+    """Return a cryptographically random per-session token for POST forms."""
+    token = session.get("_tm_csrf")
+    if not isinstance(token, str) or len(token) < 32:
+        token = secrets.token_urlsafe(32)
+        session["_tm_csrf"] = token
+    return token
+
+
+@app.before_request
+def verify_form_csrf():
+    if request.method not in ("POST", "PUT", "PATCH", "DELETE"):
+        return
+    # Read-only JSON assistant handles Origin separately.
+    if request.endpoint == "trendmix_assistant":
+        return
+    origin = request.headers.get("Origin")
+    if origin:
+        from urllib.parse import urlsplit
+        parsed = urlsplit(origin)
+        if parsed.scheme not in ("http", "https") or parsed.netloc != request.host:
+            abort(403)
+    expected = session.get("_tm_csrf")
+    provided = request.form.get("_csrf_token", "")
+    if not isinstance(expected, str) or not isinstance(provided, str) or not expected or not hmac.compare_digest(expected, provided):
+        abort(403)
+
+
 @app.context_processor
 def inject_helpers():
-    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur, "wishlist_ids": set(session.get("trendmix_wishlist", []))}
+    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur, "wishlist_ids": set(session.get("trendmix_wishlist", [])), "csrf_token": csrf_token}
 
 
 
@@ -694,7 +727,9 @@ def afrekenen():
                 session.pop("trendmix_cart", None)
                 return render_template("checkout.html", categories=CATEGORIES, cart=[], cart_count=0, cart_total=0, test_mode=False, order=order, error=None)
         else:
-            session["trendmix_test_checkout"] = customer
+            # Flask session data is stored in a signed but readable browser cookie.
+            # Never retain customer names, emails or addresses in that cookie.
+            session.pop("trendmix_test_checkout", None)
             return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=True, order={"id": "TEST"}, error=None)
     return render_template("checkout.html", categories=CATEGORIES, cart=cart, cart_count=cart_count(), cart_total=total, test_mode=not live_orders_enabled(), order=order, error=error, customer=(customer if request.method == "POST" else {}))
 
@@ -826,6 +861,10 @@ def trendmix_security_headers(response):
     response.headers.setdefault("X-Frame-Options", "SAMEORIGIN")
     response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
     response.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+    if os.getenv("VERCEL_ENV"):
+        response.headers.setdefault("Strict-Transport-Security", "max-age=31536000")
+    if request.path in ("/winkelwagen", "/afrekenen", "/wishlist", "/contact") or request.path.startswith("/api/"):
+        response.headers["Cache-Control"] = "no-store"
     # Browser caching speeds up repeat page visits without caching private pages,
     # cart state, API replies or customer information.
     if request.path.startswith("/static/") and response.status_code == 200:
@@ -843,4 +882,4 @@ from trendmix_assistant import register_trendmix_assistant
 register_trendmix_assistant(app, products, CATEGORIES, live_orders_enabled)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
