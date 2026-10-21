@@ -17,7 +17,7 @@
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
 <div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span data-tm-product-nl="{{ item.name }}" data-tm-product-en="{{ item.en_name }}">{{ item.name }}</span> × {{ item.qty }}<strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
 <div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
-<div class="checkout-layout"><form method="post" class="checkout-form modern-form"><div class="form-heading"><span>01</span><div><h2 data-i18n="deliveryDetails">Bezorggegevens</h2><p>Velden met * zijn verplicht.</p></div></div>
+<div class="checkout-layout"><form method="post" class="checkout-form modern-form"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><div class="form-heading"><span>01</span><div><h2 data-i18n="deliveryDetails">Bezorggegevens</h2><p>Velden met * zijn verplicht.</p></div></div>
 <label><span data-i18n="firstName">Voornaam *</span><input placeholder="Voornaam" name="first_name" autocomplete="given-name" required value="{{ customer.get('first_name', '') if customer else '' }}"></label>
 <label><span data-i18n="lastName">Achternaam *</span><input placeholder="Achternaam" name="last_name" autocomplete="family-name" required value="{{ customer.get('last_name', '') if customer else '' }}"></label>
 <label><span data-i18n="emailLabel">E-mail *</span><input placeholder="naam@voorbeeld.nl" type="email" name="email" autocomplete="email" inputmode="email" required value="{{ customer.get('email', '') if customer else '' }}"></label>
