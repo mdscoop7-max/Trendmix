@@ -1,6 +1,16 @@
 from app import CATEGORY_DIRS, app, load_all_products
 
 
+def secure_post(client, *args, **kwargs):
+    """Submit a real storefront CSRF token rather than bypassing protection."""
+    client.get("/")
+    with client.session_transaction() as data:
+        csrf_token = data["_tm_csrf"]
+    form = kwargs.pop("data", {}) or {}
+    kwargs["data"] = {**form, "_csrf_token": csrf_token}
+    return client.post(*args, **kwargs)
+
+
 def test_control_page_exists():
     client = app.test_client()
     response = client.get("/control")
@@ -41,7 +51,7 @@ def test_core_customer_pages_render():
 def test_cart_and_checkout_test_flow():
     client = app.test_client()
     product = load_all_products()[0]
-    response = client.post("/winkelwagen", data={"action": "add", "product_id": product["id"]}, follow_redirects=True)
+    response = secure_post(client, "/winkelwagen", data={"action": "add", "product_id": product["id"]}, follow_redirects=True)
     assert response.status_code == 200
     assert product["name"].encode() in response.data
     response = client.get("/afrekenen")
@@ -175,7 +185,7 @@ def test_rankfix_audit_canonicals_and_meta_descriptions():
 def test_session_cookie_security_flags():
     client = app.test_client()
     product = load_all_products()[0]
-    response = client.post("/winkelwagen", data={"action": "add", "product_id": product["id"]})
+    response = secure_post(client, "/winkelwagen", data={"action": "add", "product_id": product["id"]})
     header = response.headers.get("Set-Cookie", "")
     assert ("Secure" in header) == app.config["SESSION_COOKIE_SECURE"]
     assert "HttpOnly" in header
@@ -200,15 +210,15 @@ def test_cart_numeric_product_id_quantity_and_remove_work():
     client = app.test_client()
     product = load_all_products()[0]
     pid = str(product["id"])
-    client.post("/winkelwagen", data={"action": "add", "product_id": pid})
-    response = client.post("/winkelwagen", data={"action": "change", "product_id": pid, "delta": "1"}, follow_redirects=True)
+    secure_post(client, "/winkelwagen", data={"action": "add", "product_id": pid})
+    response = secure_post(client, "/winkelwagen", data={"action": "change", "product_id": pid, "delta": "1"}, follow_redirects=True)
     assert response.status_code == 200
     with client.session_transaction() as data:
         cart = data.get("trendmix_cart", [])
         assert len(cart) == 1
         assert cart[0]["qty"] == 2
         assert set(cart[0]) == {"id", "qty"}, "Do not keep old item prices in browser cookies."
-    client.post("/winkelwagen", data={"action": "remove", "product_id": pid})
+    secure_post(client, "/winkelwagen", data={"action": "remove", "product_id": pid})
     with client.session_transaction() as data:
         assert not data.get("trendmix_cart")
 
@@ -217,7 +227,7 @@ def test_contact_message_is_not_falsely_confirmed_without_mail(monkeypatch):
     monkeypatch.delenv("RESEND_API_KEY", raising=False)
     monkeypatch.delenv("CONTACT_FROM_EMAIL", raising=False)
     client = app.test_client()
-    response = client.post(
+    response = secure_post(client, 
         "/contact?ajax=1",
         data={"name": "Test", "email": "test@example.com", "message": "Controle"},
         headers={"X-Requested-With": "XMLHttpRequest"},
