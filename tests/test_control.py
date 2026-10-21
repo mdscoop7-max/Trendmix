@@ -268,7 +268,11 @@ def test_original_category_menu_and_svg_icons_survive_redesign():
         response = client.get(path)
         assert response.status_code == 200, path
         html = response.get_data(as_text=True)
-        assert 'class="categories tm-digital-nav"' in html, path
+        # The native collapsible navigation replaced the previous always-expanded menu.
+        # Preserve the stronger semantics and all category links in this regression.
+        assert 'class="categories tm-digital-nav tm-menu-compact"' in html, path
+        assert 'class="tm-category-dropdown"' in html, path
+        assert 'aria-label="Hoofdmenu en productcategorieën"' in html, path
         assert 'class="tm-nav-icon"' in html, path
         assert '<svg' in html, path
         for category in ("/gadgets", "/smart-home", "/beauty-care",
