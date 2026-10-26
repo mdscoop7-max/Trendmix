@@ -255,10 +255,12 @@ def test_global_language_dropdown_is_present_across_storefront():
         response = client.get(path)
         assert response.status_code == 200, path
         html = response.get_data(as_text=True)
-        assert html.count('id="tmGlobalLanguage"') == 1, path
-        assert '<option value="nl">' in html, path
-        assert '<option value="en">' in html, path
+        assert html.count('class="tm-language-dropdown"') == 1, path
+        assert 'data-language="nl"' in html, path
+        assert 'data-language="en"' in html, path
         assert 'tm-global-language' in html, path
+        assert 'tm-flag-nl' in html and 'tm-flag-en' in html, path
+        assert 'viewBox="0 0 24 16"' in html, path
 
 
 def test_original_category_menu_and_svg_icons_survive_redesign():
@@ -268,7 +270,7 @@ def test_original_category_menu_and_svg_icons_survive_redesign():
         response = client.get(path)
         assert response.status_code == 200, path
         html = response.get_data(as_text=True)
-        assert 'class="categories tm-digital-nav"' in html, path
+        assert 'class="categories tm-digital-nav tm-menu-compact"' in html, path
         assert 'class="tm-nav-icon"' in html, path
         assert '<svg' in html, path
         for category in ("/gadgets", "/smart-home", "/beauty-care",
