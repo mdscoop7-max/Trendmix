@@ -502,3 +502,15 @@ body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:
 @media(prefers-reduced-motion:reduce){
   .tm-digital-nav .tm-menu-chevron{transition:none}
 }
+
+
+/* Active main-menu item follows the actual category URL; consistent across desktop/mobile. */
+.main-nav .nav-inner > a.nav-link.is-active,
+.main-nav .nav-inner > a.nav-link.is-active:hover,
+.main-nav .nav-inner > a.nav-link[aria-current="page"]{
+  background:#0866f5!important;color:#fff!important;border-radius:10px;
+  box-shadow:0 4px 13px rgba(8,102,245,.25);
+}
+.main-nav .nav-inner > a.nav-link.is-active span{color:inherit!important}
+.main-nav .nav-inner > a.nav-link:focus-visible{outline:3px solid #ffbf47!important;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.main-nav .nav-inner > a.nav-link{transition:none!important}}
