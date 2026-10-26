@@ -17,6 +17,7 @@ def test_footer_displays_only_planned_payment_methods():
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert "Betaalmethoden in voorbereiding" in html
-        assert "Betalen is op dit moment nog niet actief" in html\n        assert 'role="img"' in html
+        assert "Betalen is op dit moment nog niet actief" in html
+        assert 'role="img"' in html
         for payment in ("iDEAL / Wero", "Google Pay", "PayPal"):
             assert payment in html
