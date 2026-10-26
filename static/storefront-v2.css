@@ -232,3 +232,7 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
 .tm-payment-section .tm-pay-chip{display:inline-flex;align-items:center;gap:5px;min-height:36px;border-radius:8px;border:1px solid #d7e2ef;background:#fff;color:#112947;padding:8px 12px;font-weight:800;font-size:13px;letter-spacing:-.01em}
 .tm-payment-section .tm-pay-ideal{color:#a01983}.tm-payment-section .tm-pay-paypal{color:#103a79}.tm-payment-section .tm-pay-google span{font-weight:900;color:#4285f4}
 @media(max-width:600px){.tm-payment-section .tm-payment-methods{gap:7px}.tm-payment-section .tm-pay-chip{font-size:12px;padding:7px 9px;min-height:38px}}
+
+/* Payment graphics are previews only; final provider-approved brand assets come with activation. */
+.tm-payment-methods .tm-pay-chip{padding:4px 7px;min-height:40px;background:transparent;border:0}
+.tm-payment-methods .tm-pay-chip svg{display:block;max-width:100%;height:auto}
