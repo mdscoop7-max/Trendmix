@@ -363,7 +363,7 @@ def verify_form_csrf():
 
 @app.context_processor
 def inject_helpers():
-    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur, "wishlist_ids": set(session.get("trendmix_wishlist", [])), "csrf_token": csrf_token}
+    return {"slugify": slugify, "cart_count": cart_count(), "format_eur": format_eur, "wishlist_ids": set(session.get("trendmix_wishlist", [])), "csrf_token": csrf_token, "site_url": SITE_URL or request.url_root.rstrip("/")}
 
 
 
