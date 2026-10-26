@@ -3,16 +3,16 @@
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0866f5"><title>TrendMix | Slimme gadgets en meer</title>
 <meta name="description" content="Ontdek gadgets, Smart Home, Beauty & Care en Lifestyle & Sport bij TrendMix. Bekijk onze selectie slimme en praktische producten.">
-<link rel="canonical" href="https://trendmix-jet.vercel.app/"><link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
+<link rel="canonical" href="{{ site_url }}/"><link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='storefront-v2.css',v='20261017-footer1') }}">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://trendmix-jet.vercel.app/#organization","name":"TrendMix","url":"https://trendmix-jet.vercel.app/"},{"@type":"WebSite","@id":"https://trendmix-jet.vercel.app/#website","name":"TrendMix","url":"https://trendmix-jet.vercel.app/","publisher":{"@id":"https://trendmix-jet.vercel.app/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://trendmix-jet.vercel.app/?q={search_term_string}","query-input":"required name=search_term_string"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"{{ site_url }}/#organization","name":"TrendMix","url":"{{ site_url }}/"},{"@type":"WebSite","@id":"{{ site_url }}/#website","name":"TrendMix","url":"{{ site_url }}/","publisher":{"@id":"{{ site_url }}/#organization"},"potentialAction":{"@type":"SearchAction","target":"{{ site_url }}/?q={search_term_string}","query-input":"required name=search_term_string"}}]}</script>
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TrendMix">
 <meta property="og:title" content="TrendMix | Slimme gadgets en meer">
 <meta property="og:description" content="Ontdek gadgets, Smart Home, Beauty & Care en Lifestyle & Sport bij TrendMix.">
-<meta property="og:url" content="https://trendmix-jet.vercel.app/">
-<meta property="og:image" content="https://trendmix-jet.vercel.app/static/images/hero/gadgets.jpg">
+<meta property="og:url" content="{{ site_url }}/">
+<meta property="og:image" content="{{ site_url }}/static/images/hero/gadgets.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/static/trendmix-hero-fix.css">
 </head><body>
