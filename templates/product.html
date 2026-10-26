@@ -8,7 +8,7 @@
   <title>{{ product.seo_title }}</title>
   <meta name="description" content="{{ product.seo_description }}">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ product.product_url }}">
+  <link rel="canonical" href="{{ site_url }}{{ product.product_url }}">
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -21,7 +21,7 @@
   <meta property="og:title" content="{{ product.seo_title }}">
   <meta property="og:description" content="{{ product.seo_description }}">
   <meta property="og:type" content="product">
-  <meta property="og:url" content="{{ request.url_root.rstrip('/') }}{{ product.product_url }}">
+  <meta property="og:url" content="{{ site_url }}{{ product.product_url }}">
   <meta name="twitter:card" content="{% if product.images %}summary_large_image{% else %}summary{% endif %}">
   <script type="application/ld+json">
   {{ {
