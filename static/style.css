@@ -307,3 +307,13 @@ body.tm-new-storefront .tm-ref-products-head>a{font-size:12px!important}
 .tm-reviews-empty h3{margin:0 0 9px;font-size:17px;color:#152b4d}
 .tm-reviews-empty p{margin:0;line-height:1.65;color:#425778}
 @media(max-width:600px){.tm-reviews-section{padding:16px;margin:24px 0}.tm-reviews-empty{padding:16px;gap:11px}.tm-reviews-empty h3{font-size:15px}}
+
+/* Example review shown only as a visibly labeled design demonstration. */
+.tm-review-demo{padding:20px;border:1px solid #b8c9e5;background:#f6f9ff;border-radius:14px;color:#203754}
+.tm-review-demo-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tm-review-demo-tag{border:1px solid #ba6c32;background:#fff2e4;color:#833f13;border-radius:6px;padding:5px 8px;font-size:11px;font-weight:900;letter-spacing:.02em}
+.tm-review-demo-stars{color:#e3a128;font-size:23px;letter-spacing:3px;margin:12px 0 6px}
+.tm-review-demo-quote{font-size:15px;line-height:1.6;margin:0 0 10px}
+.tm-review-demo small,.tm-review-real-status{font-size:12px;color:#435673}
+.tm-review-real-status{margin:12px 0 0}
+@media(max-width:600px){.tm-review-demo{padding:14px}.tm-review-demo-quote{font-size:14px}}
