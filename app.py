@@ -163,7 +163,7 @@ def enrich_product(product, category_slug, index):
     item.setdefault("specifications", {})
     item.setdefault("usps", [])
     item.setdefault("seo_title", f"{item['name']} | TrendMix")
-    item.setdefault("seo_description", f"{item['name']} binnen {item['category_name']}. Bekijk prijs, productinformatie en alternatieven bij TrendMix.")
+    item.setdefault("seo_description", f"{item['name']} in de categorie {item['category_name']} bij TrendMix. Bekijk de beschikbare productinformatie en controleer specificaties en levering vóór bestelling.")
     item.setdefault("faq", [])
     item.setdefault("related_product_ids", [])
     item["product_url"] = product_url(item)
