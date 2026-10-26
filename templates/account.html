@@ -1,10 +1,37 @@
 {% extends "base.html" %}
 {% from '_tm_icons.html' import tm_icon %}
-{% block title %}Account | TrendMix{% endblock %}
-{% block description %}TrendMix accountomgeving.{% endblock %}
+{% block title %}Mijn account en bestellingen | TrendMix{% endblock %}
+{% block description %}Bekijk de mogelijkheden van Mijn TrendMix, je favorieten en de klantenservice. Klantaccounts en besteloverzicht volgen zodra de veilige koppeling gereed is.{% endblock %}
 {% block content %}
-<section class="page-section account-page">
- <div class="section-heading"><span class="section-label">TRENDMIX ACCOUNT</span><h1>Mijn account</h1><p>Je persoonlijke TrendMix-omgeving.</p></div>
- <div class="account-card"><div class="account-icon">{{ tm_icon('user') }}</div><div class="account-content"><span class="account-status">IN ONTWIKKELING</span><h2>Accountfunctie volgt vóór commerciële livegang</h2><p class="account-description">Inloggen en registreren zijn nog niet geactiveerd. Zo wekken we niet de indruk dat er al een werkend klantaccount bestaat. Winkelwagen en favorieten kun je tijdens de testfase wel gebruiken.</p><div class="account-actions"><a href="/wishlist" class="btn btn-primary">Mijn favorieten →</a><a href="/shop" class="btn btn-outline">Naar de shop →</a></div></div></div>
+<section class="page-section account-page" aria-labelledby="account-title">
+ <div class="section-heading">
+  <span class="section-label">MIJN TRENDMIX</span>
+  <h1 id="account-title">Mijn account</h1>
+  <p>Hier komt jouw persoonlijke omgeving voor bestellingen, verzendinformatie en retouren.</p>
+ </div>
+ <div class="account-card">
+  <div class="account-icon" aria-hidden="true">{{ tm_icon('user') }}</div>
+  <div class="account-content">
+   <span class="account-status">NOG NIET ACTIEF</span>
+   <h2>Een veilige klantomgeving is in voorbereiding</h2>
+   <p class="account-description">Inloggen, registreren, wachtwoord herstellen en het bekijken van persoonlijke bestellingen zijn nog niet beschikbaar. We activeren deze functies pas wanneer de beveiligde account- en besteladministratie is aangesloten. Je hoeft nu dus geen wachtwoord of persoonlijke gegevens in te voeren.</p>
+   <div class="account-actions">
+    <a href="{{ url_for('wishlist') }}" class="btn btn-primary">Bekijk favorieten</a>
+    <a href="{{ url_for('winkelwagen') }}" class="btn btn-outline">Winkelwagen</a>
+    <a href="{{ url_for('shop') }}" class="btn btn-outline">Verder winkelen</a>
+   </div>
+  </div>
+ </div>
+ <div class="account-card" style="margin-top:18px">
+  <div class="account-content">
+   <h2>Hulp bij bestellen</h2>
+   <p>Heb je vragen over levering, retourneren of contact met TrendMix? Bekijk onze informatiepagina's. Deze pagina toont momenteel geen persoonlijke ordergegevens.</p>
+   <div class="account-actions">
+    <a href="/bestellen" class="btn btn-outline">Bestellen en levering</a>
+    <a href="/retouren" class="btn btn-outline">Retourinformatie</a>
+    <a href="/contact" class="btn btn-outline">Klantenservice</a>
+   </div>
+  </div>
+ </div>
 </section>
 {% endblock %}
