@@ -297,3 +297,13 @@ body.tm-new-storefront .tm-ref-products-head>a{font-size:12px!important}
 @media(hover:hover) and (pointer:fine){.product-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(7,30,69,.13)}.product-card:hover .product-image img{transform:scale(1.04)}}
 @media(max-width:680px){.product-detail .detail-image{border-radius:14px}.product-detail .detail-thumbnails button{min-width:60px;min-height:60px}.product-card .card-add{min-height:44px}.product-card h3{line-height:1.35}}
 @media(prefers-reduced-motion:reduce){.product-card,.product-card .product-image img{transition:none}.product-card:hover,.product-card:hover .product-image img{transform:none}}
+
+
+/* Product reviews: honest empty state until verified purchases exist. */
+.tm-reviews-section{margin:32px 0;padding:24px;border:1px solid #e0e9f5;border-radius:18px;background:#fff;color:#142849}
+.tm-reviews-section h2{margin:7px 0 20px;font-size:clamp(21px,2.5vw,29px);line-height:1.2}
+.tm-reviews-empty{display:flex;align-items:flex-start;gap:15px;padding:20px;border:1px dashed #b7cbe7;border-radius:14px;background:#f5f9ff}
+.tm-reviews-icon{font-size:35px;line-height:1;color:#0866f5}
+.tm-reviews-empty h3{margin:0 0 9px;font-size:17px;color:#152b4d}
+.tm-reviews-empty p{margin:0;line-height:1.65;color:#425778}
+@media(max-width:600px){.tm-reviews-section{padding:16px;margin:24px 0}.tm-reviews-empty{padding:16px;gap:11px}.tm-reviews-empty h3{font-size:15px}}
