@@ -6,8 +6,8 @@ def test_product_page_has_review_area_without_fake_stars():
     assert response.status_code == 200
     html = response.get_data(as_text=True)
     assert 'id="tm-reviews-title"' in html
-    assert "Nog geen geverifieerde beoordelingen" in html
-    assert "We tonen geen verzonnen sterren" in html
+    assert "TEST / DEMO — NIET ECHT" in html
+    assert "Fictieve tekst voor de testweergave" in html
     assert '"aggregateRating"' not in html
 
 
@@ -17,6 +17,6 @@ def test_footer_displays_only_planned_payment_methods():
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert "Betaalmethoden in voorbereiding" in html
-        assert "Betalen is op dit moment nog niet actief" in html
+        assert "Betalen is op dit moment nog niet actief" in html\n        assert 'role="img"' in html
         for payment in ("iDEAL / Wero", "Google Pay", "PayPal"):
             assert payment in html
