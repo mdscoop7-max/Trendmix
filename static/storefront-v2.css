@@ -197,3 +197,18 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
     --tm-cta-ink: #18243b;
   }
 }
+
+
+/* Compact bilingual topbar dropdown; flags are inline SVG, not font-dependent emoji. */
+.tm-global-language{position:relative;margin-left:10px;z-index:30;font-size:13px}
+.tm-language-dropdown{position:relative}
+.tm-language-dropdown summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:34px;padding:5px 11px;border:1px solid rgba(255,255,255,.55);border-radius:8px;color:#fff;cursor:pointer;font-weight:700}
+.tm-language-dropdown summary::-webkit-details-marker{display:none}
+.tm-language-dropdown summary:focus-visible,.tm-language-options button:focus-visible{outline:3px solid #ffdb6e;outline-offset:2px}
+.tm-lang-flag{width:24px;height:16px;display:inline-flex;flex:none;overflow:hidden;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.tm-lang-flag[hidden]{display:none}
+.tm-lang-flag svg{display:block;width:24px;height:16px}
+.tm-language-arrow{font-size:17px;line-height:1}
+.tm-language-options{position:absolute;top:calc(100% + 5px);right:0;min-width:180px;padding:6px;background:#fff;color:#15233d;border:1px solid #d4ddea;border-radius:10px;box-shadow:0 8px 26px rgba(4,22,54,.22);z-index:50}
+.tm-language-options button{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:0;border-radius:6px;color:#15233d;background:transparent;text-align:left;cursor:pointer;font-weight:650}
+.tm-language-options button:hover,.tm-language-options button.active{background:#edf4ff;color:#0658c6}
