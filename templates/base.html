@@ -1,7 +1,7 @@
 {% from '_tm_icons.html' import tm_icon %}
 <!doctype html>
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{% block title %}TrendMix{% endblock %}</title><meta name="description" content="{% block description %}Ontdek TrendMix-producten.{% endblock %}"><link rel="canonical" href="{{ request.url_root.rstrip('/') }}{{ request.path }}">
+<title>{% block title %}TrendMix{% endblock %}</title><meta name="description" content="{% block description %}Ontdek TrendMix-producten.{% endblock %}"><link rel="canonical" href="{{ site_url }}{{ request.path }}">
 <link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='storefront-v2.css',v='20261017-mobile') }}">
 <style>
