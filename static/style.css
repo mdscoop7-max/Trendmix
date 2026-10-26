@@ -278,3 +278,22 @@ body.tm-new-storefront .tm-ref-products-head>a{font-size:12px!important}
 .tm-image-zoom button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media(max-width:600px){.tm-image-zoom{padding:14px}.tm-image-zoom img{max-width:96vw;max-height:calc(100dvh - 120px)}.tm-image-zoom img.is-enlarged{transform:scale(1.45)}.tm-image-zoom .tm-zoom-close{top:10px;right:10px}}
 @media(prefers-reduced-motion:reduce){.tm-image-zoom img{transition:none}}
+
+
+/* Accessible product-detail and product-grid finishing touches. Hero remains untouched. */
+.product-detail .detail-gallery,.product-detail .detail-copy{min-width:0}
+.product-detail .detail-image{overflow:hidden;border-radius:18px}
+.product-detail .detail-image img{max-width:100%;height:auto;object-fit:contain}
+.product-detail .detail-thumbnails{display:flex;gap:10px;max-width:100%;overflow-x:auto;padding:5px 3px;scrollbar-width:thin}
+.product-detail .detail-thumbnails button{flex:0 0 auto;min-width:56px;min-height:56px;cursor:pointer}
+.product-detail .detail-thumbnails button:focus-visible{outline:3px solid #1264f3;outline-offset:3px}
+.product-card{min-width:0;transition:box-shadow .2s ease,transform .2s ease}
+.product-card .product-image{overflow:hidden}
+.product-card .product-image img{object-fit:contain;transition:transform .24s ease}
+.product-card .product-body{min-width:0}
+.product-card h3{overflow-wrap:anywhere}
+.product-card button{touch-action:manipulation}
+.product-card button:focus-visible,.product-card a:focus-visible{outline:3px solid #1264f3;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){.product-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(7,30,69,.13)}.product-card:hover .product-image img{transform:scale(1.04)}}
+@media(max-width:680px){.product-detail .detail-image{border-radius:14px}.product-detail .detail-thumbnails button{min-width:60px;min-height:60px}.product-card .card-add{min-height:44px}.product-card h3{line-height:1.35}}
+@media(prefers-reduced-motion:reduce){.product-card,.product-card .product-image img{transition:none}.product-card:hover,.product-card:hover .product-image img{transform:none}}
