@@ -57,9 +57,23 @@ document.addEventListener('DOMContentLoaded',()=>{
   const saved=localStorage.getItem('trendmix-language')||detectTrendMixLanguage();
   if(select){select.value=saved;select.addEventListener('change',e=>applyLanguage(e.target.value));}
   document.querySelectorAll('[data-language]').forEach(button=>{
-    button.addEventListener('click',()=>applyLanguage(button.dataset.language));
+    button.addEventListener('click',()=>{applyLanguage(button.dataset.language);button.closest('.tm-language-dropdown')?.removeAttribute('open');});
   });
   applyLanguage(saved);
+  function refreshTopbarLanguage(lang){
+    document.querySelectorAll('.tm-language-dropdown').forEach(menu=>{
+      const current=menu.querySelector('.tm-language-current');
+      if(current)current.textContent=lang==='en'?'English':'Nederlands';
+      const nl=menu.querySelector('.tm-flag-nl');
+      const en=menu.querySelector('.tm-flag-en');
+      if(nl)nl.hidden=lang==='en';
+      if(en)en.hidden=lang!=='en';
+    });
+  }
+  refreshTopbarLanguage(saved);
+  document.querySelectorAll('.tm-language-options [data-language]').forEach(button=>{
+    button.addEventListener('click',()=>refreshTopbarLanguage(button.dataset.language));
+  });
 
   const toggle=document.querySelector('[data-menu-toggle]');
   const nav=document.querySelector('[data-mobile-nav]');
