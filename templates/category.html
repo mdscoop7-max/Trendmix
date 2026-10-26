@@ -1,11 +1,11 @@
 {% from '_tm_icons.html' import tm_icon %}
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0866f5"><title>{{ category_name }} | TrendMix</title><meta name="description" content="Bekijk de {{ category_name }} collectie bij TrendMix: praktische producten, duidelijke informatie en een overzicht van ons assortiment."><link rel="canonical" href="https://trendmix-jet.vercel.app/{{ category_slug }}"><link rel="stylesheet" href="{{ url_for('static',filename='storefront-v2.css',v='20261017-footer1') }}"><link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0866f5"><title>{{ category_name }} | TrendMix</title><meta name="description" content="Bekijk de {{ category_name }} collectie bij TrendMix: praktische producten, duidelijke informatie en een overzicht van ons assortiment."><link rel="canonical" href="{{ site_url }}/{{ category_slug }}"><link rel="stylesheet" href="{{ url_for('static',filename='storefront-v2.css',v='20261017-footer1') }}"><link rel="icon" href="{{ url_for('static',filename='favicon.svg') }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TrendMix">
 <meta property="og:title" content="{{ category_name }} | TrendMix">
 <meta property="og:description" content="Bekijk de {{ category_name }} collectie en het assortiment bij TrendMix.">
-<meta property="og:url" content="https://trendmix-jet.vercel.app/{{ category_slug }}">
-<meta property="og:image" content="https://trendmix-jet.vercel.app/static/images/hero/gadgets.jpg">
+<meta property="og:url" content="{{ site_url }}/{{ category_slug }}">
+<meta property="og:image" content="{{ site_url }}/static/images/hero/gadgets.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/static/trendmix-hero-fix.css">
 </head><body>
