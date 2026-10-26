@@ -35,7 +35,7 @@
     "brand":({"@type":"Brand","name":product.brand} if product.brand else none),
     "offers":({
       "@type":"Offer",
-      "url":request.url_root.rstrip("/") ~ product.product_url,
+      "url":site_url ~ product.product_url,
       "price":"%.2f"|format(product.price),
       "priceCurrency":"EUR",
       "availability":("https://schema.org/InStock" if product.stock_status == "in_stock" else "https://schema.org/OutOfStock")
@@ -47,9 +47,9 @@
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
     "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":request.url_root.rstrip("/") ~ "/"},
-      {"@type":"ListItem","position":2,"name":category_name,"item":request.url_root.rstrip("/") ~ "/" ~ category_slug},
-      {"@type":"ListItem","position":3,"name":product.name,"item":request.url_root.rstrip("/") ~ product.product_url}
+      {"@type":"ListItem","position":1,"name":"Home","item":site_url ~ "/"},
+      {"@type":"ListItem","position":2,"name":category_name,"item":site_url ~ "/" ~ category_slug},
+      {"@type":"ListItem","position":3,"name":product.name,"item":site_url ~ product.product_url}
     ]
   }|tojson }}
   </script>
