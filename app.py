@@ -557,8 +557,11 @@ def admin_accounts_page():
 def _admin_draft_guard():
     if os.getenv("VERCEL_ENV") or not os.getenv("TRENDMIX_ADMIN_USER") or len(os.getenv("TRENDMIX_ADMIN_PASSWORD", "")) < 16:
         abort(404)
-    if not _admin_authorized():
+    actor = _current_admin()
+    if actor is None:
         return Response("Beheer: aanmelden vereist", 401, {"WWW-Authenticate": 'Basic realm="TrendMix beheer"'})
+    if actor["role"] not in ("owner", "manager"):
+        abort(403)
     return None
 
 
