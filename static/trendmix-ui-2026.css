@@ -529,3 +529,11 @@ body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:
 .tm-product-page .detail-actions :is(button,.btn){min-height:49px!important;border-radius:12px!important;font-weight:800!important}
 .tm-product-page .detail-actions .btn-outline{background:#fff!important;color:#1262b7!important;border:1px solid #bbd5f4!important}
 @media(max-width:760px){.tm-digital-nav .tm-category-dropdown>summary.tm-menu-summary{width:min(100%,300px)!important}.tm-product-page .product-availability{padding:13px 15px!important}}
+
+/* Shared outline icon polish for navigation, product details and service content. */
+.tm-unified-icon{width:20px;height:20px;flex:none;vertical-align:middle;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tm-product-page .tm-unified-icon,.tm-footer-v2 .tm-unified-icon{width:21px;height:21px}
+.tm-category-menu-links .tm-nav-icon{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;flex:none;border-radius:8px;background:#eaf3ff;color:#1969be}
+.tm-category-menu-links a.selected .tm-nav-icon,.tm-category-menu-links a[aria-current=page] .tm-nav-icon{background:#ffffff24;color:#fff}
+.tm-category-menu-links .tm-nav-icon svg{width:19px;height:19px;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:760px){.tm-unified-icon{width:19px;height:19px}}
