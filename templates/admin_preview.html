@@ -60,11 +60,19 @@ tr:last-child td{border-bottom:none}
 .feature-grid .card .tag{align-self:flex-start}
 @media(max-width:700px){main{width:min(100% - 24px,1200px);padding-top:24px}.admin-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav a{justify-content:center;text-align:center;padding:11px 8px}.card{padding:18px}.feature-grid .card{min-height:0}}
 @media(prefers-reduced-motion:reduce){.admin-nav a{transition:none}}
+.admin-tool-card{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;border-color:#cfe2f7;transition:transform .15s,box-shadow .15s,border-color .15s}
+.admin-tool-card:hover{transform:translateY(-3px);border-color:#7cb8f3;box-shadow:0 15px 30px #194b8325}
+.admin-tool-card:focus-visible{outline:3px solid #ffcb62;outline-offset:3px}
+.admin-tool-card h2{margin:0}
+.admin-tool-card p{margin:0 0 8px;flex:1}
+.admin-tool-card .pill{align-self:flex-start;margin-top:auto}
+.admin-tool-symbol{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#eaf4ff;color:#0874ce;font-size:24px;font-weight:800}
+@media(prefers-reduced-motion:reduce){.admin-tool-card{transition:none}}
 </style></head><body>
 <header><div><span class="brand">Trend<span>Mix</span> / Beheer</span><a href="/">← Terug naar webshop</a></div></header>
 <main><h1>Beheerdashboard</h1><p>Overzicht van de huidige testcatalogus. Alleen zichtbaar met ingestelde beheerdersgegevens.</p>
 <div class="notice"><strong>Voorbereidingsfase:</strong> dit dashboard is alleen-lezen. Producten toevoegen, foto's uploaden, prijzen aanpassen en bestellingen beheren worden pas ingeschakeld na veilige authenticatie, opslag en validatie. Geen echte leveranciers- of omzetgegevens.</div>
-<nav class="admin-nav" aria-label="Dashboardonderdelen"><a href="#statistieken">Overzicht</a><a href="#bestellingen">Bestellingen</a><a href="#producten">Producten</a><a href="#bezoekers">Bezoekers</a><a href="#instellingen">Afbeeldingen en menu</a></nav>
+<nav class="admin-nav" aria-label="Dashboardonderdelen"><a href="#statistieken">Overzicht</a><a href="#bestellingen">Bestellingen</a><a href="#producten">Producten</a><a href="#bezoekers">Bezoekers</a><a href="#hulpmiddelen">Beheerhulpmiddelen</a><a href="#instellingen">Toekomstige functies</a></nav>
 <div id="statistieken" class="cards">
  <div class="card"><span class="metric-label">Testproducten</span><strong class="metric">{{ total_products }}</strong><small>In {{ overview|length }} categorieën</small></div>
  <div class="card"><span class="metric-label">Bestellingen</span><strong class="metric">{{ order_stats.orders }}</strong><small>{{ order_stats.order_label }}</small></div>
@@ -86,6 +94,14 @@ tr:last-child td{border-bottom:none}
 <p class="pill">{{ visitor_stats.note }}</p><p class="muted">Dit zijn anonieme paginaweergaven, geen unieke bezoekers. Beheerderspagina's en herkenbare bots worden niet meegeteld. Bezoekersanalyses en conversies vereisen aanvullende inrichting.</p></section>
 </div>
 <section class="section card" aria-labelledby="newtools"><h2 id="newtools">Beheerwerkruimte (lokaal testen)</h2><p>Bewaar productconcepten en laat klantvragen beantwoorden als gecontroleerde concepttekst. Deze functies wijzigen de openbare catalogus niet en verzenden geen e-mails.</p><nav class="admin-nav" aria-label="Beheerwerkruimte"><a href="/beheer/productconcepten">Productconcepten beheren</a><a href="/beheer/prijsberekening">BTW, verzendkosten & marge</a><a href="/beheer/productonderzoek">Product- & nicheonderzoek</a><a href="/beheer/monitoring">Monitoring en rapporten</a><a href="/beheer/klantenservice">AI-klantenserviceconcepten</a></nav></section>
+<section class="section" id="hulpmiddelen" aria-labelledby="hulpmiddelen-titel"><h2 id="hulpmiddelen-titel">Beschikbare beheerhulpmiddelen</h2><p class="muted">Werk met productconcepten en controles zonder testproducten of prijzen direct op de publieke webshop te wijzigen.</p>
+<div class="feature-grid">
+<a class="card admin-tool-card" href="{{ url_for('admin_product_drafts') }}"><span class="admin-tool-symbol" aria-hidden="true">✎</span><h2>Productconcepten</h2><p>Productideeën bewaren en voorbereiden voor een latere controle.</p><span class="pill">Open concepten</span></a>
+<a class="card admin-tool-card" href="{{ url_for('admin_product_research') }}"><span class="admin-tool-symbol" aria-hidden="true">⌕</span><h2>Productonderzoek</h2><p>Productkandidaten beoordelen vóór opname in de catalogus.</p><span class="pill">Start onderzoek</span></a>
+<a class="card admin-tool-card" href="{{ url_for('admin_supplier_pricing') }}"><span class="admin-tool-symbol" aria-hidden="true">€</span><h2>Prijsberekening</h2><p>Marge en kostprijs berekenen met voorlopige aannames.</p><span class="pill">Bereken prijs</span></a>
+<a class="card admin-tool-card" href="{{ url_for('admin_integrations_monitor') }}"><span class="admin-tool-symbol" aria-hidden="true">◉</span><h2>Monitoring</h2><p>De voorbereide koppelingen en controles bekijken.</p><span class="pill">Bekijk monitoring</span></a>
+<a class="card admin-tool-card" href="{{ url_for('admin_support_drafts') }}"><span class="admin-tool-symbol" aria-hidden="true">✉</span><h2>Klantenserviceconcepten</h2><p>Antwoordconcepten voorbereiden zonder berichten automatisch te verzenden.</p><span class="pill">Open concepten</span></a>
+</div></section>
 <section class="section" id="instellingen"><h2>Uitgebreid webshopbeheer</h2>
 <div class="feature-grid">
 <div class="card"><h2>Producten en afbeeldingen</h2><p>Productfoto vervangen, galerij ordenen, alt-tekst wijzigen, prijzen en beschrijvingen bewerken.</p><span class="tag">Bewerkfunctie in voorbereiding</span></div>
