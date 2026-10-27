@@ -16,7 +16,7 @@
   <script defer src="{{ url_for('static', filename='app.js', v='20260920-3') }}"></script>
   <script defer src="{{ url_for('static', filename='languages.js', v='20260921-1') }}"></script>
   {% if product.images %}
-  <meta property="og:image" content="{{ product.images[0] }}">
+  <meta property="og:image" content="{{ product.images[0] if product.images[0].startswith('http') else site_url ~ product.images[0] }}">
   {% endif %}
   <meta property="og:title" content="{{ product.seo_title }}">
   <meta property="og:description" content="{{ product.seo_description }}">
@@ -30,7 +30,8 @@
     "name":product.name,
     "description":product.description,
     "category":category_name,
-    "image":product.images,
+    "image":[image if image.startswith("http") else site_url ~ image for image in product.images],
+    "url":site_url ~ product.product_url,
     "sku":product.id,
     "brand":({"@type":"Brand","name":product.brand} if product.brand else none),
     "offers":({
