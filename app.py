@@ -263,6 +263,9 @@ def filter_products(product_list, category=None, search=None):
                 or needle in str(p.get("en_name", "")).lower()
                 or needle in str(p.get("brand", "")).lower()
                 or needle in str(p.get("description", "")).lower()
+                or needle in str(p.get("category_name", "")).lower()
+                or needle in str(p.get("short_description", "")).lower()
+                or needle in " ".join(f"{key} {value}" for key, value in (p.get("specifications") or {}).items()).lower()
             ]
     return result
 
