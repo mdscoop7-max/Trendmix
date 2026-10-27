@@ -15,6 +15,7 @@ from admin_drafts import list_drafts, save_draft, remove_draft, add_support_draf
 from support_email_drafts import draft_reply
 from decimal import Decimal, InvalidOperation
 from customer_accounts import create_account, authenticate, account_by_id
+from admin_accounts import account as verify_admin_account, list_users as admin_list_users, add_user as admin_add_user, update_password as admin_update_password, remove_user as admin_remove_user
 from product_art import render_product_svg
 from catalog_readiness import review_product
 from visitor_metrics import record_page_view, summary as visitor_metrics_summary
@@ -454,16 +455,21 @@ def products_page():
     return redirect(url_for("shop"), code=302)
 
 
-def _admin_authorized():
-    """Read-only admin preview; requires explicit credentials, never public by default."""
-    username = os.getenv("TRENDMIX_ADMIN_USER", "")
-    password = os.getenv("TRENDMIX_ADMIN_PASSWORD", "")
-    if not username or len(password) < 16:
-        return False
+def _current_admin():
     auth = request.authorization
-    return bool(auth and auth.type == "basic"
-                and hmac.compare_digest(auth.username or "", username)
-                and hmac.compare_digest(auth.password or "", password))
+    if not auth or auth.type != "basic":
+        return None
+    return verify_admin_account(auth.username or "", auth.password or "")
+
+
+def _admin_authorized():
+    return _current_admin() is not None
+
+
+def _admin_csrf_token():
+    if "admin_csrf" not in session:
+        session["admin_csrf"] = secrets.token_urlsafe(32)
+    return session["admin_csrf"]
 
 
 @app.route("/beheer")
@@ -497,11 +503,55 @@ def admin_preview():
                                         overview=overview,
                                         order_stats=order_stats,
                                         visitor_stats=visitor_stats,
-                                        total_products=sum(row["count"] for row in overview)))
+                                        total_products=sum(row["count"] for row in overview), current_admin=_current_admin()))
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Robots-Tag"] = "noindex, nofollow"
     return response
 
+
+
+@app.route("/beheer/accounts", methods=["GET", "POST"])
+def admin_accounts_page():
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    actor = _current_admin()
+    if actor["role"] != "owner":
+        abort(403)
+    error = None
+    info = None
+    if request.method == "POST":
+        if not hmac.compare_digest(request.form.get("csrf", ""), session.get("admin_csrf", "")):
+            abort(403)
+        action = request.form.get("action", "")
+        try:
+            if action == "create":
+                admin_add_user(request.form.get("username", "").strip(),
+                               request.form.get("password", ""),
+                               request.form.get("role", ""))
+                info = "Gebruiker toegevoegd."
+            elif action == "password":
+                new_password = request.form.get("new_password", "")
+                if not verify_admin_account(actor["username"], request.form.get("current_password", "")):
+                    raise ValueError("Huidig wachtwoord klopt niet.")
+                admin_update_password(actor["username"], new_password)
+                info = "Wachtwoord gewijzigd. Gebruik bij de volgende aanmelding het nieuwe wachtwoord."
+            elif action == "delete":
+                target = request.form.get("username", "")
+                if not target or target == actor["username"]:
+                    raise ValueError("Eigenaar kan niet worden verwijderd.")
+                admin_remove_user(target)
+                info = "Gebruiker verwijderd."
+            else:
+                raise ValueError("Onbekende actie.")
+        except (ValueError, __import__("sqlite3").IntegrityError) as exc:
+            error = str(exc) if isinstance(exc, ValueError) else "Deze gebruikersnaam bestaat al."
+    response = make_response(render_template("admin_accounts.html",
+        current_admin=actor, users=admin_list_users(), csrf=_admin_csrf_token(), error=error, info=info),
+        400 if error else 200)
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
 
 
 def _admin_draft_guard():
