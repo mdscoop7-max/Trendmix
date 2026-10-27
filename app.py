@@ -467,7 +467,7 @@ def control():
     section_names = {
         "dashboard": "Dashboard", "producten": "Producten", "categorieen": "Categorieën",
         "bestellingen": "Bestellingen", "klanten": "Klanten", "kortingen": "Kortingen & acties",
-        "marketing": "Marketing & Google Ads", "seo": "SEO & RankFix AI",
+        "marketing": "Marketing", "seo": "SEO & GEO", "rankfix": "RankFix AI",
         "statistieken": "Statistieken", "leveranciers": "Leveranciers & dropshipping",
         "instellingen": "Instellingen",
         "onderzoek": "Productonderzoek & niches",
