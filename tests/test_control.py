@@ -71,12 +71,15 @@ def test_homepage_has_hero_image_fallbacks():
     assert b"/img/product/" in response.data
 
 
-def test_sitemap_is_valid_xml_shape_and_has_products():
+def test_sitemap_has_verified_public_collection_urls_only():
     client = app.test_client()
     response = client.get("/sitemap.xml")
     assert response.status_code == 200
     assert b"<urlset" in response.data
-    assert b"/gadgets/" in response.data
+    assert b"/gadgets</loc>" in response.data
+    assert b"/shop</loc>" in response.data
+    # Supplier-unverified demo products must not be submitted as live listings.
+    assert b"/gadgets/" not in response.data
 
 
 def test_no_obsolete_affiliate_faq_copy_on_faq_page():
