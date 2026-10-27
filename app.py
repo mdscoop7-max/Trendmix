@@ -464,10 +464,40 @@ def control():
     top_category = max(category_counts.items(), key=lambda item: item[1])[0] if category_counts else "N/A"
     featured_products = sorted(all_products, key=lambda p: (float(p.get("price", 0) or 0), p.get("name", "")), reverse=True)[:8]
 
+    section_names = {
+        "dashboard": "Dashboard", "producten": "Producten", "categorieen": "Categorieën",
+        "bestellingen": "Bestellingen", "klanten": "Klanten", "kortingen": "Kortingen & acties",
+        "marketing": "Marketing & Google Ads", "seo": "SEO & RankFix AI",
+        "statistieken": "Statistieken", "leveranciers": "Leveranciers & dropshipping",
+        "instellingen": "Instellingen",
+    }
+    section_descriptions = {
+        "producten": "Bekijk en doorzoek de bestaande testcatalogus.",
+        "categorieen": "Overzicht van de vijf hoofdcollecties.",
+        "bestellingen": "Bestellingen zodra een echte orderbron is gekoppeld.",
+        "klanten": "Beveiligd klantenoverzicht zodra klantbeheer beschikbaar is.",
+        "kortingen": "Kortingen en gecontroleerde acties zodra beschikbaar.",
+        "marketing": "Google Ads, Merchant Center en marketing op één plek.",
+        "seo": "Website-audits en toekomstige RankFix AI-koppeling.",
+        "statistieken": "Cataloguscijfers zonder fictieve omzet.",
+        "leveranciers": "Europese dropshipleveranciers en productfeeds.",
+        "instellingen": "Shopinstellingen, betalingen en integraties.",
+    }
+    section = request.args.get("section", "dashboard").strip().lower()
+    if section not in section_names:
+        section = "dashboard"
+    search = request.args.get("q", "").strip()[:120]
+    filtered_products = filter_products(all_products, search=search) if search else all_products
+
     view_template = "control.html" if request.path == "/catalogus-overzicht" else "dashboard.html"
     return render_template(
         view_template,
         products=featured_products,
+        filtered_products=filtered_products,
+        section=section,
+        search=search,
+        section_names=section_names,
+        section_descriptions=section_descriptions,
         stats={
             "total_products": len(all_products),
             "total_categories": len(category_counts),
