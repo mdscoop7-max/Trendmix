@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f6f7fb">
   <title>{{ product.seo_title }}</title>
   <meta name="description" content="{{ product.seo_description }}">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="{% if product.seo_verified %}index,follow{% else %}noindex,follow{% endif %}">
   <link rel="canonical" href="{{ site_url }}{{ product.product_url }}">
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ url_for('static', filename='design-tokens.css') }}">
