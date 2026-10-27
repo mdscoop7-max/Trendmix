@@ -6,7 +6,7 @@ Questions about individual orders or unavailable facts require human review.
 import re
 
 def classify_question(question):
-    text = re.sub(r"\\s+", " ", str(question or "").casefold()).strip()
+    text = re.sub(r"\s+", " ", str(question or "").casefold()).strip()
     if not text or len(text) > 3000:
         return "human", "Ongeldige of te lange klantvraag"
     personal = ("bestelling", "bestelnummer", "pakket", "tracking", "track & trace",
@@ -25,4 +25,4 @@ def classify_question(question):
 def customer_acknowledgment():
     return ("Bedankt voor je bericht aan TrendMix. We hebben je vraag ontvangen. "
             "Onze klantenservice bekijkt deze persoonlijk en reageert zodra er "
-            "betrouwbare informatie beschikbaar is.\\n\\nMet vriendelijke groet,\\nKlantenservice TrendMix")
+            "betrouwbare informatie beschikbaar is.\n\nMet vriendelijke groet,\nKlantenservice TrendMix")
