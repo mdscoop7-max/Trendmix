@@ -55,3 +55,9 @@ Een groene GitHub Actions-run vervangt geen handmatige visuele of betaal-/leveri
 - Nieuwe beveiligde read-only pagina `/beheer/lancering`, bereikbaar via het beheerdashboard. Toont acht afzonderlijke blokkades voor echte verkoop, bewust niet automatisch als "gereed" op basis van alleen configuratievariabelen.
 - Automatische regressietest: pagina zonder credentials verborgen, met credentials afgeschermd, `noindex` en `no-store`; onbetrouwbare claims blijven uit.
 - Volgende bouwfase (afhankelijk van echte aansluitingen): productdatabase en publicatievalidatie; EU leverancier-feedadapter; veilige betaalwebhook/idempotente orderverwerking; admin auditlog en backups; volledige meertaligheid. Niet activeren zonder accounts en testbewijs.
+
+## NL/EN en klantenservice, 27 oktober
+- De bestaande tweetalige informatie- en juridische teksten in `info.html` worden nu geactiveerd door `static/trendmix-bilingual-pages.js`; de contactpagina toont tweetalige ondersteunende teksten en een duidelijk bedrijfsinformatieblok.
+- Er is **geen** KvK-, btw-, adres- of supportmailadres verzonnen. Deze moeten door de eigenaar worden bevestigd; e-mailverzending blijft afhankelijk van geldige Resend-configuratie.
+- Nieuwe tests staan in `tests/test_bilingual_support_pages.py`.
+- Nog af te maken vóór productie: alle product- en checkoutteksten, foutmeldingen en volledige header/footer consequent meertalig maken, en echte taal-URL's/hreflang voor SEO. De huidige taalkeuze is nog browsergebaseerd, niet volledig server-side.
