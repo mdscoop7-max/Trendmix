@@ -22,26 +22,29 @@
 :focus-visible{outline:3px solid #e89a18;outline-offset:2px}
 @media(max-width:1100px){.layout{grid-template-columns:215px minmax(0,1fr)}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.quick{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.layout{display:block}.sidebar{position:static;height:auto;padding:12px;gap:8px}.brand{padding:3px 8px 10px}.side-links{display:flex;overflow-x:auto;padding:4px 0;scrollbar-width:thin}.side-links a{flex:none;padding:10px;white-space:nowrap;font-size:12px}.side-bottom{display:none}.topbar{min-height:68px;padding:12px 15px}.top-search input{height:42px;font-size:12px}.top-profile>div:last-child{display:none}.admin{padding:22px 14px}.heading{display:block}.heading .status{display:inline-block;margin-top:12px}.metrics{gap:10px}.metric{padding:14px;min-height:148px}.metric-label{gap:8px;flex-wrap:wrap}.metric-icon{height:39px;width:39px}.details{grid-template-columns:1fr}.panel{padding:16px}.chart{gap:4px;padding-inline:0}.bar-wrap span{font-size:9px;white-space:normal}.quick{gap:9px}.quick a{padding:12px;min-height:88px}}
+
+.shop-exit{border:1px solid #a8d1ff!important;background:#edf6ff!important;color:#075bbd!important;margin-top:12px}
+.section-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:26px}.section-header h1{font-size:clamp(28px,3vw,40px);margin:6px 0 8px}.section-header p{color:var(--muted);margin:0;line-height:1.5}.section-kicker{font-size:11px;letter-spacing:1px;color:#1468bd;font-weight:800}.panel-after{margin-top:18px}
+.admin-table-wrap{overflow-x:auto}.admin-table{width:100%;border-collapse:collapse;text-align:left;min-width:590px}.admin-table th,.admin-table td{padding:13px 12px;border-bottom:1px solid var(--border);font-size:13px}.admin-table th{font-size:11px;text-transform:uppercase;color:var(--muted);background:#f3f8ff}.state-pill,.integration-status{display:inline-block;background:#e8f3ff;color:#0857ab;padding:7px 11px;border-radius:999px;font-size:11px;font-weight:800}
+.integration{min-height:300px;padding:32px}.integration-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:17px;background:#e4f1ff;color:#0866f5;font-size:30px;margin-bottom:20px}.integration p{max-width:680px;font-size:15px;line-height:1.8}
+@media(max-width:760px){.section-header{display:block}.section-header .status{display:inline-block;margin-top:14px}.integration{padding:22px;min-height:260px}}
 </style>
 </head>
 <body><div class="layout">
 <aside class="sidebar" aria-label="Dashboardnavigatie">
 <a class="brand" href="/dashboard"><span class="brand-mark" aria-hidden="true">▣</span><span><strong>Trend<span>Mix</span></strong><small>Shop Smart · Live Better</small></span></a>
-<nav class="side-links">
-<a class="active" href="/dashboard" aria-current="page"><span class="side-icon">⌂</span>Dashboard</a>
-<a href="/catalogus-overzicht"><span class="side-icon">▣</span>Producten</a>
-<a href="/catalogus-overzicht#categorieen"><span class="side-icon">▦</span>Categorieën</a>
-<a href="/dashboard#bestellingen"><span class="side-icon">🛒</span>Bestellingen</a>
-<a href="/dashboard#klanten"><span class="side-icon">♙</span>Klanten</a>
-<a href="/shop"><span class="side-icon">◇</span>Winkel bekijken</a>
-<a href="/dashboard#statistieken"><span class="side-icon">▥</span>Statistieken</a>
-<a href="/control"><span class="side-icon">⚙</span>Overzicht</a>
+<nav class="side-links" aria-label="Beheermenu">
+{% for key,label,ico in [('dashboard','Dashboard','⌂'),('producten','Producten','▣'),('categorieen','Categorieën','▦'),('bestellingen','Bestellingen','🛒'),('klanten','Klanten','♙'),('kortingen','Kortingen','◇'),('marketing','Marketing & Google Ads','◉'),('seo','SEO & RankFix AI','◎'),('statistieken','Statistieken','▥'),('leveranciers','Leveranciers & dropshipping','◫'),('instellingen','Instellingen','⚙')] %}
+<a href="/dashboard?section={{ key }}" class="{% if section==key %}active{% endif %}" {% if section==key %}aria-current="page"{% endif %}><span class="side-icon" aria-hidden="true">{{ ico }}</span>{{ label }}</a>
+{% endfor %}
+<a class="shop-exit" href="/" target="_blank" rel="noopener"><span class="side-icon" aria-hidden="true">↗</span>Winkel bekijken</a>
 </nav>
-<div class="side-bottom"><b>Trend Mix beheer</b><small>Dashboard in testfase. Verkoopgegevens en klanten worden pas weergegeven na veilige aansluiting op echte databronnen.</small><a href="/">Terug naar webshop</a></div>
+<div class="side-bottom"><b>Trend Mix beheer</b><small>Dashboard in testfase. Alleen gecontroleerde gegevens worden getoond. Koppelingen volgen na inrichting.</small></div>
 </aside>
 <div class="workspace">
-<header class="topbar"><form class="top-search" action="/shop" method="get" role="search"><input name="q" type="search" placeholder="Zoek producten in de webshop..." aria-label="Zoek producten"></form><div class="top-profile"><span>🇳🇱 Nederlands</span><span class="avatar">TM</span><div>Trend Mix<small>Beheerweergave · testfase</small></div></div></header>
+<header class="topbar"><form class="top-search" action="/dashboard" method="get" role="search"><input type="hidden" name="section" value="producten"><input name="q" value="{{ search|default('') }}" type="search" placeholder="Zoek producten in beheer..." aria-label="Zoek producten in beheer"></form><div class="top-profile"><span>🇳🇱 Nederlands</span><span class="avatar">TM</span><div>Trend Mix<small>Beheerweergave · testfase</small></div></div></header>
 <main class="admin">
+{% if section == "dashboard" %}
 <div class="heading"><div><h1>Dashboard</h1><p>Welkom terug! Hier is een overzicht van je webshop.</p></div><span class="status">● Webshop in ontwikkeling</span></div>
 <section class="metrics" aria-label="Kerncijfers">
 <div class="metric"><div class="metric-label"><span class="metric-icon">▣</span>Catalogusproducten</div><strong class="metric-value">{{ stats.total_products }}</strong><span class="metric-note">Producten in huidige testcatalogus</span></div>
@@ -58,5 +61,23 @@
 <div class="category-list"><div class="category-row"><span>Catalogusproducten</span><b>{{ stats.total_products }}</b></div><div class="category-row"><span>Categorieën</span><b>{{ stats.total_categories }}</b></div><div class="category-row"><span>Gemarkeerde aanbiedingen</span><b>{{ stats.offers }}</b></div><div class="category-row"><span>Gemiddelde testprijs</span><b>{{ format_eur(stats.avg_price) }}</b></div></div>
 <div class="notice">Omzet, bestellingen, klantgegevens en voorraadstatus zijn nog niet aangesloten. Daarom worden er geen fictieve bedragen, trends of klantnamen getoond.</div></section>
 </div>
-<nav class="quick" aria-label="Snelle acties"><a href="/shop"><span class="bubble">＋</span><span><b>Producten bekijken</b><small>Bekijk de collectie</small></span></a><a href="/catalogus-overzicht#categorieen"><span class="bubble">▦</span><span><b>Beheer categorieën</b><small>Controleer productgroepen</small></span></a><a href="/aanbiedingen"><span class="bubble">◇</span><span><b>Aanbiedingen</b><small>Bekijk gemarkeerde acties</small></span></a><a href="/catalogus-overzicht"><span class="bubble">▥</span><span><b>Catalogusrapport</b><small>Bekijk de volledige controle</small></span></a></nav>
+<nav class="quick" aria-label="Snelle acties"><a href="/dashboard?section=producten"><span class="bubble">＋</span><span><b>Producten beheren</b><small>Controleer de catalogus</small></span></a><a href="/dashboard?section=categorieen"><span class="bubble">▦</span><span><b>Beheer categorieën</b><small>Productgroepen</small></span></a><a href="/dashboard?section=kortingen"><span class="bubble">◇</span><span><b>Kortingsacties</b><small>Bekijk actiegegevens</small></span></a><a href="/dashboard?section=statistieken"><span class="bubble">▥</span><span><b>Bekijk rapporten</b><small>Catalogusstatistieken</small></span></a></nav>
+
+{% else %}
+<header class="section-header"><div><span class="section-kicker">TREND MIX · BEHEEROMGEVING</span><h1>{{ section_names.get(section,"Dashboard") }}</h1><p>{{ section_descriptions.get(section,"Overzicht van de huidige gegevens en beschikbare koppelingen.") }}</p></div><span class="status">● Testfase</span></header>
+{% if section == "producten" %}
+<section class="panel"><h2>Productcatalogus</h2><p>{{ filtered_products|length }} producten{% if search %} voor “{{ search }}”{% endif %} · productgegevens uit de huidige testcatalogus.</p>
+<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Product</th><th>Categorie</th><th>Testprijs</th><th>Status</th></tr></thead><tbody>
+{% for product in filtered_products %}<tr><td><strong>{{ product.name }}</strong></td><td>{{ product.category }}</td><td>{{ format_eur(product.price) }}</td><td><span class="state-pill">Testcatalogus</span></td></tr>{% else %}<tr><td colspan="4">Geen producten gevonden.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% elif section == "categorieen" %}
+<section class="panel"><h2>Categorieën beheren</h2><p>Alle huidige categorieën en het aantal artikelen. Aanpassen wordt pas beschikbaar na het aansluiten van veilig productbeheer.</p><div class="category-list">{% for name,count in category_counts %}<div class="category-row"><span>{{ name }}</span><b>{{ count }} producten</b></div>{% endfor %}</div></section>
+{% elif section == "statistieken" %}
+<section class="metrics"><div class="metric"><div class="metric-label">Catalogusproducten</div><strong class="metric-value">{{ stats.total_products }}</strong></div><div class="metric"><div class="metric-label">Categorieën</div><strong class="metric-value">{{ stats.total_categories }}</strong></div><div class="metric"><div class="metric-label">Gemarkeerde aanbiedingen</div><strong class="metric-value">{{ stats.offers }}</strong></div><div class="metric"><div class="metric-label">Gemiddelde testprijs</div><strong class="metric-value">{{ format_eur(stats.avg_price) }}</strong></div></section>
+<section class="panel panel-after"><h2>Omzet en conversie</h2><p>Nog niet meetbaar: er zijn geen geverifieerde verkoop- of analyticsgegevens aangesloten.</p></section>
+{% else %}
+<section class="panel integration"><div class="integration-icon" aria-hidden="true">{% if section=="marketing" %}◉{% elif section=="seo" %}◎{% elif section=="leveranciers" %}◫{% else %}▦{% endif %}</div><h2>{{ section_names.get(section,"Beheer") }}</h2>
+<p>{% if section=="marketing" %}Google Ads, Merchant Center en marketingcampagnes worden hier zichtbaar zodra de accounts veilig zijn gekoppeld.{% elif section=="seo" %}SEO-rapporten en RankFix AI-scanresultaten worden hier weergegeven zodra de integratie is ingericht. Er wordt nu geen scan verzonnen of gestart.{% elif section=="bestellingen" %}Bestelbeheer komt beschikbaar zodra een betrouwbare orderbron is gekoppeld. Er worden geen fictieve orders getoond.{% elif section=="klanten" %}Klantbeheer komt beschikbaar zodra de beveiligde klantgegevensbron is gekoppeld.{% elif section=="kortingen" %}Bevestigde kortingsacties en de bijbehorende voorwaarden komen hier zodra het beheer is gekoppeld.{% elif section=="leveranciers" %}Leveranciersfeeds, prijs-/voorraadsynchronisatie en automatische dropshippingverwerking vereisen eerst een echte leverancierskoppeling.{% else %}Instellingen voor account, betalingen, verzending, privacy en koppelingen worden hier ingericht vóór livegang.{% endif %}</p><span class="integration-status">Nog niet gekoppeld</span></section>
+{% endif %}
+{% endif %}
 </main></div></div></body></html>
