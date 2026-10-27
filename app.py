@@ -663,6 +663,12 @@ def product_detail(category_slug, product_slug):
             break
     if not match:
         return "Product niet gevonden", 404
+    # JSON-LD image links must be absolute; do not change rendered gallery URLs.
+    base_url = SITE_URL or request.url_root.rstrip("/")
+    match["seo_images"] = [
+        image if image.startswith(("https://", "http://")) else base_url + "/" + image.lstrip("/")
+        for image in match.get("images", [])
+    ]
     related = [
         enrich_product(raw, category_slug, index)
         for index, raw in enumerate(products[category_slug])
