@@ -545,3 +545,14 @@ body{background:linear-gradient(180deg,#f5faff 0%,#fff 520px,#fbfdff 100%) fixed
 :where(.tm-global-language.tm-locale-flags) .tm-locale-trigger{background:#dceeff!important;color:#104c8d!important;border-color:#76adee!important}
 :where(.tm-global-language.tm-locale-flags) .tm-locale-choices{background:#fff!important;color:#12395f!important}
 @media(max-width:760px){body{background:#fafdff!important}}
+
+/* 2026-10-27 bright finish: crisp airy storefront, preserved photography. */
+body{background:#fff!important}
+main.wrap:not(.legacy-main),main.wrap.legacy-main,main.shell{background:transparent!important}
+:where(.products,.page-section,.product-information,.content-section){background:transparent}
+:where(.productgrid .item,.tm-shop-grid .item,.legacy-main .product-card,.cart-page .cart-panel,.tm-product-page .detail-layout,.tm-product-page .content-panel){background:#fff!important;border-color:#d6e8fb!important;box-shadow:0 8px 24px rgba(18,75,143,.055)!important}
+:where(.productgrid .item .photo,.tm-shop-grid .item .photo,.tm-product-page .detail-image){background:linear-gradient(135deg,#fcfeff,#f2f8ff)!important}
+:where(.categoryshowcase,.services,.tm-newsletter){border-color:#deedfc!important}
+:where(.cart-page,.tm-product-page,.info-page){background:transparent!important}
+body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:#f9fcff!important}
+:where(.site-footer,.tm-footer,.tm-footer-v2){background:#f4faff!important}
