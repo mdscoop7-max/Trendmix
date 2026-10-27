@@ -50,3 +50,8 @@ Let op: inspecteer eventuele lokale onopgeslagen bestanden met `git status` voor
 5. **Klantenservice/compliance**: zakelijk e-mailadres, werkende aflever- en retourscenario's, actuele bedrijfsgegevens en definitieve juridische teksten.
 6. **Veiligheid/QA**: volledige laptopreview op mobiel/desktop, betaalflow in testomgeving, daarna RankFix-scan (lokale adressen alleen als scanner dit veilig ondersteunt).
 Een groene GitHub Actions-run vervangt geen handmatige visuele of betaal-/leveringstest.
+
+## Extra dashboardcontrole (27 oktober)
+- Nieuwe beveiligde read-only pagina `/beheer/lancering`, bereikbaar via het beheerdashboard. Toont acht afzonderlijke blokkades voor echte verkoop, bewust niet automatisch als "gereed" op basis van alleen configuratievariabelen.
+- Automatische regressietest: pagina zonder credentials verborgen, met credentials afgeschermd, `noindex` en `no-store`; onbetrouwbare claims blijven uit.
+- Volgende bouwfase (afhankelijk van echte aansluitingen): productdatabase en publicatievalidatie; EU leverancier-feedadapter; veilige betaalwebhook/idempotente orderverwerking; admin auditlog en backups; volledige meertaligheid. Niet activeren zonder accounts en testbewijs.
