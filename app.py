@@ -3,10 +3,11 @@ import re
 import os
 import hmac
 import secrets
+import uuid
 import urllib.request
 import urllib.error
 from pathlib import Path
-from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
+from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort, send_from_directory
 from integration_readiness import status_rows
 from monitor_snapshots import save_report, latest_reports, METRICS
 from supplier_pricing import quote
@@ -370,6 +371,8 @@ def count_anonymous_page_views(response):
 def verify_form_csrf():
     if request.method not in ("POST", "PUT", "PATCH", "DELETE"):
         return
+    if request.endpoint == "admin_upload_photo":
+        request.max_content_length = 3 * 1024 * 1024
     # Read-only JSON assistant handles Origin separately.
     if request.endpoint == "trendmix_assistant":
         return
@@ -662,7 +665,7 @@ def manage_product_drafts():
             price = Decimal(request.form.get("price", "").strip())
             if not (2 <= len(name) <= 120 and category in CATEGORIES and len(desc) <= 2000 and price.is_finite() and Decimal("0") <= price <= Decimal("999999.99")):
                 raise ValueError("Controleer productnaam, categorie, prijs en omschrijving")
-            if image_url and (len(image_url)>500 or not image_url.startswith("https://")):
+            if image_url and (len(image_url)>500 or not (image_url.startswith("https://") or re.fullmatch(r"/beheer/foto/[a-f0-9]{32}\\.(?:png|jpg|webp)", image_url))):
                 raise ValueError("Afbeeldingslink moet HTTPS gebruiken")
             cents = int(price.quantize(Decimal(".01")) * 100)
             if not save_draft(name, category, cents, desc, image_url, draft_id if draft_id>0 else None):
@@ -670,9 +673,52 @@ def manage_product_drafts():
             return redirect(url_for("manage_product_drafts"), code=303)
         except (ValueError, InvalidOperation, OverflowError):
             error = "Niet opgeslagen. Controleer de velden en probeer opnieuw."
-    response = make_response(render_template("admin_product_drafts.html", drafts=list_drafts(), categories=CATEGORIES, error=error), 400 if error else 200)
+    response = make_response(render_template("admin_product_drafts.html", drafts=list_drafts(), categories=CATEGORIES, error=error, uploaded_photo=request.args.get("photo", "")), 400 if error else 200)
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
+@app.route("/beheer/foto/upload", methods=["POST"])
+def admin_upload_photo():
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    image = request.files.get("image")
+    if not image:
+        abort(400)
+    from io import BytesIO
+    from PIL import Image, UnidentifiedImageError
+    try:
+        data = image.read(2 * 1024 * 1024 + 1)
+        if len(data) > 2 * 1024 * 1024:
+            abort(413)
+        picture = Image.open(BytesIO(data))
+        picture.verify()
+        picture = Image.open(BytesIO(data))
+        if picture.width * picture.height > 12_000_000:
+            abort(413)
+        picture.thumbnail((1600, 1600))
+        picture = picture.convert("RGB")
+    except (UnidentifiedImageError, OSError, ValueError):
+        abort(400)
+    folder = BASE_DIR / "instance" / "admin_uploads"
+    folder.mkdir(parents=True, exist_ok=True)
+    filename = uuid.uuid4().hex + ".jpg"
+    picture.save(folder / filename, format="JPEG", quality=86)
+    return redirect(url_for("manage_product_drafts", photo=url_for("admin_photo", filename=filename)), code=303)
+
+
+@app.route("/beheer/foto/<filename>")
+def admin_photo(filename):
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    if not re.fullmatch(r"[a-f0-9]{32}\\.jpg", filename):
+        abort(404)
+    response = make_response(send_from_directory(BASE_DIR / "instance" / "admin_uploads", filename))
+    response.headers["Cache-Control"] = "private, no-store"
+    response.headers["X-Robots-Tag"] = "noindex"
     return response
 
 
