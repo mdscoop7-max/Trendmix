@@ -870,7 +870,7 @@ def robots():
 @app.route("/sitemap.xml")
 def sitemap():
     site_url = SITE_URL or request.url_root.rstrip("/")
-    urls = [f"{site_url}/"] + [f"{site_url}/{slug}" for slug in CATEGORIES] + [f"{site_url}/{path}" for path in INFO_PAGES] + [f"{site_url}/faq"]
+    urls = [f"{site_url}/", f"{site_url}/shop"] + [f"{site_url}/{slug}" for slug in CATEGORIES] + [f"{site_url}/{path}" for path in INFO_PAGES] + [f"{site_url}/faq"]
     for slug, items in products.items():
         for index, raw in enumerate(items):
             urls.append(f"{site_url}{enrich_product(raw, slug, index)['product_url']}")
