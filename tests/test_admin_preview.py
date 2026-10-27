@@ -42,5 +42,5 @@ def test_dashboard_sales_visitors_and_media_are_unmeasured(monkeypatch):
     assert "Hoofdmenu en categorieën" in body
     assert "Producten en afbeeldingen" in body
     assert "Nog geen geverifieerde betaalde bestellingen beschikbaar" in body
-    assert "Meting nog niet aangesloten" in body
+    assert "Anonieme paginaweergaven" in body
     assert "Bewerkfunctie in voorbereiding" in body
