@@ -7,6 +7,9 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
+from admin_drafts import list_drafts, save_draft, remove_draft, add_support_draft, list_support_drafts
+from support_email_drafts import draft_reply
+from decimal import Decimal, InvalidOperation
 from customer_accounts import create_account, authenticate, account_by_id
 from product_art import render_product_svg
 from catalog_readiness import review_product
@@ -491,6 +494,73 @@ def admin_preview():
                                         order_stats=order_stats,
                                         visitor_stats=visitor_stats,
                                         total_products=sum(row["count"] for row in overview)))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
+
+def _admin_draft_guard():
+    if os.getenv("VERCEL_ENV") or not os.getenv("TRENDMIX_ADMIN_USER") or len(os.getenv("TRENDMIX_ADMIN_PASSWORD", "")) < 16:
+        abort(404)
+    if not _admin_authorized():
+        return Response("Beheer: aanmelden vereist", 401, {"WWW-Authenticate": 'Basic realm="TrendMix beheer"'})
+    return None
+
+
+@app.route("/beheer/productconcepten", methods=["GET", "POST"])
+def manage_product_drafts():
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    error = None
+    if request.method == "POST":
+        action = request.form.get("action")
+        try:
+            draft_id = int(request.form.get("draft_id", "0"))
+            if action == "remove":
+                if draft_id <= 0:
+                    raise ValueError("Ongeldig concept")
+                remove_draft(draft_id)
+                return redirect(url_for("manage_product_drafts"), code=303)
+            if action != "save":
+                raise ValueError("Ongeldige bewerking")
+            name = request.form.get("name", "").strip()
+            category = request.form.get("category", "")
+            desc = request.form.get("description", "").strip()
+            image_url = request.form.get("image_url", "").strip()
+            price = Decimal(request.form.get("price", "").strip())
+            if not (2 <= len(name) <= 120 and category in CATEGORIES and len(desc) <= 2000 and price.is_finite() and Decimal("0") <= price <= Decimal("999999.99")):
+                raise ValueError("Controleer productnaam, categorie, prijs en omschrijving")
+            if image_url and (len(image_url)>500 or not image_url.startswith("https://")):
+                raise ValueError("Afbeeldingslink moet HTTPS gebruiken")
+            cents = int(price.quantize(Decimal(".01")) * 100)
+            if not save_draft(name, category, cents, desc, image_url, draft_id if draft_id>0 else None):
+                raise ValueError("Concept niet gevonden")
+            return redirect(url_for("manage_product_drafts"), code=303)
+        except (ValueError, InvalidOperation, OverflowError):
+            error = "Niet opgeslagen. Controleer de velden en probeer opnieuw."
+    response = make_response(render_template("admin_product_drafts.html", drafts=list_drafts(), categories=CATEGORIES, error=error), 400 if error else 200)
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
+@app.route("/beheer/klantenservice", methods=["GET", "POST"])
+def admin_support_drafts():
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    error = None
+    if request.method == "POST":
+        question = request.form.get("question", "").strip()
+        try:
+            answer, used_ai = draft_reply(question)
+            add_support_draft(question, answer)
+            return redirect(url_for("admin_support_drafts"), code=303)
+        except ValueError:
+            error = "Vul een klantvraag van 5 tot 3000 tekens in."
+    response = make_response(render_template("admin_support_drafts.html", drafts=list_support_drafts(), error=error), 400 if error else 200)
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Robots-Tag"] = "noindex, nofollow"
     return response
