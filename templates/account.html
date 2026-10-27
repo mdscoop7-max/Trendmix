@@ -1,37 +1,30 @@
 {% extends "base.html" %}
 {% from '_tm_icons.html' import tm_icon %}
-{% block title %}Mijn account en bestellingen | TrendMix{% endblock %}
-{% block description %}Bekijk de mogelijkheden van Mijn TrendMix, je favorieten en de klantenservice. Klantaccounts en besteloverzicht volgen zodra de veilige koppeling gereed is.{% endblock %}
+{% block title %}Mijn account | TrendMix{% endblock %}
 {% block content %}
 <section class="page-section account-page" aria-labelledby="account-title">
- <div class="section-heading">
-  <span class="section-label">MIJN TRENDMIX</span>
-  <h1 id="account-title">Mijn account</h1>
-  <p>Hier komt jouw persoonlijke omgeving voor bestellingen, verzendinformatie en retouren.</p>
- </div>
- <div class="account-card">
+ <div class="section-heading"><span class="section-label">MIJN TRENDMIX</span><h1 id="account-title">Mijn account</h1><p>Je persoonlijke accountomgeving bij TrendMix.</p></div>
+ <div class="account-card" style="display:block;max-width:850px;padding:clamp(22px,4vw,38px)">
+ {% if customer %}
+  <span class="account-status">INGELOGD · TESTOMGEVING</span>
+  <h2>Welkom, {{ customer.name }}</h2>
+  <p>Je bent veilig ingelogd met {{ customer.email }}.</p>
+  <p>Bestellingen, betalingen en persoonlijke verzendgegevens zijn nog niet gekoppeld. De testcheckout maakt geen betaalde bestelling aan.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin:20px 0">
+   <a class="btn btn-outline" href="{{ url_for('wishlist') }}">Mijn favorieten</a>
+   <a class="btn btn-outline" href="{{ url_for('shop') }}">Shop bekijken</a>
+  </div>
+  <form method="post" action="{{ url_for('logout_customer') }}"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><button class="btn btn-primary" type="submit">Uitloggen</button></form>
+ {% else %}
   <div class="account-icon" aria-hidden="true">{{ tm_icon('user') }}</div>
-  <div class="account-content">
-   <span class="account-status">NOG NIET ACTIEF</span>
-   <h2>Een veilige klantomgeving is in voorbereiding</h2>
-   <p class="account-description">Inloggen, registreren, wachtwoord herstellen en het bekijken van persoonlijke bestellingen zijn nog niet beschikbaar. We activeren deze functies pas wanneer de beveiligde account- en besteladministratie is aangesloten. Je hoeft nu dus geen wachtwoord of persoonlijke gegevens in te voeren.</p>
-   <div class="account-actions">
-    <a href="{{ url_for('wishlist') }}" class="btn btn-primary">Bekijk favorieten</a>
-    <a href="{{ url_for('winkelwagen') }}" class="btn btn-outline">Winkelwagen</a>
-    <a href="{{ url_for('shop') }}" class="btn btn-outline">Verder winkelen</a>
-   </div>
+  <span class="account-status">BEVEILIGDE TESTOMGEVING</span>
+  <h2>Jouw TrendMix-account</h2>
+  <p>Maak een account of log in. Producten en winkelwagen blijven testfunctionaliteiten totdat leveranciers, betaling en orderverwerking zijn geactiveerd.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+   <a class="btn btn-primary" href="{{ url_for('register_customer') }}">Account aanmaken</a>
+   <a class="btn btn-outline" href="{{ url_for('login_customer') }}">Inloggen</a>
   </div>
- </div>
- <div class="account-card" style="margin-top:18px">
-  <div class="account-content">
-   <h2>Hulp bij bestellen</h2>
-   <p>Heb je vragen over levering, retourneren of contact met TrendMix? Bekijk onze informatiepagina's. Deze pagina toont momenteel geen persoonlijke ordergegevens.</p>
-   <div class="account-actions">
-    <a href="/bestellen" class="btn btn-outline">Bestellen en levering</a>
-    <a href="/retouren" class="btn btn-outline">Retourinformatie</a>
-    <a href="/contact" class="btn btn-outline">Klantenservice</a>
-   </div>
-  </div>
+ {% endif %}
  </div>
 </section>
 {% endblock %}
