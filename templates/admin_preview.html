@@ -23,6 +23,43 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;bor
 @media(max-width:950px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.feature-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.feature-grid{grid-template-columns:1fr}}
 @media(max-width:700px){main{padding-top:24px}.cards{grid-template-columns:1fr;gap:10px}.columns{grid-template-columns:1fr}header>div{align-items:flex-start}}
+
+/* Premium admin UI — visual-only; all read-only and security behavior preserved. */
+:root{color:#183153;background:#f0f6fd}
+body{background:radial-gradient(circle at 80% 0%,#e3f1ff 0%,transparent 38%),#f3f7fd}
+header{background:linear-gradient(115deg,#0c3158,#0863af);box-shadow:0 6px 24px #0c356322}
+header .brand{letter-spacing:-.04em;font-size:25px}
+header .brand span{color:#71d5ff}
+header a{display:inline-flex;align-items:center;text-decoration:none;padding:10px 15px;border:1px solid #a1d8ff66;border-radius:11px;background:#ffffff15;font-weight:750;color:#fff}
+header a:hover,header a:focus-visible{background:#ffffff2c}
+main{width:min(1200px,calc(100% - 36px));padding-top:37px}
+main>h1{color:#0c3158;font-size:clamp(29px,4.3vw,43px);font-weight:850}
+main>p{margin:0 0 24px}
+.notice{border:1px solid #c7def6;background:linear-gradient(110deg,#e7f3ff,#f7fbff);border-radius:15px;padding:18px 20px;box-shadow:0 4px 14px #1e52810a;line-height:1.6}
+.admin-nav{padding:6px;margin:24px 0 25px;gap:9px}
+.admin-nav a{background:#fff;border:1px solid #c6daf2;color:#205687;border-radius:12px;padding:12px 15px;font-size:13px;box-shadow:0 3px 12px #183a5910;transition:background .15s ease,transform .15s ease}
+.admin-nav a:hover{background:#e5f3ff;transform:translateY(-1px);border-color:#85b9ef}
+.admin-nav a:focus-visible,header a:focus-visible{outline:3px solid #ffca59;outline-offset:3px}
+.cards{gap:17px}
+.card{border:1px solid #dbe7f5;border-radius:19px;box-shadow:0 9px 27px #183a5910;padding:24px;background:#fff}
+.cards .card{position:relative;overflow:hidden;min-height:145px;border-top:4px solid #1580e7}
+.cards .card:nth-child(2){border-top-color:#1d9cb8}
+.cards .card:nth-child(3){border-top-color:#785ed7}
+.cards .card:nth-child(4){border-top-color:#ee9c3e}
+.card strong.metric{font-size:clamp(29px,3vw,39px);margin:11px 0 6px;color:#1265b9;letter-spacing:-.04em}
+.metric-label{color:#4f6d8d;font-size:11px}
+.card h2,.section>h2{font-size:21px;font-weight:850;color:#173b60;letter-spacing:-.02em}
+.pill{border:1px solid #c7def5;background:#ecf6ff;color:#225e9b;border-radius:999px;font-size:12px;font-weight:750;line-height:1.5}
+.tag{display:inline-flex;border:1px solid #f3d8aa;background:#fff8e9;color:#966019;font-size:11px;padding:7px 10px}
+.list li{padding:15px 1px;color:#4c627b}.list li b{color:#136bbd;background:#eaf4ff;padding:5px 11px;border-radius:9px}
+.table-wrap{border:1px solid #e2ebf5;border-radius:13px;overflow-x:auto}
+th{background:#eaf3ff;color:#2c5b89;font-weight:800}
+tr:last-child td{border-bottom:none}
+.feature-grid .card{display:flex;flex-direction:column;gap:6px;min-height:196px}
+.feature-grid .card p{margin:0 0 8px;flex:1}
+.feature-grid .card .tag{align-self:flex-start}
+@media(max-width:700px){main{width:min(100% - 24px,1200px);padding-top:24px}.admin-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav a{justify-content:center;text-align:center;padding:11px 8px}.card{padding:18px}.feature-grid .card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.admin-nav a{transition:none}}
 </style></head><body>
 <header><div><span class="brand">Trend<span>Mix</span> / Beheer</span><a href="/">← Terug naar webshop</a></div></header>
 <main><h1>Beheerdashboard</h1><p>Overzicht van de huidige testcatalogus. Alleen zichtbaar met ingestelde beheerdersgegevens.</p>
