@@ -15,7 +15,7 @@ def test_product_json_ld_has_absolute_urls():
     response = client.get(product["product_url"])
     assert response.status_code == 200
     html = response.get_data(as_text=True)
-    blocks = re.findall(r'<script type="application/ld\\+json">\\s*(.*?)\\s*</script>', html, re.S)
+    blocks = re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S)
     payloads = [json.loads(block) for block in blocks]
     product_schemas = [obj for obj in payloads if obj.get("@type") == "Product"]
     assert product_schemas
