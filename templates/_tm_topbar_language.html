@@ -1,7 +1,7 @@
 <div class="tm-global-language tm-locale-flags" aria-label="Taal kiezen / Select language">
   <select id="tmGlobalLanguage" class="tm-locale-native" aria-label="Taal kiezen / Select language"><option value="nl">Nederlands</option><option value="en">English</option></select>
   <button type="button" class="tm-locale-trigger" aria-label="Taal kiezen / Select language" aria-haspopup="true" aria-expanded="false" aria-controls="tmLocaleChoices">
-    <span class="tm-locale-current"><svg viewBox="0 0 36 24" aria-hidden="true"><path fill="#ae1c28" d="M0 0h36v8H0z"/><path fill="#fff" d="M0 8h36v8H0z"/><path fill="#21468b" d="M0 16h36v8H0z"/></svg></span><span class="tm-locale-chevron" aria-hidden="true">⌄</span>
+    <span class="tm-locale-current"><svg viewBox="0 0 36 24" aria-hidden="true"><path fill="#ae1c28" d="M0 0h36v8H0z"/><path fill="#fff" d="M0 8h36v8H0z"/><path fill="#21468b" d="M0 16h36v8H0z"/></svg></span><span class="tm-locale-title" data-tm-tr data-tm-nl="Taal" data-tm-en="Language">Taal</span><span class="tm-locale-chevron" aria-hidden="true">⌄</span>
   </button>
   <div class="tm-locale-choices" id="tmLocaleChoices" hidden>
     <button type="button" data-tm-locale-choice="nl" aria-label="Nederlands"><svg viewBox="0 0 36 24" aria-hidden="true"><path fill="#ae1c28" d="M0 0h36v8H0z"/><path fill="#fff" d="M0 8h36v8H0z"/><path fill="#21468b" d="M0 16h36v8H0z"/></svg><span>Nederlands</span></button>
@@ -19,6 +19,9 @@
 .tm-locale-flags .tm-locale-choices button{display:flex;width:100%;align-items:center;gap:12px;min-height:44px;padding:8px;border:0;border-radius:8px;background:#fff;color:#15395f;font-size:13px;font-weight:750;text-align:left;cursor:pointer}
 .tm-locale-flags .tm-locale-choices button:hover,.tm-locale-flags .tm-locale-choices button[aria-pressed=true]{background:#e9f3ff}
 .tm-locale-flags :is(button):focus-visible{outline:3px solid #ffab2d!important;outline-offset:2px}
+.tm-locale-flags .tm-locale-title{font-weight:850;font-size:13px;line-height:1.2;color:#124b86;white-space:nowrap}
+.tm-locale-flags .tm-locale-trigger{min-width:121px!important;gap:9px!important;background:#e8f4ff!important}
+@media(max-width:760px){.tm-locale-flags .tm-locale-title{font-size:11px}.tm-locale-flags .tm-locale-trigger{min-width:111px!important;padding:6px 8px!important}}
 </style>
 <script>
 (function(){
