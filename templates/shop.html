@@ -216,6 +216,21 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
 </div>
 
 
+<form class="tm-shop-filters" method="get" action="{{ url_for('shop') }}" aria-label="Prijsfilter en sortering">
+  {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
+  {% if search %}<input type="hidden" name="q" value="{{ search }}">{% endif %}
+  <div class="tm-filter-field"><label for="tmMinPrice">Vanaf €</label><input id="tmMinPrice" name="min_price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Min." value="{{ min_price|default('') }}"></div>
+  <div class="tm-filter-field"><label for="tmMaxPrice">Tot €</label><input id="tmMaxPrice" name="max_price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Max." value="{{ max_price|default('') }}"></div>
+  <div class="tm-filter-field"><label for="tmSort">Sorteren</label><select id="tmSort" name="sort">
+    <option value="relevance" {% if sort == 'relevance' %}selected{% endif %}>Standaard</option>
+    <option value="price-low" {% if sort == 'price-low' %}selected{% endif %}>Prijs: laag naar hoog</option>
+    <option value="price-high" {% if sort == 'price-high' %}selected{% endif %}>Prijs: hoog naar laag</option>
+    <option value="name" {% if sort == 'name' %}selected{% endif %}>Naam A–Z</option>
+  </select></div>
+  <button class="tm-filter-submit" type="submit">Toepassen</button>
+  <a class="tm-filter-reset" href="{{ url_for('shop', category=category, q=search) }}">Filters wissen</a>
+</form>
+
 <!-- ========================================================
      PRODUCTEN
 ========================================================= -->
