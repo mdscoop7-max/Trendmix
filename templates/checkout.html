@@ -16,7 +16,7 @@
 <p class="checkout-intro">{% if test_mode %}Testmodus: WooCommerce is nog niet gekoppeld. Je gegevens worden niet naar een webshop gestuurd.{% else %}Vul je gegevens in om je bestelling te plaatsen.{% endif %}</p>
 {% if error %}<p role="alert">{{ error }}</p>{% endif %}
 <div class="checkout-summary">{% for item in cart %}<div class="checkout-item"><span data-tm-product-nl="{{ item.name }}" data-tm-product-en="{{ item.en_name }}">{{ item.name }}</span> × {{ item.qty }}<strong>{{ format_eur(item.price * item.qty) }}</strong></div>{% endfor %}</div>
-<div class="cart-total"><strong data-i18n="total">Totaal</strong><strong>{{ format_eur(cart_total) }}</strong></div>
+<div class="cart-total"><strong>Productsubtotaal</strong><strong>{{ format_eur(cart_total) }}</strong></div><p role="note" style="padding:14px;background:#eaf3ff;border-radius:12px;line-height:1.6">Testmodus: verzendkosten en eventuele bijkomende kosten zijn nog niet vastgesteld. Dit is geen definitief betaalbedrag. Er wordt geen echte betaling verwerkt.</p>
 <div class="checkout-layout"><form method="post" class="checkout-form modern-form"><input type="hidden" name="_csrf_token" value="{{ csrf_token() }}"><div class="form-heading"><span>01</span><div><h2 data-i18n="deliveryDetails">Bezorggegevens</h2><p>Velden met * zijn verplicht.</p></div></div>
 <label><span data-i18n="firstName">Voornaam *</span><input placeholder="Voornaam" name="first_name" autocomplete="given-name" required value="{{ customer.get('first_name', '') if customer else '' }}"></label>
 <label><span data-i18n="lastName">Achternaam *</span><input placeholder="Achternaam" name="last_name" autocomplete="family-name" required value="{{ customer.get('last_name', '') if customer else '' }}"></label>
