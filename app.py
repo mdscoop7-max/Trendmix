@@ -470,6 +470,14 @@ def control():
         "marketing": "Marketing & Google Ads", "seo": "SEO & RankFix AI",
         "statistieken": "Statistieken", "leveranciers": "Leveranciers & dropshipping",
         "instellingen": "Instellingen",
+        "onderzoek": "Productonderzoek & niches",
+        "calculator": "Prijs & marge calculator",
+        "afbeeldingen": "Productafbeeldingen",
+        "google-ads": "Google Ads",
+        "google-shopping": "Google Shopping & Merchant Center",
+        "talen": "Talen",
+        "klantenservice": "Klantenservice & berichten",
+        "monitoring": "Monitoring",
     }
     section_descriptions = {
         "producten": "Bekijk en doorzoek de bestaande testcatalogus.",
@@ -482,6 +490,14 @@ def control():
         "statistieken": "Cataloguscijfers zonder fictieve omzet.",
         "leveranciers": "Europese dropshipleveranciers en productfeeds.",
         "instellingen": "Shopinstellingen, betalingen en integraties.",
+        "onderzoek": "Vind kansen voor producten en niches met gecontroleerde bronnen.",
+        "calculator": "Bereken verkoopprijzen, marge, btw en kosten.",
+        "afbeeldingen": "Productafbeeldingen en contentbeheer.",
+        "google-ads": "Google Ads-account en campagnegegevens.",
+        "google-shopping": "Google Merchant Center en Shopping-productfeeds.",
+        "talen": "Beheer Nederlandse en Engelse winkelteksten.",
+        "klantenservice": "Klantvragen, contact en berichten.",
+        "monitoring": "Koppelingen, beschikbaarheid en controles.",
     }
     section = request.args.get("section", "dashboard").strip().lower()
     if section not in section_names:
