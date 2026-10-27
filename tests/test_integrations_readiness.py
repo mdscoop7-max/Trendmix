@@ -20,4 +20,4 @@ def test_monitoring_private_and_read_only(monkeypatch):
     assert response.status_code==200
     assert b"RankFix" in response.data
     assert response.headers["Cache-Control"]=="no-store"
-    assert client.post("/beheer/monitoring",headers=headers).status_code==405
+    assert client.post("/beheer/monitoring",headers=headers).status_code==403
