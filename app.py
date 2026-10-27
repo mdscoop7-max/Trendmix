@@ -513,6 +513,28 @@ def admin_preview():
 
 
 
+@app.route("/beheer/lancering")
+def admin_launch_readiness():
+    """Read-only launch gate: no secrets, no payments or supplier actions."""
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    checks = [
+        {"title": "EU-leveranciers", "ready": False, "detail": "Getekend contract, goedgekeurde leverancier en echte productfeed zijn nog niet bevestigd."},
+        {"title": "Producten en voorraad", "ready": False, "detail": "Live prijzen, afbeeldingsrechten, voorraad en levertijden moeten uit de leveranciersbron komen."},
+        {"title": "Betalingen", "ready": False, "detail": "Een geverifieerde betaalprovider, webhook en terugbetalingsproces zijn nog niet bevestigd."},
+        {"title": "Bestellingen en verzending", "ready": False, "detail": "Echte betaalde orders, fulfilment, verzendkosten en retouren zijn nog niet end-to-end getest."},
+        {"title": "Live productbeheer", "ready": False, "detail": "Concepten zijn beschikbaar; gecontroleerde publicatie met back-up en auditlog ontbreekt."},
+        {"title": "Volledige vertalingen", "ready": False, "detail": "NL/EN taalkeuze bestaat, maar de volledige site en voorwaarden zijn nog niet vertaald."},
+        {"title": "Bedrijfsgegevens en support", "ready": False, "detail": "Zakelijke contactgegevens, e-mailaflevering en juridische teksten vergen definitieve verificatie."},
+        {"title": "Laptop- en RankFix-test", "ready": False, "detail": "Mobiel, desktop, beveiliging en de volledige bestelstroom moeten nog samen getest worden."},
+    ]
+    response = make_response(render_template("admin_launch_readiness.html", checks=checks))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
 @app.route("/beheer/accounts", methods=["GET", "POST"])
 def admin_accounts_page():
     denied = _admin_draft_guard()
