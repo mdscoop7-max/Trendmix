@@ -6,7 +6,8 @@ import secrets
 import urllib.request
 import urllib.error
 from pathlib import Path
-from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
+from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
+from customer_accounts import create_account, authenticate, account_by_id
 from product_art import render_product_svg
 from catalog_readiness import review_product
 from visitor_metrics import record_page_view, summary as visitor_metrics_summary
@@ -497,7 +498,58 @@ def admin_preview():
 
 @app.route("/account")
 def account():
-    return render_template("account.html", categories=CATEGORIES)
+    customer = account_by_id(session["customer_id"]) if isinstance(session.get("customer_id"), int) else None
+    response = make_response(render_template("account.html", categories=CATEGORIES, customer=customer))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
+@app.route("/registreren", methods=["GET", "POST"])
+def register_customer():
+    if request.method == "POST":
+        name = request.form.get("name", "")
+        email = request.form.get("email", "")
+        password = request.form.get("password", "")
+        if len(name.strip()) > 80 or len(email) > 254 or not (12 <= len(password) <= 1024):
+            error = "Controleer je naam, e-mailadres en wachtwoord (minimaal 12 tekens)."
+        else:
+            customer_id = create_account(name, email, password)
+            if customer_id:
+                session.clear()
+                session["customer_id"] = customer_id
+                return redirect(url_for("account"), code=303)
+            error = "Registratie is niet gelukt. Controleer je gegevens of gebruik Inloggen."
+        response = make_response(render_template("customer_auth.html", mode="register", error=error, categories=CATEGORIES), 400)
+    else:
+        response = make_response(render_template("customer_auth.html", mode="register", error=None, categories=CATEGORIES))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
+@app.route("/inloggen", methods=["GET", "POST"])
+def login_customer():
+    if request.method == "POST":
+        email, password = request.form.get("email", ""), request.form.get("password", "")
+        customer, limited = authenticate(email[:254], password[:1025], request.remote_addr or "")
+        if customer:
+            session.clear()
+            session["customer_id"] = customer["id"]
+            return redirect(url_for("account"), code=303)
+        error = "Te veel pogingen. Probeer over 15 minuten opnieuw." if limited else "E-mailadres of wachtwoord niet correct."
+        response = make_response(render_template("customer_auth.html", mode="login", error=error, categories=CATEGORIES), 400 if not limited else 429)
+    else:
+        response = make_response(render_template("customer_auth.html", mode="login", error=None, categories=CATEGORIES))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
+@app.route("/uitloggen", methods=["POST"])
+def logout_customer():
+    session.clear()
+    return redirect(url_for("account"), code=303)
 
 
 @app.route("/wishlist", methods=["GET", "POST"])
