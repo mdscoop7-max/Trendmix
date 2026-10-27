@@ -455,8 +455,24 @@ def admin_preview():
         {"name": data["name"], "count": len(products.get(slug, []))}
         for slug, data in CATEGORIES.items()
     ]
+    # Do not infer successful sales from test checkouts or unpaid WooCommerce orders.
+    # A verified read-only order integration will supply actual paid totals later.
+    order_stats = {
+        "orders": "—",
+        "order_label": "Nog geen gekoppelde orderbron",
+        "sold_items": "—",
+        "revenue_display": "Niet beschikbaar",
+        "live_connected": False,
+    }
+    # No durable visitor analytics store exists yet. Never invent session counts.
+    visitor_stats = {
+        "visits_display": "—",
+        "note": "Meting nog niet aangesloten",
+    }
     response = Response(render_template("admin_preview.html",
                                         overview=overview,
+                                        order_stats=order_stats,
+                                        visitor_stats=visitor_stats,
                                         total_products=sum(row["count"] for row in overview)))
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Robots-Tag"] = "noindex, nofollow"
