@@ -8,6 +8,7 @@ import urllib.error
 from pathlib import Path
 from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
 from integration_readiness import status_rows
+from monitor_snapshots import save_report, latest_reports, METRICS
 from supplier_pricing import quote
 from product_research import review_candidate
 from admin_drafts import list_drafts, save_draft, remove_draft, add_support_draft, list_support_drafts
@@ -511,12 +512,28 @@ def _admin_draft_guard():
     return None
 
 
-@app.route("/beheer/monitoring")
+@app.route("/beheer/monitoring", methods=["GET", "POST"])
 def admin_integrations_monitor():
     denied = _admin_draft_guard()
     if denied is not None:
         return denied
-    response = make_response(render_template("admin_integrations.html", integrations=status_rows()))
+    error = None
+    if request.method == "POST":
+        try:
+            source = request.form.get("source", "")
+            subject = request.form.get("subject", "")
+            metric = request.form.get("metric", "")
+            value = request.form.get("value", "")
+            if source not in METRICS or metric not in METRICS[source]:
+                raise ValueError("Ongeldige meting")
+            number = float(value)
+            save_report(source, subject, {metric: number})
+            return redirect(url_for("admin_integrations_monitor"), code=303)
+        except (ValueError, OverflowError):
+            error = "Niet opgeslagen: controleer bron, onderwerp, meting en getal."
+    response = make_response(render_template("admin_integrations.html",
+        integrations=status_rows(), reports=latest_reports(), metrics=METRICS, error=error),
+        400 if error else 200)
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Robots-Tag"] = "noindex, nofollow"
     return response
