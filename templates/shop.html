@@ -71,7 +71,9 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
     </span>
 
     <h1>
-        {% if category %}
+        {% if search %}
+            Zoekresultaten voor “{{ search }}”
+        {% elif category %}
             {{ category }}
         {% else %}
             Ontdek iets nieuws
@@ -79,8 +81,7 @@ Ontdek alle TrendMix-producten in onze vijf collecties: gadgets, smart home, bea
     </h1>
 
     <p>
-        Ontdek populaire, handige en interessante producten
-        voor tech, lifestyle en dagelijks gebruik.
+        {% if search %}Bekijk de producten die overeenkomen met je zoekopdracht.{% else %}Ontdek populaire, handige en interessante producten voor tech, lifestyle en dagelijks gebruik.{% endif %}
     </p>
 
 </div>
