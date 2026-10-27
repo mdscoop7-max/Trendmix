@@ -7,6 +7,7 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
+from integration_readiness import status_rows
 from supplier_pricing import quote
 from product_research import review_candidate
 from admin_drafts import list_drafts, save_draft, remove_draft, add_support_draft, list_support_drafts
@@ -508,6 +509,17 @@ def _admin_draft_guard():
     if not _admin_authorized():
         return Response("Beheer: aanmelden vereist", 401, {"WWW-Authenticate": 'Basic realm="TrendMix beheer"'})
     return None
+
+
+@app.route("/beheer/monitoring")
+def admin_integrations_monitor():
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    response = make_response(render_template("admin_integrations.html", integrations=status_rows()))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
 
 
 @app.route("/beheer/productonderzoek", methods=["GET", "POST"])
