@@ -277,3 +277,7 @@ button,a,input,select,textarea{touch-action:manipulation}
   html{scroll-behavior:auto}
   :where(.item,.legacy-main .product-card,.categorytile,.add,.search button,.search-button){transition:none!important;transform:none!important}
 }
+
+/* Consistent bright storefront background even when using legacy templates. */
+body{background:#fafdff;color:#152e4c}
+:where(.item,.product-card,.categorytile,.cart-panel,.empty-state){border-color:#dfebf8}
