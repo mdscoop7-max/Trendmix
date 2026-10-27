@@ -8,7 +8,7 @@ def test_account_page_shows_real_registration_without_claiming_live_orders():
     assert "Account aanmaken" in html
     assert 'href="/registreren"' in html
     assert 'href="/inloggen"' in html
-    assert "betaald" in html.lower()
+    assert "betaling" in html.lower()
     assert 'type="password"' not in html
     assert response.headers.get("Cache-Control") == "no-store"
 
