@@ -8,18 +8,53 @@ header{background:#091a30;color:#fff;padding:18px 0}header>div{width:min(1120px,
 a{color:inherit}header a{color:#d5eaff;font-size:14px}.brand{font-size:23px;font-weight:850}.brand span{color:#72b2ff}
 h1{font-size:clamp(26px,4vw,40px);letter-spacing:-.03em;margin:0 0 8px}p{line-height:1.6;color:#52647b}
 .notice{padding:15px 18px;border:1px solid #bed4f0;background:#eaf3ff;border-radius:12px;color:#123d75;font-size:14px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:24px 0}
 .card{background:white;border:1px solid #dce5f0;box-shadow:0 8px 23px #152e5010;padding:22px;border-radius:15px}
 .card strong{font-size:34px;display:block;color:#0766df}.card small{color:#52647b}
 h2{font-size:20px;margin:0 0 15px}.list{list-style:none;padding:0;margin:0}.list li{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #e5ebf4}.list li:last-child{border:0}
 .tag{color:#875c09;background:#fff5d9;padding:5px 9px;border-radius:9px;font-size:12px;font-weight:700}
 .columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.section{margin-top:22px}.muted{color:#64748b;font-size:13px}.metric-label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;color:#607b9b}.card strong.metric{font-size:29px;margin:8px 0}.card .metric-sub{font-size:12px;color:#607b9b}
+table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;border-bottom:1px solid #e7ecf5;font-size:13px}th{background:#f3f8ff;color:#325378}.table-wrap{overflow-x:auto}
+.pill{display:inline-flex;background:#eaf3ff;color:#1559a4;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:750}
+.admin-nav{display:flex;gap:8px;flex-wrap:wrap;margin:19px 0}.admin-nav a{text-decoration:none;border:1px solid #c9daf3;background:#fff;color:#215a9c;border-radius:10px;padding:9px 13px;font-size:13px;font-weight:700}
+.admin-nav a:hover,.admin-nav a:focus-visible{background:#e6f3ff}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.feature-grid .card{padding:18px}
+@media(max-width:950px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.feature-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.feature-grid{grid-template-columns:1fr}}
 @media(max-width:700px){main{padding-top:24px}.cards{grid-template-columns:1fr;gap:10px}.columns{grid-template-columns:1fr}header>div{align-items:flex-start}}
 </style></head><body>
 <header><div><span class="brand">Trend<span>Mix</span> / Beheer</span><a href="/">← Terug naar webshop</a></div></header>
 <main><h1>Beheerdashboard</h1><p>Overzicht van de huidige testcatalogus. Alleen zichtbaar met ingestelde beheerdersgegevens.</p>
 <div class="notice"><strong>Voorbereidingsfase:</strong> dit dashboard is alleen-lezen. Producten toevoegen, foto's uploaden, prijzen aanpassen en bestellingen beheren worden pas ingeschakeld na veilige authenticatie, opslag en validatie. Geen echte leveranciers- of omzetgegevens.</div>
-<div class="cards"><div class="card"><strong>{{ total_products }}</strong><small>Testproducten</small></div><div class="card"><strong>{{ overview|length }}</strong><small>Categorieën</small></div><div class="card"><span class="tag">Nog niet actief</span><p>Productbeheer en bestellingen</p></div></div>
-<div class="columns"><section class="card"><h2>Producten per categorie</h2><ul class="list">{% for category in overview %}<li><span>{{ category.name }}</span><b>{{ category.count }}</b></li>{% endfor %}</ul></section>
-<section class="card"><h2>Volgende beheerfuncties</h2><ul class="list"><li>Producten toevoegen of wijzigen <span class="tag">Gepland</span></li><li>Foto's en categorieën beheren <span class="tag">Gepland</span></li><li>Voorraad en leverancierfeeds <span class="tag">Gepland</span></li><li>Orders en betaalstatus <span class="tag">Gepland</span></li><li>SEO-titels en beschrijvingen <span class="tag">Gepland</span></li></ul></section></div>
+<nav class="admin-nav" aria-label="Dashboardonderdelen"><a href="#statistieken">Overzicht</a><a href="#bestellingen">Bestellingen</a><a href="#producten">Producten</a><a href="#bezoekers">Bezoekers</a><a href="#instellingen">Afbeeldingen en menu</a></nav>
+<div id="statistieken" class="cards">
+ <div class="card"><span class="metric-label">Testproducten</span><strong class="metric">{{ total_products }}</strong><small>In {{ overview|length }} categorieën</small></div>
+ <div class="card"><span class="metric-label">Bestellingen</span><strong class="metric">{{ order_stats.orders }}</strong><small>{{ order_stats.order_label }}</small></div>
+ <div class="card"><span class="metric-label">Bevestigd verkocht</span><strong class="metric">{{ order_stats.sold_items }}</strong><small>Omzet: {{ order_stats.revenue_display }}</small></div>
+ <div class="card"><span class="metric-label">Bezoekers</span><strong class="metric">{{ visitor_stats.visits_display }}</strong><small>{{ visitor_stats.note }}</small></div>
+</div>
+<section class="card section" id="bestellingen"><h2>Bestellingen en verkochte producten</h2>
+<p class="muted">Testcheckout telt nooit als een betaalde verkoop. Omzet en verkochte aantallen komen uitsluitend uit bevestigde, gekoppelde betaalde orders.</p>
+{% if order_stats.live_connected %}
+<div class="notice">Er is een bestelbron geconfigureerd. Deze voorbeeldweergave bevat nog geen gesynchroniseerde betaalstatussen.</div>
+{% else %}
+<div class="notice">Nog geen betrouwbare betaalde orderbron aangesloten. Daarom rapporteren we geen fictieve bestellingen of omzet. Het koppelen van betalingen en orderstatus is noodzakelijk.</div>
+{% endif %}
+<div class="table-wrap"><table><thead><tr><th>Bestelling</th><th>Product</th><th>Aantal</th><th>Bedrag</th><th>Betaalstatus</th></tr></thead>
+<tbody><tr><td colspan="5">Nog geen geverifieerde betaalde bestellingen beschikbaar.</td></tr></tbody></table></div></section>
+<div class="columns section">
+<section class="card" id="producten"><h2>Producten per categorie</h2><ul class="list">{% for category in overview %}<li><span>{{ category.name }}</span><b>{{ category.count }}</b></li>{% endfor %}</ul></section>
+<section class="card" id="bezoekers"><h2>Bezoekersstatistieken</h2><p>Het bezoekersdashboard krijgt een telling van paginaweergaven en unieke bezoekers zodra privacyvriendelijke analyse-opslag is gekoppeld.</p>
+<p class="pill">{{ visitor_stats.note }}</p><p class="muted">We tonen bewust geen verzonnen cijfers. Bots en beheerdersverkeer moeten worden uitgesloten; cookieregels en privacy-informatie zijn onderdeel van de invoering.</p></section>
+</div>
+<section class="section" id="instellingen"><h2>Uitgebreid webshopbeheer</h2>
+<div class="feature-grid">
+<div class="card"><h2>Producten en afbeeldingen</h2><p>Productfoto vervangen, galerij ordenen, alt-tekst wijzigen, prijzen en beschrijvingen bewerken.</p><span class="tag">Bewerkfunctie in voorbereiding</span></div>
+<div class="card"><h2>Hoofdmenu en categorieën</h2><p>Menulinks, volgorde, zichtbaarheid en categorieafbeeldingen beheren zonder de homepagehero te wijzigen.</p><span class="tag">Bewerkfunctie in voorbereiding</span></div>
+<div class="card"><h2>Bestellingen en verkopen</h2><p>Bestellingen, betaalstatus, aantallen per product, retouren en orderregels bekijken na integratie met een betrouwbare orderbron.</p><span class="tag">Koppeling vereist</span></div>
+<div class="card"><h2>Bezoekers en analyses</h2><p>Paginaweergaven, unieke bezoekers, populaire categorieën en conversies met privacyvriendelijke telling.</p><span class="tag">Opslag vereist</span></div>
+<div class="card"><h2>Voorraad en leveranciers</h2><p>EU-dropshippingfeeds, productbeschikbaarheid en levertijden synchroniseren.</p><span class="tag">Leverancier vereist</span></div>
+<div class="card"><h2>SEO en inhoud</h2><p>Producttitels, beschrijvingen, afbeeldingsteksten en categoriepagina's veilig onderhouden.</p><span class="tag">Bewerkfunctie in voorbereiding</span></div>
+</div></section>
 </main></body></html>
