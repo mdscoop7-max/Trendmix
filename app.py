@@ -677,6 +677,7 @@ def product_detail(category_slug, product_slug):
     return render_template(
         "product.html",
         product=match,
+        show_demo_review=(not os.getenv("VERCEL_ENV") and os.getenv("TRENDMIX_SHOW_DEMO_REVIEWS") == "1"),
         product_index=match["index"],
         category_slug=category_slug,
         category_name=CATEGORIES[category_slug]["name"],
