@@ -1,5 +1,6 @@
 """Locally stored, verified-source monitoring snapshots; no live external API calls."""
 import json
+import math
 import os
 import sqlite3
 import time
@@ -31,7 +32,7 @@ def save_report(source, subject, metrics):
             raise ValueError("Onbekende meting")
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not (-10000000 <= value <= 10000000):
             raise ValueError("Meting buiten veilige grenzen")
-        if value != value:
+        if not math.isfinite(value):
             raise ValueError("NaN niet toegestaan")
         cleaned[key] = float(value)
     with connect() as db:
