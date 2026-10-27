@@ -68,8 +68,10 @@ tr:last-child td{border-bottom:none}
 .admin-tool-card .pill{align-self:flex-start;margin-top:auto}
 .admin-tool-symbol{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#eaf4ff;color:#0874ce;font-size:24px;font-weight:800}
 @media(prefers-reduced-motion:reduce){.admin-tool-card{transition:none}}
+.account-top-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.account-top-nav a{display:inline-flex;align-items:center;gap:7px}.account-name{background:#ffffff22;border-radius:11px;padding:10px 14px;font-size:13px}.admin-nav a[href="#hulpmiddelen"]{background:#e6f2ff;color:#125797;border-color:#a6cff2}
+@media(max-width:650px){.account-top-nav{width:100%;justify-content:flex-start}}
 </style></head><body>
-<header><div><span class="brand">Trend<span>Mix</span> / Beheer</span><a href="/">← Terug naar webshop</a></div></header>
+<header><div><span class="brand">Trend<span>Mix</span> / Beheer</span><nav class="account-top-nav" aria-label="Account en webshop">{% if current_admin and current_admin.role == "owner" %}<a href="{{ url_for('admin_accounts_page') }}">◉ Mijn account · {{ current_admin.username }}</a>{% else %}<span class="account-name">{{ current_admin.username if current_admin else "Beheerder" }}</span>{% endif %}<a href="/">← Webshop</a></nav></div></header>
 <main><h1>Beheerdashboard</h1><p>Overzicht van de huidige testcatalogus. Alleen zichtbaar met ingestelde beheerdersgegevens.</p>
 <div class="notice"><strong>Voorbereidingsfase:</strong> dit dashboard is alleen-lezen. Producten toevoegen, foto's uploaden, prijzen aanpassen en bestellingen beheren worden pas ingeschakeld na veilige authenticatie, opslag en validatie. Geen echte leveranciers- of omzetgegevens.</div>
 <nav class="admin-nav" aria-label="Dashboardonderdelen"><a href="#statistieken">Overzicht</a><a href="#bestellingen">Bestellingen</a><a href="#producten">Producten</a><a href="#bezoekers">Bezoekers</a><a href="#hulpmiddelen">Beheerhulpmiddelen</a><a href="#instellingen">Toekomstige functies</a></nav>
