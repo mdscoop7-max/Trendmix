@@ -30,7 +30,7 @@
     "name":product.name,
     "description":product.description,
     "category":category_name,
-    "image":product.images,
+    "image":product.seo_images,
     "url":site_url ~ product.product_url,
     "sku":product.id,
     "brand":({"@type":"Brand","name":product.brand} if product.brand else none),
