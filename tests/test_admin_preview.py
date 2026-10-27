@@ -26,3 +26,21 @@ def test_admin_authenticated_read_only(monkeypatch):
     assert "alleen-lezen" in response.get_data(as_text=True)
     assert response.headers["Cache-Control"] == "no-store"
     assert response.headers["X-Robots-Tag"] == "noindex, nofollow"
+
+
+def test_dashboard_sales_visitors_and_media_are_unmeasured(monkeypatch):
+    """Do not represent test checkouts as paid orders or invented visitors."""
+    monkeypatch.setenv("TRENDMIX_ADMIN_USER", "owner")
+    monkeypatch.setenv("TRENDMIX_ADMIN_PASSWORD", "test-long-secret-password-123")
+    valid = base64.b64encode(b"owner:test-long-secret-password-123").decode()
+    response = app.test_client().get("/beheer", headers={"Authorization": "Basic " + valid})
+    body = response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert "Bevestigd verkocht" in body
+    assert "Bestellingen en verkochte producten" in body
+    assert "Bezoekersstatistieken" in body
+    assert "Hoofdmenu en categorieën" in body
+    assert "Producten en afbeeldingen" in body
+    assert "Nog geen geverifieerde betaalde bestellingen beschikbaar" in body
+    assert "Meting nog niet aangesloten" in body
+    assert "Bewerkfunctie in voorbereiding" in body
