@@ -502,3 +502,14 @@ body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:
 @media(prefers-reduced-motion:reduce){
   .tm-digital-nav .tm-menu-chevron{transition:none}
 }
+
+/* 2026-10-27 visual refinement: light commerce and clear reassurance labels. */
+body:has(.cart-page),body:has(.tm-product-page){background:#fbfdff!important}
+.cart-page .cart-panel,.tm-product-page .detail-layout,.tm-product-page .content-panel{background:#fff!important;border-color:#dce9fa!important}
+.tm-product-page .detail-confidence{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:9px!important;color:#193a60!important}
+.tm-product-page .detail-confidence>span{display:inline-flex!important;align-items:center!important;gap:7px!important;padding:10px 13px!important;background:#e5f6ff!important;color:#075985!important;border:1px solid #b9e5fc!important;border-radius:12px!important;font-size:12px!important;line-height:1.4!important;font-weight:750!important}
+.tm-product-page .detail-confidence>span:nth-child(2){background:#fff4df!important;color:#945100!important;border-color:#f6da9f!important}
+.tm-product-page .detail-confidence>span:nth-child(3){background:#ecfdf5!important;color:#116149!important;border-color:#bcebd2!important}
+.tm-global-language .tm-lang-label.tm-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.tm-global-language select{min-width:72px!important;max-width:80px!important;min-height:38px!important;padding:5px 21px 5px 10px!important;font-family:"Segoe UI Emoji","Apple Color Emoji",system-ui,sans-serif!important;font-size:20px!important;line-height:1.1!important}
+@media(max-width:760px){.tm-product-page .detail-confidence>span{font-size:11px!important;padding:9px 11px!important}.tm-global-language select{min-width:68px!important;max-width:72px!important}}
