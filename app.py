@@ -388,11 +388,36 @@ def shop():
     if category and category not in CATEGORY_DIRS:
         category = None
     if category:
-        category_name = category
-        filtered = filter_products(all_products, category=category_name, search=search)
+        filtered = filter_products(all_products, category=category, search=search)
     else:
         filtered = filter_products(all_products, search=search)
-    return render_template("shop.html", products=filtered, category=category, search=search, categories=CATEGORIES)
+    # Filters operate on the currently loaded test catalogue; no supplier claims.
+    min_price = request.args.get("min_price", "").strip()
+    max_price = request.args.get("max_price", "").strip()
+    sort = request.args.get("sort", "relevance")
+    if sort not in ("relevance", "price-low", "price-high", "name"):
+        sort = "relevance"
+    def valid_nonnegative_price(value):
+        try:
+            parsed = float(value)
+            return parsed if parsed >= 0 and parsed < float("inf") else None
+        except (ValueError, TypeError):
+            return None
+    minimum = valid_nonnegative_price(min_price) if min_price else None
+    maximum = valid_nonnegative_price(max_price) if max_price else None
+    if minimum is not None:
+        filtered = [p for p in filtered if float(p.get("price") or 0) >= minimum]
+    if maximum is not None:
+        filtered = [p for p in filtered if float(p.get("price") or 0) <= maximum]
+    if sort == "price-low":
+        filtered.sort(key=lambda p: float(p.get("price") or 0))
+    elif sort == "price-high":
+        filtered.sort(key=lambda p: float(p.get("price") or 0), reverse=True)
+    elif sort == "name":
+        filtered.sort(key=lambda p: str(p.get("name") or "").casefold())
+    return render_template("shop.html", products=filtered, category=category, search=search,
+                           min_price=min_price if minimum is not None else "",
+                           max_price=max_price if maximum is not None else "", sort=sort, categories=CATEGORIES)
 
 
 @app.route("/aanbiedingen")
