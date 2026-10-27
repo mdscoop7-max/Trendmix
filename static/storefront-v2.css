@@ -279,3 +279,14 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
 .tm-filter-reset{display:inline-flex;align-items:center;min-height:44px;color:#0866f5;font-weight:750;padding:9px}
 .tm-shop-filters :is(input,select,button,a):focus-visible{outline:3px solid #ffbb46;outline-offset:2px}
 @media(max-width:650px){.tm-shop-filters{gap:9px;padding:12px}.tm-shop-filters .tm-filter-field{flex:1 1 calc(50% - 9px)}.tm-shop-filters .tm-filter-field:nth-of-type(3){flex-basis:100%}.tm-filter-submit,.tm-filter-reset{flex:1 1 calc(50% - 9px);justify-content:center}}
+
+/* Refined store filters; no hero selectors. */
+.tm-shop-filters{display:grid!important;grid-template-columns:1fr 1fr 1.3fr auto auto!important;align-items:end!important;gap:12px!important;padding:20px!important;background:#eef6ff!important;border:1px solid #c8dcf6!important;border-radius:18px!important}
+.tm-shop-filters .tm-filter-field{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:7px!important;min-width:0!important}
+.tm-shop-filters .tm-filter-field label{display:block!important;font-size:13px!important;font-weight:800!important;color:#173b68!important;margin:0!important}
+.tm-shop-filters input,.tm-shop-filters select{display:block!important;width:100%!important;min-height:46px!important;border:1px solid #b6cce9!important;border-radius:10px!important;padding:10px 12px!important;background:#fff!important;color:#18365a!important}
+.tm-shop-filters .tm-filter-submit{min-height:46px!important;background:#0866f5!important;color:#fff!important;border-radius:10px!important;padding:10px 17px!important;border:0!important}
+.tm-shop-filters .tm-filter-reset{min-height:46px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#fff!important;color:#1556a8!important;border:1px solid #bdd2ed!important;border-radius:10px!important;padding:10px!important}
+@media(max-width:900px){.tm-shop-filters{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:620px){.tm-shop-filters{grid-template-columns:repeat(2,minmax(0,1fr))!important;padding:13px!important;gap:9px!important}.tm-shop-filters .tm-filter-field:nth-of-type(3){grid-column:1/-1!important}}
+@media(max-width:350px){.tm-shop-filters{grid-template-columns:1fr!important}.tm-shop-filters .tm-filter-field:nth-of-type(3){grid-column:auto!important}}
