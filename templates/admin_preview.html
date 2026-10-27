@@ -32,7 +32,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;bor
  <div class="card"><span class="metric-label">Testproducten</span><strong class="metric">{{ total_products }}</strong><small>In {{ overview|length }} categorieën</small></div>
  <div class="card"><span class="metric-label">Bestellingen</span><strong class="metric">{{ order_stats.orders }}</strong><small>{{ order_stats.order_label }}</small></div>
  <div class="card"><span class="metric-label">Bevestigd verkocht</span><strong class="metric">{{ order_stats.sold_items }}</strong><small>Omzet: {{ order_stats.revenue_display }}</small></div>
- <div class="card"><span class="metric-label">Bezoekers</span><strong class="metric">{{ visitor_stats.visits_display }}</strong><small>{{ visitor_stats.note }}</small></div>
+ <div class="card"><span class="metric-label">Paginaweergaven</span><strong class="metric">{{ visitor_stats.visits_display }}</strong><small>{{ visitor_stats.note }}</small></div>
 </div>
 <section class="card section" id="bestellingen"><h2>Bestellingen en verkochte producten</h2>
 <p class="muted">Testcheckout telt nooit als een betaalde verkoop. Omzet en verkochte aantallen komen uitsluitend uit bevestigde, gekoppelde betaalde orders.</p>
@@ -45,8 +45,8 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;bor
 <tbody><tr><td colspan="5">Nog geen geverifieerde betaalde bestellingen beschikbaar.</td></tr></tbody></table></div></section>
 <div class="columns section">
 <section class="card" id="producten"><h2>Producten per categorie</h2><ul class="list">{% for category in overview %}<li><span>{{ category.name }}</span><b>{{ category.count }}</b></li>{% endfor %}</ul></section>
-<section class="card" id="bezoekers"><h2>Bezoekersstatistieken</h2><p>Het bezoekersdashboard krijgt een telling van paginaweergaven en unieke bezoekers zodra privacyvriendelijke analyse-opslag is gekoppeld.</p>
-<p class="pill">{{ visitor_stats.note }}</p><p class="muted">We tonen bewust geen verzonnen cijfers. Bots en beheerdersverkeer moeten worden uitgesloten; cookieregels en privacy-informatie zijn onderdeel van de invoering.</p></section>
+<section class="card" id="bezoekers"><h2>Bezoekersstatistieken</h2><p><strong>{{ visitor_stats.today_display }}</strong> paginaweergaven vandaag (UTC). Totaal: <strong>{{ visitor_stats.visits_display }}</strong>.</p>
+<p class="pill">{{ visitor_stats.note }}</p><p class="muted">Dit zijn anonieme paginaweergaven, geen unieke bezoekers. Beheerderspagina's en herkenbare bots worden niet meegeteld. Bezoekersanalyses en conversies vereisen aanvullende inrichting.</p></section>
 </div>
 <section class="section" id="instellingen"><h2>Uitgebreid webshopbeheer</h2>
 <div class="feature-grid">
