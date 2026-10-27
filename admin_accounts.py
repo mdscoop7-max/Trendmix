@@ -44,7 +44,7 @@ def update_password(username,new_password):
     if not 16<=len(new_password or "")<=256:
         raise ValueError("Het nieuwe wachtwoord moet minimaal 16 tekens bevatten.")
     with connection() as db:
-        db.execute("UPDATE admin_users SET password_hash=? WHERE username=?",(generate_password_hash(new_password),username))
+        db.execute("INSERT INTO admin_users(username,password_hash,role,active) VALUES(?,?,?,1) ON CONFLICT(username) DO UPDATE SET password_hash=excluded.password_hash",(username,generate_password_hash(new_password),"owner" if username==os.getenv("TRENDMIX_ADMIN_USER") else "staff"))
 
 def remove_user(username):
     with connection() as db:
