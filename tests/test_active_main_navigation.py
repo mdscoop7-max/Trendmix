@@ -10,7 +10,7 @@ def test_primary_navigation_highlights_only_current_category():
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         for category in categories:
-            matches = re.findall(r'<a\\s+href="/' + re.escape(category) + r'"[^>]*>', html)
+            matches = re.findall(r'<a\s+href="/' + re.escape(category) + r'"[^>]*>', html)
             assert matches, (current, category)
             selected = any('aria-current="page"' in item for item in matches)
             assert selected == (category == current), (current, category)
