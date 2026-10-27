@@ -8,6 +8,7 @@ import urllib.error
 from pathlib import Path
 from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
 from product_art import render_product_svg
+from catalog_readiness import review_product
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or os.urandom(32).hex()
@@ -669,6 +670,7 @@ def product_detail(category_slug, product_slug):
         image if image.startswith(("https://", "http://")) else base_url + "/" + image.lstrip("/")
         for image in match.get("images", [])
     ]
+    match["seo_verified"] = review_product(raw)["ready"]
     related = [
         enrich_product(raw, category_slug, index)
         for index, raw in enumerate(products[category_slug])
@@ -911,7 +913,9 @@ def sitemap():
     urls = [f"{site_url}/", f"{site_url}/shop"] + [f"{site_url}/{slug}" for slug in CATEGORIES] + [f"{site_url}/{path}" for path in INFO_PAGES] + [f"{site_url}/faq"]
     for slug, items in products.items():
         for index, raw in enumerate(items):
-            urls.append(f"{site_url}{enrich_product(raw, slug, index)['product_url']}")
+            # Do not submit unverified test products as indexable listings.
+            if review_product(raw)["ready"]:
+                urls.append(f"{site_url}{enrich_product(raw, slug, index)['product_url']}")
     from xml.sax.saxutils import escape
     xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" + "".join(f"<url><loc>{escape(url)}</loc></url>" for url in urls) + "</urlset>"
     return Response(xml, mimetype="application/xml")
