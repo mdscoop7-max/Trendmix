@@ -9,6 +9,7 @@ from pathlib import Path
 from flask import Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
 from product_art import render_product_svg
 from catalog_readiness import review_product
+from visitor_metrics import record_page_view, summary as visitor_metrics_summary
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY') or os.urandom(32).hex()
@@ -343,6 +344,19 @@ def csrf_token():
     return token
 
 
+@app.after_request
+def count_anonymous_page_views(response):
+    """Count public HTML GET responses only; exclude bots, administration and assets."""
+    if (request.method == "GET" and response.status_code == 200
+            and response.mimetype == "text/html"
+            and request.endpoint not in ("admin_preview",)
+            and not request.path.startswith(("/beheer", "/static/", "/api/"))
+            and not any(word in request.headers.get("User-Agent", "").lower()
+                        for word in ("bot", "crawler", "spider", "preview", "headless", "pytest"))):
+        record_page_view()
+    return response
+
+
 @app.before_request
 def verify_form_csrf():
     if request.method not in ("POST", "PUT", "PATCH", "DELETE"):
@@ -465,9 +479,11 @@ def admin_preview():
         "live_connected": False,
     }
     # No durable visitor analytics store exists yet. Never invent session counts.
+    metrics = visitor_metrics_summary()
     visitor_stats = {
-        "visits_display": "—",
-        "note": "Meting nog niet aangesloten",
+        "visits_display": metrics["total"] if metrics else "—",
+        "today_display": metrics["today"] if metrics else "—",
+        "note": "Anonieme paginaweergaven (geen unieke bezoekers)" if metrics else "Meting niet beschikbaar",
     }
     response = Response(render_template("admin_preview.html",
                                         overview=overview,
