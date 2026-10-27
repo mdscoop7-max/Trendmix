@@ -236,3 +236,35 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
 /* Payment graphics are previews only; final provider-approved brand assets come with activation. */
 .tm-payment-methods .tm-pay-chip{padding:4px 7px;min-height:40px;background:transparent;border:0}
 .tm-payment-methods .tm-pay-chip svg{display:block;max-width:100%;height:auto}
+
+
+/* Responsive finishing pass: product sections only; hero intentionally untouched. */
+.products,.productgrid,.productgrid>.item{min-width:0}
+.productgrid>.item{width:100%}
+.products .heading{min-width:0;flex-wrap:wrap}
+.products .heading h1,.products .heading h2{overflow-wrap:anywhere}
+.item .photo{width:100%}
+.item .iteminfo{min-height:0}
+.item .iteminfo h3{overflow-wrap:anywhere}
+.item .iteminfo .add{min-height:44px}
+@media(min-width:761px) and (max-width:1024px){
+ .productgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+ .productgrid .photo{height:180px}
+ .productgrid .iteminfo h3{font-size:14px}
+}
+@media(max-width:760px){
+ .products{padding-block:18px 8px}
+ .productgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .productgrid .photo{height:auto;aspect-ratio:1 / 1}
+ .productgrid .iteminfo{padding:12px}
+ .productgrid .iteminfo strong{font-size:16px}
+ .productgrid .iteminfo h3{font-size:14px;line-height:1.4;min-height:0}
+ .productgrid .add{min-height:46px;padding:10px 7px}
+ .productgrid .heartform button{width:36px;height:36px}
+}
+@media(max-width:355px){
+ .productgrid{gap:8px}
+ .productgrid .iteminfo{padding:9px}
+ .productgrid .iteminfo h3{font-size:12px}
+ .productgrid .iteminfo strong{font-size:14px}
+}
