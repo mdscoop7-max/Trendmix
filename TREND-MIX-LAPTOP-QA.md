@@ -6,10 +6,9 @@ Niets is naar `main` gemerged of naar productie gedeployed. De bestaande homepag
 
 ## Laptop: ophalen
 ```powershell
-cd C:\Users\user\Desktop\Trendmix-main
+cd C:\Users\user\Desktop\Trendmix-test
 git status
 git fetch origin
-git switch seo/trendmix-content-audit-20261026
 git pull --ff-only origin seo/trendmix-content-audit-20261026
 python -m pytest -q
 python app.py
@@ -35,3 +34,19 @@ Let op: inspecteer eventuele lokale onopgeslagen bestanden met `git status` voor
 - Echt reviewproces: alleen reviews van gekoppelde, geverifieerde aankopen publiceren; geen demodata of nepsterren.
 - Contact-e-mail koppelen en testen. Wettelijke bedrijfsgegevens en toepasselijke consumenteninformatie invullen en juridisch controleren.
 - Visuele laptopcontrole vóór een merge of publicatie; geen automatische publicatie.
+
+## Designwijzigingen van 27 oktober 2026
+- Lichtblauwe webshopfilters, labels, sortering en knoppen: CSS in `static/trendmix-forms-polish.css`.
+- Taalopties afzonderlijk onder elkaar met vlaggen en actieve status. `static/storefront-language.js` schakelt de taal van zichtbare zoek- en filterknoppen. **Nog geen volledige Engelse vertaling van alle pagina- en productteksten**; dit moet vóór meertalige livegang worden voltooid.
+- Productbeschikbaarheid, compacte categorienavigatie, categoriekaarten en lijniconen visueel vernieuwd.
+- Beheerdashboard visueel vernieuwd; **uitsluitend lezen**, zonder wijzig-/bestelfuncties.
+- De homepagehero blijft intact; geen merge of productiepublicatie.
+
+## Nog te bouwen / externe blokkades
+1. **Productbeheer**: database, mutaties van producten en foto's, rolgebaseerde beveiliging, uploadvalidatie, auditlog, backups en conflictbehandeling.
+2. **Dropshipping**: leverancierkeuze, contract, API-inloggegevens, echte catalogus, voorraad- en prijs-sync, retour- en leverafspraken, margecontrole.
+3. **Betaling en orders**: PSP-account, echte betaalbevestiging via beveiligde webhook, idempotente orderverwerking, verzending en terugbetalingen.
+4. **Volledige NL/EN-vertalingen**, incl. beleidspagina's, checkout, foutmeldingen en SEO-hreflang na correcte URL-strategie.
+5. **Klantenservice/compliance**: zakelijk e-mailadres, werkende aflever- en retourscenario's, actuele bedrijfsgegevens en definitieve juridische teksten.
+6. **Veiligheid/QA**: volledige laptopreview op mobiel/desktop, betaalflow in testomgeving, daarna RankFix-scan (lokale adressen alleen als scanner dit veilig ondersteunt).
+Een groene GitHub Actions-run vervangt geen handmatige visuele of betaal-/leveringstest.
