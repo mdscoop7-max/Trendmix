@@ -5,6 +5,8 @@ import time
 from pathlib import Path
 from werkzeug.security import generate_password_hash, check_password_hash
 
+_DUMMY_HASH = generate_password_hash("unusable-login-sentinel", method="scrypt")
+
 def _path():
     return Path(os.getenv("TRENDMIX_ACCOUNTS_DB", str(Path(__file__).resolve().parent / "instance" / "customer_accounts.sqlite3")))
 
@@ -44,7 +46,7 @@ def authenticate(email, password, ip):
             return None, True
         account = db.execute("SELECT id,email,name,password_hash FROM accounts WHERE email=?", (email,)).fetchone()
         # Always perform a password-hash verification to reduce account enumeration.
-        dummy = "scrypt:32768:8:1$dummyplaceholder$e5a3cf4c"
+        dummy = _DUMMY_HASH
         ok = check_password_hash(account["password_hash"] if account else dummy, password)
         if ok and account:
             db.execute("DELETE FROM login_attempts WHERE key=?", (key,))
