@@ -17,6 +17,7 @@ function render(lang){
  document.querySelectorAll('[data-tm-service-nl][data-tm-service-en]').forEach(el=>{
    el.textContent=el.getAttribute('data-tm-service-'+lang)||'';
  });
+ document.querySelectorAll('[data-tm-service-placeholder-en]').forEach(el=>{el.placeholder=lang==='en'?el.getAttribute('data-tm-service-placeholder-en'):'Vertel kort waarmee we je kunnen helpen...'});
  document.documentElement.lang=lang;
 }
 document.addEventListener('DOMContentLoaded',()=>{
