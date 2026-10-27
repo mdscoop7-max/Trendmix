@@ -175,12 +175,13 @@
 
   <section class="tm-reviews-section" aria-labelledby="tm-reviews-title">
     <div class="tm-reviews-heading"><span class="eyebrow dark">KLANTERVARINGEN</span><h2 id="tm-reviews-title">Reviews over dit product</h2></div>
-    <div class="tm-review-demo" aria-label="Voorbeeld van een review, geen echte klantbeoordeling">
+    {% if show_demo_review %}<div class="tm-review-demo" aria-label="Voorbeeld van een review, geen echte klantbeoordeling">
       <div class="tm-review-demo-head"><strong>Voorbeeldreview</strong><span class="tm-review-demo-tag">TEST / DEMO — NIET ECHT</span></div>
       <div class="tm-review-demo-stars" aria-label="Voorbeeld van vijf sterren, geen echte beoordeling" aria-hidden="true">★★★★★</div>
       <p class="tm-review-demo-quote">“Het product is overzichtelijk beschreven en de foto's zijn duidelijk. Zo zou een klantreview straks worden weergegeven.”</p>
       <small>Fictieve tekst voor de testweergave. Niet afkomstig van een klant en telt niet mee in beoordelingsscores.</small>
     </div>
+    {% endif %}
     <p class="tm-review-real-status">Er zijn nog geen geverifieerde klantbeoordelingen. Echte reviews verschijnen hier pas na een werkende reviewverificatie.</p>
   </section>
 
