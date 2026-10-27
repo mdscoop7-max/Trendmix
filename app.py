@@ -431,6 +431,37 @@ def products_page():
     return redirect(url_for("shop"), code=302)
 
 
+def _admin_authorized():
+    """Read-only admin preview; requires explicit credentials, never public by default."""
+    username = os.getenv("TRENDMIX_ADMIN_USER", "")
+    password = os.getenv("TRENDMIX_ADMIN_PASSWORD", "")
+    if not username or len(password) < 16:
+        return False
+    auth = request.authorization
+    return bool(auth and auth.type == "basic"
+                and hmac.compare_digest(auth.username or "", username)
+                and hmac.compare_digest(auth.password or "", password))
+
+
+@app.route("/beheer")
+def admin_preview():
+    if not os.getenv("TRENDMIX_ADMIN_USER") or len(os.getenv("TRENDMIX_ADMIN_PASSWORD", "")) < 16:
+        abort(404)
+    if not _admin_authorized():
+        return Response("Beheer: aanmelden vereist", 401,
+                        {"WWW-Authenticate": 'Basic realm="TrendMix beheer"'})
+    overview = [
+        {"name": data["name"], "count": len(products.get(slug, []))}
+        for slug, data in CATEGORIES.items()
+    ]
+    response = Response(render_template("admin_preview.html",
+                                        overview=overview,
+                                        total_products=sum(row["count"] for row in overview)))
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
+
+
 @app.route("/account")
 def account():
     return render_template("account.html", categories=CATEGORIES)
