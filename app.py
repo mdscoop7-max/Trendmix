@@ -8,6 +8,7 @@ import urllib.error
 from pathlib import Path
 from flask import make_response, Flask, Response, current_app, render_template, request, redirect, url_for, session, abort
 from supplier_pricing import quote
+from product_research import review_candidate
 from admin_drafts import list_drafts, save_draft, remove_draft, add_support_draft, list_support_drafts
 from support_email_drafts import draft_reply
 from decimal import Decimal, InvalidOperation
@@ -507,6 +508,29 @@ def _admin_draft_guard():
     if not _admin_authorized():
         return Response("Beheer: aanmelden vereist", 401, {"WWW-Authenticate": 'Basic realm="TrendMix beheer"'})
     return None
+
+
+@app.route("/beheer/productonderzoek", methods=["GET", "POST"])
+def admin_product_research():
+    denied = _admin_draft_guard()
+    if denied is not None:
+        return denied
+    result, error = None, None
+    fields = {}
+    if request.method == "POST":
+        fields = {k: request.form.get(k, "") for k in (
+            "name", "category", "supplier", "price", "shipping", "selling",
+            "stock", "competition", "demand")}
+        try:
+            result = review_candidate(**fields)
+        except ValueError as exc:
+            error = str(exc)
+    response = make_response(render_template(
+        "admin_product_research.html", fields=fields, result=result, error=error, categories=CATEGORIES),
+        400 if error else 200)
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow"
+    return response
 
 
 @app.route("/beheer/prijsberekening", methods=["GET", "POST"])
