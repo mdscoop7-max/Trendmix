@@ -450,6 +450,8 @@ def product(product_id):
 
 
 @app.route("/control")
+@app.route("/dashboard")
+@app.route("/catalogus-overzicht")
 def control():
     all_products = load_all_products()
     category_counts = {}
@@ -462,8 +464,9 @@ def control():
     top_category = max(category_counts.items(), key=lambda item: item[1])[0] if category_counts else "N/A"
     featured_products = sorted(all_products, key=lambda p: (float(p.get("price", 0) or 0), p.get("name", "")), reverse=True)[:8]
 
+    view_template = "control.html" if request.path == "/catalogus-overzicht" else "dashboard.html"
     return render_template(
-        "control.html",
+        view_template,
         products=featured_products,
         stats={
             "total_products": len(all_products),
@@ -471,6 +474,7 @@ def control():
             "offers": offer_count,
             "avg_price": avg_price,
             "top_category": top_category,
+            "max_category_count": max(category_counts.values(), default=0),
         },
         category_counts=sorted(category_counts.items()),
         categories=CATEGORIES,
