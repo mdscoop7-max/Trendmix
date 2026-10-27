@@ -32,7 +32,7 @@ def draft_reply(question):
     category, reason = classify_question(question)
     if category != "approved":
         # An unverified answer is never eligible for automatic customer delivery.
-        return "[MENSELIJKE CONTROLE NODIG] " + reason + "\\n\\n" + customer_acknowledgment(), False
+        return "[MENSELIJKE CONTROLE NODIG] " + reason + "\n\n" + customer_acknowledgment(), False
     token=os.getenv("OPENAI_API_KEY","")
     if not token or os.getenv("TRENDMIX_AI_SUPPORT_ENABLED")!="1":
         return safe_fallback(question), False
