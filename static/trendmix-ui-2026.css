@@ -513,3 +513,23 @@ body:has(.cart-page),body:has(.tm-product-page){background:#fbfdff!important}
 .tm-global-language .tm-lang-label.tm-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .tm-global-language select{min-width:72px!important;max-width:80px!important;min-height:38px!important;padding:5px 21px 5px 10px!important;font-family:"Segoe UI Emoji","Apple Color Emoji",system-ui,sans-serif!important;font-size:20px!important;line-height:1.1!important}
 @media(max-width:760px){.tm-product-page .detail-confidence>span{font-size:11px!important;padding:9px 11px!important}.tm-global-language select{min-width:68px!important;max-width:72px!important}}
+
+/* 2026-10-27: brighter, unified backgrounds on all storefront page families.
+   Deliberately leave hero artwork and category color identity untouched. */
+:root{--tm-bg:#fafdff;--tm-surface:#fff;--tm-surface-2:#f3f9ff;--tm-card:#fff;--tm-line:#dfeaf7}
+body{background:#fafdff!important;color:#152e4c!important}
+body:has(.cart-page),body:has(.tm-product-page),body:has(.info-page){background:#fafdff!important}
+main.shell,main.wrap,main.legacy-main{background:transparent!important}
+.tm-usp-bar{background:#edf6ff!important;color:#214e79!important;border-bottom:1px solid #d6e9fc!important}
+.tm-usp-bar .tm-usp-inner>span,.tm-usp-bar .tm-usp-inner>span svg{color:#215181!important;stroke:#215181!important}
+.site-header,.header{background:#fff!important}
+.main-nav,.tm-digital-nav,.categories{background:#fff!important;border-color:#e0ebf8!important}
+.cart-page .cart-panel,.cart-page .commerce-card,.tm-product-page .detail-layout,.tm-product-page .detail-gallery,.tm-product-page .content-panel,.tm-product-page .faq-list,.info-page .content-panel{background:#fff!important;border-color:#dce9f7!important;box-shadow:0 12px 30px rgba(19,66,118,.06)!important}
+.cart-page .cart-row{background:#f7fbff!important;border-color:#e0ebf8!important}
+.tm-product-page .detail-image,.tm-product-page .detail-thumbnails{background:#f8fbff!important}
+.tm-product-page .detail-confidence>span{box-shadow:inset 0 1px 0 rgba(255,255,255,.75)!important}
+.tm-newsletter{background:#edf6ff!important;border-color:#dceaf8!important}
+.site-footer,.tm-footer,.tm-footer-v2{background:#f3f9ff!important;border-top:1px solid #dbe9f7!important}
+@media(max-width:760px){
+ .cart-page .cart-panel,.tm-product-page .detail-layout,.tm-product-page .content-panel{box-shadow:0 5px 18px rgba(19,66,118,.045)!important}
+}
