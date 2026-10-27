@@ -28,7 +28,8 @@ def test_shop_filters_preserve_actual_get_form_and_labels():
     assert 'method="get"' in html
     for key in ('for="tmMinPrice"', 'for="tmMaxPrice"', 'for="tmSort"'):
         assert key in html
-    assert 'type="submit">Toepassen</button>' in html
+    assert 'class="tm-filter-submit"' in html
+    assert 'Toepassen' in html
 
 
 def test_hero_template_remains_independent_of_control_scripts():
