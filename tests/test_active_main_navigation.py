@@ -1,3 +1,4 @@
+import re
 from app import app
 
 
@@ -9,11 +10,10 @@ def test_primary_navigation_highlights_only_current_category():
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         for category in categories:
-            expected = f'href="/{category}" class="nav-link'
-            assert expected in html
-            anchor = html.split(expected, 1)[1].split(">", 1)[0]
-            assert ("is-active" in anchor) == (category == current), (current, category)
-        assert html.count('is-active" aria-current="page"') >= 1
+            matches = re.findall(r'<a\\s+href="/' + re.escape(category) + r'"[^>]*>', html)
+            assert matches, (current, category)
+            selected = any('aria-current="page"' in item for item in matches)
+            assert selected == (category == current), (current, category)
 
 
 def test_homepage_does_not_preselect_gadgets():
