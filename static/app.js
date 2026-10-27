@@ -32,6 +32,7 @@ function applyLanguage(lang){
   document.documentElement.lang=lang;
   document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(t[key]!==undefined)el.innerHTML=t[key]});
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const key=el.dataset.i18nPlaceholder;if(t[key]!==undefined)el.placeholder=t[key]});
+  document.querySelectorAll('[data-tm-tr]').forEach(el=>{const value=lang==='en'?el.dataset.tmEn:el.dataset.tmNl;if(value!==undefined)el.textContent=value;});
   localStorage.setItem('trendmix-language',lang);
   document.querySelectorAll('[data-language]').forEach(button=>{
     button.classList.toggle('active',button.dataset.language===lang);
