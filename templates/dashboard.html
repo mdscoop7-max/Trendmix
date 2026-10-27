@@ -28,13 +28,17 @@
 .admin-table-wrap{overflow-x:auto}.admin-table{width:100%;border-collapse:collapse;text-align:left;min-width:590px}.admin-table th,.admin-table td{padding:13px 12px;border-bottom:1px solid var(--border);font-size:13px}.admin-table th{font-size:11px;text-transform:uppercase;color:var(--muted);background:#f3f8ff}.state-pill,.integration-status{display:inline-block;background:#e8f3ff;color:#0857ab;padding:7px 11px;border-radius:999px;font-size:11px;font-weight:800}
 .integration{min-height:300px;padding:32px}.integration-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:17px;background:#e4f1ff;color:#0866f5;font-size:30px;margin-bottom:20px}.integration p{max-width:680px;font-size:15px;line-height:1.8}
 @media(max-width:760px){.section-header{display:block}.section-header .status{display:inline-block;margin-top:14px}.integration{padding:22px;min-height:260px}}
+
+.calc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.calc-grid label{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:750;color:#39516e}.calc-grid input{width:100%;min-height:45px;border:1px solid #cbdff6;border-radius:10px;padding:10px 12px;color:#132d4e;background:#f9fcff;font-size:15px}.calc-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}.calc-results>div{padding:15px;border-radius:13px;background:#eaf4ff;border:1px solid #d4e7ff}.calc-results small{display:block;color:#426488;font-size:11px;line-height:1.5}.calc-results strong{display:block;font-size:clamp(17px,2vw,25px);margin-top:8px;color:#0753b3}.calc-footnote{margin-top:18px!important;font-size:12px!important}
+@media(max-width:1000px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.calc-results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){.calc-grid{grid-template-columns:1fr}.calc-results{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body><div class="layout">
 <aside class="sidebar" aria-label="Dashboardnavigatie">
 <a class="brand" href="/dashboard"><span class="brand-mark" aria-hidden="true">▣</span><span><strong>Trend<span>Mix</span></strong><small>Shop Smart · Live Better</small></span></a>
 <nav class="side-links" aria-label="Beheermenu">
-{% for key,label,ico in [('dashboard','Dashboard','⌂'),('producten','Producten','▣'),('categorieen','Categorieën','▦'),('bestellingen','Bestellingen','🛒'),('klanten','Klanten','♙'),('kortingen','Kortingen','◇'),('marketing','Marketing & Google Ads','◉'),('seo','SEO & RankFix AI','◎'),('statistieken','Statistieken','▥'),('leveranciers','Leveranciers & dropshipping','◫'),('instellingen','Instellingen','⚙')] %}
+{% for key,label,ico in [('dashboard','Dashboard','⌂'),('producten','Producten','▣'),('categorieen','Categorieën','▦'),('bestellingen','Bestellingen','🛒'),('klanten','Klanten','♙'),('kortingen','Kortingen','◇'),('onderzoek','Productonderzoek & niches','⌕'),('calculator','Prijs & marge calculator','€'),('afbeeldingen','Afbeeldingen','▧'),('seo','SEO & GEO / RankFix','◎'),('google-ads','Google Ads','◉'),('google-shopping','Google Shopping & Merchant','▤'),('marketing','Marketing','☷'),('statistieken','Rapportages & statistieken','▥'),('leveranciers','Leveranciers & dropshipping','◫'),('talen','Talen','文'),('klantenservice','Klantenservice & berichten','✉'),('monitoring','Monitoring','◴'),('instellingen','Instellingen','⚙')] %}
 <a href="/dashboard?section={{ key }}" class="{% if section==key %}active{% endif %}" {% if section==key %}aria-current="page"{% endif %}><span class="side-icon" aria-hidden="true">{{ ico }}</span>{{ label }}</a>
 {% endfor %}
 <a class="shop-exit" href="/" target="_blank" rel="noopener"><span class="side-icon" aria-hidden="true">↗</span>Winkel bekijken</a>
@@ -72,6 +76,42 @@
 </tbody></table></div></section>
 {% elif section == "categorieen" %}
 <section class="panel"><h2>Categorieën beheren</h2><p>Alle huidige categorieën en het aantal artikelen. Aanpassen wordt pas beschikbaar na het aansluiten van veilig productbeheer.</p><div class="category-list">{% for name,count in category_counts %}<div class="category-row"><span>{{ name }}</span><b>{{ count }} producten</b></div>{% endfor %}</div></section>
+{% elif section == "calculator" %}
+<section class="panel" id="tm-calc"><h2>Productprijs & winst berekenen</h2><p>Bereken de verkoopprijs, btw, marge en verwachte winst van een dropshippingproduct. Vul je werkelijke leverancierskosten in; bedragen zijn standaard exclusief btw.</p>
+<div class="calc-grid">
+<label>Inkoopprijs excl. btw (€)<input id="calc-buy" type="number" min="0" step=".01" value="20"></label>
+<label>Verzend- en fulfilmentkosten excl. btw (€)<input id="calc-shipping" type="number" min="0" step=".01" value="5"></label>
+<label>Overige vaste kosten per order excl. btw (€)<input id="calc-other" type="number" min="0" step=".01" value="2"></label>
+<label>Betaalproviderkosten (% verkoopprijs incl. btw)<input id="calc-fee" type="number" min="0" max="100" step=".1" value="2"></label>
+<label>Btw op verkoop (%)<input id="calc-vat" type="number" min="0" max="100" step=".1" value="21"></label>
+<label>Gewenste brutomarge vóór betaalprovider (%)<input id="calc-margin" type="number" min="0" max="99" step=".1" value="35"></label>
+</div>
+<div class="calc-results" aria-live="polite"><div><small>Benodigde verkoopprijs incl. btw</small><strong id="calc-price">—</strong></div><div><small>Verkoopprijs excl. btw</small><strong id="calc-net">—</strong></div><div><small>Geschatte winst na ingevoerde kosten</small><strong id="calc-profit">—</strong></div><div><small>Geschatte winstmarge na kosten</small><strong id="calc-actual-margin">—</strong></div></div>
+<p class="calc-footnote" id="calc-note">Indicatieve berekening. Geen fiscale of boekhoudkundige beoordeling. Controleer btw-regels per verkoopland en of leverancierskosten inclusief of exclusief btw zijn.</p>
+</section>
+<script>
+(function(){
+const root=document.getElementById('tm-calc');if(!root)return;
+const num=id=>Math.max(0,Number(document.getElementById(id).value)||0);
+const fmt=n=>new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'}).format(n);
+function calc(){
+ const cost=num('calc-buy')+num('calc-shipping')+num('calc-other');
+ const vat=num('calc-vat')/100, desired=num('calc-margin')/100, fee=num('calc-fee')/100;
+ const denom=1-desired-fee*(1+vat);
+ if(denom<=0){for(const id of ['calc-price','calc-net','calc-profit','calc-actual-margin'])document.getElementById(id).textContent='Niet mogelijk';return}
+ const net=cost/denom,price=net*(1+vat),provider=price*fee,profit=net-cost-provider,margin=net>0?100*profit/net:0;
+ document.getElementById('calc-price').textContent=fmt(price);
+ document.getElementById('calc-net').textContent=fmt(net);
+ document.getElementById('calc-profit').textContent=fmt(profit);
+ document.getElementById('calc-actual-margin').textContent=margin.toLocaleString('nl-NL',{maximumFractionDigits:1})+'%';
+}
+root.querySelectorAll('input').forEach(input=>input.addEventListener('input',calc));calc();
+})();
+</script>
+{% elif section == "onderzoek" %}
+<section class="panel integration"><div class="integration-icon" aria-hidden="true">⌕</div><h2>Productonderzoek & niches</h2><p>Voor het zoeken naar interessante producten en niches vergelijken we straks echte leveranciersaanbiedingen, zoekvraag, concurrentie, inkoopprijzen, marges en levertijden. Zoekgegevens of leveranciersfeeds zijn nog niet aangesloten.</p><span class="integration-status">Nog niet gekoppeld</span></section>
+{% elif section == "google-shopping" %}
+<section class="panel integration"><div class="integration-icon" aria-hidden="true">▤</div><h2>Google Shopping & Merchant Center</h2><p>Productfeeds, productvermeldingen en Shopping-campagnes komen hier zodra leveranciersproducten, definitieve prijzen, checkout en Google Merchant Center zijn gecontroleerd en gekoppeld.</p><span class="integration-status">Nog niet gekoppeld</span></section>
 {% elif section == "statistieken" %}
 <section class="metrics"><div class="metric"><div class="metric-label">Catalogusproducten</div><strong class="metric-value">{{ stats.total_products }}</strong></div><div class="metric"><div class="metric-label">Categorieën</div><strong class="metric-value">{{ stats.total_categories }}</strong></div><div class="metric"><div class="metric-label">Gemarkeerde aanbiedingen</div><strong class="metric-value">{{ stats.offers }}</strong></div><div class="metric"><div class="metric-label">Gemiddelde testprijs</div><strong class="metric-value">{{ format_eur(stats.avg_price) }}</strong></div></section>
 <section class="panel panel-after"><h2>Omzet en conversie</h2><p>Nog niet meetbaar: er zijn geen geverifieerde verkoop- of analyticsgegevens aangesloten.</p></section>
