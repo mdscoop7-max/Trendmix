@@ -24,6 +24,9 @@ def test_admin_user_management_local(tmp_path, monkeypatch):
         assert client.get("/beheer/accounts", headers=auth("qaeditor", "StrongEditorSecret123!")).status_code == 403
         assert client.post("/beheer/accounts", headers=auth("qaowner", "UniqueLocalQASecret12345!"),
             data={"_csrf_token":"form-csrf", "csrf": "incorrect", "action": "delete", "username": "qaeditor"}).status_code == 403
+        with client.session_transaction() as sess:
+            sess["admin_csrf"] = "test-csrf"
+            sess["_tm_csrf"] = "form-csrf"
         changed = client.post("/beheer/accounts", headers=auth("qaowner", "UniqueLocalQASecret12345!"),
             data={"_csrf_token":"form-csrf", "csrf": "test-csrf", "action": "password", "current_password": "UniqueLocalQASecret12345!", "new_password": "UniqueNewOwnerSecret789!"})
         assert changed.status_code == 200
