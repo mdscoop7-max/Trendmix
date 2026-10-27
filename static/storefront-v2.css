@@ -268,3 +268,14 @@ body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
  .productgrid .iteminfo h3{font-size:12px}
  .productgrid .iteminfo strong{font-size:14px}
 }
+
+
+/* Shop price filters and sorting. Scoped below the untouched hero. */
+.tm-shop-filters{display:flex;align-items:end;gap:12px;flex-wrap:wrap;padding:16px;margin:12px 0 20px;border:1px solid #dce6f3;border-radius:15px;background:#f8fbff}
+.tm-shop-filters .tm-filter-field{display:flex;flex-direction:column;gap:6px;flex:1 1 135px;min-width:0}
+.tm-shop-filters label{font-size:12px;font-weight:800;color:#213c5e}
+.tm-shop-filters input,.tm-shop-filters select{width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1px solid #bfcfe4;border-radius:9px;background:#fff;color:#14243d;font:inherit}
+.tm-filter-submit{background:#0866f5;color:#fff;border:0;border-radius:9px;padding:11px 18px;min-height:44px;font-weight:750;cursor:pointer}
+.tm-filter-reset{display:inline-flex;align-items:center;min-height:44px;color:#0866f5;font-weight:750;padding:9px}
+.tm-shop-filters :is(input,select,button,a):focus-visible{outline:3px solid #ffbb46;outline-offset:2px}
+@media(max-width:650px){.tm-shop-filters{gap:9px;padding:12px}.tm-shop-filters .tm-filter-field{flex:1 1 calc(50% - 9px)}.tm-shop-filters .tm-filter-field:nth-of-type(3){flex-basis:100%}.tm-filter-submit,.tm-filter-reset{flex:1 1 calc(50% - 9px);justify-content:center}}
