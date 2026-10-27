@@ -577,7 +577,7 @@ def account():
 
 @app.route("/registreren", methods=["GET", "POST"])
 def register_customer():
-    if os.getenv("VERCEL_ENV") and os.getenv("TRENDMIX_ACCOUNTS_ENABLED") != "true":
+    if os.getenv("VERCEL_ENV") or os.getenv("TRENDMIX_ACCOUNTS_ENABLED") == "false":
         abort(404)
     if request.method == "POST":
         name = request.form.get("name", "")
@@ -602,7 +602,7 @@ def register_customer():
 
 @app.route("/inloggen", methods=["GET", "POST"])
 def login_customer():
-    if os.getenv("VERCEL_ENV") and os.getenv("TRENDMIX_ACCOUNTS_ENABLED") != "true":
+    if os.getenv("VERCEL_ENV") or os.getenv("TRENDMIX_ACCOUNTS_ENABLED") == "false":
         abort(404)
     if request.method == "POST":
         email, password = request.form.get("email", ""), request.form.get("password", "")
